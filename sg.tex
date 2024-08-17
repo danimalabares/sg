@@ -1,0 +1,190 @@
+\input{/Users/daniel/github/config/preamble-babel.sty}
+\input{/Users/daniel/github/config/thms-por.sty}
+
+\begin{document}
+
+{\Huge Geometria simpl\'etica}
+
+\section{Aula 1}
+\subsection{Origem da geometria simpl\'etica}
+\begin{itemize}
+	\item Formula\c c\~ao da geom\'etrica da mec\^anica (s\'ec XIX).
+	\item Vers\~ao moderna, 1960-70.
+	\item Diferentes descrip\c c\~oes da mec\^anica cl\'asica:
+		\begin{itemize}
+			\item Newtoniano: $F=ma$, ecua\c c\~ao diferencial ordin\'aria de segunda ordem.
+			\item Lagrangiano: princ\'ipio gravitacional (Eq. E-L). Following Tong, these equations are:
+
+			\item Hamiltoniano.
+		\end{itemize}
+\end{itemize}
+
+\subsection{Formalismo hamiltoniano (simplificado)}
+
+This happened in the 1880's (according to Tong).
+
+
+\begin{itemize}
+	\item Espa\c co de base $\mathbb{R}^{2}=\{(p,q)\} $ (conjunto de estados)
+	\item Fun\c c\~ao Hamiltoniana $H\in C^{\infty}(\mathbb{R}^{2m} )$.
+	\item Campo Hamiltoniano: $X_{H}\in \mathfrak{X}(\mathbb{R}^{2n})$.
+		\begin{align*}
+			X_{H}=\begin{pmatrix}  \frac{\partial H}{\partial p_{i}}\\-\frac{\partial H}{\partial q_{i}} \end{pmatrix} = \left(\begin{tabular}{c|c}0&$\operatorname{Id}_{n}$\\ \hline
+		$-\operatorname{Id}_{n}$&0
+\end{tabular}\right)
+\end{align*}
+
+	Which coincides with Lee's formula
+\begin{align*}
+	\dot x^{i}(t)&=\frac{\partial H}{\partial y^{i}}(x(t),y(t)),\\
+	\dot y^{i}(t)&=-\frac{\partial H}{\partial x^{i}}(x(t),y(t))
+\end{align*}
+where Lee defined the \textit{\textbf{Hamiltonian vector field}} as the  \textit{analogue of the gradient with respect to the symplectic form}, that is, satisfying $\omega(X_{H},Y)=dH(Y)$ for any vector field $Y$.
+
+Also look at Tong's formulation:
+\begin{align*}
+	\dot p_{i}&=-\frac{\partial H}{\partial q_{i}}\\
+	\dot q_{i}&=\frac{\partial H}{\partial p_{i}}\\
+	-\frac{\partial L}{\partial t}&=\frac{\partial H}{\partial t}
+\end{align*}
+where $L$ is the Lagrangian and the Hamiltonian function $H$ is obtained as the Legendre transform of the Langrangian. Tong shows how the Hamiltonian formalism allows to replace the $n$ $2^{\operatorname{nd}}$ order differential equations by $2n$ $1^{\operatorname{st}}$ order differential equations for $q_{i}$ and $p_{i}$.
+
+\begin{quotation}
+	In practice, for solving problems, this isn't particularly helful. But, as we shall see, conceptually it's very useful!
+\end{quotation}
+At least for me, it looks like a first insight on why symplectic geometry lives on even-dimensional spaces.
+\end{itemize}
+
+\subsection{Evolu\c c\~ao temporal (equa\c c\~oes de Hamilton)}
+Curvas integrais
+\[c(t)=(q_{i}(t),p_{i}(t))\]
+de $X_{H}$, ie.
+\[c'(t)=X_{H}(c(t))\iff\begin{cases}
+	\dot q_{i}&=\frac{\partial H}{\partial p_{i}} \\
+	\dot p_{i} &=\frac{\partial H}{\partial q_{i}}
+\end{cases}\]
+que s\~ao as \textit{\textbf{Equa\c c\~oes de Hamilton}} (de novo).
+
+\begin{example}
+	Part\'icula de massa $m$ em $\mathbb{R}^{3} =\{q_{1},q_{2},q_{3}\} $ sujeita a campo de for\c ca conservativa
+	\[F=-\nabla V,\quad V\in C^{\infty}(\mathbb{R}^{3}\]
+	\[q(t)=(q_{1},q_{2},q_{3})\]
+	Equa\c c\~ao de Newton:
+	\[m\ddot q=\partial V(q) \iff m\ddot q_{i}=\frac{\partial V}{\partial q_{i}}(q),\qquad i=1,2,3. \]
+
+Ponto de vista Hamiltoniano:
+\begin{itemize}
+	\item Espa\c code fase $\mathbb{R}^{5}=\{(q_{i},p_{i})\} $.
+	\item Hamiltoniano: $H(p,q)=\frac{1}{2m}\sum_{i}p_{i}^{2} +V(q)$ 
+	\item Equa\c c\~oes de Hamilton
+	 \[\begin{cases}
+	 	\dot q_{i}=p_{i}/m\iff p_{i}=m\dot q_{i}\\
+	 	\dot p_{i}=-\frac{\partial V}{\partial q_{i}}\qquad &
+	 \end{cases}\]
+\end{itemize}
+
+\[\begin{tikzcd}
+	H\in C^{\infty}(\mathbb{R}^{2n}) \arrow[r,rightsquigarrow]&\nabla H\arrow[r,rightsquigarrow ,"-J_{0}\nabla H"]&X_{H}
+\end{tikzcd}\]
+where $J_{0}=\begin{pmatrix}0&-\operatorname{I}\\\operatorname{I}&0\end{pmatrix} $. So it looks like another way of obtaining (defining?) the Hamiltonian vector field is to take the gradient of $H$ and then applying $J_{0}$. So it would be nice to see eventually that this is the same as Lee's definition of "symplectic gradient" so to say.
+\end{example}
+
+Compondo $\nabla H$ e $X_{H}$ : taxa de varia\c c\~ao de $H$ ao longo dos fluxos. {\color{persimmon}Mas: o que \'e a composi\c c\~ao de dois campos vetoriais?}
+
+\begin{itemize}
+	\item \textit{\textbf{Fluxo gradiente}}
+		\begin{align*}c'(t)&=\nabla H(c(t))\\
+			\frac{d}{dt}H(c(t))&=\left<\nabla H(c(t)),c'(t)\right> =\|\nabla H(c(t))\|^{2}
+\end{align*}
+$\nabla H$ aponta na dire\c c\~ao que $H$ varia\c c\~ao.
+\item \textit{\textbf{Fluxo hamiltoniano}} 
+	\begin{align*}
+		c'(t)& =X_{H}(c(t))\\
+		\frac{d}{dt}H(c(t))&=\left<\nabla H(c(t)),c'(t)\right> \\
+		&=\left<\nabla H(c(t)),-J_{0}\nabla H(c(t))\right>\\
+		&=0
+	\end{align*}
+	{\color{persimmon}?}, $H\in C^{\infty}(\mathbb{R}^{2n} )$, $H\rightsquigarrow dH\in \Omega^{1}(\mathbb{R}^{2n} )$.
+	\item \textit{\textbf{Gradiente.}} $\nabla H(x)\in T_{x}\mathbb{R}^{2n} =\mathbb{R}^{2n}$ \'e \'unico.
+\begin{align*}
+	g_{0}(\nabla H(x),\cdot )=\left<\nabla H(x),\cdot \right> =dH(x)
+\end{align*}
+onde $g_{0}$ \'e a m\'etrica Euclidiana. De outra forma,
+\begin{align*}
+	g_{0}^{\flat}:\mathbb{R}^{2n} &\overset{\sim}{\to  } (\mathbb{R}^{2n})^{*}\\
+u&\mapsto g_0(u,\cdot )
+\end{align*}
+assim,
+\[\nabla H(x)\overset{\sim}{\to }dH(x).\]
+Analogamente, $X_{H}(x)\in \mathbb{R}^{2n}$ \'e \'unico {\color{persimmon}tal que?}
+\[\Omega_0(X_{H}(x),\cdot )=dH(x),\qquad \Omega_0(u,v)=-dJ_0V,\]
+ou:
+\begin{align*}
+	\Omega_0^{\flat}: \mathbb{R}^{2n} &\overset{\sim}{\longrightarrow}(\mathbb{R}^{2n})^{*}\\
+	X_{H}(x) &\longleftrightarrow dH(x) 
+\end{align*}
+\end{itemize}
+
+\begin{remark}
+	Note que $\Omega_{q}$ define uma 2-forma ({\color{persimmon}c…?)} em $\mathbb{R}^{2n}=\{(q_{i},p_{i})\} $.
+	\[\omega_0=\sum_{i=1}^{n} dq_{i}\wedge dp_{i}\in \Omega_2(\mathbb{R}^{2n}),\]
+	$X_{H}$ \'e \'unico tal que $i_{X_{H}}\omega_{0}=dH$. So this was Lee's definition $\ddot \smile$.
+\end{remark}
+
+\begin{defn}[tempor\'aria]
+	Uma \textit{\textbf{variedade simpl\'etica}} \'e $(M,\omega)$, $\omega\in \Omega^{2}(M)$ localmente isomorfa a $(\mathbb{R}^{2n},\sum_{i}dq_{i}\wedge dp_{i})$.
+
+	[Dessenho mostrando que o pullback da carta coordenada leva $\omega$ em $\sum_{i}dq_{i}\wedge dp_{i}$.
+
+\begin{thm}[de Darboux, em Lee]\leavevmode
+	Let $(M,\omega)$ be a $2n$-dimensional symplectic manifold. For any $p \in M$ there are smooth coordinates $(x^{1},\ldots,x^{n},y^{1},\ldots,y^{n})$ centered at $p$ in which $\omega$ has the coordinate representation $\omega=\sum_{i=1}^{n} dx^{i} \wedge dy^{i}$.
+\end{thm}
+
+And Lee does a proof using the \textit{theory of time-dependant flows}.
+
+	\[\begin{tikzcd}
+		\substack{\text{mec\^anica}  \\ \text{cl\'asica} }\arrow[r,"\text{qu\^antica} "] \arrow[dr]&\substack{\text{Teoria de rep.}  \\ \text{de Lie} }\arrow[d]&\text{geo. Riemanniana} \arrow[dl]\\
+		&\text{geo. simpl\'etica}\arrow[d]\arrow[u]\arrow[dl,bend right]\\
+		\text{geo. K\"ahler} &\substack{\text{din\'amica}  \\ \text{{\color{persimmon}Lagrangiana?}} } 
+	\end{tikzcd}\]
+	
+\end{defn}
+
+\section{\'Algebra linear simpl\'etica}
+
+$V$ espa\c co vetorial real, $\Omega:V\times V\to \mathbb{R}$ forma bilinea ansim\'etrica, i.e. $\Omega\in \Lambda^{2} V^{*}$.
+
+\begin{defn}
+	$\Omega$ \'e n\~ao degenerada se $\Omega(u,v)=0\forall v\iff u=0$.
+
+	Following Lee, this can also be stated as: for each nonzero $v\in V$ there exists $w\in V$ such that $\omega(v,w)\neq 0$; and it is equivalent to the linear map $v\mapsto \omega(v,\cdot )\in V^{*}$ being invertible, and also that in terms of some (hence every) basis, the matrix $(\omega_{ij})$ representing $\omega$ is nonsingular.
+
+Ou seja, se
+\[\ker \Omega:=\{u\in V|\Omega(u,v)=0\;\forall v\} \]
+ent\~ao $\Omega$ \'e n\~ao degenerada se e somente se $\ker (\Omega)=\{0\} $.
+
+$\Omega\in \Lambda^{2} V^{*}$ \'e n\~ao degenerada \'e chamada simpl\'etica. $(V,\Omega)$ \'e um \textit{\textbf{espa\c co vectorial simpl\'etico}}.
+\end{defn}
+
+\begin{remark}\leavevmode 
+	\begin{enumerate}
+		\item $\{e_1,..,e_{n}\} $ base de $V$, $\Omega$ \'e representado por uma matriz antisim\'etrica
+	\[A=(A_{ij}),\qquad A_{ij}=\Omega(e_{i},e_{j}),\qquad \Omega(u,v)=u^{\operatorname{t}} A,v.\]
+
+	\item $\Omega$ \'e n\~ao degenerada se e somente se $\det (A)\neq 0$.
+
+		Note que
+		 \begin{align*}\det A=\det A^{\operatorname{t}} =\det (-A)=(-1)^{\dim V}\det (A)\\
+			 \text{ implica que }\quad  \det A\neq 0\implies m=\dim V=2n
+			 \end{align*}
+	
+	\item $\Omega\in \Lambda^{2} V^{*}$. Defina
+		\begin{align*}
+			\Omega^{\flat}: V &\longrightarrow V^{*} \\
+			u &\longmapsto \Omega(u,\cdot )
+		\end{align*}
+		note que $\ker \Omega=\ker (\Omega^{\flat} )$, assim $\Omega$ \'e n\~ao degenerada se e somente se  $\Omega^{\flat}$ \'e isomorfismo.
+\end{remark}
+
+
+\end{document}
