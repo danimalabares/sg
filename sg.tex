@@ -1,4 +1,4 @@
-\input{/Users/daniel/github/config/preamble-babel.sty}
+\input{/Users/daniel/github/config/preamble-por.sty}
 \input{/Users/daniel/github/config/thms-por.sty}
 
 \begin{document}
@@ -91,7 +91,7 @@ Ponto de vista Hamiltoniano:
 where $J_{0}=\begin{pmatrix}0&-\operatorname{I}\\\operatorname{I}&0\end{pmatrix} $. So it looks like another way of obtaining (defining?) the Hamiltonian vector field is to take the gradient of $H$ and then applying $J_{0}$. So it would be nice to see eventually that this is the same as Lee's definition of "symplectic gradient" so to say.
 \end{example}
 
-Compondo $\nabla H$ e $X_{H}$ : taxa de varia\c c\~ao de $H$ ao longo dos fluxos. {\color{persimmon}Mas: o que \'e a composi\c c\~ao de dois campos vetoriais?}
+Compondo $\nabla H$ e $X_{H}$ : taxa de varia\c c\~ao de $H$ ao longo dos fluxos. {\color{persimmon}Mas: o que \'e a composi\c c\~ao de dois campos vetoriais? Tal vez \'e a derivada exterior de $H$, $dH$ em lugar do gradiente de  $H$.}
 
 \begin{itemize}
 	\item \textit{\textbf{Fluxo gradiente}}
@@ -152,7 +152,7 @@ And Lee does a proof using the \textit{theory of time-dependant flows}.
 	
 \end{defn}
 
-\section{\'Algebra linear simpl\'etica}
+\subsection{\'Algebra linear simpl\'etica}
 
 $V$ espa\c co vetorial real, $\Omega:V\times V\to \mathbb{R}$ forma bilinea ansim\'etrica, i.e. $\Omega\in \Lambda^{2} V^{*}$.
 
@@ -186,7 +186,173 @@ $\Omega\in \Lambda^{2} V^{*}$ \'e n\~ao degenerada \'e chamada simpl\'etica. $(V
 			u &\longmapsto \Omega(u,\cdot )
 		\end{align*}
 		note que $\ker \Omega=\ker (\Omega^{\flat} )$, assim $\Omega$ \'e n\~ao degenerada se e somente se  $\Omega^{\flat}$ \'e isomorfismo.
+	\end{enumerate}
+	\end{remark}
+
+\section{Aula 2}
+
+\subsection{Subespa\c cos de evs}
+
+Sejam $(V,\Omega)$ evs e $V\subseteq V$ subespa\c co.
+
+\begin{defn}
+\[W^{\Omega} :=\{u\in |\Omega(u,w)=0\;\forall w\in W\}\]
+	Considere a restri\c c\~ao  de $\Omega$ \`a W:
+	\[i:W\hookrightarrow V\qquad i^{*} \Omega(\Omega|_{W}\in \Lambda_2W^{*},\]
+	ent\~ao
+	\[\ker (\Omega|_{W})=\{w\in W |\Omega(w,w')=0\;\forall w'\in W\}=W\cap W^{\Omega}\]
+Casos de interesse:
+\begin{itemize}
+	\item \textit{\textbf{Isotr\'opico}}: $W\subseteq W^{\Omega}$ ($\iff\Omega|_{W}\equiv 0$).
+	\item \textit{\textbf{Coisotr\'opico}}: $W^{\Omega} \subseteq W$.
+	\item  \textit{\textbf{Lagrangiano}}: $W=W^{\Omega}$.
+	\item \textit{\textbf{Simpl\'etico}}: $W\cap W^{\Omega} =\{0\}$ ($\Omega|_{W}$ \'e n\~ao degenerado (=simpl\'etico)). 
+\end{itemize}
+\end{defn}
+
+\begin{lemma}
+	$\dim W+\dim W^{\Omega} =\dim V$.
+\end{lemma}
+\begin{proof}[Demostra\c c\~ao]
+	\begin{align*}
+		\Omega^{1}: V &\overset{\sim}{\to }V^{*} \\
+	u &\longmapsto \Omega(u,\cdot )
+	\end{align*}
+	Note que $W^{\Omega} \mapsto \operatorname{Ann}(W)$, assim
+	\[\dim W+\dim \operatorname{Ann}(W)'=\dim V\]
+\end{proof}
+
+\begin{remark}\leavevmode
+	\begin{itemize}
+		\item $W\subseteq V$ subespa\c co simpl\'etico  se e somente se  $V=W\oplus W^{\Omega}$.
+		\item $W$ isotr\'opico $\implies \dim W\leq \frac{\dim V}{2}$.
+		\item $W$ coisotr\'opico $\implies \dim W\geq \frac{\dim V}{2}$.
+		\item $W$ Lagrangiano se $\dim W=\frac{\dim V}{2}$.
+	\end{itemize}
 \end{remark}
+
+De fato, $W$ \'e Lagrangiano se e somente se  $W$ \'e isotr\'opico e $\dim W=\frac{\dim V}{2}$.
+
+\begin{exercise}\leavevmode 
+	\begin{itemize}
+		\item $(W^{\Omega})^{\Omega}=\Omega$ ($W$ isotr\'opico se e somente se  $W^{\Omega}$).
+		\item $(W_1\cap W_2)^{\Omega} =W_1^{\Omega} +W_2^{\Omega}$.
+	\end{itemize}
+\end{exercise}
+
+\begin{example}\leavevmode 
+	\begin{itemize}
+		\item Subespa\c cos de dimens\~ao 1 s\~ao isotr\'opicos (subespa\c cos de codimens\~ao 1 s\~ao\\ coisotr\'opicos).
+		\item $V=V\oplus W^{*}$, onde $V$ tem a forma $\Omega_{can?}$ e $W$ e $W^{*}$ s\~ao Lagrangianos.
+		\item $\mathbb{R}^{2n}$, $\{e_1,\ldots,e_n,f_1,\ldots,f_n\} $ base simpl\'etica, ent\~ao $\operatorname{span} \{e_i,f_i\}$ \'e simpl\'etico, e \\$\operatorname{span} \{e_1,\ldots,e_k\} $ \'e isotr\'opico (se $k=n$ \'e Lagrangiano).
+		\item $(V_1,\Omega_1)$ e $(V_2,\Omega_2)$ evs's, $T:V_1\to V_2$ isometr\'ia linear, $\operatorname{graf}(T):=\{(u,Tu):u\in V_1\} \subseteq V_1\times V_2$. $T$ \'e simplectomorfismo se e somente se $\operatorname{graf}(T)$ \'e um subespa\c co Lagrangiano em $V_1\times V_2$.
+		\item $\dim \operatorname{graf}(T)=\dim V_1=\frac{1}{2}\dim (V_1\times V_2)$.
+		\item $\Omega_{V_1\times \bar{V_2}}((u,Tu),(v,Tv))=\Omega(u,v)-\underbrace{\Omega_2(Tu,Tv)}_{=T^{*} \Omega_2(u,v)}$ ($=0\iff \Omega_1=T^{*} \Omega_2$).
+	\end{itemize}
+\end{example}
+
+\begin{thm}[Exist\^encia das bases simpl\'eticas]\leavevmode
+	Para cualquer $(V,\Omega)$ evs existe uma base simpl\'etica.
+\end{thm}
+\begin{proof}[Demostra\c c\~ao]
+	Seja $e_1\in V\setminus \{0\} $. Como $\Omega$ \'e n\~ao degenerada, existe $f_1\in V$ tal que $\Omega(e_1,f_1)=1$. Considere $W_1=\operatorname{span}\{e_1,f_1\} $. Ent\~ao $\Omega|_{W_1}$ \'e n\~ao degenerado (ie. $W_1$ \'e simpl\'etico), o que acontece se e somente se $V=W_1\oplus W_1^{\Omega}$. Assim, existem $e_2\neq 0$ in $W_1^{\Omega}$ e $f_2\in W_1^{\Omega}$ tal que $\Omega(e_2,f_2)=1$, etc… ($V=W_1\oplus  W_2\oplus \ldots\oplus W_n$). O conjunto $\{e_1,\ldots,e_n,f_1,\ldots,f_n\} $ \'e uma base simpl\'etica.
+\end{proof}
+
+\begin{exercise}
+	$V$ ev de dimens\~ao $2n$ e $\Omega\in \Lambda^{2} V^{*}$ \'e n\~ao degenerada se e somente se $\Omega^{n}=\Omega\wedge \ldots\wedge \Omega\in \Lambda^{2n} V^{*} \neq 0$.
+\end{exercise}
+
+\subsection{Equival\^encia entre ev's simpl\'eticos}
+
+$(V,\Omega)$ e $(V',\Omega')$ s\~ao \textit{\textbf{equivalentes}} se existe um \textit{\textbf{simplectomorfismo}} linear $\varphi :V\overset{\sim}{\to }V'$ (isometr\'ia linear) tal que
+	\[\varphi^{*}\Omega'=\Omega\in \Lambda^{2} V^{*}\] 
+onde
+\[\varphi^{*} \Omega'(u,v)=\Omega'(\varphi(u),\varphi(v).\]
+Dado $(V,\Omega)$ evs, definimos
+\[\operatorname{Sp}(V):=\{T\in \operatorname{GL}(V)|T^{*} \Omega=\Omega\} \]
+\begin{example}\leavevmode 
+	\begin{enumerate}
+	\item $V=\mathbb{R}^{2n}$, $\Omega_0(u,v)=-u^{\mathbf{T}} J_0v$ onde $J_0=\begin{pmatrix}0&-\operatorname{I}\\\operatorname{I}&0\end{pmatrix}$, com base can\^onica $\{e_1,\ldots,e_n,$ $f_1,\ldots,f_n\} $. Temos
+
+\begin{equation}\label{eq:1}
+	\begin{cases}
+				\Omega_0(e_i,e_{j})=0\\
+				\Omega_0(e_i,f_j)=\delta_{ij} \\
+				\Omega_0(f_i,f_j)=0
+				\qquad &
+			\end{cases}
+\end{equation}
+
+\begin{defn}
+	Uma base de $(V,\Omega)$ satisfazendo \cref{eq:1} \'e chamada \textit{\textbf{base simpl\'etica}}.
+\end{defn}
+
+Following Lee, Example. 22.2, the condition may be that $\Omega=\sum_{i=1}^{n} \alpha^{i} \wedge \beta^{i}$ where $\alpha^{i}$ and $\beta^{i}$ are just the dual basis covectors of the base $\{A_{1},\ldots,A_{n},B_1,\ldots,B_{n}\} $ of $V$.
+
+\begin{remark}\leavevmode 
+		Escolher/Achar uma base simpl\'etica \'e equivalente \`a escolher/achar um simplectomorfismo
+	\[(V,\Omega)\overset{\sim}{\to }(\mathbb{R}^{2n},\Omega_{0})\]
+\end{remark}
+
+	\item $W$ espa\c co vetorial sobre $\mathbb{R}$, sejam $V=W\oplus W^{*}$, $w,w\in W$ e $\alpha,\alpha \in W^{*}$
+		\[\Omega_{\operatorname{?}}( (w,\alpha),(w',\alpha')):=\alpha'(w)-\alpha(w')\]
+		\'e n\~ao degenerada e anti-sim\'etrica. Assim,
+		\[(W\oplus W^{*},\Omega_{?})\]
+	\'e um espa\c co vetorial simpl\'etico.
+
+\begin{remark}
+	Se $\{e_1,\ldots,e_n\} $ \'e uma base simpl\'etica de $W$ e $\{f_1,\ldots f_n\} $ \'e a base dual de $W^{*}$, ent\~ao
+\[(W\oplus W^{*},\Omega_{?}\cong (\mathbb{R}^{2n},\Omega_0).\]
+\end{remark}
+
+Note que ainda que dado 
+\[A:W\overset{\sim}{\to}W\]
+automorfismo ?,
+\[T_{A}:=\begin{pmatrix}A&0\\0&(A^{*} )^{-1}\end{pmatrix}:W\oplus W^{*} \to W\oplus W^{*}\]
+\'e simplectomorfismo, ($T_{A}=A\oplus (A^{*} )^{-1}$ ).
+
+\paragraph{Moral:} $\operatorname{GL}(W)\hookrightarrow \operatorname{Sp}(W\oplus W^{*} )$ 
+\begin{align*}
+	EV&\overset{\text{funtor} }{\rightsquigarrow}EVS\\
+	A\circlearrowleft W&\longmapsto W\oplus W^{*} \circlearrowright T_{A}
+\end{align*}
+
+\item $V$ ev sobre $\mathbb{C}$, $\dim_{\mathbb{C}}=n$, com produto interno hermitiano
+	\[h:V\times V\to \mathbb{C}\]
+i.e. satisfazendo
+\begin{enumerate}
+	\item $h(u,\lambda v)=\lambda h(u,v)$  $\forall \lambda\in \mathbb{C}$,
+	\item $h(u,v)=\overline{h(v,w)}$,
+	\item $h(u,u)>0$ $\forall u\neq 0$,
+\end{enumerate}
+pode ser escrito como
+\[h(u,v)=g(u,v)+i\Omega(u,v)\]
+
+Agora considere $V$ como espa\c co vetorial sobre $\mathbb{R}$ (de dimens\~ao $2n$ ).
+
+\begin{exercise}\leavevmode 
+	\begin{itemize}
+		\item $g$ \'e produto interno positivo definido.
+		\item $\Omega$ \'e antisim\'etrica, n\~ao degenerada (simpl\'etica).
+		\item Ache uma base de $V$ (dica: extens\~ao de base ortonormal de $h$…)
+		\item $\operatorname{U}(n)\subset \operatorname{SP}(V,\Omega)$.
+	\end{itemize}
+\end{exercise}
+
+\item Produto direto: $(V_1,\Omega_1)$, $(V_2,\Omega_2)$ espa\c cos vetoriais.
+	\[\begin{tikzcd}
+		&V_1\times V_2\arrow[ld,"\pi_1",swap]\arrow[rd,"\pi_2"]\\
+		V_1&&V_2
+	\end{tikzcd}\]
+Tem a forma simpl\'etica \'e o pullback:
+	\[\Omega:=\pi_1^{*} \Omega_1+\pi_2^{*} \Omega_2\]
+	ou seja,
+	\[\Omega((u_1,u_2),(v_1,v_2)):=\Omega_1(u_1,v_1)+\Omega_2(u_2,v_2),\]
+	que \'e n\~ao degenerado e antsim\'etrico tamb\'em.
+\end{enumerate}
+\end{example}
+
+\paragraph{Nota\c c\~ao:} se $(V,\Omega)$ \'e um espa\c co vetorial simpl\'etico, denotamos por $(V,-\Omega):=\bar{V}$, que tamb\'em \'e um evs.
 
 
 \end{document}
