@@ -87,9 +87,26 @@ Substracting,
 And by linearity,
 \begin{align*}
 0&=-\Omega_2(-v_2+v_2,-v_2+v_2')+\Omega_2(v_2'-v_2',v_2-v_2')\\
-&\implies \Omega_2(0,-v_2+v_2')=\Omega_2(0,v_2-v_2')
+\implies 0&=-\Omega_2(0,-v_2+v_2')+\Omega_2(0,v_2-v_2')\\
+\implies 0&=\Omega_2(-v_2+v_2',0)+\Omega_2(0,v_2-v_2') \\
+\implies 0&=\Omega_2(-v_2+v_2',v_2-v_2')\\
+\implies 0&=\Omega_2(-(v_2-v_2'),v_2-v_2')
 \end{align*}
- and the fact that $v_2=v_2'$ just follows from nondegenracy.
+and it follows that $v_2=v_2'$ from nondegeneracy.
+
+Now let's try to construct an isomorphism $E_{\Delta}=V_3\oplus \overline{V}_{1}$. Consider
+\begin{align*}
+	\varphi: E &\longrightarrow V_3\oplus \overline{V}_{1} \\
+	(v_3,v_2,v_2',v_1) &\longmapsto (v_3,v_1)
+\end{align*}
+which is clearly surjective and not injective, so perhaps its kernel is $ \Delta \cap \Delta^{\Omega}$. But $\ker \varphi=\{(0,v_2,v_2',0)\}$, so unfortunately no.
+
+But perhaps we can construct some other map. Let's try
+\begin{align*}
+	\varphi: E &\longrightarrow V_3\oplus \overline{V}_{1} \\
+	(v_3,v_2,v_2',v_1) &\longmapsto 
+\end{align*}
+
 
 
 
