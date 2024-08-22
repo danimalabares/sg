@@ -41,6 +41,7 @@ Let's first check what is $(\pi(L\cap W))^{\Omega_W}$. We have
 	\end{align*}
 In words, this is the set of classes whose representatives are $ \Omega $-orthogonal to representatives of $\pi(L\cap W)$.
 
+So if $[v]$ is any such class,
 
 	so let $[v]\in \pi(L\cap W)^{\Omega_{W}}$. Let's check that $[v]$ is also in $\pi(L\cap W)$, ie. that $v\in L\cap W$. Well, 
 
@@ -66,8 +67,34 @@ Consider symplectic vector spaces  $V_1,V_2,V_3$ and $E=V_3\oplus \overline{ V}_
 		\[L_2\circ L_1:=\{(v_3,v_1)|\exists v_2\in V\text{ s.t. } (v_3,v_2)\in L_2,(v_2,v_1)\in L_1\}. \]
 		Show that $L_2\circ L_1$ is a lagrangian subspace of $V_3\oplus \overline{V}_{1}$. (\textit{Hint: show that the composition can be identified with the reduction of $L_2\times L_1\subset E$ with respect to $\Delta$}).
 
-	\item Let $T_1:V_1\to V_2$ and  $T_2:V_2\to V_3$ be symplectomorphisms. Show that $\Gamma_{T_2\circ T_1}=\Gamma_{T_2}\circ \Gamma_{T_1}$.
+	\item Let $T_1:V_1\to V_2$ and  $T_2:V_2\to V_3$ be symplectomorphisms. Show that $\Gamma_{T_2\circ T_1}=\Gamma_{T_2}\circ \Gamma_{T_1}$.ad
 \end{enumerate}
+
+\begin{proof}[Solution]\leavevmode
+	\begin{enumerate}[label=\alph*.]
+		\item Let $v:=(v_3,v_2,v_2',v_1)\in \Delta^{\Omega_E}\subset E$ where  $\Omega_E=\Omega_1\oplus -\Omega_2\oplus \Omega_2\oplus -\Omega_1$ is the symplectic form on $E$. We wish to show that $v\in \Delta$, which only means that $v_2=v_2'$. So let $\tilde{v}=(v_3,v_2,v_2,v_1)$ and $\hat{v}=(v_3,v_2',v_2',v_1)$ which are both in $\Delta$. Then we have
+			\begin{align*}
+				0&=\Omega_E(v,\tilde{v})\\
+				& =\Omega_1(v_3,v_3)-\Omega_2(v_2,v_2)+\Omega_{2}(v_2',v_2)-\Omega_{1}(v_1,v_1)
+			\end{align*}
+and likeways
+			\begin{align*}
+				0&=\Omega_E(v,\hat{v})\\
+				& =\Omega_1(v_3,v_3)-\Omega_2(v_2,v_2')+\Omega_{2}(v_2',v_2')-\Omega_{1}(v_1,v_1).
+			\end{align*}
+Substracting,
+\[0=-\Omega_2(v_2,v_2)+\Omega_2(v_2,v_2')+\Omega_2(v_2',v_2)-\Omega_2(v_2',v_2')\]
+And by linearity,
+\begin{align*}
+0&=-\Omega_2(-v_2+v_2,-v_2+v_2')+\Omega_2(v_2'-v_2',v_2-v_2')\\
+&\implies \Omega_2(0,-v_2+v_2')=\Omega_2(0,v_2-v_2')
+\end{align*}
+ and the fact that $v_2=v_2'$ just follows from nondegenracy.
+
+
+
+	\end{enumerate}
+\end{proof}
 
 \paragraph{Problem 4:} Let $(V,J)$ be a complex vector space, let $\Omega$ be a sympletic structure on $V$. Show that $J$ and $\Omega$ are compatible iff there exists a hermitian inner product $h:V\times V\to \mathbb{C}$ such that $\Omega$ is its imaginary part. Show that any (complex) orthonormal basis of  $(V,h)$ can be extended to a symplectic basis of $(V,\Omega)$.
 
