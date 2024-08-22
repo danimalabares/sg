@@ -1,0 +1,164 @@
+\input{/Users/daniel/github/config/preamble-por.sty}
+\input{/Users/daniel/github/config/thms-por.sty}
+
+\begin{document}
+
+{\Huge Lista 1}
+
+{\Large Geometria simpl\'etica}
+
+\paragraph{Problem 1:} Let $V$ be a symplectic vector space ($\dim V=2n$), and $\Omega\in \Lambda^{2} V^{*}$be a skew-symmetric bilinear form. Show that $\Omega$ is nondegenerate iff $\Omega^{n} \neq 0$.
+
+\begin{proof}[Solution]
+	I first tried to show that $\Omega$ is degenerate iff $\Omega^{n}=0$. Suppose there is a vector $v_0$ such that $\Omega( v_0,w)=0$ for all $w\in V$ and complete to a basis. Then for any $v_1,v_2,v_3,v_4\in V$ we have
+	 \begin{align*}
+		 (\Omega\wedge \Omega)(v_1,v_2,v_3,v_4)&=\sum_{\sigma\in S_{4}}\operatorname{s gn}(\sigma)\Omega(v_{\sigma(1)},v_{\sigma(2)})\Omega(v_{\sigma(3)},v_{\sigma(4)}).
+		 \end{align*}
+\end{proof}
+
+\paragraph{Problem 2:} Let $(V,\Omega)$ be a symplectic vector space, and let $W\subseteq V$ be any linear subspace.
+\begin{enumerate}[label=\alph*.]
+	\item Show that $V_{W}=\frac{W}{W\cap W^{\Omega}}$ inherits a natural symplectic structure $\Omega_{W}$ uniquely determined by the condition $\pi^{*} \Omega_{W}=\Omega|_{W}$ (here $\pi:W\to W/(W\cap W^{\Omega}) $ is the quotient projection).
+	
+		(\textit{The space $(V_{W},\Omega_{W})$ is called the \textbf{reduced space}.})
+
+	\item Suppose that $W$ is coisotropic, and let $L\subset V$ be lagrangian. Show that the image of $L\cap W$ via $\pi:W\to V_{W}$ is lagrangian in the reduced space.
+\end{enumerate}
+
+\begin{proof}[Solution]\leavevmode 
+	\begin{enumerate}[label=\alph*.]
+		\item Define
+			\[\Omega_{W}([w_1],[w_2]):=\Omega(w_1,w_2)\]
+			for any equivalence classes $[w_1],[w_2]\in V_{W}$. Let's check that this is well defined. Suppose $w_1'\in [w_1]$. Then $w_1-w_1'\in W\cap W^{\Omega}$ so $\Omega(w_1-w_1',w_2)=0$ since $w_2\in W$ and $w_1-w_1'$ is, in particular, in $W^{\Omega}$. So $\Omega(w_1,w_2)=\Omega(w_1',w_2)$. {\color{magenta}Why not quotient only by $W^{\Omega}$? Looks like I didn't use the $W$ part…}
+
+			Recall that $\pi^{*} \Omega_{W}(w_1,w_2)=\Omega_{W}([w_1],[w_2])$. It is straightforward to check that $\Omega_{W}$ is the only symplectic form on $V_{W}$ satisfying $\pi^{*} \Omega_{W}=\Omega|_{W}$: if $\Omega_{W}'$ is another such form, then $\Omega_{W}([w_1],[w_2])=\Omega|_{W}(w'_1,w'_2)=\Omega'_{W}([w_1],[w_2])$ for any $w_1'\in [w_1]$ and $w_2'\in [w_2]$.
+
+			\item 
+Let's first check what is $(\pi(L\cap W))^{\Omega_W}$. We have
+\begin{align*}
+	(\pi(L\cap W))^{\Omega_{W}}& =\{[v]\in V_{W}:\Omega_{W}([v],[w])=0\;\forall [w]\in \pi(L\cap W)\}\\
+			     & =\{[v]\in V_{W}:\Omega(v',w)=0\;\forall v'\in [v]\text{ and } \forall  w\text{ s.t. }[w]\in \pi(L\cap W) \} 
+	\end{align*}
+In words, this is the set of classes whose representatives are $ \Omega $-orthogonal to representatives of $\pi(L\cap W)$.
+
+
+	so let $[v]\in \pi(L\cap W)^{\Omega_{W}}$. Let's check that $[v]$ is also in $\pi(L\cap W)$, ie. that $v\in L\cap W$. Well, 
+
+
+	If $v'\in L$, then $\Omega(v,v')=0$ {\color{magenta}since  $[v']\in \pi(L\cap W)^{\Omega}$…but what if  $v'\in L\setminus W$? }.
+
+	Let $w$ be such that  $[w]\in \pi(L\cap W)$. Then
+	\begin{align*}
+		\Omega_{W}([v],[w])&=0\\
+		\implies \Omega(v,w)&=0
+\end{align*}
+so $v\in $
+\end{enumerate}
+\end{proof}
+
+\paragraph{Problem 3:}  We saw in class that any symplectomorphism $T:V_1\to V_2$ defines a lagrangian subspace by its graph: $\Gamma_{T}:=\{(Tu,u):u\in V_1 \}\subset V_2\oplus \overline{V}_{1}$. (Recall that if $(V,\Omega)$ is a svs,  $\overline{V}$ denotes $(V,-\Omega)$.) So we think lagrangian subspaces of $V_2\oplus \overline{V}_{1}$ a generalizations of symplectomorphisms. We now see how to generalize their composition. 
+
+Consider symplectic vector spaces  $V_1,V_2,V_3$ and $E=V_3\oplus \overline{ V}_{2}\oplus V_2\oplus \overline{V}_1$.
+\begin{enumerate}[label=\alph*.]
+	\item Show that $\Delta :=\{(v_3,v_2,v_2,v_1)\in E\} $ is coisotropic in $E$ and its reduction $E_{\Delta}$ can be identified with $V_3\oplus \overline{V}_{1}$.
+
+	\item Given lagrangian subspaces $L_1\subset V_2\oplus \overline{V}_{1}$ and $L_2\subset  V_3\oplus \overline{V}_{2}$, define the \textit{\textbf{composition}} of $L_2$ and $L_1$ by
+		\[L_2\circ L_1:=\{(v_3,v_1)|\exists v_2\in V\text{ s.t. } (v_3,v_2)\in L_2,(v_2,v_1)\in L_1\}. \]
+		Show that $L_2\circ L_1$ is a lagrangian subspace of $V_3\oplus \overline{V}_{1}$. (\textit{Hint: show that the composition can be identified with the reduction of $L_2\times L_1\subset E$ with respect to $\Delta$}).
+
+	\item Let $T_1:V_1\to V_2$ and  $T_2:V_2\to V_3$ be symplectomorphisms. Show that $\Gamma_{T_2\circ T_1}=\Gamma_{T_2}\circ \Gamma_{T_1}$.
+\end{enumerate}
+
+\paragraph{Problem 4:} Let $(V,J)$ be a complex vector space, let $\Omega$ be a sympletic structure on $V$. Show that $J$ and $\Omega$ are compatible iff there exists a hermitian inner product $h:V\times V\to \mathbb{C}$ such that $\Omega$ is its imaginary part. Show that any (complex) orthonormal basis of  $(V,h)$ can be extended to a symplectic basis of $(V,\Omega)$.
+
+\begin{proof}[Solution]\leavevmode
+	First suppose that $J$ and $\Omega$ are compatible, ie., $g(u,v):=\Omega(u,Jv)$ is an inner product. Define $h(u,v)=g(u,v)+i\Omega(u,v)$. Then  $h$ is the required hermitian inner product. Indeed:
+
+	\begin{enumerate}
+		\item The properties $h(u_1+u_2,v)=h(u_1,v)+h(u_1,v)$ and  $h(u,v_1+v_2)=h(u,v_1)+h(u,v_2)$ follows easily from linearity of $g$ and $\Omega$.
+		
+		\item $h(\lambda u,v)=\lambda h(u,v)$ follows again from linearity of $g$ and $\Omega$.
+
+		\item The property $h(u,\lambda v)=\bar{\lambda} h(u,v)$ follows easily from 2. and 4. since 
+			\begin{align*}
+				h(u,\lambda v)& =\overline{h(\lambda v, u)}\\
+				& =\bar{\lambda} \overline{h(v,u)}\\
+				& =\bar{\lambda} h(u,v)
+			\end{align*}
+
+		\item $h(u,v)=\overline{h(v,u)}$ is clear by anti-symmetry of $\Omega$:
+			\begin{align*}
+				h(u,v)& =g(u,v)+i\Omega(u,v)\\
+				& =g(v,u)-i\Omega(v,u)\\
+				& =\overline{h(v,u)}
+			\end{align*}
+	\end{enumerate}
+	For the converse suppose that $h$ is an hermitian inner product such that $\Omega$ is its imaginary part. Then $g(u,v):=\Omega(u,Jv)$ is an inner product:
+	\begin{enumerate}
+		\item Linearity of $g$ is immediate from linearity of $\Omega$ and $J$.
+
+		\item Symmetry follows from
+			 \begin{align*}
+				g(u,v)=\Omega(u,Jv)\\
+				&=\Omega(-J^{2} u,Jv)\\
+				& =-\Omega(J^{2} u,Jv)\\
+				& =\Omega(Jv,J^{2} u)\\
+				&=\Omega(
+				&=-\Omega(Jv,u)\\
+				&=\Omega(-v,
+				g(v,u)&=\Omega(v,Ju)\\
+				&=-\Omega(Ju,v)
+			\end{align*}
+			\begin{align*}
+				g(u,v)& =\Omega(u,Jv)\\
+				& =\operatorname{Im}h(u,Jv)\\
+				&=\frac{h(u,Jv)-\overline{h(u,Jv)}}{2i}\\
+				&=\frac{}{}
+
+			\end{align*}
+
+		\item For positive-definiteness let $u\neq 0$. Then
+			\begin{align*}
+				g(u,u)=\Omega(u,Ju)
+			\end{align*}
+	\end{enumerate}
+
+\end{proof}
+
+ \paragraph{Problem 5:} Consider the symplectic vector space $(\mathbb{R}^{2n},\Omega_0)$, where $\Omega_0(u,v)=-u^{\mathbf{T}} J_0v$. Check that its group of linear symplectomorphisms is given by $\operatorname{Sp}(2n)=\{A\in \operatorname{GL}(2n):A^{\mathbf{T}}J_0A=J_0\}.$ Show that $\operatorname{Sp}(2n)$ is a smooth submanifold of $\operatorname{GL}(2n)$ and that its tangent space at the identity $I\in \operatorname{GL}$ is given by $T_{I}\operatorname{Sp}(2n)=\{A:\mathbb{R}^{2n}\to \mathbb{R}^{2n}|A^{\mathbf{T}} J_0+J_0A=0\} $. Conclude that $\operatorname{Sp}(2n)$ has dimension $2n^{2} +n$. Verify also that $\operatorname{Sp}(2n)$ is not compact.
+
+ \paragraph{Problem 6:} Consider the standard compatible triple $(\Omega_0,J_0,g_0)$ on $\mathbb{R}^{2n}$. Let $\operatorname{O}(2n)$ be the linear orthogonal group of $\mathbb{R}^{2n}$ (i.e., linear transformations preserving the canonical inner product $g_0$), and let $\operatorname{Sp}(2n)$ be the symplectic linear group. Through the identification $\mathbb{R}^{2n}\cong \mathbb{C}^{n}$ (as complex vector spaces), we may se e somente se $\operatorname{GL}(n,\mathbb{C})$ (the group of linear automorphisms of $\mathbb{C}^{n}$ as a subgroup of $\operatorname{GL}(2n,\mathbb{R})$ : a complex matrix $A+iB$ is identified with the real $2n\times 2n$ matrix
+ \[\begin{pmatrix}A&-B\\B&A\end{pmatrix}\]
+Let now $\operatorname{U}(n)\subset\operatorname{GL}(n,\mathbb{C})$ be the group of linear transformation preserving the natural hermitian inner product of $\mathbb{C}^{n}$. Show that the intersection of any two of the groups
+\[\operatorname{Sp}(2n),\operatorname{O}(2n),\operatorname{GL}(n,\mathbb{C})\subset\operatorname{GL}(2n,\mathbb{R})\]
+is $\operatorname{U}(n)$.
+
+\paragraph{Problem 7:} Let $(V,\Omega)$ be a symplectic vector space, let $W\subseteq V$. Let $J$ be a $\Omega$-compatible complex structure and $g$ the corresponding inner product. Verify that $J(W^{\Omega} )=W^{\perp_{g}}$.
+\begin{enumerate}[label=\alph*.]
+	\item Use this fact to show that any coisotropic subspace of $V$ has an isotropic complement. In particular, any lagrangian subspace $L\subset V$ has a lagrangian complement $L'$, $V=L\oplus L'$.
+	
+	\item Show that there is a natural identification $L'\cong L^{*}$, that induces a symplectomorphism $V\cong L\oplus L^{*}$ (where $L\oplus L^{*}$ has the natural symplectic structure $\left( (ell,\alpha),(\ell',\alpha') \right) \mapsto \alpha(\ell')-\alpha'(\ell)$.
+\end{enumerate}
+
+\begin{proof}[Solution]\leavevmode
+	First let's check that $J(W^{\Omega} )=W^{\perp_{g}}$. Indeed,
+	\begin{align*}
+		J(W^{\Omega} )&= \{Jv:v\in W^{\Omega}\}\\
+&=\{Jv:\Omega(v,w)=0\;\forall w\in W\} \\
+&=\{Jv:-\Omega(w,v)\;\forall w\in W\} \\
+& =\{Jv:\Omega(w,-v)\;\forall w\in W\} \\
+&=\{Jv:\Omega(w,J^{2}v)\;\forall w\in W\}
+	\end{align*}
+re-write $Jv:=\tilde{v}$ using that $J$ is bijective:
+	\begin{align*}
+J(W^{\Omega)}&=\{\tilde{v}\in V:\Omega(w,J\tilde{v})=0\;\forall w\in W\} \\
+&=\{ \tilde{v}\in V:g(\tilde{v},w)=0\;\forall w\in W\} \\
+& =W^{\perp_{g}}
+	\end{align*}
+
+
+\end{proof}
+
+\paragraph{Bonus problem: } 
+
+\end{document}
