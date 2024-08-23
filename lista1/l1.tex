@@ -14,6 +14,8 @@
 	 \begin{align*}
 		 (\Omega\wedge \Omega)(v_1,v_2,v_3,v_4)&=\sum_{\sigma\in S_{4}}\operatorname{s gn}(\sigma)\Omega(v_{\sigma(1)},v_{\sigma(2)})\Omega(v_{\sigma(3)},v_{\sigma(4)}).
 		 \end{align*}
+
+		 Finally I found this proposition in Lee, Intro. Smooth Manifolds.
 \end{proof}
 
 \paragraph{Problem 2:} Let $(V,\Omega)$ be a symplectic vector space, and let $W\subseteq V$ be any linear subspace.
@@ -107,10 +109,18 @@ But perhaps we can construct some other map. Let's try
 	(v_3,v_2,v_2',v_1) &\longmapsto 
 \end{align*}
 
+	\item It looks like $L_2\circ L_1$ is very much like $E_\Delta$ from the last exercise. $L_2\circ L_1$ is \textit{strictly}  contained in $V_3\oplus \overline{V}_1\cong E_\Delta$.
+
+		Ok let's have a go at the hint. Perhaps  $(L_2\times L_1)_\Delta= L_2\circ L_1$ and it is lagrangian. That'd be great. OK let's compute it. This is how to do it:
+\begin{align*}
+	\varphi: L_2\times L_1 &\longrightarrow V_2\circ V_1 \\
+	(v_2,v_1,v_3,v_2) &\longmapsto 
+\end{align*}
 
 
 
-	\end{enumerate}
+	
+\end{enumerate}
 \end{proof}
 
 \paragraph{Problem 4:} Let $(V,J)$ be a complex vector space, let $\Omega$ be a sympletic structure on $V$. Show that $J$ and $\Omega$ are compatible iff there exists a hermitian inner product $h:V\times V\to \mathbb{C}$ such that $\Omega$ is its imaginary part. Show that any (complex) orthonormal basis of  $(V,h)$ can be extended to a symplectic basis of $(V,\Omega)$.
