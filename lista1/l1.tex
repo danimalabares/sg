@@ -3,9 +3,17 @@
 
 \begin{document}
 
-{\Huge Lista 1}
+\begin{minipage}{\textwidth}
+	\begin{minipage}{1\textwidth}
+		Geometria Simpl\'etica \hfill Daniel González Casanova Azuela
+		
+		{\small \\Profs. Henrique Bursztyn and Leonardo Macarini\hfill\href{https://github.com/danimalabares/sg}{github.com/danimalabares/sg}}
+	\end{minipage}
+\end{minipage}\vspace{.2cm}\hrule
 
-{\Large Geometria simpl\'etica}
+\vspace{10pt}
+{\huge Lista 1}
+
 
 \paragraph{Problem 1:} Let $V$ be a symplectic vector space ($\dim V=2n$), and $\Omega\in \Lambda^{2} V^{*}$be a skew-symmetric bilinear form. Show that $\Omega$ is nondegenerate iff $\Omega^{n} \neq 0$.
 
@@ -151,41 +159,101 @@ But perhaps we can construct some other map. Let's try
 	\begin{enumerate}
 		\item Linearity of $g$ is immediate from linearity of $\Omega$ and $J$.
 
-		\item Symmetry follows from
+		\item Symmetry follows from 
 			 \begin{align*}
-				g(u,v)=\Omega(u,Jv)\\
+				g(u,v)&=\Omega(u,Jv)\\
 				&=\Omega(-J^{2} u,Jv)\\
 				& =-\Omega(J^{2} u,Jv)\\
 				& =\Omega(Jv,J^{2} u)\\
-				&=\Omega(
-				&=-\Omega(Jv,u)\\
-				&=\Omega(-v,
-				g(v,u)&=\Omega(v,Ju)\\
-				&=-\Omega(Ju,v)
+				&=\Omega(v,Ju)\\
+				&=g(v,u)
 			\end{align*}
+		provided $\Omega(u,v)=\Omega(Ju,Jv)$. This holds since $\Omega$ is the imaginary part of $h$ identifying $J$ with multiplication by $i=\sqrt{-1}$:
 			\begin{align*}
-				g(u,v)& =\Omega(u,Jv)\\
-				& =\operatorname{Im}h(u,Jv)\\
-				&=\frac{h(u,Jv)-\overline{h(u,Jv)}}{2i}\\
-				&=\frac{}{}
-
+				\Omega(Ju,Jv)&=\operatorname{Im}(h (Ju,Jv))\\
+				& =\operatorname{Im}h(iu,iv)\\
+				&=\operatorname{Im}(i\bar{i}h(u,v))\\
+				&=\operatorname{Im}(h(u,v))\\
+				&=\Omega(u,v).
 			\end{align*}
 
 		\item For positive-definiteness let $u\neq 0$. Then
 			\begin{align*}
-				g(u,u)=\Omega(u,Ju)
+				g(u,u)&=\Omega(u,Ju)\\
+				&=\operatorname{Im}(h(u,Ju))\\
+				&=\operatorname{Im}(h(u,iu))\\
+				&=\operatorname{Im}(-ih(u,u))
 			\end{align*}
+			e sabemos que $h(u,u)>0$ … {\color{magenta}parece que $g(u,u)$  \'e negativo…}
 	\end{enumerate}
 
 \end{proof}
 
- \paragraph{Problem 5:} Consider the symplectic vector space $(\mathbb{R}^{2n},\Omega_0)$, where $\Omega_0(u,v)=-u^{\mathbf{T}} J_0v$. Check that its group of linear symplectomorphisms is given by $\operatorname{Sp}(2n)=\{A\in \operatorname{GL}(2n):A^{\mathbf{T}}J_0A=J_0\}.$ Show that $\operatorname{Sp}(2n)$ is a smooth submanifold of $\operatorname{GL}(2n)$ and that its tangent space at the identity $I\in \operatorname{GL}$ is given by $T_{I}\operatorname{Sp}(2n)=\{A:\mathbb{R}^{2n}\to \mathbb{R}^{2n}|A^{\mathbf{T}} J_0+J_0A=0\} $. Conclude that $\operatorname{Sp}(2n)$ has dimension $2n^{2} +n$. Verify also that $\operatorname{Sp}(2n)$ is not compact.
+ \paragraph{Problem 5:} Consider the symplectic vector space $(\mathbb{R}^{2n},\Omega_0)$, where $\Omega_0(u,v)=-u^{\mathbf{T}} J_0v$. Check that its group of linear symplectomorphisms is given by $\operatorname{Sp}(2n)=\{A\in \operatorname{GL}(2n):A^{\mathbf{T}}J_0A=J_0\}.$ Show that $\operatorname{Sp}(2n)$ is a smooth submanifold of $\operatorname{GL}(2n)$ and that its tangent space at the identity $I\in \operatorname{GL}(2n)$ is given by $T_{I}\operatorname{Sp}(2n)=\{A:\mathbb{R}^{2n}\to \mathbb{R}^{2n}|A^{\mathbf{T}} J_0+J_0A=0\} $. Conclude that $\operatorname{Sp}(2n)$ has dimension $2n^{2} +n$. Verify also that $\operatorname{Sp}(2n)$ is not compact.
 
- \paragraph{Problem 6:} Consider the standard compatible triple $(\Omega_0,J_0,g_0)$ on $\mathbb{R}^{2n}$. Let $\operatorname{O}(2n)$ be the linear orthogonal group of $\mathbb{R}^{2n}$ (i.e., linear transformations preserving the canonical inner product $g_0$), and let $\operatorname{Sp}(2n)$ be the symplectic linear group. Through the identification $\mathbb{R}^{2n}\cong \mathbb{C}^{n}$ (as complex vector spaces), we may se e somente se $\operatorname{GL}(n,\mathbb{C})$ (the group of linear automorphisms of $\mathbb{C}^{n}$ as a subgroup of $\operatorname{GL}(2n,\mathbb{R})$ : a complex matrix $A+iB$ is identified with the real $2n\times 2n$ matrix
+\begin{proof}[Solution]\leavevmode
+	Suppose that $A$ is a linear symplectomorphism of $(\mathbb{R}^{2n},\Omega_0)$. Then $A^{*}\Omega_0=\Omega_0$ so 
+	\[A^{*}\Omega_0(u,v) =\Omega_0(Au,Av)=-(Au)^{\mathbf{T}}J_0(Av)=-u^{\mathbf{T}}A^{\mathbf{T}}J_0(Av)\]
+is equal to
+		\[\Omega_0(u,v)=-u^{\mathbf{T}}J_0v\]
+In terms of usual dot product of $\mathbb{R}^{2n}$, which we can denote by $\left<\cdot ,\cdot \right> $ momentarily, this means that
+\begin{align*}
+	\left<-u^{\mathbf{T}},A^{\mathbf{T}}J_0Av\right> &=\left<-u^{\mathbf{T}},J_0v\right>\\
+	\iff\left<-u^{\mathbf{T}},A^{\mathbf{T}}J_0Av-J_0v\right> &=0
+\end{align*}
+for all $u\in\mathbb{R}^{2n}$, which means that $A^{\mathbf{T}}J_0Av=J_0v$ since dot product is nondegenerate. For the converse, if $A^{\mathbf{T}}J_0A=J_0$, we have
+\begin{align*}
+	\Omega(u,v)&=-u^{\mathbf{T}}J_0v=-u^{\mathbf{T}}A^{\mathbf{T}}J_0Av=-(Au)^{\mathbf{T}}J(Av)=\Omega(Au,Av_0)=A^*\Omega(uv).
+\end{align*}
+
+
+Let's try to show that $\operatorname{Sp}(2n)$ is the inverse image of a regular value of some submersion $\operatorname{GL}(2n)\to \mathbb{R}$.  I think the determinant of $J_0$ is $1$, so perhaps the map
+\begin{align*}
+	 D:\operatorname{GL}(2n) &\longrightarrow \mathbb{R} \\
+	A &\longmapsto \det (A^{\mathbf{T}}J_0A)
+\end{align*}
+has inverse image of 1 equal to $\operatorname{Sp}(2n)$. It is clear that $\operatorname{Sp}(2n)\subset D^{-1}(1)$. Now suppose $A\in\operatorname{GL}(2n)$ is in $D^{-1}(1)$, but then it's not necessarily true that $A^{\mathbf{T}}J_0A=J_0$ because there are so many matrices with determinant 1 that are not $J_0$.
+
+Maybe the determinant won't work. But what about
+\begin{align*}
+	D: \operatorname{GL}(2n) &\longrightarrow \operatorname{GL}(2n) \\
+	A &\longmapsto A^{\mathbf{T}}J_0A
+\end{align*}
+maybe this map is a submersion at every point of $D^{-1}(J_0)=\operatorname{Sp}(2n)$. It really looks like a submersion at every point: it's only a composition of linear isomorphisms… of course its derivative is surjective, right? But something seems to be wrong because then it would be a sumbanifold of dimension $2n-2n=0$…
+
+Let's have a look at the tangent space at the identity. Suppose that $V \in T_{I}\operatorname{Sp}(2n)$. I'm not sure how to continue here…
+
+Following Misha's slides, it could be shown that $\operatorname{Sp}(2n)$ is the exponent of its Lie algebra (ie. the tangent space of the identity), and that this Lie algebra is $W:=\{A\in\operatorname{GL}(2n):A^{\mathbf{T}}J_0+J_0A=0\}$. This suggests that $\operatorname{exp}W =\operatorname{Sp}(2n)$. But then we need a theorem saying that if the exponent of a subset of endomorphisms is a Lie group then such a subspace is its Lie algebra. This can be found in Misha's notes as follows: 
+
+Exponent is a map 
+\begin{align*}
+	\operatorname{exp}: \operatorname{End}V &\longrightarrow \operatorname{End}V \\
+	A &\longmapsto \sum_{n=0}^{\infty}\frac{A^{n}}{n!}
+\end{align*}
+and its differential at $0\in\operatorname{End}V$ is the identity. But why… we have
+\[d_0\operatorname{exp}=\sum_{n=1}^{\infty}\frac{A^{n}}{(n-1)!}\]
+\href{https://en.wikipedia.org/wiki/Derivative_of_the_exponential_map#Statement}{I don't think} it's so straightforward to check that this is the identity so let's just suppose it is true.
+
+But what does it tell us that this map is the identity? Well, that $\operatorname{exp}(W)$ is invertible around 0, but not only that: notice that $\operatorname{exp}(0) =I\in\operatorname{GL}(2n)$ so $d_0\operatorname{exp}: T_0\operatorname{GL}(2n)\cong \operatorname{GL}(2n)\to T_{\operatorname{I}}\operatorname{Sp}(2n)$ is an isomorphism as required, provided of course that $\operatorname{exp}(W) =\operatorname{Sp}(2n)$. So let's check that.
+
+But that's nowhere near obvious:
+\[\operatorname{exp}(W) = \left\{ \sum_{n=0}^{\infty}\frac{A^{n}}{n!}:A^{\mathbf{T}}J_0+J_0A=0 \right\}\quad \overset{?}{=}\quad \{A\in\operatorname{GL}(2n):A^{\mathbf{T}}J_0A=J_0\}=\operatorname{Sp}(2n) \]
+Let's just go, let $A\in W$ and let's check wether $\operatorname{exp}(A)^{\mathbf{T}}J_0\operatorname{exp}(A) =J_0$. It \href{https://math.stackexchange.com/questions/1021900/proof-of-transpose-property-of-matrix-exponential}{looks like} transpose of exponent is exponent of transpose, but what is $\operatorname{exp}(J_0)$? \href{https://www.wolframalpha.com/input?i=exp%28%7B%7B0%2C0%2C0%2C-1%7D%2C%7B0%2C0%2C-1%2C0%7D%2C%7B0%2C1%2C0%2C0%7D%2C%7B1%2C0%2C0%2C0%7D%7D%29&lang=es}{This looks random…}
+
+\end{proof}
+
+ \paragraph{Problem 6:} Consider the standard compatible triple $(\Omega_0,J_0,g_0)$ on $\mathbb{R}^{2n}$. Let $\operatorname{O}(2n)$ be the linear orthogonal group of $\mathbb{R}^{2n}$ (i.e., linear transformations preserving the canonical inner product $g_0$), and let $\operatorname{Sp}(2n)$ be the symplectic linear group. Through the identification $\mathbb{R}^{2n}\cong \mathbb{C}^{n}$ (as complex vector spaces), we may see $\operatorname{GL}(n,\mathbb{C})$ (the group of linear automorphisms of $\mathbb{C}^{n}$) as a subgroup of $\operatorname{GL}(2n,\mathbb{R})$ : a complex matrix $A+iB$ is identified with the real $2n\times 2n$ matrix
  \[\begin{pmatrix}A&-B\\B&A\end{pmatrix}\]
 Let now $\operatorname{U}(n)\subset\operatorname{GL}(n,\mathbb{C})$ be the group of linear transformation preserving the natural hermitian inner product of $\mathbb{C}^{n}$. Show that the intersection of any two of the groups
 \[\operatorname{Sp}(2n),\operatorname{O}(2n),\operatorname{GL}(n,\mathbb{C})\subset\operatorname{GL}(2n,\mathbb{R})\]
 is $\operatorname{U}(n)$.
+
+\begin{proof}[Solution]\leavevmode
+
+	Since the standard hermitian product of $\mathbb{C}^{n}$ is given by $h_0=g_0+i\Omega_0$, it is immediate that a transformation $A\in\operatorname{Sp}(2n)\cap \operatorname{O}(2n)$ preserves $h_0$ and conversely:
+	\[A^*h=A^*(g+i\Omega)=A^*g+iA^*\Omega=g+i\Omega=h\]
+	provided that the pullback is complex-linear.
+\end{proof}
 
 \paragraph{Problem 7:} Let $(V,\Omega)$ be a symplectic vector space, let $W\subseteq V$. Let $J$ be a $\Omega$-compatible complex structure and $g$ the corresponding inner product. Verify that $J(W^{\Omega} )=W^{\perp_{g}}$.
 \begin{enumerate}[label=\alph*.]

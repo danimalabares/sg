@@ -354,5 +354,146 @@ Tem a forma simpl\'etica \'e o pullback:
 
 \paragraph{Nota\c c\~ao:} se $(V,\Omega)$ \'e um espa\c co vetorial simpl\'etico, denotamos por $(V,-\Omega):=\bar{V}$, que tamb\'em \'e um evs.
 
+\section{Aula 3}
+
+\section{Aula 4}
+
+\section{Aula 5}
+
+Lembranza da \'ultima aula:
+\begin{enumerate}
+	\item Defini\c c\~ao de variedade simpl\'etica.
+	\item Pelo menos dois exemplos.
+	
+	\item Forma de volume/orientabilidade.
+	
+	\item Campos simpl\'eticos/campos hamiltonianos.
+
+	\item Obstru\c c\~ao cohomol\'ogica de para estrutura simpl\'etica.
+\end{enumerate}
+
+\paragraph{Hoje:} Fibrados cotangentes.
+
+Seja $Q$ uma variedade e $M :=T^* Q$ o fibrado cotangente.
+
+\paragraph{Lembrando} Se $Q$ \'e uma variedade, $x\in Q$. O \textit{\textbf{espa\c co tangente}} em $ x$ s\~ao derivaç\~oes ou clases de equivalencia de curvas… base local do espa \c co tangente $\partial_{x_i}$…base dual disso \'e base do espa\c co cotangente nesse ponto… o fibrado cotangente $\bigsqcup_{x\in Q}T^*_{x}Q$ \'e variedade suave.
+
+O fibrado cotangente possui uma 1-forma tautol\'ogica definida assim:
+
+\begin{defn}
+	$\alpha\in\Omega^{1}(M)$, onde $M:=T^*Q$, dada por
+	\[\alpha_p(X)=p(\pi_*(X))\]
+	ou seja, como $X$ \'e tangente ao fibrado cotangente, ele est\'a anclado a algum covetor, assim a gente pode evaluar ele no covector. Tamb\'em pode ser pensado como o pullback de um covector em $Q$ baixo a proje\c c\~ao cotangente usual.
+\end{defn}
+
+Em coordenadas locais $(x_1,...,$ 
+
+\begin{exercise}\leavevmode 
+	\begin{enumerate}
+		\item A 1-forma tautol\'ogica $\alpha\in\Omega^{1}(T^*Q)$ \'e a \'unica 1-forma satisfazendo
+			\[\forall \mu\in\Omega^{1}(Q),\qquad \mu^*\alpha=\mu\]
+			onde pensamos a $\mu$ do lado izquerdo como um mapa  $\mu:Q\to T^*Q$, ie. uma se\c c \~ao do fibrado cotangente, e do lado direito simplesmente como uma 1-corma em $Q$.
+
+	\end{enumerate}
+\end{exercise}
+
+\begin{defn}
+	$M=T^*Q$, $\alpha\in\Omega^{1}(M)$ ent\~ao a \textit{\textbf{forma simpl\'etica can\'onica}} de $T^*Q$ \'e
+	\[\omega_{\operatorname{can}}=-d\alpha\]
+\end{defn}
+
+\begin{remark}\leavevmode
+	\begin{itemize}
+		\item $d\omega_{\operatorname{can}}=-d^{2}\alpha=0$.
+		\item Formalmente $\omega=\sum_{i=1}^{n}dx_i\wedge d\xi_i$
+	\end{itemize}
+\end{remark}
+
+Assim, temos uma variedade simpl\'etica can\'onica associada a toda variedade, $\\(T^* Q,\omega_{\operatorname{can}}$.
+
+\begin{remark}\leavevmode 
+	\begin{itemize}
+		\item Dado $B\in\Omega^{2}(Q)$ com $dB=0$, a forma
+			 \[\omega_{B}\omega_{\operatorname{can}}+\pi^*B\]
+			 \'e simpl\'etica e o termo $\pi^*B$ se chama de \textit{\textbf{magn\'etico}}.
+
+			\item Se $Q$ \'e Riemanniana com m\'etrica $g$ temos o mapa induzido
+				\begin{align*}
+					g^{\sharp}: TQ &\longrightarrow T^*Q \\
+					u &\longmapsto g(u,\cdot )
+				\end{align*}
+				Assim, o pullback the $\omega_{\operatorname{can}}$ \'e uma forma simpl\'etica em $TQ$.
+
+	Al \'em disso, a m\'etrica nos fornece de uma fun\c c\~ao Hamiltoniana dada por $H\in C^{\infty}(TQ)$, $H(v)=\frac{1}{2}g(v,v)=\frac{1}{2}\|v\|^{2}$.
+
+	Veremos que o fluxo Hamiltoniano de $H$ em $(TQ,\omega)$ \'e fluxo geod\'esico em $Q$.
+
+	Tem dois generaliza\c c\~oes naturais:
+	\begin{itemize}
+		\item  $\bar{H}(v)=\frac{1}{2}g(u,v)+V(x)$ com $V\in C^{\infty}(Q)$, mec\^anica cl\'asica.
+
+		\item $H(v)=\frac{1}{2}g(v,v)$ com respeito a $\omega_{B}$.
+	\end{itemize}
+	\end{itemize}
+\end{remark}
+
+\begin{question}[Projeto?]
+	Exist\^encia de \'orbitas peri\'odicas em n\'iveis de energia?
+\end{question}
+
+\begin{defn}
+	O \textit{\textbf{levantamiento cotangente}} de um difeomorfismo (na mesma dire\c c\~ao do difeomorfismo) \'e $\varphi:Q_1\overset{\sim}{\to }Q_2$ \'e $\hat{\varphi}=((T\varphi)^{*})^{-1}$.
+\end{defn}
+
+\begin{question}
+	Preserva a forma can\'onica?
+\end{question}
+
+\begin{prop}
+	Sim. $\hat{\varphi}:T^*Q_1\to T^*Q_2$ satisfaz $\hat{\varphi}^*\alpha_2=\alpha_1$ onde $\alpha_i$ \'e a forma tautol\'ogica, para $i=1,2$. Isso implica que  $\hat{\varphi}^*\omega_2=\omega_1$.
+\end{prop}
+
+Isso implica que temos um funtor $Q\rightsquigarrow T^*Q$ que se chama de \textit{\textbf{funtor cotagente}} e permite levar problemas de geometria diferencial para a geometria simpl \'etica.
+
+\begin{proof}[Demostra\c c\~ao]
+	\[\begin{tikzcd}
+		T^*Q_1\arrow[r,"\varphi"]\arrow[d,"\pi_1"]&T^*Q_2\arrow[d,"\pi_2"]\\
+		Q_1\arrow[r,"\varphi"]&Q_2
+	\end{tikzcd}\]
+	A clave dessa prova \'e que o diagrama commuta, assim pode se-trocar um termo $\pi_2\circ \hat{\varphi}$ por $\varphi \circ \pi_1$.
+\end{proof}
+
+O funtor que produzimos $\operatorname{Dif}(Q)\hookrightarrow \operatorname{Simp }(T^*Q$ n\~ao e fiel (surjetivo), ie. existem simplectomorfismos no fibrado cotangente que n\~ao vem de difeomorfismos na variedade.
+
+\begin{remark}
+	Dada uma 1-forma $A\in\Omega^{1}$. Pode se-produzir um mapa no cotangente simplesmente trasladando por $A$:
+	\begin{align*}
+		T_A: T^*Q &\longrightarrow T^*Q \\
+		(x,\xi) &\longmapsto (x,\xi+A_x)
+	\end{align*}
+	que n\~ao pode ser um levantamento porque se projecta na identidade!
+
+	\begin{exercise}
+		$T_A$ \'e um simplectomofrismo $\iff$ $dA=0$.
+	\end{exercise}
+\end{remark}
+
+Mas, como sabemos quais simplectomorfismos no cotangente s\~ao sim levantamentos de difeomorfismos na variedade?
+
+\begin{exercise}
+	Seja $F:T^*Q\to T^*Q$ um simplectomorfismo. Quando $F=\hat{\varphi}$ \'e levantamento de algum $\varphi:Q\overset{\sim}{\to } Q $. Pois, isso acontece $\iff$ $F$ preserva a forma tautol\'ogica, ie. $F^*\alpha=\alpha$.
+\end{exercise}
+
+\begin{remark}
+	Levantamento cotangente de campos de vetores. Come\c ca com um campo $X\in\mathfrak{X}(Q)$, integra para obter um fluxo $\varphi_{t}$, que \'e uma fam\'ilia de difeomorfismos na variedada, voc\^e sabe levantar isso com o funtor obtendo outro fluxo (porque levantamento de fluxo \'e fluxo) $\hat{\varphi}_{t}$, e diferenciando obt\'em $\hat{X}\in\mathfrak{X}(T^*Q)$.
+\end{remark}
+
+\begin{remark}
+	Para cualquer fibrado vetorial $E \to  M$, podemos ver a se\c c\~oes $\Gamma(E)$ como um subconjunto das fun \c c\~oes suaves na variedade $C^{\infty}(E)$---s\~ao as fun\c c\~oes lineares nas fibras. A\'i tem um modo natural de definir para cualquer campo vetorial $X\in\Gamma(TQ)\subseteq C^{\infty}(T^*Q)$ uma fun\c c\~ao, $H_X(p)=p(X_{\pi(p)}=\alpha(\hat{X})$.
+\end{remark}
+
+\begin{prop}
+	$\hat{X}=$ campo Hamiltoniano de $H_X$.
+\end{prop}
 
 \end{document}
