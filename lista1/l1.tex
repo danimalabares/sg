@@ -7,7 +7,7 @@
 	\begin{minipage}{1\textwidth}
 		Geometria Simpl\'etica \hfill Daniel González Casanova Azuela
 		
-		{\small \\Profs. Henrique Bursztyn and Leonardo Macarini\hfill\href{https://github.com/danimalabares/sg}{github.com/danimalabares/sg}}
+		{\small Profs. Henrique Bursztyn and Leonardo Macarini\hfill\href{https://github.com/danimalabares/sg}{github.com/danimalabares/sg}}
 	\end{minipage}
 \end{minipage}\vspace{.2cm}\hrule
 
@@ -253,13 +253,24 @@ is $\operatorname{U}(n)$.
 	Since the standard hermitian product of $\mathbb{C}^{n}$ is given by $h_0=g_0+i\Omega_0$, it is immediate that a transformation $A\in\operatorname{Sp}(2n)\cap \operatorname{O}(2n)$ preserves $h_0$ and conversely:
 	\[A^*h=A^*(g+i\Omega)=A^*g+iA^*\Omega=g+i\Omega=h\]
 	provided that the pullback is complex-linear.
+
+	For the next item recall that
+	\[\operatorname{O}(2n)=\{A\in\operatorname{GL}(2n):A^{\mathbf{T}}A=I\},\qquad \operatorname{GL}(n,\mathbb{C})=\{A\in\operatorname{GL}(2n):AJ_0=J_0A\}\]
+	again identifying $J_0$ with multiplication by $i$. Observe that this implies that $A\in\operatorname{O}(2n)\cap \operatorname{GL}(n,\mathbb{C})\implies  A\in\operatorname{Sp}(2n)$ since
+	\[A^{\mathbf{T}}J_0A=A^{\mathbf{T}}A J_0=J_0.\]
+	Likeways we see that $A\in\operatorname{Sp}(2n)\cap \operatorname{GL}(n,\mathbb{C})\implies \operatorname{O}(2n)$ since
+	\[A^{\mathbf{T}}J_0A=J_0\iff A^{\mathbf{T}}A J_0=J_0\iff A^{\mathbf{T}}A=I\]
+	since $J_0$ is invertible. Going back to the initial argument for matrices in $\operatorname{Sp}(2n)\cap A\in\operatorname{O}(2n)$, we see that in both cases $A\in\operatorname{U}(n)$.
+
+	For the converse notice that it is also true that $A\in\operatorname{Sp}(2n)\cap \operatorname{O}(2n)\implies A\in\operatorname{GL}(n,\mathbb{C})$ since
+	\[J_0=A^{\mathbf{T}}J_0A=A^{-1} J_0A\iff J_0A=A J_0.\]
 \end{proof}
 
 \paragraph{Problem 7:} Let $(V,\Omega)$ be a symplectic vector space, let $W\subseteq V$. Let $J$ be a $\Omega$-compatible complex structure and $g$ the corresponding inner product. Verify that $J(W^{\Omega} )=W^{\perp_{g}}$.
 \begin{enumerate}[label=\alph*.]
 	\item Use this fact to show that any coisotropic subspace of $V$ has an isotropic complement. In particular, any lagrangian subspace $L\subset V$ has a lagrangian complement $L'$, $V=L\oplus L'$.
 	
-	\item Show that there is a natural identification $L'\cong L^{*}$, that induces a symplectomorphism $V\cong L\oplus L^{*}$ (where $L\oplus L^{*}$ has the natural symplectic structure $\left( (ell,\alpha),(\ell',\alpha') \right) \mapsto \alpha(\ell')-\alpha'(\ell)$.
+	\item Show that there is a natural identification $L'\cong L^{*}$, that induces a symplectomorphism $V\cong L\oplus L^{*}$ (where $L\oplus L^{*}$ has the natural symplectic structure $\left( (\ell,\alpha),(\ell',\alpha') \right)$ $\mapsto\alpha(\ell')-\alpha'(\ell)$.
 \end{enumerate}
 
 \begin{proof}[Solution]\leavevmode
