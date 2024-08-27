@@ -270,7 +270,7 @@ is $\operatorname{U}(n)$.
 \begin{enumerate}[label=\alph*.]
 	\item Use this fact to show that any coisotropic subspace of $V$ has an isotropic complement. In particular, any lagrangian subspace $L\subset V$ has a lagrangian complement $L'$, $V=L\oplus L'$.
 	
-	\item Show that there is a natural identification $L'\cong L^{*}$, that induces a symplectomorphism $V\cong L\oplus L^{*}$ (where $L\oplus L^{*}$ has the natural symplectic structure $\left( (\ell,\alpha),(\ell',\alpha') \right)$ $\mapsto\alpha(\ell')-\alpha'(\ell)$.
+\item Show that there is a natural identification $L'\cong L^{*}$, that induces a symplectomorphism $V\cong L\oplus L^{*}$, where $L\oplus L^{*}$ has the natural symplectic structure \[\left( (\ell,\alpha),(\ell',\alpha') \right)\longmapsto\alpha(\ell')-\alpha'(\ell)\].
 \end{enumerate}
 
 \begin{proof}[Solution]\leavevmode
@@ -279,7 +279,7 @@ is $\operatorname{U}(n)$.
 		J(W^{\Omega} )&= \{Jv:v\in W^{\Omega}\}\\
 &=\{Jv:\Omega(v,w)=0\;\forall w\in W\} \\
 &=\{Jv:-\Omega(w,v)\;\forall w\in W\} \\
-& =\{Jv:\Omega(w,-v)\;\forall w\in W\} \\
+&=\{Jv:\Omega(w,-v)\;\forall w\in W\} \\
 &=\{Jv:\Omega(w,J^{2}v)\;\forall w\in W\}
 	\end{align*}
 re-write $Jv:=\tilde{v}$ using that $J$ is bijective:
@@ -288,6 +288,18 @@ J(W^{\Omega)}&=\{\tilde{v}\in V:\Omega(w,J\tilde{v})=0\;\forall w\in W\} \\
 &=\{ \tilde{v}\in V:g(\tilde{v},w)=0\;\forall w\in W\} \\
 & =W^{\perp_{g}}
 	\end{align*}
+	\begin{enumerate}[label=\alph*.]
+		\item Let $W$ be any coisotropic subspace. We know that $V=W\oplus W^{\perp_g}$ (supposing that $V$ is finite-dimensional), so it remains to show that $W^{\perp_g}$ is isotropic.
+		Since $W$ is coisotropic, we have
+		\[W^{\Omega}\subseteq W\implies J(W^{\Omega})=W^{\perp_g}\subseteq JW\]
+		so it would be enough to show that
+		\[JW\subseteq\big(J(W^{\Omega})\big)^{\Omega}=(W^{\perp_g})^{\Omega}.\]
+		Let $w\in W$ and $w'\in W^{\Omega}$, so that $Jw\in JW$ and $Jw'\in J(W^{\Omega})$. Then
+		\[\Omega(Jw,Jw')=\Omega(w,w')=0,\]
+		which shows that $JW\subseteq\big(J(W^{\Omega})\big)^{\Omega}$.
+
+		\item
+	\end{enumerate}
 
 
 \end{proof}
