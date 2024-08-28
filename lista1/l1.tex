@@ -41,29 +41,15 @@
 			\[\Omega_{W}([w_1],[w_2]):=\Omega(w_1,w_2)\]
 			for any equivalence classes $[w_1],[w_2]\in V_{W}$. Let's check that this is well defined. Suppose $w_1'\in [w_1]$. Then $w_1-w_1'\in W\cap W^{\Omega}$ so $\Omega(w_1-w_1',w_2)=0$ since $w_2\in W$ and $w_1-w_1'$ is, in particular, in $W^{\Omega}$. So $\Omega(w_1,w_2)=\Omega(w_1',w_2)$. {\color{magenta}Why not quotient only by $W^{\Omega}$? Looks like I didn't use the $W$ part…}
 
-			Recall that $\pi^{*} \Omega_{W}(w_1,w_2)=\Omega_{W}([w_1],[w_2])$. It is straightforward to check that $\Omega_{W}$ is the only symplectic form on $V_{W}$ satisfying $\pi^{*} \Omega_{W}=\Omega|_{W}$: if $\Omega_{W}'$ is another such form, then $\Omega_{W}([w_1],[w_2])=\Omega|_{W}(w'_1,w'_2)=\Omega'_{W}([w_1],[w_2])$ for any $w_1'\in [w_1]$ and $w_2'\in [w_2]$.
+			Recall that $\pi^{*} \Omega_{W}(w_1,w_2)=\Omega_{W}([w_1],[w_2])$. It is straightforward to check that $\Omega_{W}$ is the only symplectic form on $V_{W}$ satisfying $\pi^{*} \Omega_{W}=\Omega|_{W}$: if $\Omega_{W}'$ is another such form, then $\Omega'_{W}([w_1],[w_2])=\Omega|_{W}(w'_1,w'_2)=\Omega_{W}([w_1],[w_2])$ for any $w_1'\in [w_1]$ and $w_2'\in [w_2]$.
 
-			\item 
-Let's first check what is $(\pi(L\cap W))^{\Omega_W}$. We have
-\begin{align*}
-	(\pi(L\cap W))^{\Omega_{W}}& =\{[v]\in V_{W}:\Omega_{W}([v],[w])=0\;\forall [w]\in \pi(L\cap W)\}\\
-			     & =\{[v]\in V_{W}:\Omega(v',w)=0\;\forall v'\in [v]\text{ and } \forall  w\text{ s.t. }[w]\in \pi(L\cap W) \} 
-	\end{align*}
-In words, this is the set of classes whose representatives are $ \Omega $-orthogonal to representatives of $\pi(L\cap W)$.
-
-So if $[v]$ is any such class,
-
-	so let $[v]\in \pi(L\cap W)^{\Omega_{W}}$. Let's check that $[v]$ is also in $\pi(L\cap W)$, ie. that $v\in L\cap W$. Well, 
-
-
-	If $v'\in L$, then $\Omega(v,v')=0$ {\color{magenta}since  $[v']\in \pi(L\cap W)^{\Omega}$…but what if  $v'\in L\setminus W$? }.
-
-	Let $w$ be such that  $[w]\in \pi(L\cap W)$. Then
-	\begin{align*}
-		\Omega_{W}([v],[w])&=0\\
-		\implies \Omega(v,w)&=0
-\end{align*}
-so $v\in $
+			\item Since $W$ is coisotropic, we have $V_W=W/W^\Omega$ and $L^\Omega=L$. Then
+				\begin{align*}
+					\pi(L)^\Omega & =\{[w]\in W/W^\Omega:\Omega(w,\ell)=0\} \\
+						      &=\{[w]\in W/W^\Omega:w\in L^\Omega=L\} \\
+						      &=\pi(L)
+				\end{align*}
+				{\color{magenta}But I didn't use the $W$ is coisotropic…}
 \end{enumerate}
 \end{proof}
 
@@ -77,7 +63,7 @@ Consider symplectic vector spaces  $V_1,V_2,V_3$ and $E=V_3\oplus \overline{ V}_
 		\[L_2\circ L_1:=\{(v_3,v_1)|\exists v_2\in V\text{ s.t. } (v_3,v_2)\in L_2,(v_2,v_1)\in L_1\}. \]
 		Show that $L_2\circ L_1$ is a lagrangian subspace of $V_3\oplus \overline{V}_{1}$. (\textit{Hint: show that the composition can be identified with the reduction of $L_2\times L_1\subset E$ with respect to $\Delta$}).
 
-	\item Let $T_1:V_1\to V_2$ and  $T_2:V_2\to V_3$ be symplectomorphisms. Show that $\Gamma_{T_2\circ T_1}=\Gamma_{T_2}\circ \Gamma_{T_1}$.ad
+	\item Let $T_1:V_1\to V_2$ and  $T_2:V_2\to V_3$ be symplectomorphisms. Show that $\Gamma_{T_2\circ T_1}=\Gamma_{T_2}\circ \Gamma_{T_1}$.
 \end{enumerate}
 
 \begin{proof}[Solution]\leavevmode
@@ -168,7 +154,7 @@ But perhaps we can construct some other map. Let's try
 				&=\Omega(v,Ju)\\
 				&=g(v,u)
 			\end{align*}
-		provided $\Omega(u,v)=\Omega(Ju,Jv)$. This holds since $\Omega$ is the imaginary part of $h$ identifying $J$ with multiplication by $i=\sqrt{-1}$:
+		provided $\Omega(u,v)=\Omega(Ju,Jv)$. This holds since $\Omega$ is the imaginary part of $h$ identifying $J$ with multiplication by $i$:
 			\begin{align*}
 				\Omega(Ju,Jv)&=\operatorname{Im}(h (Ju,Jv))\\
 				& =\operatorname{Im}h(iu,iv)\\

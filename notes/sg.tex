@@ -496,4 +496,171 @@ Mas, como sabemos quais simplectomorfismos no cotangente s\~ao sim levantamentos
 	$\hat{X}=$ campo Hamiltoniano de $H_X$.
 \end{prop}
 
+\section{Aula 6}
+
+Hoje: Colchete de Poisson, Darboux.
+
+\subsection{Colchete de Poisson}
+
+
+$M$ variedade, $\omega\in\Omega^2(M)$ n\~ao degenerada (quase-simpl\'etica). Podemos fazer
+
+\begin{align*}
+	w^\flat: TM &\longrightarrow T^*M \\
+	x &\longmapsto i_X\omega
+\end{align*}
+So that
+\[f\in C^\infty(M)\rightsquigarrow X_f\in\mathfrak{X}(M)\]
+e
+\[i_{X_f}\omega=df.\]
+
+\begin{defn}
+	$f,g\in C^\infty(M)$.
+	\begin{align*}
+		\{\cdot ,\cdot \}: C^\infty(M)\times C^\infty(M) &\longrightarrow C^\infty(M) \\
+		\{f,g\} & =\omega(X_g,X_f)=dg(X_f)=\mathcal{L}_{X_f}g=-\mathcal{L}_{X_g}f 
+	\end{align*}
+	
+\end{defn}
+
+\begin{prop}[Exerc\'icio]
+	$d\omega=0\iff \{\cdot ,\cdot \}$ satisfaz identidade de Jacobi.  $\implies (M,\omega)$ simpl\'etica, $\{\cdot ,\cdot \}$ \'e colchete de Lie em $C^\infty(M)$ e isso se chama de um \textit{\textbf{colchete de Poisson em $(M,\omega)$}}.
+\end{prop}
+
+\begin{exercise}
+	$\{f,gh\} =\{f,g\} h+\{f,h\} g$.
+\end{exercise}
+
+\begin{example}
+	$\mathbb{R}^{2n}$.
+\end{example}
+
+\begin{defn}
+	$f,g\in C^\infty(M)$ est\~ao em \textit{\textbf{involu\c c\~ao}} se $\{f,g\} =0$. ie. $X_g$ \'e tangente aos n\'iveis $f=$const (e vice versa).
+\end{defn}
+
+\begin{remark}
+	Nesse caso, a derivada de $g$ ao longo das curvas integrais de $X_f$ \'e zero.
+\end{remark}
+
+\paragraph{Motiva\c c\~ao} $(M,\omega)$ simpl\'etica, $H\in C^\infty(M)$ queremos integrar $X_H$ (ie. resolver $c'(t)=X_H(c(t))$). Suponha que existe $f\in C^\infty(M)$ com $\{f,H\} =0$, chamada \textit{\textbf{integral primeira}}. ie.  $f$ \'e constante ao longo do fluxo Hamiltoniano.
+
+No s\'eculo XIX, quando Poisson vivia, a ideia era que se temos um n\'umero sufieiente de integrais primeiras "independentes", podemos "integrar" $X_H$. (Aqui "integrar" significa dar uma solu\c c\~ao a equa\c c\~ao diferencial do fluxo Hamiltoniano).
+
+Em 1810, Poisson deu a f\'ormula
+\[\{f,g\} =\sum_{i,j}\frac{\partial f}{\partial p_i}\frac{\partial g}{\partial q_i}-\frac{\partial f}{\partial q_i}\frac{\partial g}{\partial p_i}.\]
+
+\begin{thm}[Poisson]
+	$\{f,H\} =0=\{g,H\} \implies \{\{f,g\},H\} =0$.
+\end{thm}
+
+\begin{thm}[Jacobi]\leavevmode
+	\[\{H,\{f,g\}\} +\{g,\{H,f\}\} +\{f,\{g,H\}\} =0\]
+\end{thm}
+
+\paragraph{1880} Lie usou essa identidade no seu trabalho de transforma\c c\~oes (\'algebras de  Lie).
+
+\paragraph{Vers\~ao moderna (sec.  XX) de integrabilidade} Veremos adiante…
+
+\begin{thm}[Arnold-Liouville]\leavevmode
+	$(M,\omega)$ de dimens\~ao $2n$ e seu Hamiltoniano $H=f_1$ que \'e a primeira de uma sequencia de $n=\dim M/2$ fun\c c\~oes independentes (as derivadas s\~ao linearmente independentes) $f_2,\ldots,f_n\in C^{\infty}(M)$ tais que $\{f_i,f_j\} =0$ e que $(f_1,\ldots,f_n):M\to \mathbb{R}^{n}$ \'e uma submers\~ao. Ent\~ao
+	\[N=\{(f_1,\ldots,f_n)=\text{cte} \} \cong \mathbb{T}^n\]
+	se compacto e conexo. Al\'em disso, a din\^amica de $X_H$ em $\mathbb{T}^n$ \'e quase peri\'odica (=\'e um fluxo linear no toro, que pode ser racional ou irracional).
+\end{thm}
+
+\begin{remark}[Projeto?]\leavevmode
+	Qu\'e acontece com essa din\^amica no toro se perturbamos o sistema? O problema de dois corpos \'e completamente integravel. Por exemplo, a din\^amica da Terra e o Sol pode se-resolver, mas o problema adicionando a Lua \'e o problema de 3 corpos, que ningu\'em sabe c\'omo resolver. Aqui a Lua \'e uma perturba\c c\~ao.
+
+	Teorema KAM, quanto mais irracional \'e o fluxo, mais robusto \'e o toro, mais inest\'avel.
+\end{remark}
+
+Em fim, tudo isso para motivar os colchetes de Poisson.
+
+\subsection{Teorema de Darboux}
+
+$(M,\omega)$ variedade simpl\'etica com o colchete $\{\cdot ,\cdot \}$.
+
+\begin{remark}\leavevmode
+	\begin{enumerate}
+		\item $\omega$ est\'a completamente determinada por $\{\cdot ,\cdot \}$, ie. se duas estruturas simpl\'eticas d\~ao lugar ao mesmo colchete de Poisson, elas s\~ao iguais.Por que?
+			\begin{align*}
+				\omega^\sharp: T^*M &\longrightarrow TM 
+			\end{align*}
+			est\'a dada em cada ponto por
+			\[(\omega^\sharp )_{ij}=\{x_i,x_j\}\]
+			por defini\c c\~ao.
+		
+		\item A estrutura simpl\'etica can\'onica $\omega_0=\sum_{i}dp_i\wedge dp_i$ em $\mathbb{R}^{2n}$ est\'a determinada (\'e a \'unica tal que) por
+			\[\{q_i,q_j\}=0=\{p_i,p_j\},\qquad \{p_i,q_j\} =\delta_{ij}.\]
+			\'E como se tivesse uma base simpl\'etica boa em todos os pontos…
+	\end{enumerate}
+\end{remark}
+
+\begin{thm}[Darboux]\leavevmode
+	$(M,\omega)$ simpl\'etica, ent…åo ao redor de todo ponto $x\in M$ existem coordenadas locais $(q_1,\ldots,q_n,p_1,\ldots,p_n)$ tais que $\omega=\sum_{i=1}^ndq_i\wedge dp_i$, ou, equivalentemente vale
+		\[\{q_i,q_j\}=0=\{p_i,p_j\},\qquad \{p_i,q_j\} =\delta_{ij}.\]
+\end{thm}
+
+Tem um lema que va a provar essencialmente tudo.
+
+\begin{lemma}[Primeiro paso da indu\c c\~ao ]
+	Ao redor de qualquer ponto $x\in M$ existem coordenadas $(q,p,y_1,\ldots,y_{2n-2}$ tais que
+	\[1=\{p,q\},\quad \{p,y_j\}=0=\{q,y_j\},\qquad \{y_i,y_j\} =\varphi_{ij}(y).\]
+Ou seja, a matriz da forma \'e
+\[\begin{pmatrix} \begin{pmatrix}0&-1\\1&0\end{pmatrix}& 0&0&\ldots&0\\
+0&&&&\\
+0&&A(y)&&\\
+0&&&&\end{pmatrix} \]
+ou seja, temos uma expres\~ao
+\[\omega=dq\wedge dp+\omega_N\]
+onde $\omega_N$ \'e dada por $A(y)$ e  \'e simpl\'etica.
+\end{lemma}
+
+\begin{proof}[Demostra\c c\~ao do Lema]
+	\begin{enumerate}[label=\textbf{Paso \arabic*}]
+		\item Seja $p$ uma fun\c c\~ao tal que $X_p(x)\neq 0$. Pelo teorema de fluxo tabular (retifica\c c\~ao ) existe uma fun\c c\~ao $q$ tal que $X_p=\frac{\partial}{\partial q}$, de modo que $\{p,q\}=dq(X_p)=1$ e $dp(X_q)=-1$.
+
+		\item En\~ao $X_p$ e $X_q$ s\~ao linearmente independentes, pois $1=\{p,q\} =\omega(X_p,X_q)\neq 0$, o que aconteceria por antisimetria se s\~ao linearmente dependentes. Al\'em disso, comutam, pois
+			\[ [X_p,X_q]\overset{\text{aula pasada?} }{=}X_{\{p,q\} =1}=0.\]
+
+			Agora usamos a generaliza\c c\~ao do teorema do fluxo abular: se $X_1,\ldots,X_k$ s\~ao campos  linearmente independentes e que comutam, ent\~ao existem coordenadas $(x_1,\ldots,x_n)$ dais que $X_i=\frac{\partial}{\partial x_i}$. (Teo. fun\c c\~ao inversa.) Assim, existem coordenadas locais $y_1,\ldots,y_{2n}$ tais que
+			\[X_q=\frac{\partial}{\partial y_{2n-1}}\qquad X_p=\frac{\partial}{\partial y_{2n}}.\]
+			Logo
+			\[dy_j(X_q)=0=dy_j(X_p)\]
+			para $j=1,\ldots,2n-2$.
+
+		\item As diferenciais
+		\[dq,dp,dy_1,\ldots,dy_{2n-2}\]
+		s\~ao linearmente independentes, pois se
+		\[adq+bdp+\sum_{i}c_{ij}y_i=0\]
+		pois as $y_i$ j\'a s\~ao LI, e avaliando em $X_i$ obtemos $a=0$, e no $X_q$ que $b=0$.
+
+		Temos um sistema de coordenadas  $(q,p,y_1,\ldots,y_{2n-2}$ ao redor de $x$ tal que as condi\c c\~oes  do teorema salvo a \'ultima se cumplem. Agora veamos que $\{y_i,y_j\}$ n\~ao depende de $p,q$.
+
+		 \item S\'o lembrar que
+			 \[X_q=-\frac{\partial}{\partial p},\qquad X_q=\frac{\partial}{\partial q}\]
+			 assim
+			 \[ \frac{\partial}{\partial p}\{y_i,y_j\} =-\{q,\{y_i,y_j\}\} =0\]
+			 onde a segunda igualdade \'e jacobi. Fim.
+	\end{enumerate}
+\end{proof}
+
+\begin{proof}[Demostra\c c\~ao do Teo. Darboux]
+Segue do lema por indu\c c\~ao
+\end{proof}
+
+\begin{defn}
+Uma \textit{\textbf{estrutura de Poisson}} em uma variedade $M$ \'e
+\begin{align*}
+	\{\cdot ,\cdot \}: C^\infty(M)\times C^\infty(M) &\longrightarrow C^\infty(M)
+\end{align*}
+$\mathbb{R}$-bilinear, antisim\'etrica, Jacobi e Leibniz, ie. $\{f,gh\} =\{f,g\} h+\{f,h\} g$.
+\end{defn}
+
+\begin{example}\leavevmode 
+	\begin{itemize}
+		\item $(M,\omega)$ simpl \'etica com $\{f,g\} =\omega(X_g,X_f)$.
+	\end{itemize}
+\end{example}
+
 \end{document}
