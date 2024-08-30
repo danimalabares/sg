@@ -45,11 +45,18 @@
 
 			\item Since $W$ is coisotropic, we have $V_W=W/W^\Omega$ and $L^\Omega=L$. Then
 				\begin{align*}
-					\pi(L)^\Omega & =\{[w]\in W/W^\Omega:\Omega(w,\ell)=0\} \\
-						      &=\{[w]\in W/W^\Omega:w\in L^\Omega=L\} \\
-						      &=\pi(L)
+					\pi(L\cap W)^\Omega & =\{[w]\in W/W^\Omega:\Omega(w,\ell)=0\;\forall \ell\in L\cap W\} \\
+						      &=\{[w]\in W/W^\Omega:w\in (L\cap W)^\Omega\Omega\} \\
+						    %  &{\color{magenta}\overset{!}{=\; }}\pi(L\cap W)
 				\end{align*}
-				{\color{magenta}But I didn't use the $W$ is coisotropic…}
+				Moreover,
+				\begin{align*}
+					(L\cap W)^\Omega & =L^\Omega+ W^\Omega =L+ W^\Omega\subseteq L + W
+				\end{align*}
+				since $L$ is lagrangian and $W$ coisotropic. So,
+				\begin{align*}
+					\pi(L\cap W)^\Omega &\subseteq\{[w]\in W/W^\Omega:w\in (L+W)\cap W\}\\&=\{[w]\in W/W^\Omega:w\in(L\cap W)\}\\&= \pi(L\cap W)
+				\end{align*}
 \end{enumerate}
 \end{proof}
 
@@ -69,24 +76,21 @@ Consider symplectic vector spaces  $V_1,V_2,V_3$ and $E=V_3\oplus \overline{ V}_
 \begin{proof}[Solution]\leavevmode
 	\begin{enumerate}[label=\alph*.]
 		\item Let $v:=(v_3,v_2,v_2',v_1)\in \Delta^{\Omega_E}\subset E$ where  $\Omega_E=\Omega_1\oplus -\Omega_2\oplus \Omega_2\oplus -\Omega_1$ is the symplectic form on $E$. We wish to show that $v\in \Delta$, which only means that $v_2=v_2'$. So let $\tilde{v}=(v_3,v_2,v_2,v_1)$ and $\hat{v}=(v_3,v_2',v_2',v_1)$ which are both in $\Delta$. Then we have
-			\begin{align*}
+			\begin{align}\label{eq:1}
 				0&=\Omega_E(v,\tilde{v})\\
 				& =\Omega_1(v_3,v_3)-\Omega_2(v_2,v_2)+\Omega_{2}(v_2',v_2)-\Omega_{1}(v_1,v_1)
-			\end{align*}
+			\end{align}
 and likeways
-			\begin{align*}
+			\begin{align}\label{eq:2}
 				0&=\Omega_E(v,\hat{v})\\
 				& =\Omega_1(v_3,v_3)-\Omega_2(v_2,v_2')+\Omega_{2}(v_2',v_2')-\Omega_{1}(v_1,v_1).
-			\end{align*}
-Substracting,
+			\end{align}
+Substracting (\ref{eq:2})$-$(\ref{eq:1})
 \[0=-\Omega_2(v_2,v_2)+\Omega_2(v_2,v_2')+\Omega_2(v_2',v_2)-\Omega_2(v_2',v_2')\]
 And by linearity,
 \begin{align*}
-0&=-\Omega_2(-v_2+v_2,-v_2+v_2')+\Omega_2(v_2'-v_2',v_2-v_2')\\
-\implies 0&=-\Omega_2(0,-v_2+v_2')+\Omega_2(0,v_2-v_2')\\
-\implies 0&=\Omega_2(-v_2+v_2',0)+\Omega_2(0,v_2-v_2') \\
-\implies 0&=\Omega_2(-v_2+v_2',v_2-v_2')\\
-\implies 0&=\Omega_2(-(v_2-v_2'),v_2-v_2')
+0&=-\Omega_2(v_2,-v_2+v_2')+\Omega_2(v_2',v_2-v_2')\\
+\implies 0&=\Omega_2(v_2,)+\Omega_2(v_2',) \\
 \end{align*}
 and it follows that $v_2=v_2'$ from nondegeneracy.
 
@@ -168,9 +172,9 @@ But perhaps we can construct some other map. Let's try
 				g(u,u)&=\Omega(u,Ju)\\
 				&=\operatorname{Im}(h(u,Ju))\\
 				&=\operatorname{Im}(h(u,iu))\\
-				&=\operatorname{Im}(-ih(u,u))
+				&=\operatorname{Im}(ih(u,u))>0
 			\end{align*}
-			e sabemos que $h(u,u)>0$ … {\color{magenta}parece que $g(u,u)$  \'e negativo…}
+			since $h(u,u)>0$.
 	\end{enumerate}
 
 \end{proof}
