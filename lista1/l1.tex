@@ -1,6 +1,9 @@
 \input{/Users/daniel/github/config/preamble-por.sty}
 \input{/Users/daniel/github/config/thms-por.sty}
 
+\usepackage[style=authortitle-terse,backend=bibtex]{biblatex}
+\addbibresource{bibliography.bib}
+
 \begin{document}
 
 \begin{minipage}{\textwidth}
@@ -18,12 +21,16 @@
 \paragraph{Problem 1:} Let $V$ be a symplectic vector space ($\dim V=2n$), and $\Omega\in \Lambda^{2} V^{*}$be a skew-symmetric bilinear form. Show that $\Omega$ is nondegenerate iff $\Omega^{n} \neq 0$.
 
 \begin{proof}[Solution]
-	I first tried to show that $\Omega$ is degenerate iff $\Omega^{n}=0$. Suppose there is a vector $v_0$ such that $\Omega( v_0,w)=0$ for all $w\in V$ and complete to a basis. Then for any $v_1,v_2,v_3,v_4\in V$ we have
-	 \begin{align*}
-		 (\Omega\wedge \Omega)(v_1,v_2,v_3,v_4)&=\sum_{\sigma\in S_{4}}\operatorname{s gn}(\sigma)\Omega(v_{\sigma(1)},v_{\sigma(2)})\Omega(v_{\sigma(3)},v_{\sigma(4)}).
-		 \end{align*}
+	First suppose that $\Omega$ is nondegenerate. Then there are two vectors  $v,w\in V$ such that $\Omega(v,w)\neq 0$. Recall that for any $2n$ vectors we have:
+	\[\Omega^n(x_1,x_2,\ldots,x_{2n-1},x_{2n})=\sum_{\sigma\in S_{2n}}\operatorname{sgn}(\sigma)\Omega(x_{\sigma(1)},x_{\sigma(2)})\ldots\Omega(x_{\sigma(2n-1)},x_{\sigma(2n)})\]
+However,
+	\[\Omega^n(v,w,\ldots,v,w)\]
+has a much simpler expression since any term where $\Omega$ has a repeated entry vanishes. Further, since interchanging the entries of $\Omega$ changes it sign according to the order of the permutation, no terms in the sum cancel out and the result is nonzero. More explicitly, it is a nonzero integer multiple of some power of $\Omega(v,w)$.
 
-		 Finally I found this proposition in Lee, Intro. Smooth Manifolds.
+	For the converse let's suppose that $\Omega$ is degenerate and show that $\Omega^{n}=0$. Suppose there is a vector $v_1$ such that $\Omega( v_0,w)=0$ for all $w\in V$ and complete to a basis $\{v_1,\ldots,v_n\}$. At this point I got stuck and found in \cite{lee}, Prop. 22.8 that interior multiplication is an antiderivation, yielding
+	\[i_v(\Omega^n)=n(i_v\Omega)\wedge \Omega^{n-1}=0.\]
+	(Here $i_x\alpha(y):=\alpha(x,y)$ for any vectors $x,y\in V$ and any 2-form $\alpha$.) The proof of this antiderivation property is more involved. It immediately yields that $\Omega^n(v_1,\ldots,v_n)=0$, making $\Omega^n=0$.
+
 \end{proof}
 
 \paragraph{Problem 2:} Let $(V,\Omega)$ be a symplectic vector space, and let $W\subseteq V$ be any linear subspace.
@@ -39,24 +46,29 @@
 	\begin{enumerate}[label=\alph*.]
 		\item Define
 			\[\Omega_{W}([w_1],[w_2]):=\Omega(w_1,w_2)\]
-			for any equivalence classes $[w_1],[w_2]\in V_{W}$. Let's check that this is well defined. Suppose $w_1'\in [w_1]$. Then $w_1-w_1'\in W\cap W^{\Omega}$ so $\Omega(w_1-w_1',w_2)=0$ since $w_2\in W$ and $w_1-w_1'$ is, in particular, in $W^{\Omega}$. So $\Omega(w_1,w_2)=\Omega(w_1',w_2)$. {\color{magenta}Why not quotient only by $W^{\Omega}$? Looks like I didn't use the $W$ part…}
+			for any equivalence classes $[w_1],[w_2]\in V_{W}$. Let's check that this is well defined. Suppose $w_1'\in [w_1]$. Then $w_1-w_1'\in W\cap W^{\Omega}$ so $\Omega(w_1-w_1',w_2)=0$ since $w_2\in W$ and $w_1-w_1'$ is, in particular, in $W^{\Omega}$. So $\Omega(w_1,w_2)=\Omega(w_1',w_2)$.
 
 			Recall that $\pi^{*} \Omega_{W}(w_1,w_2)=\Omega_{W}([w_1],[w_2])$. It is straightforward to check that $\Omega_{W}$ is the only symplectic form on $V_{W}$ satisfying $\pi^{*} \Omega_{W}=\Omega|_{W}$: if $\Omega_{W}'$ is another such form, then $\Omega'_{W}([w_1],[w_2])=\Omega|_{W}(w'_1,w'_2)=\Omega_{W}([w_1],[w_2])$ for any $w_1'\in [w_1]$ and $w_2'\in [w_2]$.
 
-			\item Since $W$ is coisotropic, we have $V_W=W/W^\Omega$ and $L^\Omega=L$. Then
+\item Since $W$ is coisotropic, we have $V_W=W/W^\Omega$ and $L^\Omega=L$. First notice that $\pi(L\cap W)\subseteq\pi(L\cap W)^{\Omega_W}$ since $L$ is lagrangian:
 				\begin{align*}
-					\pi(L\cap W)^\Omega & =\{[w]\in W/W^\Omega:\Omega(w,\ell)=0\;\forall \ell\in L\cap W\} \\
-						      &=\{[w]\in W/W^\Omega:w\in (L\cap W)^\Omega\Omega\} \\
-						    %  &{\color{magenta}\overset{!}{=\; }}\pi(L\cap W)
+					[w]\in\pi(L\cap W)&\implies \Omega_W([w],[\ell])=\Omega(w',\ell')=0				\end{align*}
+for any representants of each equivalence class.
+
+				I couldn't really prove the other contention…
+				\begin{align*}
+					\pi(L\cap W)^{\Omega_W} & =\{[w]\in W/W^\Omega:\Omega_W([w],[\ell])=0\;\forall [\ell]\in \pi(L\cap W)\} \\
+					& =\{[w]\in W/W^\Omega:\Omega(w',\ell'
+					)=0\;\forall \ell'\in[\ell]\in\pi(L\cap W), w'\in [w]\} \\
+						& =\{[w]\in W/W^\Omega:\Omega(w',\ell'
+						)=0\; \forall \ell'-\ell,w-w'\in W^\Omega\text{ \& } \ell\in\pi(L\cap W)\}\\
+						&\subseteq\{[w]\in W/W^\Omega:w\in(L+(L\cap W))^\Omega\}
 				\end{align*}
 				Moreover,
 				\begin{align*}
 					(L\cap W)^\Omega & =L^\Omega+ W^\Omega =L+ W^\Omega\subseteq L + W
 				\end{align*}
-				since $L$ is lagrangian and $W$ coisotropic. So,
-				\begin{align*}
-					\pi(L\cap W)^\Omega &\subseteq\{[w]\in W/W^\Omega:w\in (L+W)\cap W\}\\&=\{[w]\in W/W^\Omega:w\in(L\cap W)\}\\&= \pi(L\cap W)
-				\end{align*}
+				since $L$ is lagrangian and $W$ coisotropic. Not sure if this was the correct way…
 \end{enumerate}
 \end{proof}
 
@@ -75,49 +87,30 @@ Consider symplectic vector spaces  $V_1,V_2,V_3$ and $E=V_3\oplus \overline{ V}_
 
 \begin{proof}[Solution]\leavevmode
 	\begin{enumerate}[label=\alph*.]
-		\item Let $v:=(v_3,v_2,v_2',v_1)\in \Delta^{\Omega_E}\subset E$ where  $\Omega_E=\Omega_1\oplus -\Omega_2\oplus \Omega_2\oplus -\Omega_1$ is the symplectic form on $E$. We wish to show that $v\in \Delta$, which only means that $v_2=v_2'$. So let $\tilde{v}=(v_3,v_2,v_2,v_1)$ and $\hat{v}=(v_3,v_2',v_2',v_1)$ which are both in $\Delta$. Then we have
-			\begin{align}\label{eq:1}
-				0&=\Omega_E(v,\tilde{v})\\
-				& =\Omega_1(v_3,v_3)-\Omega_2(v_2,v_2)+\Omega_{2}(v_2',v_2)-\Omega_{1}(v_1,v_1)
-			\end{align}
-and likeways
-			\begin{align}\label{eq:2}
-				0&=\Omega_E(v,\hat{v})\\
-				& =\Omega_1(v_3,v_3)-\Omega_2(v_2,v_2')+\Omega_{2}(v_2',v_2')-\Omega_{1}(v_1,v_1).
-			\end{align}
-Substracting (\ref{eq:2})$-$(\ref{eq:1})
-\[0=-\Omega_2(v_2,v_2)+\Omega_2(v_2,v_2')+\Omega_2(v_2',v_2)-\Omega_2(v_2',v_2')\]
-And by linearity,
-\begin{align*}
-0&=-\Omega_2(v_2,-v_2+v_2')+\Omega_2(v_2',v_2-v_2')\\
-\implies 0&=\Omega_2(v_2,)+\Omega_2(v_2',) \\
-\end{align*}
-and it follows that $v_2=v_2'$ from nondegeneracy.
+		\item First let's compute $\Delta^\Omega$. Let $v=(v_3,v_2,v_2',v_1)\in E$ and $(w_3,w_2,w_2,w_1)\in\Delta^\Omega$. This means that
+		\begin{align*}\Omega_3(v_3,w_3)-\Omega_2(v_2,w_2)+\Omega(v_2',w_2)-\Omega(v_1,w_1)&=0\\
+		\iff\Omega_3(v_3,w_3)+\Omega_2(v_2'-v_2,w_2)-\Omega(v_1,w_1)&=0
+		\end{align*}
+		Letting $w_2=w_1$ and varying $w_3$ we see that $v_3=0$ by nondegeneracy of $\Omega$. Likeways, $v_1=0$ and $v_2'=v_2$. This shows that $\Delta^\Omega$ is coisotropic.
 
 Now let's try to construct an isomorphism $E_{\Delta}=V_3\oplus \overline{V}_{1}$. Consider
 \begin{align*}
-	\varphi: E &\longrightarrow V_3\oplus \overline{V}_{1} \\
-	(v_3,v_2,v_2',v_1) &\longmapsto (v_3,v_1)
+	\varphi: \Delta &\longrightarrow V_3\oplus \overline{V}_{1} \\
+	(v_3,v_2,v_2,v_1) &\longmapsto (v_3,v_1)
 \end{align*}
-which is clearly surjective and not injective, so perhaps its kernel is $ \Delta \cap \Delta^{\Omega}$. But $\ker \varphi=\{(0,v_2,v_2',0)\}$, so unfortunately no.
+which is clearly surjective and not injective, and its kernel is $ \Delta \cap \Delta^{\Omega}=\Delta^\Omega$. But $\ker \varphi=\{(0,v_2,v_2',0)\}$.
 
-But perhaps we can construct some other map. Let's try
+	\item As in the last exercise, we see that $(L_2\times L_1)_\Delta= L_2\circ L_1$ via the map
 \begin{align*}
-	\varphi: E &\longrightarrow V_3\oplus \overline{V}_{1} \\
-	(v_3,v_2,v_2',v_1) &\longmapsto 
+	\varphi: \Delta\cap(L_2\times L_1) &\longrightarrow V_2\circ V_1 \\
+	(v_3,v_2,v_2,v_1) &\longmapsto (v_3,v_1).
 \end{align*}
+Further, since both $L_1$ and $L_2$ are lagrangian, so is their product. The conclusion follows from Problem 2b.
 
-	\item It looks like $L_2\circ L_1$ is very much like $E_\Delta$ from the last exercise. $L_2\circ L_1$ is \textit{strictly}  contained in $V_3\oplus \overline{V}_1\cong E_\Delta$.
-
-		Ok let's have a go at the hint. Perhaps  $(L_2\times L_1)_\Delta= L_2\circ L_1$ and it is lagrangian. That'd be great. OK let's compute it. This is how to do it:
-\begin{align*}
-	\varphi: L_2\times L_1 &\longrightarrow V_2\circ V_1 \\
-	(v_2,v_1,v_3,v_2) &\longmapsto 
-\end{align*}
-
-
-
-	
+	\item  Perhaps I'm missing something, but
+		\begin{align*}
+			\Gamma_{T_2}\circ \Gamma_{T_1}&=\{(T_2v,u):T_1u=v\} =\{(T_2(T_1u),u):u\in V\} =\Gamma_{T_2\circ T_1}.
+		\end{align*}
 \end{enumerate}
 \end{proof}
 
@@ -176,7 +169,18 @@ But perhaps we can construct some other map. Let's try
 			\end{align*}
 			since $h(u,u)>0$.
 	\end{enumerate}
-
+	Now suppose that $\{v_1,\ldots,v_n\}$ is an orthonormal basis of  $(V,h)$. We show that $\{v_1,\ldots,v_n,Jv_1,\ldots,Jv_n\}$ is a symplectic basis of $(V,\Omega)$:
+	\begin{align*}
+		\Omega(v_i,v_j)&=\begin{cases}
+			\operatorname{Im}(h(v_i,v_i))=\operatorname{Im}(1)=0,\qquad \qquad & i=j\\
+			\operatorname{Im}(h(v_i,v_j))=0,\qquad &i\neq j
+		\end{cases}\\
+		\Omega(v_i,Jv_j)& =\operatorname{Im}(h(v_i,Jv_j))=\operatorname{Im}(ih(v_i,v_j))=\operatorname{Im}(i\delta_{ij})=\delta_{ij}\\
+		\Omega(Jv_i,Jv_j)&=\begin{cases}
+			\operatorname{Im}(h(Jv_i,Jv_i))=\operatorname{Im}(-1)=0,\qquad \qquad & i=j\\
+			\operatorname{Im}(h(Jv_i,Jv_j))=\operatorname{Im}(-h(v_i,v_j))=0,\qquad &i\neq j.
+		\end{cases}
+	\end{align*}
 \end{proof}
 
  \paragraph{Problem 5:} Consider the symplectic vector space $(\mathbb{R}^{2n},\Omega_0)$, where $\Omega_0(u,v)=-u^{\mathbf{T}} J_0v$. Check that its group of linear symplectomorphisms is given by $\operatorname{Sp}(2n)=\{A\in \operatorname{GL}(2n):A^{\mathbf{T}}J_0A=J_0\}.$ Show that $\operatorname{Sp}(2n)$ is a smooth submanifold of $\operatorname{GL}(2n)$ and that its tangent space at the identity $I\in \operatorname{GL}(2n)$ is given by $T_{I}\operatorname{Sp}(2n)=\{A:\mathbb{R}^{2n}\to \mathbb{R}^{2n}|A^{\mathbf{T}} J_0+J_0A=0\} $. Conclude that $\operatorname{Sp}(2n)$ has dimension $2n^{2} +n$. Verify also that $\operatorname{Sp}(2n)$ is not compact.
@@ -196,39 +200,31 @@ for all $u\in\mathbb{R}^{2n}$, which means that $A^{\mathbf{T}}J_0Av=J_0v$ since
 	\Omega(u,v)&=-u^{\mathbf{T}}J_0v=-u^{\mathbf{T}}A^{\mathbf{T}}J_0Av=-(Au)^{\mathbf{T}}J(Av)=\Omega(Au,Av_0)=A^*\Omega(uv).
 \end{align*}
 
-
-Let's try to show that $\operatorname{Sp}(2n)$ is the inverse image of a regular value of some submersion $\operatorname{GL}(2n)\to \mathbb{R}$.  I think the determinant of $J_0$ is $1$, so perhaps the map
-\begin{align*}
-	 D:\operatorname{GL}(2n) &\longrightarrow \mathbb{R} \\
-	A &\longmapsto \det (A^{\mathbf{T}}J_0A)
-\end{align*}
-has inverse image of 1 equal to $\operatorname{Sp}(2n)$. It is clear that $\operatorname{Sp}(2n)\subset D^{-1}(1)$. Now suppose $A\in\operatorname{GL}(2n)$ is in $D^{-1}(1)$, but then it's not necessarily true that $A^{\mathbf{T}}J_0A=J_0$ because there are so many matrices with determinant 1 that are not $J_0$.
-
-Maybe the determinant won't work. But what about
+To show that $\operatorname{Sp}(2n)$ is a smooth manifold consider the map
 \begin{align*}
 	D: \operatorname{GL}(2n) &\longrightarrow \operatorname{GL}(2n) \\
 	A &\longmapsto A^{\mathbf{T}}J_0A
 \end{align*}
-maybe this map is a submersion at every point of $D^{-1}(J_0)=\operatorname{Sp}(2n)$. It really looks like a submersion at every point: it's only a composition of linear isomorphisms… of course its derivative is surjective, right? But something seems to be wrong because then it would be a sumbanifold of dimension $2n-2n=0$…
+This map is a submersion at every point of $D^{-1}(J_0)=\operatorname{Sp}(2n)$ because its derivative is only a composition of linear isomorphisms. But something seems to be wrong because then it would be a sumbanifold of dimension $(2n)^2-(2n)^2=0$ (according to \cite{loring}, Thm 9.9, Regular level set theorem, where the dimension of a regular level set is the difference of the dimension of the domain manifold minus the dimension of the codomain manifold).
 
-Let's have a look at the tangent space at the identity. Suppose that $V \in T_{I}\operatorname{Sp}(2n)$. I'm not sure how to continue here…
+After consulting \href{https://math.stackexchange.com/questions/4299154/the-symplectic-group-as-a-submanifold-of-mathbbr2n-times-2n}{StackExchange} I have found that we may define the codomain of $D$ as the vector space of skew-symmetric matrices $\{A\in\operatorname{Mat}(2n):A^{\mathbf{T}}=-A\}$, which is of dimension $\frac{1}{2}(2n)(2n-1)$. This gives $\dim \operatorname{Sp}(2n)=(2n)^2-\frac{1}{2}n(n-1)=4n^2-\frac{4n^2}{2}+\frac{2n}{2}=2n^2+n$. {\color{magenta}But I still can't see what's wrong with the other map…}
 
-Following Misha's slides, it could be shown that $\operatorname{Sp}(2n)$ is the exponent of its Lie algebra (ie. the tangent space of the identity), and that this Lie algebra is $W:=\{A\in\operatorname{GL}(2n):A^{\mathbf{T}}J_0+J_0A=0\}$. This suggests that $\operatorname{exp}W =\operatorname{Sp}(2n)$. But then we need a theorem saying that if the exponent of a subset of endomorphisms is a Lie group then such a subspace is its Lie algebra. This can be found in Misha's notes as follows: 
+Now let's find the tangent space at the identity. First recall the tangent space at the identity of a Lie group is isomorphic to its Lie algebra (\cite{lee}, Thm 8.37). Then we use that the exponential map is an isomorphism from the Lie algebra to the Lie group. This is because the differential of the exponential map at the identity is the identity (\cite{lee}, Prop. 20.8) and $\operatorname{exp}(0) =I\in\operatorname{GL}(2n)$, so $d_0\operatorname{exp}: T_0\operatorname{GL}(2n)\cong \operatorname{GL}(2n)\to T_{\operatorname{I}}\operatorname{Sp}(2n)$ is an isomorphism.
 
-Exponent is a map 
+Now let's check that $\operatorname{exp}(W) =\operatorname{Sp}(2n)$, that is,
+\[\operatorname{exp}(W) = \left\{ \operatorname{exp}(A):A^{\mathbf{T}}J_0+J_0A=0 \right\}\quad \overset{?}{=}\quad \{A\in\operatorname{GL}(2n):A^{\mathbf{T}}J_0A=J_0\}=\operatorname{Sp}(2n) \}\]
+Borrowing a proof from \href{https://math.stackexchange.com/questions/445088/finding-the-lie-algebra-of-the-symplectic-lie-group}{StackExchange}, we have
 \begin{align*}
-	\operatorname{exp}: \operatorname{End}V &\longrightarrow \operatorname{End}V \\
-	A &\longmapsto \sum_{n=0}^{\infty}\frac{A^{n}}{n!}
+	&A^{\mathbf{T}}J_0+J_0A =0\\
+	\implies & A^{\mathbf{T}} J=-JA\\
+	\implies & A^{\mathbf{T}} =J(-A)J^{-1}\\
+	\implies &\operatorname{exp}(A)^{\mathbf{T}}=\operatorname{exp}(J(-A) J^{-1})\\
+	\implies &\operatorname{exp}(A)^{\mathbf{T}} =J\operatorname{exp}(A)^{-1}J^{-1}\\
+	\implies &\operatorname{exp}(A)^{\mathbf{T}} J\operatorname{exp}(A) =J
 \end{align*}
-and its differential at $0\in\operatorname{End}V$ is the identity. But why… we have
-\[d_0\operatorname{exp}=\sum_{n=1}^{\infty}\frac{A^{n}}{(n-1)!}\]
-\href{https://en.wikipedia.org/wiki/Derivative_of_the_exponential_map#Statement}{I don't think} it's so straightforward to check that this is the identity so let's just suppose it is true.
+Using that $\operatorname{exp}(-A) =\operatorname{exp}(A)^{-1}$ (\cite{lee}, Prop 20.8), that $\operatorname{exp}(A^{\mathbf{T}}) =\operatorname{exp}(A)^{\mathbf{T}}$ and that $\operatorname{exp}(J_0) =J_0$ (remain to check).
 
-But what does it tell us that this map is the identity? Well, that $\operatorname{exp}(W)$ is invertible around 0, but not only that: notice that $\operatorname{exp}(0) =I\in\operatorname{GL}(2n)$ so $d_0\operatorname{exp}: T_0\operatorname{GL}(2n)\cong \operatorname{GL}(2n)\to T_{\operatorname{I}}\operatorname{Sp}(2n)$ is an isomorphism as required, provided of course that $\operatorname{exp}(W) =\operatorname{Sp}(2n)$. So let's check that.
-
-But that's nowhere near obvious:
-\[\operatorname{exp}(W) = \left\{ \sum_{n=0}^{\infty}\frac{A^{n}}{n!}:A^{\mathbf{T}}J_0+J_0A=0 \right\}\quad \overset{?}{=}\quad \{A\in\operatorname{GL}(2n):A^{\mathbf{T}}J_0A=J_0\}=\operatorname{Sp}(2n) \]
-Let's just go, let $A\in W$ and let's check wether $\operatorname{exp}(A)^{\mathbf{T}}J_0\operatorname{exp}(A) =J_0$. It \href{https://math.stackexchange.com/questions/1021900/proof-of-transpose-property-of-matrix-exponential}{looks like} transpose of exponent is exponent of transpose, but what is $\operatorname{exp}(J_0)$? \href{https://www.wolframalpha.com/input?i=exp%28%7B%7B0%2C0%2C0%2C-1%7D%2C%7B0%2C0%2C-1%2C0%7D%2C%7B0%2C1%2C0%2C0%7D%2C%7B1%2C0%2C0%2C0%7D%7D%29&lang=es}{This looks random…}
+I still wonder why $\operatorname{Sp}(2n)$ is not compact…
 
 \end{proof}
 
@@ -288,12 +284,14 @@ J(W^{\Omega)}&=\{\tilde{v}\in V:\Omega(w,J\tilde{v})=0\;\forall w\in W\} \\
 		\[\Omega(Jw,Jw')=\Omega(w,w')=0,\]
 		which shows that $JW\subseteq\big(J(W^{\Omega})\big)^{\Omega}$.
 
-		\item
+	\item Out of time!
 	\end{enumerate}
 
 
 \end{proof}
 
-\paragraph{Bonus problem: } 
+\paragraph{Bonus problem: } [content…]
+
+\printbibliography
 
 \end{document}
