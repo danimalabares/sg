@@ -1,0 +1,62 @@
+\input{/Users/daniel/github/config/preamble-por.sty}
+\input{/Users/daniel/github/config/thms-por.sty}
+
+\usepackage[style=authortitle-terse,backend=bibtex]{biblatex}
+\addbibresource{bibliography.bib}
+
+\begin{document}
+
+\begin{minipage}{\textwidth}
+	\begin{minipage}{1\textwidth}
+		Geometria Simpl\'etica \hfill Daniel González Casanova Azuela
+		
+		{\small Profs. Henrique Bursztyn and Leonardo Macarini\hfill\href{https://github.com/danimalabares/sg}{github.com/danimalabares/sg}}
+	\end{minipage}
+\end{minipage}\vspace{.2cm}\hrule
+
+\vspace{10pt}
+{\huge Lista 2}
+
+\paragraph{Problem 1} 
+
+\begin{proof}[Solution]\leavevmode
+	\begin{enumerate}[label=\alph*.]
+		\item 
+
+		\item Considere o mapa
+			\begin{align*}
+				(0,+\infty)\times \mathbb{S}^3 &\longrightarrow \mathbb{R}^4 \\
+				(t,v) &\longmapsto tv
+			\end{align*}
+			E inversa $(x,\frac{x}{|x|}$.
+	\end{enumerate}
+\end{proof}
+
+\paragraph{Problem 6} Let $\omega\in\Omega^2(M)$ be a nondegenerate 2-form. For $f\in C^\infty(M)$, let $X_f\in\mathfrak{X}(M)$ be defined by $i_{X_{f}}\omega=df$. Consider the bracket $\{f,g\}:=\omega(X_g,X_f)$. Verify that $d\omega=0$ if and only if $\{\cdot ,\cdot \}$ satisfies the Jacobi identity.
+
+\begin{proof}[Solution]\leavevmode
+	(Taken from \href{https://math.stackexchange.com/questions/1692891/how-to-show-that-jacobi-identity-for-is-equivalent-to-omega-being-clo}{StackExhange}). Using that $X_{\{g,h\}} =-[X_g,X_h]$ (Prop 22.19, \cite{lee} ), we may write the Jacobi identity as
+	\begin{align*}
+		0&=\{f,\{g,h\}\}+\{h,\{f,g\}\} +\{g,\{h,f\}\} \\
+		 &=\omega(X_f,[X_h,X_g])+\omega(X_h,[X_g,X_f])+\omega(X_g,[X_f,X_f])
+	\end{align*}
+	Next we use the coordinate-free expression of the exterior derivative of a 3-form to write
+	\begin{align*}
+		d\omega(X_f,X_g,X_h)=&X_f\omega(X_g,X_h)-X_g\omega(X_f,X_h)+X_h\omega(X_f,X_g)\\
+				     &-\omega([X_f,X_g],X_h)+\omega([X_f,X_h],X_g)-\omega([X_g,X_h],X_f)
+	\end{align*}
+	Finally we use that $X_f\omega(X_g,X_h)=\omega(X_f,[X_g,X_h])$ ({\color{magenta}why?)} to see that, in the last equation, the first and second row on the right hand side are actually the same, and each of them equals the expression of the Jacobi identity.
+\end{proof}
+
+\paragraph{Problem 7} Consider symplectic manifolds $(M_i,\omega_i)$, with Poisson bracket $\{\cdot ,\cdot \}_{i}$, $i=1,2$, and let  $\phi:M_1\to M_2$ be a smooth map.
+\begin{enumerate}[label=\alph*.]
+	\item Prove that if $\phi$is a diffeomorphism, then it is a Poisson map ($\{\phi^*f,\phi^*g\}_1=\phi^* (\{f,g\}_2)$ for all $f,g\in C^\infty(M_2)$) if and only if $\phi^*\omega_2=\omega_1$.
+\end{enumerate}
+
+\begin{proof}[Solution]\leavevmode
+	\begin{enumerate}[label=\alph*.]
+		\item 
+	\end{enumerate}
+\end{proof}
+
+\end{document}

@@ -374,6 +374,8 @@ Lembranza da \'ultima aula:
 
 \paragraph{Hoje:} Fibrados cotangentes.
 
+\subsection{Forma tautol\'ogica no fibrado cotangente}
+
 Seja $Q$ uma variedade e $M :=T^* Q$ o fibrado cotangente.
 
 \paragraph{Lembrando} Se $Q$ \'e uma variedade, $x\in Q$. O \textit{\textbf{espa\c co tangente}} em $ x$ s\~ao derivaç\~oes ou clases de equivalencia de curvas… base local do espa \c co tangente $\partial_{x_i}$…base dual disso \'e base do espa\c co cotangente nesse ponto… o fibrado cotangente $\bigsqcup_{x\in Q}T^*_{x}Q$ \'e variedade suave.
@@ -386,7 +388,22 @@ O fibrado cotangente possui uma 1-forma tautol\'ogica definida assim:
 	ou seja, como $X$ \'e tangente ao fibrado cotangente, ele est\'a anclado a algum covetor, assim a gente pode evaluar ele no covector. Tamb\'em pode ser pensado como o pullback de um covector em $Q$ baixo a proje\c c\~ao cotangente usual.
 \end{defn}
 
-Em coordenadas locais $(x_1,...,$ 
+\begin{defn}[Monitoria]
+	\[\begin{tikzcd}
+		T^*M=\{(p,\xi)|\xi:T_pM\to \mathbb{R}\text{ linear} \} \arrow[d,"\pi"]\\
+		M
+	\end{tikzcd}\]
+	A \textit{\textbf{forma tautologica}}  \'e $\lambda$ dada por
+	\[\lambda_{(p,\xi)}(v)\in\mathbb{R},\qquad v\in T_{(p,\xi)(T^*M)}\]
+	\'e igual a
+	\[\xi(d\pi_{(q,\xi)(v)})\]
+	ussando o mapa
+\[T_{(p,\xi)}(T^* M)\overset{d\pi_{(p,\xi)}}{\longrightarrow}T_{p}M\]
+\end{defn}
+
+Em coordenadas locais $(x_1,...,x_n,y_1,\ldots,y_n)$ do espaço cotangente, temos que
+\[\lambda=\sum_{i=1}^nA_i dx_i+\sum_{i=1}^nB_i dy_i\]
+Avaliando $\lambda$ nos vectores can\'onicos $\frac{\partial}{\partial x_j}\Big|_{(p,\xi)}$ e $\frac{\partial}{\partial y_j}$ notamos que $A_i=\xi\left( \frac{\partial}{\partial x_j} \right) $ pois a diferencial de $\pi$ faz as $B_j$ ser zero.
 
 \begin{exercise}\leavevmode 
 	\begin{enumerate}
@@ -623,8 +640,8 @@ onde $\omega_N$ \'e dada por $A(y)$ e  \'e simpl\'etica.
 		\item En\~ao $X_p$ e $X_q$ s\~ao linearmente independentes, pois $1=\{p,q\} =\omega(X_p,X_q)\neq 0$, o que aconteceria por antisimetria se s\~ao linearmente dependentes. Al\'em disso, comutam, pois
 			\[ [X_p,X_q]\overset{\text{aula pasada?} }{=}X_{\{p,q\} =1}=0.\]
 
-			Agora usamos a generaliza\c c\~ao do teorema do fluxo abular: se $X_1,\ldots,X_k$ s\~ao campos  linearmente independentes e que comutam, ent\~ao existem coordenadas $(x_1,\ldots,x_n)$ dais que $X_i=\frac{\partial}{\partial x_i}$. (Teo. fun\c c\~ao inversa.) Assim, existem coordenadas locais $y_1,\ldots,y_{2n}$ tais que
-			\[X_q=\frac{\partial}{\partial y_{2n-1}}\qquad X_p=\frac{\partial}{\partial y_{2n}}.\]
+			Agora usamos a generaliza\c c\~ao do teorema do fluxo tabular: se $X_1,\ldots,X_k$ s\~ao campos  linearmente independentes e que comutam, ent\~ao existem coordenadas\\ $(x_1,\ldots,x_n)$ dais que $X_i=\frac{\partial}{\partial x_i}$. (Teo. fun\c c\~ao inversa.) Assim, existem coordenadas locais $y_1,\ldots,y_{2n}$ tais que
+			\[X_q=\frac{\partial}{\partial y_{2n-1}},\qquad  X_p=\frac{\partial}{\partial y_{2n}}.\]
 			Logo
 			\[dy_j(X_q)=0=dy_j(X_p)\]
 			para $j=1,\ldots,2n-2$.
@@ -662,5 +679,254 @@ $\mathbb{R}$-bilinear, antisim\'etrica, Jacobi e Leibniz, ie. $\{f,gh\} =\{f,g\}
 		\item $(M,\omega)$ simpl \'etica com $\{f,g\} =\omega(X_g,X_f)$.
 	\end{itemize}
 \end{example}
+
+\section{Aula 7}
+
+Na aula passada vimos:
+
+\begin{itemize}
+	\item Colchetes de Poisson.
+	\item Teorema de Darboux. Prova: demostrar que tem relaç\~oes que caractetizam a forma de maneira \'unica.
+	\item \'E poss\'ivel descrever estruturas cimpl\'eticas en termos de colchete de Poisson.: Variedades de Poisson. Issto \'e axiomatizar as propriedades b\'asicas do colchete de Poisson. Esses objetos podem ser entendidos como foleaç\~oes simpl\'eticas.
+\end{itemize}
+
+\subsection{Subvariedades}
+
+Seja $(M,\omega)$ simpl\'etica e $N\overset{i}{\hookrightarrow }(M,\omega)$. Ent\~ao temos
+\[\omega_N=i^* \omega\in\Omega^2(N)\]
+que \'e fechada porque o pullback comuta com derivada exterior.
+
+\begin{align*}
+	 \ker(\omega_N)& =\{X\in T N:\omega(X,Y)=0\;\forall Y\in T N\} \\
+	 &=T N\cap T N^\omega\subseteq T N
+\end{align*}
+
+\subsection{Pausa para distribuiç\~oes}
+$P$ variedade.
+
+\begin{defn}
+	Uma \textit{\textbf{distribuiç\~ao (generalizada)}} em $P$ \'e
+	\[P\ni x\longmapsto D_x\subseteq T_xP\text{ subespaço} \]
+	e o posto da distribuiç\~ao em $x$ := $\dim D_x$.
+
+	A distribuiç\~ao \'e \textit{\textbf{suave}} se para todo $x_0\in P$, $\forall v\in D_{x_0}$ existe um campo vetorial $X\in\mathfrak{X}(P)$ que extende a $v$ e est\'a contido na distribiuç\~ao no sentido de que $X_x\subseteq D_x\forall x$ e $X_{x_0}=v$.
+\end{defn}
+
+\begin{example}
+	N\'uncleo de 2-formas \'e um exemplo de distribui\c c\~ao, mas n\~ao \'e suave em geral.
+\end{example}
+
+\begin{defn}
+	Uma distribui\c c\~ao suave $D\subseteq TP$ \'e dita \textit{\textbf{integravel}} se $\forall x\in P$ existe uma subvariedade $S\ni x$,  $TS=D|_{S}$
+\end{defn}
+
+No caso de uma dsitribui\c c\~ao (suave) integr\'avel, por todo ponto passa uma subvariedade integral conexa maximal chamadas \textit{\textbf{folhas}}.
+
+\begin{remark}\leavevmode 
+	\begin{itemize}
+		\item Distribui\c c\~ao suave, de posto constante \'e a mesma coisa que um subfibrado vetorial $D\subseteq TP$. Nesse caso,
+
+		\begin{thm}[Frobenius]
+			$D$ \'e integr\'avel se e somente se \'e \textit{\textbf{involutivo}}, ou seja  \[[\Gamma(D),\Gamma(D)]\subseteq \Gamma(D).\]
+		\end{thm}
+
+		\begin{proof}[Demostra\c c\~ao]
+			Note que $\implies $ \'e trivial porque se tem uma  variedade que realiza a distribui\c c\~ao, o colchete de Lie sempre vai ser outro campo vetorial tangente.
+		\end{proof}
+		
+	\item Suponha que $D=\ker(\omega)$ com $\omega\in\Omega^2(P)$ \'e suave  $\iff$ $D$ tem posto constante. Aqu\'i $\impliedby$ \'e f\'acil.
+
+	\item Se $d\omega=0 \implies D=\ker \omega$ \'e involutivo.
+	\end{itemize}
+\end{remark}
+
+\paragraph{Conclus\~ao}  Se $\omega$ \'e uma 2-forma fechada e $D=\ker \omega$ tem posto constante, da lugar a uma folhea\c c\~ao (regular=folhas de mesma dimens\~ao) em $P$.
+
+
+\subsection{Voltando}
+
+\begin{defn}
+	$N$ \'e dita
+	\begin{itemize}
+		\item \textit{\textbf{isotr\'opica}} quando $T_x N\subseteq T_X N^\omega\iff \omega_N=0\iff \ker \omega_N=T N$.
+
+		\item \textit{\textbf{coisotr\'opica}} quando $T_x N^\omega\subseteq T_x N$.
+
+		\item \textit{\textbf{lagrangiana}} quando $T_x N=T_x N^\omega\iff i^*\omega=\omega_N=0$ e $\dim N=\dim M/2$.
+
+		\item \textit{\textbf{simpl\'etica}} $T_x N\cap(T_x N)^\omega=\{0\}\;\forall x\in N\iff \omega_N$ \'e simpl\'etica.
+
+		\item \textit{\textbf{posto constante}} $T_x N\cap T_x N^\omega\subseteq T_x N\;\forall N$ tem posto constante.
+	\end{itemize}
+\end{defn}
+
+\begin{example}\leavevmode 
+	\begin{itemize}
+		\item curvas s\~ao isotr\'opicas.
+		\item hipersuperficies s\~ao coisotr\'opicas.
+		\item Veremos v\'arios exeplos de subespaços lagrangianos.
+	\end{itemize}
+\end{example}
+
+\subsubsection{Sobre subvariedades coisotr\'opicas}
+
+\textbf{Isto tamb\'em vale para subvariedades de posto constante.} 
+
+Vamos ver uma vers\~ao geom\'etrica de um exer\'icio da lista 1, onde pegabamos o quociente de um espaço vetorial por el n\'ucleo de uma forma para obter um espaço vetorial simpl\'etico.
+
+\begin{exercise}
+	Suponha que as folhas da folhea\c c\~ao s\~ao fibras de uma sobmers\~ao
+
+	\[\begin{tikzcd}
+		N\arrow[r,hook]\arrow[d,two heads,swap,"q"]&(M,\omega)\\
+		B=N/\sim
+	\end{tikzcd}\]
+	ent\~ao existe uma forma simpl\'etica $\bar{\omega} \in\Omega^2(B)$ tal que $q^*\bar{\omega} =\omega_N$.
+\end{exercise}
+
+\begin{example}
+	O fluxo hamiltoniano do oscilador harm\'onico $H(p,q)=\frac{1}{2}\sum_{i}q_i^2+p_i^2$ com $c=1/2$ da  $\mathbb{C}P^{n-1}$
+\end{example}
+
+\begin{exercise}
+	$\psi:M\to \mathbb{R}^{k}$, $\psi=(\psi_1,\ldots,\psi_k)$. $N=\psi^{-1}(c)$ para $c$ valor regular.
+	\begin{itemize}
+		\item $N$ coisotr\'opico $\iff \{\psi_i,\psi_j\}|_{N} =0$.
+
+		\item $N$ simpl\'etico $\iff \left( \{\psi_i,\psi_j\} |_{N} \right)_{ij}$ \'e invert\'ivel.
+	\end{itemize}
+\end{exercise}
+
+\section{Aula 8}
+
+Lembre:
+
+\begin{itemize}
+	\item Subvariedades lagrangianas, (co-)isotr\'opicas, simpl\'eticas. Aprofundamos\\ nas coisotr\'opicas (posto constante), como as hipersuprficies ou conjuntos de n\'ivel, que tem uma folhea\c c\~ao, e com condi\c c\~oes  de regularidade pode passar para o espaço quociente, que \'e simpl\'etico, como $\mathbb{C}P^{n}$.
+\end{itemize}
+
+\subsection{Alguns exemplos de subvariedades lagrangianas}
+
+\begin{example}
+	Dois variedades simpl\'eticas e um difeomorfismo entre elas. Ent\~ao $\varphi$ \'e simplectomorfismo se e s\'o se seu gr\'afico \'e lagrangiano. Talvez isso pode ser ussado para pensar em simplectomorfismos em um objeto cuantico.
+\end{example}
+
+\begin{remark}
+	Considere
+	\begin{align*}
+		\varepsilon: M_1 &\longrightarrow M_1\times M_2 \\
+		x &\longmapsto (x,\varphi x)
+	\end{align*}
+	ent\~ao o grafo de $\varphi$ \'e lagrangiano $\iff \omega_1-\varphi^*\omega_2$.
+\end{remark}
+
+\begin{example}[no fibrado cotangente]\leavevmode 
+	\begin{itemize}
+		\item A se\c c\~ao zero $Q\hookrightarrow T^*Q$ \'e nos mostra que $Q$ \'e uma subvariedade lagrangiana.
+
+		\item A fibra (cotangente) de um ponto tamb\'em \'e uma subvariedade lagrangiana de $T^*Q$.
+
+		\item Logo, o espaço de fibras?
+
+		\item Pegue uma subvariedade da base $S\subset Q$. Considera o \textit{\textbf{fibrado conormal}} $N^*S$, $\nu_S^*$. \'E o dual do fibrado tangente. \'E o anulador de $TS$,  $\{(x,\xi)\in T^*Q:x\in S, \xi|_{TxS}=0\}$. Note que \'e um subfibrado do fibrado cotangente.
+	\end{itemize}
+\end{example}
+
+Os dois exemplos anteriores s\~ao $S=Q$ e  $S=\{x\}$ da seguinte prop:
+
+\begin{prop}
+	$N^*S\hookrightarrow T^*Q$ \'e (um subfibrado) uma subvariedade lagrangiana.
+\end{prop}
+
+\begin{proof}[Demostra\c c\~ao]
+	Ussando coordenadas adaptadas e a forma tautol\'ogica do $T^*Q$, damos coordenadas $N^*Q$ da forma $(x_1,\ldots,x_k,\xi_{k+1},\ldots,\xi_n)$ e assim o pullback da forma tautol\'ogica \'e zero porque ele evalua os covectores $\xi_{\text{grande} }$ em vectores $x_{\text{pequeno} }$.
+\end{proof}
+
+\begin{example}
+	Uma forma $\mu$ vista como se\c c\~ao do fibrado cotangente pode ser pensada como um mergulho de $Q$ em $T^*Q$.
+\end{example}
+
+\begin{prop}
+	Essa subvariedade \'e lagrangiana $\iff d\mu=0$.
+\end{prop}
+
+\subsection{M\'etodo de Moser}
+
+Dadas dois formas simpl\'eticas numa variedade, como podemos achar um simplectomorfismo entre elas? A ideia do m\'etodo \'e assim:
+
+\begin{enumerate}[label=\textbf{Step \arabic*}]
+	\item Interpolar as dois formas mediante uma familia cont\'inua $\omega_t$ de formas simpl\'eticas.
+
+	\item Buscar uma (isotop\'ia) fam\'ilia de difeomorfismos $\varphi_t$ com $\varphi_0=\operatorname{id}$ e tal que $\varphi^*_t\omega_t=\omega_0$. Com isso a gente procura levar o problema para uma EDO.
+
+	\item Os fluxos s\~ao isotop\'ias com uma rela\c c\~ao de comutatividade. Eles correspondem com campos vetoriais. As isotop\'ias em geral est\~ao em correspond\^encia com \textit{\textbf{campos de vetores n\~ao aut\'onomos}}.
+\end{enumerate}
+
+\begin{defn}
+	Uma fam\'ilia suave de difeomorfismos $\{\phi_t\}$ com $\phi_0=\operatorname{id}$ \'e chamada \textit{\textbf{isotop\'ia}}. Suave significa que $(t,x)\mapsto \varphi_t$ \'e suave.
+\end{defn}
+
+\begin{example}
+	Fluxos (complets) s\~ao isotop\'ias tq $\phi_s\circ \phi_t=\phi_{s+t}$.
+\end{example}
+
+\begin{defn}
+	Um \textit{\textbf{campo de vetor $t$-dependente}} ou  \textit{\textbf{n\~ao aut\'onomo}} \'e fam\'ilia suave de campos $X_t\in\mathfrak{X}(M)$. De novo, suave \'e que $(t,x)\mapsto X_t(x)$ \'e suave.
+\end{defn}
+
+\[\text{isotop\'ia} \leftrightarrow \text{campos $t$-dependentes}  \]
+A diferencia\c c\~ao sempre \'e simples n\'e? Fixa um ponto e varia o tempo, obt\'em uma curva.
+\[\phi_t\mapsto X_t(\varphi_t(x)=\frac{d}{d\tau}|_{t=\tau}\varphi_\tau(x).\]
+
+A rec\'iproca \'e mais dif\'icil. A ideia e extender a variedade  \'a $M\times \mathbb{R}$, e considerar $\overline{X}(x,t)=(X_t(x),\frac{d}{dt})$. Esse depende do tempo, assim podemos achar um fluxo $\phi_t$ de $\overline{X}_t$. Aqui se deve extender o fluxo ussando bump functions, assim a gente tem que $\phi_t$ est\'a definido para toda $t$.
+
+Note que $\phi_t(x,s)=(G_t,t+s)$ para alguma fun\c c\~ao $G$ na variedade. Podemos achar uma inversa dela assim:
+\[(x,s)=\phi_{-t}(\phi_t(x,s))=G_{-t}(G_t(x,s),t+s),s)\]
+ie. a inversa de
+\[x\mapsto G_t(x,s)\]
+\'e
+\[y\mapsto G_{-t}(y,s+t)\]
+Logo, 
+\[\phi_t(x)=G_t(x,0)\]
+\'e uma isotop\'ia e como a derivada do fluxo
+\[\frac{d}{dt}\phi_t(x,0)=\overline{X}(G_t(x,0),t)\implies \frac{d}{dt}G_t(x,0)=X_t(x,0)).\]
+E \'e isso. Temos a correspondencia.
+
+Voltando ao m\'etodo de Moser, para achar $\varphi^*\omega_1=\omega_0$, pegamos uma isotop\'ia que puxa $\omega_t$ em $\omega_0$, e queremos diferenciar a isotop\'ia. No caso de um fluxo, trata-se da derivada de Lie por defini\c c\~ao.
+
+\begin{lemma}
+	$\{\varphi_t\}$ isotop\'ia em $M$, $\{X_t\}$ campo aut\'onomo. Sejam $\eta\in\Omega^k(M)$, $\beta_t\in\Omega^k(M)$. Ent\~ao vale:
+	\[\frac{d}{dt}(\varphi^*_t\epsilon)=\varphi^*_t(\mathcal{L}_{X_t}\eta\]
+	onde estamos pegando a derivada num tempo $t$ fixo. Da\'i veremos que pela regra da cadeia segue que
+	\[\frac{d}{dt}(\varphi^*_t\beta_t)=\varphi^* (\mathcal{L}_{X_t}\beta_t+\frac{d}{dt}\beta_t\]
+\end{lemma}
+
+\begin{proof}[Demostra\c c\~ao]
+	\begin{enumerate}[label=\alph*.]
+		\item Considere os seguintes operadores em $\Omega^\bullet$ :
+			\[Q_1(\eta)=\frac{d}{dt}\varphi^*_t\eta,\qquad Q_2(\eta)=\varphi^*_t\mathcal{L}_{X_t}\eta\]
+			Da\'i note que esses operadores comutam com a derivada exterior, s\~ao Leibniz respeito ao producto cunha e coincidem em fun\c c\~oes . Da\'i segue que $Q_1=Q_2$.
+
+		\item A regra da cadeia diz que para uma fun\c c\~ao $F(a,b)$,
+\[\frac{d}{dt}F(t,t)=\frac{\partial}{\partial a}F(t,t)+\frac{\partial}{\partial b}F(t,t)\]
+e olha para $\varphi^*_a\beta_b$ como a $F$. Sustiuindo e ussando  a., o resultado segue.
+	\end{enumerate}
+\end{proof}
+
+Uma aplica\c c\~ao disso \'e
+
+\begin{thm}[de estabilidade de Moser]\leavevmode
+	$M$ compacta, $\{\omega_t\}$ formas simpl\'eticas, $t\in [0,1]$. Se as formas s\~ao todas cohomologas ent\~ao elas s\~ao simplectomorfas, i.e. $[\omega_t]=[\omega_0]\implies \exists \phi_t$ tq $\phi^*_t\omega_t=\omega_0$. Ou, de outra forma, se existe uma fam\'ilia suave de formas $\beta_t$ tais que
+	 \[\omega_t=\omega_0+d\beta_t\]
+	 ent\~ao existe uma isotop\'ia $\{\varphi_t\}$ tal que $\varphi^*_t\omega_t=\omega_0$.
+\end{thm}
+
+\begin{proof}[Demostra\c c\~ao]
+	Note que n\~ao \'e imediato que as clases de cohomologia nos dem uma famil\'ia suave, mas \'e equivalente sim (ussando decomposi\c c\~ao de Hodge? Tem algo mais simples?). O m\'etodo \'e achar um campo de vetores aut\'onomo resolvendo
+	\[i_{X_t}\omega_t=-\frac{d}{dt}\beta_t\]
+	pois dela segue que
+	\[\mathcal{L}_{X_t}\omega_t=-d\left( \frac{d}{dt}\beta_t \right)\]
+	E da\'i a segunda afirma\c c\~ao do lema.
+\end{proof}
 
 \end{document}
