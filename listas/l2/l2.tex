@@ -17,7 +17,7 @@
 \vspace{10pt}
 {\huge Lista 2}
 
-\paragraph{Problem 1} 
+\paragraph{Problem 1} Verify (and justify) wether or not the following manifolds admit a symplectic structure: $S^{1}\times S^3$, $\mathbb{R}\times S^3$ $\mathbb{R}^{3}\times S^{3}$, $\mathbb{T}^3\times S^3$.
 
 \begin{proof}[Solution]\leavevmode
 	\begin{enumerate}[label=\alph*.]
@@ -28,7 +28,45 @@
 				(0,+\infty)\times \mathbb{S}^3 &\longrightarrow \mathbb{R}^4 \\
 				(t,v) &\longmapsto tv
 			\end{align*}
-			E inversa $(x,\frac{x}{|x|}$.
+			com inversa $x\mapsto \left( |x|,\frac{x}{|x|} \right)$. Ele \'e um difeomorfismo, assim o pullback da forma simpl\'etica can\'onica em $\mathbb{R}^{4}$ induz uma estrutura simpl\'etica em $\mathbb{R}\times S^3\overset{\operatorname{dif}}{\cong} (0,+\infty)\times S^3$.
+
+		\item Considerando que $S^3$ \'e a esfera unit\'aria nos quat\'ernios, os campos vetoriais $z\mapsto iz$, $z\mapsto jz$ e $z\mapsto kz$ s\~ao uma base global, de forma que $S^3$ \'e paraleliz\'avel. Sendo uma 3-variedade, temos que $TS^3\cong \mathbb{R}^{3}\times S^3$. Em aula vimos que todo fibrado tangente \'e uma variedade simpl\'etica usando o pullback da forma can\'onica no fibrado cotangente.
+
+		\item 
+	\end{enumerate}
+\end{proof}
+
+\paragraph{Problem 2} Show that the tautological 1-form $\Omega^{1}(T^*Q)$ is \textit{uniequely characterized} by the following property: for any 1-form $\mu\in\Omega^{1}(Q)$,
+\[\mu^*\alpha=\mu\]
+where on the left-hand side we view  $\mu$ as a map $\mu:Q\to T^*Q$.
+
+\begin{proof}[Solution]\leavevmode
+	(After several tries, consulted \href{https://math.stackexchange.com/questions/4141107/a-characterization-of-the-tautological-form-liouville-1-form-on-the-cotangent}{StackExchange}) Simply notice that if $\beta$ is another 1-form on  $T^*Q$ such that $\mu^*\beta=\mu$ for all $\mu\in\Omega^{1}(Q)$, then  $\mu^*(\alpha-\beta)=0$. Further, if any  $\theta\in\Omega^{1}(T^*Q)$ satisfies $\mu^*\theta=0$ for all $\mu\in\Omega^{1}(Q)$, it must be identiacally zero. This follows since for any $w\in T(T^*Q)$ we can find a form $\mu$ and a vector $v$ such that $\mu_*v=w$.
+\end{proof}
+
+
+\begin{proof}[Solution]\leavevmode
+	Temos que se $v\in T_x(Q)$ \'e um vetor tangente a $Q$ no ponto $x\in Q$,
+	\begin{align*}
+		(\mu^*\alpha)_xv&=\alpha_{\mu_x}(\mu_*v)
+	\end{align*}
+	onde $\mu_*v\in T T^*Q$, pois $\mu_*:TQ\to  T T^*Q$. Lembre que $\alpha_\eta=\pi^*_{\eta}\eta$ para qualquer $\eta\in\Omega^{1}(Q)$. Assim, podemos escrever
+	\begin{align*}
+		\alpha_{\mu_x}(\mu_*v)&=\pi_{\mu_x}^*(\mu_{*}v)\\
+		& =\mu_x(\pi_{*}\mu_*v)\\
+		&=\mu_x(v)
+	\end{align*}
+	j\'a que $\mu$ comuta com a proje\c c\~ao.
+\end{proof}
+
+\paragraph{Problem 3} 
+
+\begin{proof}[Solution]\leavevmode
+	\begin{enumerate}[label=\alph*.]
+		\item Seguindo a nota\c c\~ao do problema anterior, note que
+			\begin{align*}
+			(F^*\alpha)v&=-\alpha(F_*v)=-\pi^*_{\xi_{F_*v}}\xi_{F_*v}(F_*v)=\xi_{F_*v}(\pi_*F_*v)
+			\end{align*}
 	\end{enumerate}
 \end{proof}
 
@@ -51,11 +89,52 @@
 \paragraph{Problem 7} Consider symplectic manifolds $(M_i,\omega_i)$, with Poisson bracket $\{\cdot ,\cdot \}_{i}$, $i=1,2$, and let  $\phi:M_1\to M_2$ be a smooth map.
 \begin{enumerate}[label=\alph*.]
 	\item Prove that if $\phi$is a diffeomorphism, then it is a Poisson map ($\{\phi^*f,\phi^*g\}_1=\phi^* (\{f,g\}_2)$ for all $f,g\in C^\infty(M_2)$) if and only if $\phi^*\omega_2=\omega_1$.
+
+	\item Find examples of $M_1$, $M_2$ and $\phi:M_1\to M_2$ such that (1) $\phi$ is not a Poisson map but soes not satisfy $\phi^*\omega_2=\phi_1$, (2) $\phi$ satisfies $\phi^*\omega_2=\omega_1$ but it is not a Poisson map.
 \end{enumerate}
 
 \begin{proof}[Solution]\leavevmode
 	\begin{enumerate}[label=\alph*.]
-		\item 
+		\item Suppose that $\omega_1=\phi^*\omega_2$. Then
+			\begin{align*}
+				\{\phi^*f,\phi^*g\} & =\omega_1(X_{\phi^*f},X_{\phi^*g})\\
+						    &=\phi^* \omega_2(X_{\phi^*f},X_{\phi^*g})\\
+						    & =\omega_2(\phi_*X_{\phi^*f},\phi_{*} X_{\phi^*g})\\
+						    & =\omega_2(X_f,X_g)\\
+						    & =\{f,g\}
+			\end{align*}
+	For the converse I would li
+
+	\item It is clear that $\phi_1:(q_1,p_1,q_2,p_2)\mapsto (q_1,p_1)$ does not satisfy $\phi_1^*\omega_{\mathbb{R}^{2}}=\omega_{\mathbb{R}^{4}}$ since 
+		\[\omega_{\mathbb{R}^{4}}((0,1,0,1),(0,1,0,-1))=2\]
+		but $(\phi_1)_{*}(0,1,0,1)=(0,1)=(\phi_1)_*(0,1,0,-1)$ giving 
+		\[\phi_1^*\omega_{\mathbb{R}^{2}}((0,1,0,1),(0,1,0,1))=\omega_{\mathbb{R}^{2}}((0,1),(0,1))=0.\]
+		However we can see that $\phi_1$ is a Poisson map since for any $f,g\in\mathcal{C}^\infty(\mathbb{R}^{2})$, at $x\in\mathbb{R}^{4}$ we have
+		\[\phi_1^*\{f,g\}_{\mathbb{R}^{2}}(x)=\left( \sum_{i=1}^2\frac{\partial f}{\partial x_i}\frac{\partial g}{y_i}-\frac{\partial f}{\partial y_i}\frac{\partial g}{\partial x_i} \right)_{\phi_1(x)} \]
+and
+\[\{\phi_1^*f,\phi_1^*g\}_{\mathbb{R}^{4}} =\left( \sum_{i=1}^2\frac{\partial f\circ \phi_1}{\partial x_i}\frac{\partial g\circ \phi_1}{y_i}-\frac{\partial f\circ \phi_1}{\partial y_i}\frac{\partial g\circ \phi_1}{\partial x_i} \right)_x\]
+and they are equal by the chain rule and the fact that the derivative of $\phi_1$ does not alter the first two coordinates of a vector while vanishing the last two.
+
+
+		It is even more clear that $\phi_2:(q_1,p_2)\mapsto (q_1,p_1,0,0)$ satisfies $\phi_2\omega_{\mathbb{R}^{4}}=\omega_{\mathbb{R}^{2}}$. However, in this case we have
+		\[\phi_2^*\{f,g\}_{\mathbb{R}^{4}}(x)=\left( \sum_{i=1}^4\frac{\partial f}{\partial x_i}\frac{\partial g}{y_i}-\frac{\partial f}{\partial y_i}\frac{\partial g}{\partial x_i} \right)_{\phi_2(x)} \]
+		while
+\[\{\phi_2^*f,\phi_2^*g\}_{\mathbb{R}^{2}} =\left( \sum_{i=1}^2\frac{\partial f\circ \phi_2}{\partial x_i}\frac{\partial g\circ \phi_2}{y_i}-\frac{\partial f\circ \phi_2}{\partial y_i}\frac{\partial g\circ \phi_2}{\partial x_i} \right)_x\]
+	\end{enumerate}
+	meaning that the information of the last two coordinates is lost in the second expression, so they cannot be equal.
+	\end{proof}
+
+\paragraph{Problem 8} \leavevmode 
+
+\begin{enumerate}[label=\alph*.]
+	\item Consider $S^{2}=\{x\in\mathbb{R}^{3}:\|x\|=1\}$ equipped with the are form $\omega_x(u,v)=\left<x,u\times v\right> $ (where $x\in S^{2}$, $u,v\in T_xS^{2}$ and $\times $ is the vector product). Use cylindrical coordinates to prove Darboux's theorem directly in this example.
+
+	\item More generally: show that on a 2-dimensional manifold, any non-vanishing 1-form can be locally written as $fdg$, where $f$ and $g$ are smooth functions. Use this fact to give a proof of Darboux's theorem in 2 dimensions.
+\end{enumerate}
+
+\begin{proof}[Solution]\leavevmode
+	\begin{enumerate}[label=\alph*.]
+		\item Inspired in Da Silva, we wish to show that there are local coordinates $(\theta,z)$ of  $S^{2}$ such that $\omega_x(u,v)=d\theta\wedge dz$. Since 
 	\end{enumerate}
 \end{proof}
 
