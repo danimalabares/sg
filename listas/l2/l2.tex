@@ -1,5 +1,4 @@
-\input{/Users/daniel/github/config/preamble-por.sty}
-\input{/Users/daniel/github/config/thms-por.sty}
+\input{/Users/daniel/github/config/preamble.sty}
 
 \usepackage[style=authortitle-terse,backend=bibtex]{biblatex}
 \addbibresource{bibliography.bib}
@@ -45,7 +44,7 @@ where on the left-hand side we view  $\mu$ as a map $\mu:Q\to T^*Q$.
 \end{proof}
 
 
-\begin{proof}[Prova de que $\mu^*=\mu$]\leavevmode
+\begin{proof}[Prova de que $\mu^*\alpha=\mu$]\leavevmode
 	Temos que se $v\in T_x(Q)$ \'e um vetor tangente a $Q$ no ponto $x\in Q$,
 	\begin{align*}
 		(\mu^*\alpha)_xv&=\alpha_{\mu_x}(\mu_*v)
@@ -70,6 +69,68 @@ where on the left-hand side we view  $\mu$ as a map $\mu:Q\to T^*Q$.
 	\end{enumerate}
 \end{proof}
 
+\paragraph{Problem 4} Let $\alpha\in\Omega^{1}(T^*Q)$ be the tautological 1-form. We will now see examples of symplectomorphisms of $T^*Q$ which are not cotangent lifts. Let $A\in\Omega^{1}(Q)$ and consider the associated "fiber-translation" map $\varphi_A:T^*Q\to T^*Q$, $(x,\xi+A_x$.
+\begin{enumerate}[label=\alph*.]
+	\item Show that
+		\[\varphi^*_A\alpha-\alpha=\pi^*A,\]
+		where $\pi:T^*Q\to Q$ is the projections. It follows that $\varphi_A$ is symplectomorphism iff $A$ is closed.
+
+	\item Consider functions that are constant along the fibers of $T^*Q$ (i.e., of the form $H=\pi^*f$, for $f\in\mathcal{C}^\infty(Q)$. Describe their hamiltonian vector fields in local cotangent coordinates, as well as their flows.
+\end{enumerate}
+
+\begin{proof}[Solution]\leavevmode
+	\begin{enumerate}[label=\alph*.]
+		\item Notice that if $v\in T_{(x,\xi)}(T^*Q)$ is a tangent vector at  $(x,\xi)$, then the differential of $\varphi_A$ pushes it to a tangent vector at $(x,\xi+A_x)$, i.e., $d\varphi_Av\in T_{(x,\xi+A_x)}(T^*Q)$ using $d$ notation instead of lower star. Moreover, since $\varphi_A$ preserves fibers,
+\[\begin{tikzcd}
+T^*Q\arrow[dr,swap,"\pi"]\arrow[rr,"\varphi_A"]&&T^*Q\arrow[dl,"\pi"]\\
+&Q
+\end{tikzcd}\]
+its differential satisfies $\pi_*d\varphi_A=\pi_*$. Unrolling the definitions, we see that
+			\begin{align*}
+				(\varphi^*_A\alpha)(v)& =\alpha(d\varphi _A(v))=(\xi+A_x)(\pi_*d\varphi _Av)=\xi(\pi_*v)+A_x(\pi_*v),\\
+				-\alpha(v)& =\xi(\pi_*v),\\
+				\pi^*A(v)&=A(\pi_*v).
+			\end{align*}
+		
+		\item In local cotangent coordinates $(x_1,\ldots,x_n,\xi_1,\ldots,\xi_n)$, the Hamiltonian vector field of $H=f\circ \pi$ according to \cite{lee} Eq. (22.9) is
+			\[X_f=\sum_{i}\left( \frac{\partial f\circ \pi}{\partial \xi_i}\frac{\partial }{\partial x_i}-\frac{\partial f\circ \pi}{\partial x_i}\frac{\partial }{\partial \xi_i} \right) \]
+			Now at $(p,\xi)\in T^*Q$, writing $\pi=(\pi_1,\ldots,\pi_n)$,
+			\begin{align*}
+				\frac{\partial f\circ \pi}{\partial \xi_i}\Big|_{(p,\xi)}&=\sum_{j}\frac{\partial f}{\partial x_j}\Big|_{p}\frac{\partial \pi_j}{\partial \xi_i}\Big|_{(p,\xi)}=\sum_{j}\frac{\partial f}{\partial x_j}\Big|_{p}\cdot 0=0\\
+				\frac{\partial f\circ \pi}{\partial x_i}\Big|_{(p,\xi)}&=\sum_{j}\frac{\partial f}{\partial x_j}\Big|_{p}\frac{\partial \pi_j}{\partial x_i}\Big|_{(p,\xi)}=\sum_{j}\frac{\partial f}{\partial x_j}\Big|_{p}\cdot 1=\sum_{j}\frac{\partial f}{\partial x_j}\Big|_{p}
+			\end{align*}
+			so that
+			\[X_f=-\sum_{j}\frac{\partial f}{\partial x_j}\Big|_{p}\sum_{i}\frac{\partial }{\partial \xi_i}\]
+back to \cite{lee}, Eq. 22.11 shows that the integral curves of $H$ are $\gamma(t)=(x_i(t),\xi_i(t))$ such that
+\begin{align*}
+	\dot x_i (t) &=\frac{\partial H}{\partial \xi_i}(x(t),\xi(t))=0\\
+	\dot \xi_i(t)& =-\frac{\partial H}{\partial x_i}(x(t),\xi(t))=\sum_{j}\frac{\partial f}{\partial x_j}(x(t),\xi(t)).
+\end{align*}
+but I am unsure of what this means.
+	\end{enumerate}
+\end{proof}
+
+\paragraph{Problem 5} Let $\omega=-d\alpha$ be the canonical symplectic form on  $T^*Q$. Prove that, if $B\in\Omega^{2}(Q)$ is closed, then
+ \[\omega_B:=\omega-\pi^*B\]
+ is symplectic and that, if $B,B'\in\Omega^{2}(Q)$ are closed and such that $B-B'=dA$, then $\varphi_A$ (defined in the previous problem) is a symplectomorphism from $(T^*Q,\omega_B)$ to $(T^* Q,\omega_{B'}$.
+
+ \begin{proof}[Solution]\leavevmode
+	Showing $\omega_B$ is symplectic is equivalent to showing that for any non-zero $v \in T(T^* Q)$ there is $w\in T(T^*Q))$ such that $\omega(v,w)\neq B(\pi_*v,\pi_*w)$. However is this equality was true, varying the last coordinates of $w$ would modify the value of $\omega$ while leaving unchanged that of $\pi^*B$.
+
+ 	Using all we learnt in the previous exercise,
+	\begin{align*}
+		\varphi^*_A \omega_{B'}&=\varphi^*_A(\omega-\pi^*B')\\
+		&=\varphi^*_A\omega-\varphi^*_A\pi^*B\\
+		&=\varphi^*_A\omega-\pi^*B\\
+		&=\varphi^*_A\omega-\pi^*dA-\pi^*B\\
+		&=\varphi^*_A\omega-d\pi^*A-\pi^*B\\
+		&=\varphi^*_A\omega-d(\varphi^*_A\alpha-\alpha)-\pi^*B\\
+		&=\varphi^*_A\omega-d\varphi^*_A\alpha+d\alpha-\pi^*B\\
+		&=\varphi^*_A\omega-\varphi^*_A\omega+\omega-\pi^*B\\
+		&=\omega_B.
+	\end{align*}
+ \end{proof}
+
 \paragraph{Problem 6} Let $\omega\in\Omega^2(M)$ be a nondegenerate 2-form. For $f\in C^\infty(M)$, let $X_f\in\mathfrak{X}(M)$ be defined by $i_{X_{f}}\omega=df$. Consider the bracket $\{f,g\}:=\omega(X_g,X_f)$. Verify that $d\omega=0$ if and only if $\{\cdot ,\cdot \}$ satisfies the Jacobi identity.
 
 \begin{proof}[Solution]\leavevmode
@@ -83,7 +144,7 @@ where on the left-hand side we view  $\mu$ as a map $\mu:Q\to T^*Q$.
 		d\omega(X_f,X_g,X_h)=&X_f\omega(X_g,X_h)-X_g\omega(X_f,X_h)+X_h\omega(X_f,X_g)\\
 				     &-\omega([X_f,X_g],X_h)+\omega([X_f,X_h],X_g)-\omega([X_g,X_h],X_f)
 	\end{align*}
-	Finally we use that $X_f\omega(X_g,X_h)=\omega(X_f,[X_g,X_h])$ ({\color{magenta}why?)} to see that, in the last equation, the first and second row on the right hand side are actually the same, and each of them equals the expression of the Jacobi identity.
+	Finally we use that $X_f\omega(X_g,X_h)=\omega(X_f,[X_g,X_h])$ (I believe this to be derived too from the coordinate-free expression of the exterior derivative) to note that, in the last equation, the first and second row on the right hand side are actually the same, and each of them equals the expression of the Jacobi identity.
 \end{proof}
 
 \paragraph{Problem 7} Consider symplectic manifolds $(M_i,\omega_i)$, with Poisson bracket $\{\cdot ,\cdot \}_{i}$, $i=1,2$, and let  $\phi:M_1\to M_2$ be a smooth map.
@@ -127,15 +188,82 @@ and they are equal by the chain rule and the fact that the derivative of $\phi_1
 \paragraph{Problem 8} \leavevmode 
 
 \begin{enumerate}[label=\alph*.]
-	\item Consider $S^{2}=\{x\in\mathbb{R}^{3}:\|x\|=1\}$ equipped with the are form $\omega_x(u,v)=\left<x,u\times v\right> $ (where $x\in S^{2}$, $u,v\in T_xS^{2}$ and $\times $ is the vector product). Use cylindrical coordinates to prove Darboux's theorem directly in this example.
+	\item Consider $S^{2}=\{x\in\mathbb{R}^{3}:\|x\|=1\}$ equipped with the area form $\omega_x(u,v)=\left<x,u\times v\right> $ (where $x\in S^{2}$, $u,v\in T_xS^{2}$ and $\times $ is the vector product). Use cylindrical coordinates to prove Darboux's theorem directly in this example.
 
 	\item More generally: show that on a 2-dimensional manifold, any non-vanishing 1-form can be locally written as $fdg$, where $f$ and $g$ are smooth functions. Use this fact to give a proof of Darboux's theorem in 2 dimensions.
 \end{enumerate}
 
 \begin{proof}[Solution]\leavevmode
 	\begin{enumerate}[label=\alph*.]
-		\item Inspired in Da Silva, we wish to show that there are local coordinates $(\theta,z)$ of  $S^{2}$ such that $\omega_x(u,v)=d\theta\wedge dz$. Since 
+		\item Inspired in Da Silva, we wish to show that the local cylindrical coordinates $(\theta,z)$ of  $S^{2}$ are such that $\omega_x(u,v)=d\theta\wedge dz$.
+
+			Converting $\omega$ to cylindrical coordinates ammouts to computing its pullback by the parametrization 
+			\begin{align*}
+				\varphi: U\overset{\operatorname{open}}{\subset}\mathbb{R}^{2} &\longrightarrow \mathbb{R}^{3} \\
+				(\theta,z) &\longmapsto (x,y,z)
+			\end{align*}
+			given by
+			\begin{align*}
+				x&=\sqrt{1-z^2} \cos \theta\\
+				y& =\sqrt{1-z^2} \sin \theta\\
+				z&=z
+			\end{align*}
+			where the first term in the first two variables is the radio of the cylinder given by $\sqrt{x^2+y^2} $, and since we are on the sphere we have $x^2+y^2+z^2=1$.
+
+			In conclusion, we wish to show that
+			\[\varphi^*\omega=d\theta\wedge dz\]
+			so we wish to compute the pullback of any vectors $u,v\in T_p\mathbb{R}^{2}$ by $\varphi$ at a point $p=(\theta,z)$. The differential of $\varphi =(\varphi^1,\varphi^2,\varphi^3)$ at $u=u^\theta\partial_\theta+u^z\partial_z$ is given by
+			\begin{align*}
+				\varphi_*u& =u^\theta\left( \frac{\partial \varphi^1}{\partial \theta}\Big|_{p}\frac{\partial}{\partial x}+ \frac{\partial\varphi^2}{\partial \theta}\Big|_{p}\frac{\partial}{\partial y}+\frac{\partial \varphi^3}{\partial \theta}\Big|_{p}\frac{\partial}{\partial z} \right) \\
+				&=u^z\left( \frac{\partial \varphi^1}{\partial z}\Big|_{p}\frac{\partial}{\partial x}+ \frac{\partial\varphi^2}{\partial z}\Big|_{p}\frac{\partial}{\partial y}+\frac{\partial \varphi^3}{\partial z}\Big|_{p}\frac{\partial}{\partial z} \right)
+			\end{align*}
+			where
+			\begin{align*}
+				\begin{aligned}
+				\frac{\partial \varphi^1}{\partial \theta}\Big|_{p}& =-\sqrt{1-z^2} \sin \theta\\
+				\frac{\partial \varphi^2}{\partial \theta}\Big|_{p}& =\sqrt{1-z^2} \cos  \theta\\
+				\frac{\partial \varphi^3}{\partial \theta}\Big|_{p}& =0
+			\end{aligned}
+			\qquad \qquad 
+			\begin{aligned}
+				\frac{\partial \varphi^1}{\partial z}\Big|_{p}& =\frac{1}{2\sqrt{1-z^2}}\cos  \theta\\
+				\frac{\partial \varphi^2}{\partial z}\Big|_{p}& =\frac{1}{2\sqrt{1-z^2}} \sin   \theta\\
+				\frac{\partial \varphi^3}{\partial z}\Big|_{p}& =1
+			\end{aligned}
+			\end{align*}
+			yielding
+			\begin{align*}
+				\varphi_*u&=\left( -u^\theta \sqrt{1-z^2} \sin \theta+u^z\frac{1}{2\sqrt{1-z^2} }\cos \theta \right) \frac{\partial}{\partial x}\\
+				& +\left( u^\theta \sqrt{1-z^2} \cos \theta+u^z\frac{1}{2\sqrt{1-z^2} }\sin \theta \right) \frac{\partial}{\partial y}\\
+				&+u^z\frac{\partial}{\partial z} 
+			\end{align*}
+			so for $v=v^\theta\partial_\theta+v^z\partial_z$,
+			\begin{align*}
+				u\times v&={\color{blue}\Bigg(\left( u^\theta \sqrt{1-z^2} \cos \theta+u^z\frac{1}{2\sqrt{1-z^2} }\sin \theta \right)v^z}\\
+					 &{\color{blue}-u^z\left( v^\theta \sqrt{1-z^2} \cos \theta+v^z\frac{1}{2\sqrt{1-z^2} }\sin \theta \right) \Bigg)\frac{\partial}{\partial x}}\\
+					 &+{\color{magenta}\Bigg(u^z \left( -v^\theta \sqrt{1-z^2} \sin \theta+v^z\frac{1}{2\sqrt{1-z^2} }\cos \theta \right)} \\
+					 &{\color{magenta}-\left( -u^\theta \sqrt{1-z^2} \sin \theta+u^z\frac{1}{2\sqrt{1-z^2} }\cos \theta \right) v^z\Bigg)\frac{\partial}{\partial y}}\\
+				&+\Bigg(\left( -u^\theta \sqrt{1-z^2} \sin \theta+u^z\frac{1}{2\sqrt{1-z^2} }\cos \theta \right)\\
+				&\cdot \left( v^\theta \sqrt{1-z^2} \cos \theta+v^z\frac{1}{2\sqrt{1-z^2} }\sin \theta \right)\\
+				&-\left( u^\theta \sqrt{1-z^2} \cos \theta+u^z\frac{1}{2\sqrt{1-z^2} }\sin \theta \right)\\
+				&\cdot \left( -v^\theta \sqrt{1-z^2} \sin \theta+v^z\frac{1}{2\sqrt{1-z^2} }\cos \theta \right)\Bigg)\frac{\partial}{\partial z}
+			\end{align*}
+			We expect that for $\varphi (p)=(\sqrt{1-z^2} \cos \theta,\sqrt{1-z^2} \sin \theta,z)$,
+			\[\left<\varphi(p),\varphi_*u\times \varphi_*v\right>=d\theta\wedge dz(u,v)=u^\theta v^z-u^zv^\theta. \]
+			Which seems likely… Perhaps doing the computations with the basis vectors like $u=\frac{\partial}{\partial \theta}$ would have helped… Was there another way to do this?
+
+	\item My initial approach was to prove a version of the straightening lemma for 1-forms. Upon failure I discovered the following proof by Jack Lee on \href{https://math.stackexchange.com/questions/1071490/local-expression-for-a-1-form-on-a-surface}{StackExchange}:
+
+		Let $\alpha$ be any 1-form. Fix a point in the manifold and choose another 1-form $\beta$ such that $(\alpha,\beta)$ is a local frame for the space of 1-forms at that point. This can be done since $\alpha$ is nowhere-vanishing. The dual frame consists is a pair of vector fields $(W,V)$ such that locally, in particular, $\alpha(V)\equiv0$. Then by the straightening lemma we can find a smaller neighbourhood of the point such that $V=\partial_x$.
+
+		Now if $\alpha=\alpha_1dx+\alpha_2dy$ in these coordinates, we see that $\alpha(\partial_x)=0$ implies $\alpha_1=0$, so that $\alpha=\alpha_2dy$.
+
+		\begin{remark}
+			This doesn't work in higher dimensions since we don't have the straightening lemma for several vector fields.
+		\end{remark}
 	\end{enumerate}
 \end{proof}
+
+\printbibliography
 
 \end{document}
