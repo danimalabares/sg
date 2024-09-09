@@ -929,4 +929,215 @@ Uma aplica\c c\~ao disso \'e
 	E da\'i a segunda afirma\c c\~ao do lema.
 \end{proof}
 
+\section{Aula 9}
+
+Lembre: M\'etodo de Moser.
+ 
+A prova foi:
+\begin{proof}[Demostra\c c\~ao]
+	Calcule
+	\[\frac{d}{dt}\varphi^*_t\omega_t=0\]
+	isso implica que
+	\[\mathcal{L}_{X_t}\omega_t=-d\left( \frac{d}{dt}\beta_t \right)\]
+	e isso que
+	\[i_{X_t}\omega_t=-\frac{d}{dt}\beta_t\]
+\end{proof}
+
+Com isso conseguimos associar uma isotop\'ia a um campo $t$-dependente (integra\c c\~ao).
+
+\subsection{Aplica \c c\~ao ao teorema de Darboux}
+
+\begin{lemma}
+	$X_t$ campo de vetores $t$-dependente, $t\in\mathbb{R}$. Suponha que
+	\[X_t|_{x_0}=0\quad \forall t.\]
+	Ent\~ao existe uma vizinhança $U\ni x_0$ e uma familia $\varphi_t:U\to M$ de 
+	\begin{itemize}
+		\item (Inclus\~ao ) $\varphi_0=\operatorname{id}$.
+		\item $\frac{d}{dt}\varphi_t(x)=X_t(\varphi_t(x))$
+		\item $\varphi_t(x_0)=x_0$
+		\item $\varphi _t:U\overset{\operatorname{difeo}}{\longrightarrow}\varphi_t(U)$.
+	\end{itemize}
+\end{lemma}
+
+\begin{proof}[Demostra\c c\~ao]
+	Varia\c c\~ao do caso $M$ compacto
+	\[\bar{X}(x,t):=\left( X_t(x),\frac{d}{dt}\right)\quad \text{em $M\times \mathbb{R}$} \]
+	\[\bar{X}(x_0,t)=\left( 0,\frac{d}{dt} \right) \]
+	assim existe uma curva integral $\gamma(t)=(x_0,t)$ de $ \bar{X}$ por $(x_0,0)$ est\'a definida para toda $t\in\mathbb{R}$.
+
+	Por EDO, existe uma vizinhança $W$ de $(x_0,0)$ em $M\times \mathbb{R}$ onde o fluxo de $\bar{X}$ existe $\forall t\in[0,1]$.
+
+	Tome $U=\bigcap_{w\{M\times \{0\}\}} $.
+\end{proof}
+
+Valem a f\'ormula para $\frac{d}{dt}(\varphi_t^*\omega_t)$…
+
+\begin{thm}[Darboux]\leavevmode
+	$(M,\omega)$ simpl\'etica, $\dim M=2n$. Para todo $x\in M$ existe uma vizinhança $U\ni x$, aberto  $0\in V\subseteq \mathbb{R}^{2n}$ e um difeomorfismo
+	\begin{align*}
+		\phi: V\subseteq \mathbb{R}^{2n} &\longrightarrow U\subseteq M \\
+		0 &\longmapsto x
+	\end{align*}
+	tal que 
+	\[\phi^* \omega=\sum_{i}dq_i\wedge dp_i.\]
+
+	[Desenho de carta coordenada]
+\end{thm}
+
+\begin{proof}[Demostra\c c\~ao]
+	Podemos assumir que $M$ \'e bola aberta de $\mathbb{R}^{2n}$ com estrutura sumpl\'etica $\omega$ aribtr\'aria.
+
+	Para usar o m\'etodo de Moser, definamos
+	\begin{align*}
+		\omega_1& =\omega\\
+		\omega_0=\sum_{i}dq_i\wedge dp_i
+	\end{align*}
+	Podemos assumir que na origem
+	\[\omega_1|_{x=0}=\omega_0|_{x=0}\qquad T_0\mathbb{R}^{2n}=\mathbb{R}^{2n}\]
+	simplesmente porque qualquer dois formas simpl\'eticas s\~ao equivalentes num espaço vetorial simpletico usando uma mudança de coordenadas.
+
+\begin{itemize}
+	\item	Podemos assumir pelo Lema de Poincar\'e que
+	\[\omega_1-\omega_0=d\beta,\quad \beta|_{0}=0\]
+supondo pela mesma raz\~ao que antes que $\beta|_{0}=0$.
+	\item $\omega_t=(1-t)\omega_0+t\omega_1\iff \omega_t=\omega_0+td\beta$ 
+\end{itemize}
+Precisamos checar que $\omega_t$ s\~ao n\~ao degeneradas numa vizinhança de 0. 
+
+Note que em $x=0$, $\omega_t|_{x=0}=\omega_0|_{x=0}=\omega_1|_{x=0}$, assim $\omega_t |_{x=0}$ \'e n\~ao degenerada para toda $t$, mas precisamos de uma vizinhança, n\~ao s\'o um ponto.
+
+\begin{lemma}
+	Se tem uma fam\'ilia $\omega_t|_{x_0}$ \'e simpl\'etica $\forall t$, $t\in [0,1]$, ent\~ao existe uma vizinhança de $x_0$ onde $\omega_t$ \'e n\~ao degenerada $\forall t\in[0,1]$.
+\end{lemma}
+
+\begin{proof}[Demostra\c c\~ao]
+	Considere
+	\[(x,s)\to \det (\omega_s(x))=\text{determinante da matriz que representa a forma} \]
+	essa fun\c c\~ao \'e n\~ao zero em zero, assim para cada $t$ existe uma vizinhança onde ela n\~ao \'e zero. Logo, pela compacidade de $[0,1]$, $ \exists $ uma vizinhança $B\ni x_0$ onde $\det (\omega_s(x))$ n\~ao se anula $\forall s\in [0,1]$.
+\end{proof}
+
+Ent\~ao j\'a temos essa vizinhança que precisavamos.
+
+Defina $X_t$ como a solu\c c\~ao da equa\c c\~ao de Moser:
+\[i_{X_t}\omega_t=-\beta.\]
+Como $\beta|_{0}=0\implies X_t|_{x=0}=0\implies \exists \varphi_t$, $t\in [0,1]$.
+
+Pelo lema 1, existe uma vizinhança $V\ni 0$ e 
+\begin{align*}
+	\varphi_t: V &\longrightarrow B \\
+	\varphi_t^*\omega_t&=\omega_0 
+\end{align*}
+tome $t=1$, $0\in U=\varphi_1(V)$.
+\end{proof}
+
+Com esse mesmo m\'etodo a gente consegue provar uma generaliza\c c\~ao do teorema de Darboux.
+
+\subsection{Teorema de Darboux generalizado (Weinstein)}
+
+\begin{thm}
+	$Q\overset{i}{\hookrightarrow}M$ subvariedade (mergulhada) e $\omega_0,\omega_1$ em $M$ simpl\'eticas. Suponha que
+	\[\omega_0|_{x}=\omega_1|_{x}\qquad \forall x\in Q\]
+	ent\~ao existem vizinhanças $U_0$ e $U_1$ de $Q$ em M e um difeomorfismo
+	\[\varphi:U_0\overset{\sim}{\longrightarrow}U_1  \]
+	tal que 
+	\[\varphi^*\omega_1=\omega_0\]
+	e que $\varphi(x)=x\;\forall x\in Q$
+\end{thm}
+
+\begin{remark}
+	O teorema de Darboux \'e quando $Q$ \'e um ponto s\'o!
+\end{remark}
+
+\begin{remark}
+	A condi\c c\~ao $\omega_0|_{x}=\omega_1|_{x}$ significa que $\omega_0$ e $\omega_1$ coincidem em todo o espaço tangente a $M$ nos pontos de $Q$, n\~ao \'e que o pullback em $Q$ coincide. Tem mais vetores no espaço tangente a $M$.
+\end{remark}
+
+	Vamos precisar de um Lema de Poincar\'e relativo.
+
+	\begin{lemma}
+		$Q\hookrightarrow M$ subvariedade. Seja $\eta \in\Omega^{k}(M)$, $d\eta=0$,  $i^*\eta=0$. Ent\~ao existe uma vizinhança $U$ de $Q$ em $M$, $\beta\in\Omega^{k}(U)$ tal que
+		\begin{align*}
+			\eta & =d\beta\\
+			\beta|_{x}&=0,\quad \forall x\in Q
+		\end{align*}
+		($\beta|_{T_xM}=0$ $\forall x\in Q$).
+
+		A ideia aqui \'e simplesmente que podemos achar uma vizinhança de $Q$  que se contrae a $Q$ (retrato por deforma\c c\~ao?)
+	\end{lemma}
+
+\begin{proof}[Demostra\c c\~ao]
+	Em fim, pelo lema, para $\eta=\omega_1-\omega_0$, $i^*\eta=0$. Compare com a demostra\c c\~ao anterior, $\beta$ se anulava no 0, agora $\eta$ se anula em toda $Q$ (\'e uma vers\~ao param\'etrica disso).
+
+	$Q\hookrightarrow M$ tem vizinhança $U$ onde $\exists \beta\in\Omega^{1}(U)$,
+	\[\omega_1-\omega_0=d\beta,\quad \beta |_{x}=0\]
+	\begin{itemize}
+		\item Seja $\omega_t=(1-t)\omega_0+t\omega_1=\omega_0+t d\beta$.
+		\item $\forall t\in [0,1]$, $x\in Q$, $\omega_ t |_{x}=\omega_0|_{x}=\omega_1|_{x}$.
+	\end{itemize}
+	Pelo lema 2, $x$ tem vizinhança em M onde $\omega_t$ \'e simpl\'etica $\forall t\in [0,1]$.
+
+	Tomando a uni\~ao das vizinhanças, temos vizinhança de $Q$ onde $\omega_t$ simpl\'etico $\forall t\in[0,1]$.
+
+	\textbf{M\'etodo}
+	\begin{itemize}
+		\item Define $X_t$ por $i_{X_t}\omega=-\beta$. Isso implica que $\frac{d}{dt}\varphi^*_t\omega_t=0$.
+
+		\item Como $\beta|_{x}=0$, ent\~ao $\forall x\in Q$, $X_t |_{x}=0\;\forall x\in Q$.
+
+		\item Pelo lema 1, $\exists U_0$ onde $\varphi_t$ est\'a definido $\forall t\in [0,1]$.
+
+		\item E mais $X_t |_{Q}=0\implies \varphi_t |_{Q}=\operatorname{id}_Q$.
+
+		\item Tome $\phi=\varphi_1$ e $U_1=\varphi_1(U_0)$.
+	\end{itemize}
+\end{proof}
+
+\subsubsection{Sobre o Lema de Poincar\'e relativo}
+
+O principal ingrediente \'e teorema da vizinhança tubular.
+
+Lembre:
+
+\begin{thm}[Vizinhança tubular]
+	$Q\hookrightarrow M$ subvariedade mergulhada. Existe uma vizinhança $Q\subseteq U\subseteq M$ para qual existe $\pi:U\to Q$ tal que 
+	\begin{align*}
+		\pi\circ i&=\operatorname{id}_Q\\
+		i\circ \pi&\simeq \operatorname{id}_U, \quad \text{(homotop\'ia suave)} 
+	\end{align*}
+\end{thm}
+
+Da\'i, o lema de Poincar\'e segue a existencia de um \textit{\textbf{operador de homotop\'ia}}.
+
+Em geral, quando temos uma homotop\'ia
+\begin{align*}
+	F: M\times [0,1] &\longrightarrow N \\
+	F_0 :M&\to N\\
+	F_1:M&\to N
+\end{align*}
+exsite um operador 
+\[H:\Omega^{k}(M) \to \Omega^{k-1}(M)\]
+tal que
+\[F_1^*\eta-F^*_0\eta=d(H\eta)-Hd\eta\]
+
+Note que no caso de formas fechadas, o termo da direita se anula e a gente prova a invariança homot\'opica da cohomologia. No nosso caso, o operador de homotop\'ia nos da $\eta=dH\eta$j \'a que $d\eta$ se anula em  $Q$.
+
+\subsubsection{Vizinhança tubular}
+
+\begin{thm}
+	Existe uma vizinhança $U_0$ de $Q$ em $NQ$ e uma vizinhança $U_1$ de $Q$ em $M$ tais que
+	\begin{enumerate}[label=\alph*.]
+		\item $U_0\cap (NQ)_x$ \'e convexo $\forall x\in Q$.
+
+		\item Existe um difeomorfismo  $\phi:U_0\overset{\sim}{\longrightarrow} U_1$ tal que $\phi(x)=x$, e $d\phi|_{x}:T_x(NQ)\overset{\operatorname{id}}{\longrightarrow}TM|_{x}$
+	\end{enumerate}
+\end{thm}
+
+\begin{proof}[Demostra\c c\~ao]
+	Idea: aplica\c c\~ao exponencial.
+\end{proof}
+
+\section{Aula 10}
+
+
+
 \end{document}
