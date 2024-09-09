@@ -20,7 +20,13 @@
 
 \begin{proof}[Solution]\leavevmode
 	\begin{enumerate}[label=\alph*.]
-		\item 
+		\item By K\"unneth formula for cohomology, we see that
+			\begin{align*}
+				H^{2}(S_1\times S^3)&=H^{2}(S^1)\otimes H^{0}(S^3)\oplus H^{1}(S^1)\otimes H^{1}(S^3)\oplus H^{0}(S^1)\otimes H^{1}(S^3)\\
+				&=(0\otimes  \mathbb{R})\oplus (\mathbb{R}\otimes 0)\oplus (\mathbb{R}\otimes 0)\\
+				&=0
+			\end{align*}
+		which means $S^1\times S^3$ is not symplectic since it is compact.
 
 		\item Considere o mapa
 			\begin{align*}
