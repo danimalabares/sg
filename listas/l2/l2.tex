@@ -16,6 +16,9 @@
 \vspace{10pt}
 {\huge Lista 2}
 
+\tableofcontents
+
+\addcontentsline{toc}{subsection}{Problem 1}
 \paragraph{Problem 1} Verify (and justify) wether or not the following manifolds admit a symplectic structure: $S^{1}\times S^3$, $\mathbb{R}\times S^3$ $\mathbb{R}^{3}\times S^{3}$, $\mathbb{T}^3\times S^3$.
 
 \begin{proof}[Solution]\leavevmode
@@ -37,16 +40,24 @@
 
 		\item Considerando que $S^3$ \'e a esfera unit\'aria nos quat\'ernios, os campos vetoriais $z\mapsto iz$, $z\mapsto jz$ e $z\mapsto kz$ s\~ao uma base global, de forma que $S^3$ \'e paraleliz\'avel. Sendo uma 3-variedade, temos que $TS^3\cong \mathbb{R}^{3}\times S^3$. Em aula vimos que todo fibrado tangente \'e uma variedade simpl\'etica usando o pullback da forma can\'onica no fibrado cotangente.
 
-		\item 
+		\item (Idea from \href{https://math.stackexchange.com/questions/2746576/is-mathbbt3-times-mathbbs3-symplectic}{StackExchange}) K\"unneth formula gives us a ring isomorphism 
+			\[H^{\bullet}(T^3\times S^3)\overset{\varphi}{\cong}H^{\bullet}(T^3)\otimes H^{\bullet}(S^3).\]
+		Now the second cohomology group reads
+			\begin{align*}
+				H^{2}(T^3\times S^3)& =H^{0}(T^3)\otimes H^{2}(S^3)\oplus H^{1}(T^3)\otimes H^{1}(S^2)\oplus H^{0}(T^3)\otimes H^{2}(S^3)\\
+				&=H^{2}(T^3).
+			\end{align*}
+			If $\omega$ was a symplectic form on $T^3\times S^3$, its cohomology class would correspond to a cohomology class $\varphi[\omega]$ in $H^{2}(T^3)\subset H^{\bullet}(T^3)\otimes H^{\bullet}(S^3)$. But since $T^3$ is only a 3-manifold, the 6-form $(\varphi[\omega])^3$ must be zero. Since $\varphi$ preserves product, we see that $[\omega^3]$ itself must be zero, which is a contradiction since it must be a volume form.
 	\end{enumerate}
 \end{proof}
 
+\addcontentsline{toc}{subsection}{Problem 2}
 \paragraph{Problem 2} Show that the tautological 1-form $\Omega^{1}(T^*Q)$ is \textit{uniequely characterized} by the following property: for any 1-form $\mu\in\Omega^{1}(Q)$,
 \[\mu^*\alpha=\mu\]
 where on the left-hand side we view  $\mu$ as a map $\mu:Q\to T^*Q$.
 
 \begin{proof}[Solution]\leavevmode
-	(After several tries, consulted \href{https://math.stackexchange.com/questions/4141107/a-characterization-of-the-tautological-form-liouville-1-form-on-the-cotangent}{StackExchange}) Simply notice that if $\beta$ is another 1-form on  $T^*Q$ such that $\mu^*\beta=\mu$ for all $\mu\in\Omega^{1}(Q)$, then  $\mu^*(\alpha-\beta)=0$. Further, if any  $\theta\in\Omega^{1}(T^*Q)$ satisfies $\mu^*\theta=0$ for all $\mu\in\Omega^{1}(Q)$, it must be identiacally zero. This follows since for any $w\in T(T^*Q)$ we can find a form $\mu$ and a vector $v\in TQ$ such that $\mu_*v=w$.
+	(After several tries, consulted \href{https://math.stackexchange.com/questions/4141107/a-characterization-of-the-tautological-form-liouville-1-form-on-the-cotangent}{StackExchange}) Simply notice that if $\beta$ is another 1-form on  $T^*Q$ such that $\mu^*\beta=\mu$ for all $\mu\in\Omega^{1}(Q)$, then  $\mu^*(\alpha-\beta)=0$. Further, if any  $\theta\in\Omega^{1}(T^*Q)$ satisfies $\mu^*\theta=0$ for all $\mu\in\Omega^{1}(Q)$, it must be identiacally zero. This follows since for any $w\in T(T^*Q)$ we can find a form $\mu$ and a vector $v\in TQ$ such that $\mu_*v=w$. (I'm not sure how to prove the last statement.)
 \end{proof}
 
 
@@ -64,17 +75,44 @@ where on the left-hand side we view  $\mu$ as a map $\mu:Q\to T^*Q$.
 	j\'a que $\mu$ comuta com a proje\c c\~ao.
 \end{proof}
 
-\paragraph{Problem 3} 
+\addcontentsline{toc}{subsection}{Problem 3}
+\paragraph{Problem 3} We will caharacterize symplectomorphisms $T^*Q\to T^*Q$ which are cotangent lifts of diffeomorphisms $\phi:Q\to Q$. Let $\alpha$ be the tautological 1-form on $M:=T^*Q$ and $\omega=-d\alpha$, We saw in class that cotangent lifts preserve  $\alpha$. We will show the converse of this fact.
+
+Let  $F:M\to M$ be a symplectomorphism such that $F^*\alpha=\alpha$.
+\begin{enumerate}[label=\alph*.]
+	\item Let $v\in\mathfrak{X}(M)$ be the unique vector field such that $i_v\omega=-\alpha$; note that, locally, it is given by $\sum_{i}\xi_i\frac{\partial }{\partial \xi_i}$ ($v$ is known as the \textit{\textbf{Euler vector field}}). Show that $F_*v=v$.
+
+	\item Let $\varphi_t^v$ denote the flow of $v$. Show that $\varphi_t^v\circ F=F\circ \varphi_t^v$. Check that, in coordinates,
+		\[\varphi_t^v(x,\xi)=\varphi_t^v(x,e^t\xi),\qquad -\infty<t<\infty.\]
+
+	\item Verify that, for $p\in T_x^*Q$, $F(\lambda p)=\lambda F(p)$, $\forall \lambda\in\mathbb{R}$, Conclude that there exists $\phi:Q\to Q$ such that $\phi\circ \pi=\pi\circ F$ (here $\pi:T^*Q\to Q$ is the projection). Finally, show that $F=\hat{\phi}$ (the cotangent lift of $\phi$).
+\end{enumerate}
 
 \begin{proof}[Solution]\leavevmode
 	\begin{enumerate}[label=\alph*.]
-		\item Seguindo a nota\c c\~ao do problema anterior, note que
+		\item 
+			\iffalse Seguindo a nota\c c\~ao do problema anterior, se $v$  \'e um vetor tangente a $\xi$ (isso implica que $F_*v$ \'e tangente a $F\xi$), temos que
 			\begin{align*}
-			(F^*\alpha)v&=-\alpha(F_*v)=-\pi^*_{\xi_{F_*v}}\xi_{F_*v}(F_*v)=\xi_{F_*v}(\pi_*F_*v)
+			(F^*\alpha)v&=\alpha(F_*v)=\pi^*_{\xi}F\xi(F_*v)=F\xi(\pi_*F_*v)
 			\end{align*}
+			mas como $F^*\alpha=\alpha$, e por defini\c c\~ao $\alpha(v)=\xi(\pi_*v)$, temos que
+			\[F\xi(\pi_*F_*v)=\xi(\pi_*v).\]
+			Como $i_V\omega=-\alpha$,
+			\begin{align*}
+				-\xi(\pi_*v)&=-\alpha(v)=\omega(v,v)\\
+				-F\xi(\pi_*F_*v)&=-\alpha(F_*v)=\omega(v,F_*v)
+			\end{align*}
+		\fi
+		Usando que $F^*\alpha=\alpha$, $i_v\omega=-\alpha$ e que $F^*\omega=\omega$ obtemos que para  $u\in T(T^*Q)$,
+			\[\omega(F_*v,F_*u)=\omega(v,u)=-\alpha(u)=-\alpha(F_*u)=\omega(v,F_*u)\]
+			i.e., $\omega(F_*v-v,F_*u)=0$, o que implica que $F_*v=v$ j\'a que $\omega$ \'e n\~ao degenerada (mas, por que $F_*$ \'e surjetiva?).
+
+	{\color{magenta}Out of time!}
+
 	\end{enumerate}
 \end{proof}
 
+\addcontentsline{toc}{subsection}{Problem 4}
 \paragraph{Problem 4} Let $\alpha\in\Omega^{1}(T^*Q)$ be the tautological 1-form. We will now see examples of symplectomorphisms of $T^*Q$ which are not cotangent lifts. Let $A\in\Omega^{1}(Q)$ and consider the associated "fiber-translation" map $\varphi_A:T^*Q\to T^*Q$, $(x,\xi+A_x$.
 \begin{enumerate}[label=\alph*.]
 	\item Show that
@@ -116,6 +154,7 @@ but I am unsure of what this means.
 	\end{enumerate}
 \end{proof}
 
+\addcontentsline{toc}{subsection}{Problem 5}
 \paragraph{Problem 5} Let $\omega=-d\alpha$ be the canonical symplectic form on  $T^*Q$. Prove that, if $B\in\Omega^{2}(Q)$ is closed, then
  \[\omega_B:=\omega-\pi^*B\]
  is symplectic and that, if $B,B'\in\Omega^{2}(Q)$ are closed and such that $B-B'=dA$, then $\varphi_A$ (defined in the previous problem) is a symplectomorphism from $(T^*Q,\omega_B)$ to $(T^* Q,\omega_{B'}$.
@@ -137,6 +176,7 @@ but I am unsure of what this means.
 	\end{align*}
  \end{proof}
 
+\addcontentsline{toc}{subsection}{Problem 6}
 \paragraph{Problem 6} Let $\omega\in\Omega^2(M)$ be a nondegenerate 2-form. For $f\in C^\infty(M)$, let $X_f\in\mathfrak{X}(M)$ be defined by $i_{X_{f}}\omega=df$. Consider the bracket $\{f,g\}:=\omega(X_g,X_f)$. Verify that $d\omega=0$ if and only if $\{\cdot ,\cdot \}$ satisfies the Jacobi identity.
 
 \begin{proof}[Solution]\leavevmode
@@ -153,6 +193,7 @@ but I am unsure of what this means.
 	Finally we use that $X_f\omega(X_g,X_h)=\omega(X_f,[X_g,X_h])$ (I believe this to be derived too from the coordinate-free expression of the exterior derivative) to note that, in the last equation, the first and second row on the right hand side are actually the same, and each of them equals the expression of the Jacobi identity.
 \end{proof}
 
+\addcontentsline{toc}{subsection}{Problem 7}
 \paragraph{Problem 7} Consider symplectic manifolds $(M_i,\omega_i)$, with Poisson bracket $\{\cdot ,\cdot \}_{i}$, $i=1,2$, and let  $\phi:M_1\to M_2$ be a smooth map.
 \begin{enumerate}[label=\alph*.]
 	\item Prove that if $\phi$is a diffeomorphism, then it is a Poisson map ($\{\phi^*f,\phi^*g\}_1=\phi^* (\{f,g\}_2)$ for all $f,g\in C^\infty(M_2)$) if and only if $\phi^*\omega_2=\omega_1$.
@@ -162,15 +203,33 @@ but I am unsure of what this means.
 
 \begin{proof}[Solution]\leavevmode
 	\begin{enumerate}[label=\alph*.]
-		\item Suppose that $\omega_1=\phi^*\omega_2$. Then
-			\begin{align*}
-				\{\phi^*f,\phi^*g\} & =\omega_1(X_{\phi^*f},X_{\phi^*g})\\
-						    &=\phi^* \omega_2(X_{\phi^*f},X_{\phi^*g})\\
-						    & =\omega_2(\phi_*X_{\phi^*f},\phi_{*} X_{\phi^*g})\\
-						    & =\omega_2(X_f,X_g)\\
-						    & =\{f,g\}
+		\item (Asked by me on \href{https://math.stackexchange.com/questions/4968780/diffeomorphism-is-poisson-map-iff-is-symplectomorphism}{StackExchange})
+
+			For $\implies$, fix a point $p\in M_1$ and two vectors $u,v\in T_pM$. Then we can find two functions $f,g\in\mathcal{C}^\infty(M)$ such that $(X_f)_p=u$ and $(X_g)_p=v$. I'm not sure how to justify this globally, but since$\omega(u,\cdot )$ is a 1-form, it can be expressed \textit{locally} as $df$…
+
+			\href{https://math.stackexchange.com/questions/3797762/symplectomorphisms-preserves-hamiltonian-equations}{It turns out} that $\phi^*X_f=X_{\phi^*f}$ and $\phi_*X_f=X_{\phi_*f}$, where we define pushforward as the inverse of the pullback using that $\phi$ is a diffeomorphism. Then
+			 \begin{align*}
+				 (\phi^*\omega_2)_p(u,v)&=(\phi^* \omega_2)(X_f,X_g)(p)\\
+				 & = \omega_2(\phi _*X_f,\phi _*X_g)(\phi p)\\
+				 &= \omega_2(X_{\phi_*f},X_{\phi_*g})(\phi p)\\
+				 &=\{\phi_*f,\phi_*g\}_2(\phi p)\\
+				 &=\phi_*\{f,g\}_1(\phi p)\\
+				 &=\{f,g\}_1((\phi^{-1}\circ \phi)p)\\
+				 &=\{f,g\}_1(p)\\
+				 &=\omega_1(X_f,X_g)(p)\\
+				 &=(\omega_1)_p(u,v)
 			\end{align*}
-	For the converse I would li
+
+			For $\impliedby$,
+			\begin{align*}
+\{\phi^* f,\phi^* g\}_1(p) & =(\omega_1)_p(X_{\phi^* f},X_{\phi^* g})\\
+&=(\phi^* \omega_2)_p(X_{\phi^* f},X_{\phi^* g})\\
+&=(\omega_2)_{\phi p}(\phi_* X_{\phi^* f},\phi_* X_{\phi^* g})\\
+&=(\omega_2)_{\phi p}(\phi_* \phi^* X_{f},\phi_* \phi^* X_{g})\\
+&=(\omega_2)_{\phi p}(X_f,X_g)\\
+&=\{f,g\}_2(\phi p)\\
+&=\phi^*\{f,g\}_2
+\end{align*}
 
 	\item It is clear that $\phi_1:(q_1,p_1,q_2,p_2)\mapsto (q_1,p_1)$ does not satisfy $\phi_1^*\omega_{\mathbb{R}^{2}}=\omega_{\mathbb{R}^{4}}$ since 
 		\[\omega_{\mathbb{R}^{4}}((0,1,0,1),(0,1,0,-1))=2\]
@@ -191,6 +250,7 @@ and they are equal by the chain rule and the fact that the derivative of $\phi_1
 	meaning that the information of the last two coordinates is lost in the second expression, so they cannot be equal.
 	\end{proof}
 
+\addcontentsline{toc}{subsection}{Problem 8}
 \paragraph{Problem 8} \leavevmode 
 
 \begin{enumerate}[label=\alph*.]
@@ -258,7 +318,7 @@ and they are equal by the chain rule and the fact that the derivative of $\phi_1
 			\[\left<\varphi(p),\varphi_*u\times \varphi_*v\right>=d\theta\wedge dz(u,v)=u^\theta v^z-u^zv^\theta. \]
 			Which seems likely… Perhaps doing the computations with the basis vectors like $u=\frac{\partial}{\partial \theta}$ would have helped… Was there another way to do this?
 
-	\item My initial approach was to prove a version of the straightening lemma for 1-forms. Upon failure I discovered the following proof by Jack Lee on \href{https://math.stackexchange.com/questions/1071490/local-expression-for-a-1-form-on-a-surface}{StackExchange}:
+	\item My initial approach was to prove a version of the straightening lemma for 1-forms. Upon failure I discovered the following proof by Jack Lee (=John M. Lee) on \href{https://math.stackexchange.com/questions/1071490/local-expression-for-a-1-form-on-a-surface}{StackExchange}:
 
 		Let $\alpha$ be any 1-form. Fix a point in the manifold and choose another 1-form $\beta$ such that $(\alpha,\beta)$ is a local frame for the space of 1-forms at that point. This can be done since $\alpha$ is nowhere-vanishing. The dual frame consists is a pair of vector fields $(W,V)$ such that locally, in particular, $\alpha(V)\equiv0$. Then by the straightening lemma we can find a smaller neighbourhood of the point such that $V=\partial_x$.
 
@@ -267,6 +327,17 @@ and they are equal by the chain rule and the fact that the derivative of $\phi_1
 		\begin{remark}
 			This doesn't work in higher dimensions since we don't have the straightening lemma for several vector fields.
 		\end{remark}
+
+		(This part is based on \href{https://math.stackexchange.com/questions/2853901/darboux-theorem-for-2-dimensional-manifolds}{StackExchange}) To prove Darboux theorem on a symplectic 2-manifold $(M,\omega)$ we need to show that there every point $x \in M$ has a coordinate chart $\varphi :U\to \mathbb{R}^{2}$ such that $\varphi^*\omega_0=\omega$ where $\omega_0=dx\wedge dy$. Choose a contractible neighbourhood of $x$ so that  $\omega=d\eta$.
+
+		Since we are only interested in the derivative of $\eta$, e may assume that it is non-zero by adding if necessary a closed 1-form on some smaller compact neighbourhood of $x$ where the coefficients of $\eta$ are bounded i.e. a constant closed form larger than the bound. Then we can apply the result to write $\eta=fdg$. We get that
+		\[\omega=d\eta=d(fdg)=df\wedge dg.\]
+		Define $\varphi=(f,g)$ to get
+		\begin{align*}
+			\varphi^*(dx\wedge dy)&=d\varphi^*x\wedge \varphi^*g=d(x\circ \varphi)\wedge d(y\circ \varphi)=df\wedge dg=\omega.
+		\end{align*}
+		I'm only left with the doubt on why $\varphi$ is a diffeomorphism.
+
 	\end{enumerate}
 \end{proof}
 
