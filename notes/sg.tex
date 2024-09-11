@@ -928,7 +928,7 @@ Uma aplica\c c\~ao disso \'e
 \end{thm}
 
 \begin{proof}[Demostra\c c\~ao]
-	Note que n\~ao \'e imediato que as clases de cohomologia nos dem uma famil\'ia suave, mas \'e equivalente sim (ussando decomposi\c c\~ao de Hodge? Tem algo mais simples?). O m\'etodo \'e achar um campo de vetores aut\'onomo resolvendo
+	Note que n\~ao \'e imediato que as clases de cohomologia nos dem uma famil\'ia suave, mas \'e equivalente sim (usando decomposi\c c\~ao de Hodge? Tem algo mais simples?). O m\'etodo \'e achar um campo de vetores aut\'onomo resolvendo
 	\[i_{X_t}\omega_t=-\frac{d}{dt}\beta_t\]
 	pois dela segue que
 	\[\mathcal{L}_{X_t}\omega_t=-d\left( \frac{d}{dt}\beta_t \right)\]
@@ -1152,6 +1152,193 @@ Note que no caso de formas fechadas, o termo da direita se anula e a gente prova
 
 \section{Aula 10}
 
+Lembre
+
+\begin{itemize}
+	\item Darboux generalizado: duas formas numa subvariedade que coinciden nos pontos da subvariedade, existem vizinhanças da subvariedade simplectomorfas.
+
+	\item A prova disso: usa m\'etodo de Moser.  Para usar o m\'etodo de Moser:
+		\begin{lemma}[Poincar\'e relativo]
+			$Q \overset{i}{\longrightarrow}M$. $\eta\in\Omega^{k}(M)$ fechada e tal que $i^*\eta=0$. Ent\~ao existe  vizinhança $U\supset Q$ e $\beta\in\Omega^{k-1}(U)$ tal que $\eta=d\beta$ e $\beta|_{Q}=0$.
+
+			(O lema de Poincar\'e usual \'e quando $Q$ \'e um ponto)
+		\end{lemma}
+		\begin{proof}[Demostra\c c\~ao do lema de Poincar\'e]
+			A\'i tem que mergulhar $Q$ no fibrado tangente $NQ$ que \'e um fibrado que n\~ao precisa de m\'etrica para ser definido. Por\'em, na prova a gente intruduiz uma m\'etrica em $Q$ e identifica $NQ$ com  $T^\perp Q$. Da\'i usando a aplica\c c\~ao exponencial conseguimos ver que $Q$ \'e um retrato por deforma\c c\~ao de uma vizinhança dele no $M$---a exponencial \'e a ponte de $NQ$ [a $Q$.
+
+			Isso da uma homotop\'ia
+			\begin{align*}
+				F_t: U_0 &\longrightarrow U_0 \\
+				(x,v) &\longmapsto (x,tv)\\
+				F_0&=i\circ \pi\\
+				F_1&=\operatorname{id}_{U_0}
+			\end{align*}
+			Da\'i \'e s\'o pegar o operador de homotop\'ia
+			\[\mathcal{H}:\Omega^{k}(U_0)\to \Omega^{k-1}(U_0)\]
+			que \'e tal que
+			\[F_1^*\eta=F_0^* \eta=\mathcal{H}(d\eta)+d(\mathcal{H}\eta)\]
+			\begin{claim}
+				O operador de homotop\'ia \'e
+				\[H(\eta)=\int_{0}^1I^*_ti_{ \frac{\partial }{\partial t}}(F^*\eta)dt\]
+				onde
+				\begin{align*}
+					F: [0,1]\times U_0 &\longrightarrow U_0 \\
+					(t,y) &\longmapsto F_t(y)
+				\end{align*}
+				e
+				\begin{align*}
+					I_t: U_0 &\longrightarrow [0,1]\times U_0 \\
+					y &\longmapsto (t,y)
+				\end{align*}
+				de forma que
+				\[F_t=F\circ I_t\]
+				\textbf{Nota\c c\~ao} Seja
+				\begin{align*}
+					\tau_t: \mathbb{R}\times U_0 &\longrightarrow \mathbb{R}\times U- \\
+					(x,y) &\longmapsto (s+t,y)
+				\end{align*}
+				de forma que
+				\[I_t=\tau_t\circ I_0,\quad F_t=F\circ I_t=F\circ \tau_t\circ I_0\]
+				e a conta que a gente faiz \'e
+				\begin{align*}
+					\frac{d}{dt}F_t^*\eta&=I_0^*\frac{d}{dt}\tau_t^* (F^* \eta)\\
+					&=I_0^* \tau_t^* (\mathcal{L}_{\frac{\partial }{\partial }t}F^*_{\eta}\\
+					&\overset{\text{Cartan}}{=}I_0^* \tau_t^*\left( di_{ \frac{\partial }{\partial t}}F^* _\eta+i_{\frac{\partial }{\partial t}}d(F^*\eta \right) \\
+					&=d\left( I_{t}^* i_{\frac{\partial }{\partial t}}F^*_{\eta}+I_t^ki_{\frac{\partial }{\partial t}}F^*(d\eta) \right) 
+				\end{align*}
+				e a\'i integramos para obter
+				\[F_1^*\eta-F^*_0\eta=d(H\eta)+H(d\eta)\]
+				Se $d\eta=0$,  $i^*\eta=0$, $\implies \eta=d(H\eta)$. Defina $\beta=H\eta$. Como  $F_t(x,0)=(x,0)\;\forall x\in Q$, assim
+				\[\frac{\partial }{\partial t}F_t(x,0)=0\implies i_{\frac{\partial }{\partial t}}dF_t |_{x\in Q}=0\]
+				e por fim
+				\[\beta|_{x}=0.\]
+			\end{claim}
+		\end{proof}
+\end{itemize}
+
+Para esse teorema pode imaginar que cada vizinhança de $Q$ \'e uma variedade diferente. Mas ent\~ao a condi\c c\~ao de que as dois formas s \~ao iguais encima de $Q$ j\'a n\~ao faz sentido. Precisamos de um isomorfismo simpl\'etico entre esses espaços tangentes.
+
+\begin{thm}[Teorema de Darboux generalizado Vers\~ao 2.0]\leavevmode
+	\[\begin{tikzcd}
+		(M_0,\omega_0)\arrow[dr,"i_0",swap,hook]&&(M_1,\omega_1)\arrow[dl,"i_1",hook]\\
+	&Q
+	\end{tikzcd}\]
+	(arrows reversed)Suponha que temos um isomorfismo de fibrados simpl\'ecticos
+	\[\begin{tikzcd}
+	TM_0|_{Q}\arrow[rr,"\phi"]\arrow[dr,swap]&&TM_1|_{Q}\arrow[dl]\\
+	&Q
+	\end{tikzcd}\]
+	e tal que $d\phi|_{TQ}:TQ\to TQ$ e $\operatorname{id}_TQ$.
+
+	Ent\~ao $\phi$ estende a um simplectomorfismo
+	\[\begin{tikzcd}
+	U_0\subset M_0\arrow[rr,"\varphi"]\arrow[dr,swap]&&U_1\subset M_1\arrow[dl]\\
+	&Q
+	\end{tikzcd}\]
+	(arrows backwards) tal que
+	\[d\pi|_{Q}=\phi:TM_0|_{Q}\to TM_1|_{Q}\]
+	Isto \'e, a derivada do simplectomofismo (entre as vizinhanças de $M_1$ e $M_2$) que obtemos estende o isomorfismo simpl\'eticos dos fibrados tangentes.
+\end{thm}
+
+\begin{proof}[Demostra\c c\~ao]
+	Podemos reduzir ao caso anterior! Basta achar um difeomorfismo $\psi:U_0\to U_1$ tal que $\psi|_{Q}=\operatorname{id}_Q$ e que $d\psi|_{Q}=\phi$. Nesse caso, $\omega_0$ e $\psi^*\omega_1$ s\~ao dois formas em $U_0$ que coincidem sobre $TM_1|_{Q}$. Vamo l\'a
+
+	Tome dois complementos
+	 \begin{align*}
+		E_0,\quad TM_0|_{Q}&=TQ\oplus E_0\\
+		E_1,\quad TM_1|_{Q}&=T_Q\oplus E_1
+	\end{align*}
+	Ent\~ao como $\phi$ preserva $T_Q$, ele tamb\'em preserva os complementos, \'e s\'o algebra linear. Isto \'e, $\phi$ se restringe a um isomorfismo
+	\[\bar{\phi} :E_0\to E_1\]
+	Note que
+	\[ \bar{\phi}|_{Q} :TE_0\cong TQ\oplus E_0\to TE_1\cong TQ\oplus E_1\]
+	Aqui estamos pegando a derivada do isomorfismo nos fibrados. O importante e que como ele \'e linear, sua derivada \'e ele mesmo (s\'o que a\'i aparecem muitas identifica\c c\~oes):
+	\[d\bar{\phi}|_{Q}=\operatorname{id}\oplus \bar{\phi} =\phi\]
+Agora pegamos vizinhanças tubulares de $Q$, $V_0\subset E_0$ e $V_1\subset E_1$ e usando a exponancial como antes podemos contraer
+\[\begin{tikzcd}
+	V_0\arrow[r,"\phi"]\arrow[d,"\phi_0{\color{magenta}= \operatorname{exp}}"]&V_1\arrow[d,"\phi_1"]\\
+	U_0\subset M_0\arrow[r,"\psi",dashed]&U_1\subseteq M_1
+\end{tikzcd}\]
+e todo comuta:
+\[\psi=\phi_1\circ \bar{\phi} \circ \phi^{-1}:U_0\overset{\cong }{\longrightarrow} U_1\]
+e por fim
+\[d\psi|_{Q}=\operatorname{id}\circ d \bar{\phi} \operatorname{id}=\phi\]
+\end{proof}
+
+Agora um caso particular:
+\[\begin{tikzcd}
+	(M,\omega)\arrow[dr,"i",swap]&&(T^*\mathcal{L}\arrow[dl,"i"]\\
+&\mathcal{L}
+\end{tikzcd}\]
+(arrows reversed they are inclusions) onde $Q$ est\'a metida no fibrado cotangente como a se\c c\~ao zero.
+
+\begin{thm}[das vizinhanças Lagrangianas de Weinstein]\leavevmode
+	(As subvariedades Lagrangianas est\~ao definidas "intrinsecamente", pois existe uma vizinhança delas que \'e simplectomorfa a ela como subvariedade no tangente dela)
+
+	Existem vizinhanças $U_0\supseteq \mathcal{L}$ em $T^*\mathcal{L}$ e $U_1\supset eq \mathcal{L}$ em $M$ e um simplectomorfismo
+	\[\varphi:U_0\to U_1\]
+\end{thm}
+
+\begin{proof}[Demostra\c c\~ao]
+	S\'o precisamos de um $\phi$ como no Darboux 2, i.e.,
+	\begin{align*}
+		\phi: TM|_{\mathcal{L}} &\longrightarrow T(T^*\mathcal{L})|_{\mathcal{L}}
+	\end{align*}
+	tal que
+\[\phi|_{T\mathcal{L}}:T\mathcal{L}\to T\mathcal{L}\quad =\operatorname{id}_{T\mathcal{L}}\]
+
+\begin{lemma}
+	Suponha que $\mathcal{L}\hookrightarrow (M,\omega)$ \'e Lagrangiana. Considere $TM|_{\mathcal{L}}$ um fibrado vectorial simpl\'etico. Ent\~ao
+	\begin{enumerate}
+		\item Existe um subfibrado lagrangiano $E\subseteq TM|_{\mathcal{L}}$ tal que $TM|_{\mathcal{L}}=T\mathcal{L}\oplus E$.
+
+		\item Existe um isomorfismo
+			\[\begin{tikzcd}
+			TM|_{\mathcal{L}}\arrow[rr,"\cong "]\arrow[dr,swap]&&T\mathcal{L}\oplus (T\mathcal{L})^*\arrow[dl]\\
+			&\mathcal{L}
+			\end{tikzcd}\]
+			onde no espaço $T\mathcal{L}\oplus (T\mathcal{L})^*$ \'e
+			\[\nu((X,\alpha),(Y,\beta))=\beta(X)-\alpha(Y)\]
+
+			Lembrando um exerc\'icio da lista 1 (de \'alebra linear) que diz que um subespaço Lagrangiano \'e nos da uma descomposi\c c\~ao do espaço usando o seu dual.
+
+			\begin{proof}[Demostra\c c\~ao do Lema]
+				\begin{enumerate}[label=\textbf{Step \arabic*}]
+					\item Todo espaço simpl\'etico induiz uma estrutura complexa compat\'ivel.  Se $L$ \'e lagrangiano, $JL$ tamb\'em e o espaço vetorial (acho que isso coincide com o complemento ortogonal na m\'etrica compat\'ivel). Isso vale para fibrados vetorias.
+
+					\item Note que 
+						\begin{align*}
+							E &\longrightarrow (T\mathcal{L})^* \\
+							u &\longmapsto \omega(\cdot ,u)
+						\end{align*}
+						\'e um isomorfismo. Isso \'e super elementar de algebra linear.
+
+Tome 
+\begin{align*}
+	(TM|_{\mathcal{L}},\omega)  &\longrightarrow (T\mathcal{L}\oplus T\mathcal{L}^*,\nu) \\
+	(x,u) &\longmapsto (X,\omega(\cdot ,u)
+\end{align*}
+que \'e que acontece? Ent\~ao,
+\begin{align*}
+	\nu(T(X,u),T(Y,v)&=\nu((X,\omega(\cdot ,u)),(Y,\omega(\cdot ,v))\\
+	&=\omega(X,u)-\omega(Y,u)\\
+	&=\omega((X,u),(Y,u))
+\end{align*}
+				\end{enumerate}
+			\end{proof}
+	\end{enumerate}
+	Da\'i, o lema queda provado simplesmente notando que
+	\[\begin{tikzcd}
+	&T\mathcal{L}\oplus T\mathcal{L}\arrow[dl,"\cong ",swap]\arrow[dr,"\cong "]\\
+	TM|_{\mathcal{L}}\arrow[rr,"\phi"]&&T(T^*\mathcal{L})|_{\mathcal{L}}
+	\end{tikzcd}\]
+	(diagonal arrows reversed).
+\end{lemma}
+\end{proof}
+
+
+
+\section{Aula 11}
 
 
 \end{document}
