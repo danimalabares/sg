@@ -1218,6 +1218,8 @@ Lembre
 
 Para esse teorema pode imaginar que cada vizinhança de $Q$ \'e uma variedade diferente. Mas ent\~ao a condi\c c\~ao de que as dois formas s \~ao iguais encima de $Q$ j\'a n\~ao faz sentido. Precisamos de um isomorfismo simpl\'etico entre esses espaços tangentes.
 
+\subsection{Darboux generalizado vers\~ao 2.0}
+
 \begin{thm}[Teorema de Darboux generalizado Vers\~ao 2.0]\leavevmode
 	\[\begin{tikzcd}
 		(M_0,\omega_0)\arrow[dr,"i_0",swap,hook]&&(M_1,\omega_1)\arrow[dl,"i_1",hook]\\
@@ -1272,6 +1274,9 @@ Agora um caso particular:
 \end{tikzcd}\]
 (arrows reversed they are inclusions) onde $Q$ est\'a metida no fibrado cotangente como a se\c c\~ao zero.
 
+\subsection{Teorema das vizinhanças Lagrangianas de Weinstein}
+
+
 \begin{thm}[das vizinhanças Lagrangianas de Weinstein]\leavevmode
 	(As subvariedades Lagrangianas est\~ao definidas "intrinsecamente", pois existe uma vizinhança delas que \'e simplectomorfa a ela como subvariedade no tangente dela)
 
@@ -1302,7 +1307,8 @@ Agora um caso particular:
 
 			Lembrando um exerc\'icio da lista 1 (de \'alebra linear) que diz que um subespaço Lagrangiano \'e nos da uma descomposi\c c\~ao do espaço usando o seu dual.
 
-			\begin{proof}[Demostra\c c\~ao do Lema]
+			\begin{proof}[Demostra\c c\~ao do Lema]\leavevmode 
+
 				\begin{enumerate}[label=\textbf{Step \arabic*}]
 					\item Todo espaço simpl\'etico induiz uma estrutura complexa compat\'ivel.  Se $L$ \'e lagrangiano, $JL$ tamb\'em e o espaço vetorial (acho que isso coincide com o complemento ortogonal na m\'etrica compat\'ivel). Isso vale para fibrados vetorias.
 
@@ -1339,6 +1345,164 @@ que \'e que acontece? Ent\~ao,
 
 
 \section{Aula 11}
+
+\subsection{Aplica\c c\~ao (de Weinstein): pontos fixos de simplectomorifsmos}
+
+Generaliza o estudo (Poincar\'e-Birkoff) cl\'assico de pontos fixos de aplica\c c\~oes que preservan \'area:
+
+\begin{thm}[\'Ultimo teorema de Poincar\'e]\leavevmode
+	Um automorfismo de um anelo que preserva orianta\c c\~ao, \'area e rota a fronteira do anelo em dire\c c\~oes opostas tem um ponto fixo.
+\end{thm}
+
+Isso apareceo quando Poincar\'e estudava fluxos em $\mathbb{R}^{3}$.
+
+Consideremos $(M,\omega)$ simpl\'ectica e $M \overset{f}{\longrightarrow}M$ simplectomorfismo. Nos interessa o caso em que $f$ \'e um fluxo hamiltoniano no tempo 1, ie. $f=\varphi^{t=1}_{X_{H_t}}$. Sabemos que
+\[\Gamma_f=\{(x,f(x)):x\in M\} \subseteq M\times \bar{M} \]
+\'e uma subvariedade lagrangiana, e tamb\'em
+$\Delta =\Gamma_{\operatorname{id}_M}=\{(x,x):x\in M\} \subseteq M\times \bar{M}$ 
+De forma que os pontos fixos de $f$ s\~ao os pontos de interse\c c\~ao entre $\Gamma_f$ e $\Delta$.
+
+\begin{prop}
+	Seja $M$ compacta, $H^{1}_{\operatorname{dR}}(M)=0$. Se $f$ \'e  \textit{\textbf{$C^1$-pr\'oximo}} (convergencia uniforme, \href{https://en.wikipedia.org/wiki/Compact-open_topology#Fr%C3%A9chet_differentiable_functions}{Fr\'echet differentiable}?) da $\operatorname{id}_M$, ent\~ao $f$ tem pelomenos 2 pontos fixos.
+\end{prop}
+
+\begin{proof}[Demostra\c c\~ao]
+	 Note que $\Delta \cong M$ pelo teorema da vizinhança lagrangiana, como $\Delta$ \'e lagrangiana existe uma vizinhança $U\supseteq \Delta$ simplectomorfa a uma vizinhança $U'$ de  $M\hookrightarrow (T^* M,\omega_{\operatorname{can}}$.
+
+	 \begin{itemize}
+	 \item Se $f\in\operatorname{Simp}$ est\'a "perto" da $\operatorname{id}_M$, ent\~ao $\Gamma_f\subseteq U$.
+
+	\item $f$ \'e $C^1$-pr\'oximo da $\operatorname{id}_M$, ent\~ao $\Gamma_f$ corresponde a 1-forma $\mu$ em $T^*M$ (a uma subvariedade $N_\mu$ de  $T^*M$?). (\'E uma gr\'afica de $M$ no fibrado cotangente!)
+
+	\item $\Gamma_f$ lagrangiana  $\implies $ $d\mu=0$ (Lista 2)
+
+	 \item $H^{1}(M)=0\implies \mu=dh$
+	
+	\item $M$ compacta $\implies $ $h$ tem pelo menos 2 pontos cr\'iticos.
+	 \end{itemize}
+\end{proof}
+
+\begin{remark}\leavevmode 
+	\begin{itemize}
+	\item N\~ao podemos abrir m\~ao de $H^{1}(M)=0$. Eg. rota\c c\~ao no toro.
+
+	\item Podemos substituir $H^{1}(M)=0$ por $f$ ser simplectomorfismo Hamiltoniano (ver McDuff-Salomon).
+	\end{itemize}
+\end{remark}
+
+\begin{question}
+	Remover $C^1$-proximidade da identidade? (Pelo menos no caso $f$ hamiltoniano.
+\end{question}
+
+\begin{conjecture}[Arnold]
+	$M$ simpl\'etica compacta, $f$ simplectomorfismo Hamiltoniano. O n\'umero de pontos fixos de $f$ e maior o igual que o n\'umero m\'inimo de pontos cr\'iticos que uma fun\c c\~ao em $M$ deve ter:
+	\begin{align*}
+		\text{\# pontos fixos de $f$}&\geq \operatorname{Crit}(M)\\
+		\geq  \text{LS category (Lusternik Schninelmann} 
+	\end{align*}
+Isso est\'a relacionado com o fato de tirar a hip\'otese de que a fun\c c\~ao est\'e pr\'oxima da identidade.
+\end{conjecture}
+
+\begin{conjecture}[Outra vers\~ao]
+	Para pontos fixos n\~ao degenerados (s\~ao os pontos onde $N_\mu$ e  $M$ se intersectan transversalmente em $T^*M$).
+	\begin{align*}
+		\text{\# pontos cr\'iticos} &\geq \text{\# m\'inimo de pontos cr\'iticos que fun\c c\~oes de Morse devem ter.}\\
+		&\underbrace{\geq }_{\text{desig. Morse} } \sum_{k}\operatorname{Betti}_{k}
+	\end{align*}
+\end{conjecture}
+
+\paragraph{Projetos} 
+\begin{itemize}
+\item Conjetura de Arnold (Eliashbag (superf\'icies de Riemann), Hofer-Achander)
+\item Homologia de Floer (\'e uma vers\~ao de Homologia de Morse em dimens\~ao infinita)
+\end{itemize}
+
+Professor Leonardo vai falar com mais detalhe desses temas.
+
+\subsection{Outra classe de exemplos de variedades simpl\'eticas: \'orbitas coadjuntas}
+
+S\~ao exeplos de redu\c c\~ao simpl\'etica. Isso est\'a relacionado com teor\'ia de Lie. $G \curvearrowright (M,\omega)$ simetr\'ias hamiltonianas. Da\'i vamos produzir uma nova variedade simpl\'etica.
+
+\subsubsection{Revis\~ao de grupos e \'algebras de Lie}
+
+Cada grupo de Lie act\'ua na sua \'algebra de Lie de maneira can\'onica. Da\'i podemos pegar a \'algebra dual. O fato importante \'e que as \'orbitas l\'a tem uma estrutura simpl\'etica.
+
+\begin{defn}
+	Um \textit{\textbf{grupo de Lie}} \'e uma variedade $C^\infty$ $G$ munida de estrutura de grupo tal que o produto e a invers\~ao s\~ao fun\c c\~oes  suaves. Os \textit{\textbf{morfismos}} s\~ao homomorfismos de grupos $C^\infty$. \textit{\textbf{Subgrupos de Lie}} s\~ao subvariedades imersas que s\~ao subgrupos.
+\end{defn}
+
+\begin{example}\leavevmode
+	\begin{itemize}
+	\item $\operatorname{GL}(n,\mathbb{R})=\{A\in M_{n\times n}(\mathbb{R}):\det A \neq 0\}$ 
+	\item $V$ espaço vetorial, $(V,+)$  \'e grupo de Lie abeliano.
+	\item  $S^1$, $S^1\times S^1\times \ldots\times S^1$ s\~ao grupos de Lie abelianos.
+	\item Grupos finitos/enumer\'aveis: $\mathbb{Z},\mathbb{Z}_m,\ldots$ 
+	\item 
+		\begin{exercise}
+			$G$ grupo de Lie conexo, ent\~ao o seu recobrimento universal $\tilde{G}$ \'e grupo de Lie.
+		\end{exercise}
+	\item Subgrupos de $\operatorname{GL}(n,\mathbb{R})$:
+		\begin{itemize}
+		\item Ortogonal $\operatorname{O}(n)=\{A\in\operatorname{GL}(n,\mathbb{R}):A A^{\mathbf{T}}=\operatorname{id}\}$.
+
+			Mais generalmente, $(V,\left<\cdot,\cdot\right> $ espaço vetorial de produto interno, $\operatorname{O}(V) =\{T:V\to V|\left<Tv,Tv\right> =\left<u,v\right> \}$.
+
+			Considerando
+			\begin{align*}
+				\psi:\operatorname{GL}(n,\mathbb{R}) &\longrightarrow \operatorname{Sim}(n) \\
+				A &\longmapsto A A^{\mathbf{T}}
+			\end{align*}
+			temos que $\operatorname{id}$ \'e um valor regular, e assim $\operatorname{O}(n)=\psi^{-1}(\operatorname{id})$ \'e uma subvariedade (compacta \'e n\~ao conexa por $\det A=\pm 1$
+	
+	\item $\operatorname{SL}(n) =\{A\in\operatorname{GL}(n,\mathbb{R}):\det A=1\}$, conexo n\~ao compacto.
+
+	\item $\operatorname{SO}(n) =\operatorname{O}(n) \cap \operatorname{SL}(n)$ compacto conexo
+
+	\item $\operatorname{Sp}(2n) =\{A\in\operatorname{GL}(2,\mathbb{R}):A^{\mathbf{T}}J_0A=J_0\}$ com $J_0=\begin{pmatrix} 0&-I\\I&0 \end{pmatrix} $. \textit{\textbf{Grupo simpl\'etico}}.
+
+	\item $\operatorname{GL}(n,\mathbb{C})=\{A\in M_{n\times n}(\mathbb{C}):\text{invertiveis} \} \overset{\text{aberto} }{\subseteq}M_n(\mathbb{C})=\mathbb{C}^{n^2}$.
+
+	\item $\operatorname{U}(n) =\{A\in\operatorname{GL}(n,\mathbb{C}):A A^*=\operatorname{id}\}$, issto \'e $A^*=\overline{A}^{\mathbf{T}}$, temos $|\det A| =1$ e o mapa
+		\[\det :\operatorname{U}(n)\to S^1\]
+		e de fato $\operatorname{U}(1) \cong S^1$.
+
+	\item $\operatorname{SU}(n) = \{A\in\operatorname{U}(n) :\det A=1\}$ \textit{\textbf{grupo unit\'ario especial}}
+		
+		\end{itemize}
+	\end{itemize}	
+\end{example}
+
+\begin{remark}\leavevmode 
+	\begin{itemize}
+	\item 	\begin{thm}[de Cartan]\leavevmode
+		(F. Warner) Subgrupo fechado de grupo de Lie \'e subgrupo de Lie! (mergulhado)
+	\end{thm}
+
+	\item Nem todo grupo de Lie \'e grupo de Lie de matrices. O espaço recobridor de $\operatorname{SL}(2,\mathbb{R})$, por exemplo.
+	\end{itemize}
+\end{remark}
+
+\subsection{Sobre $\operatorname{SU}(2)$}
+
+Sabemos que podemos escrever 
+\[\mathbb{R}^{4}=\mathbb{H}=\{a+ib+jc+kd:i^2=j^2=k^2=-1\} \]
+e como
+\[S^3\hookrightarrow \mathbb{H}\]
+$S^3$ herda uma estrutura de grupo de Lie, e de fato
+\[S^3\overset{\cong }{\longrightarrow}\operatorname{SU}(2) = \left\{ (\frac{\alpha}{-\beta}\frac{\beta}{\alpha}:\alpha,\beta\in\mathbb{C},|\alpha|^2+|\beta|^2=1\right\} \]
+Da\'i,
+\[\begin{tikzcd}
+	S^3\arrow[r,"\cong "]\arrow[d,"2:1",swap]&\operatorname{SU}(2)\arrow[d,"2:1"]\\
+	\mathbb{R}P^{3}\arrow[r,"\cong "]&\operatorname{SO}(3)
+\end{tikzcd}\]
+Em geral recobrimentos duplos de $\operatorname{SO}(n)$ s\~ao grupos $\operatorname{Spin}(n)$. Para $n\geq 2$ s\~ao recobrimentos universais. S\~ao grupos de simetr\'ias de particulas que se chaman fermiones. A ideia \'e que a gente precisa dois voltas para virar a flecha que t\'a parada na particula.
+
+Por \'ultimo vamos ver por qu\'e e que $\mathbb{R}P^{3}\cong \operatorname{SO}(3)$. Do mesmo jeito que $\mathbb{R}P^{2}$ \'e o hemisferio norte da esfera com os pontos no bordo identificados, $\mathbb{R}P^{3}$ \'e uma bola fechada em $\mathbb{R}^3$ com pontos antipodais no bordo identificados. Podemos pensar que os pontos de $\mathbb{R}P^{3}$ s\~ao rota\c c\~oes  de \'angulo $\pi\sqrt{x^2+y^2+z^2}$.
+
+
+\section{Aula 12}
+
+
 
 
 \end{document}
