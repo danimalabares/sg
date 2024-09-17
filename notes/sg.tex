@@ -1222,10 +1222,10 @@ Para esse teorema pode imaginar que cada vizinhança de $Q$ \'e uma variedade di
 
 \begin{thm}[Teorema de Darboux generalizado Vers\~ao 2.0]\leavevmode
 	\[\begin{tikzcd}
-		(M_0,\omega_0)\arrow[dr,"i_0",swap,hook]&&(M_1,\omega_1)\arrow[dl,"i_1",hook]\\
-	&Q
+		(M_0,\omega_0)&&(M_1,\omega_1)\\
+	&Q\arrow[ul,"i_0",hook]\arrow[ur,"i_1",hook,swap]
 	\end{tikzcd}\]
-	(arrows reversed)Suponha que temos um isomorfismo de fibrados simpl\'ecticos
+	Suponha que temos um isomorfismo de fibrados simpl\'ecticos
 	\[\begin{tikzcd}
 	TM_0|_{Q}\arrow[rr,"\phi"]\arrow[dr,swap]&&TM_1|_{Q}\arrow[dl]\\
 	&Q
@@ -1234,10 +1234,10 @@ Para esse teorema pode imaginar que cada vizinhança de $Q$ \'e uma variedade di
 
 	Ent\~ao $\phi$ estende a um simplectomorfismo
 	\[\begin{tikzcd}
-	U_0\subset M_0\arrow[rr,"\varphi"]\arrow[dr,swap]&&U_1\subset M_1\arrow[dl]\\
-	&Q
+	U_0\subset M_0\arrow[rr,"\varphi"]&&U_1\subset M_1\\
+	&Q\arrow[ul]\arrow[ur,swap]
 	\end{tikzcd}\]
-	(arrows backwards) tal que
+	tal que
 	\[d\pi|_{Q}=\phi:TM_0|_{Q}\to TM_1|_{Q}\]
 	Isto \'e, a derivada do simplectomofismo (entre as vizinhanças de $M_1$ e $M_2$) que obtemos estende o isomorfismo simpl\'eticos dos fibrados tangentes.
 \end{thm}
@@ -1269,10 +1269,10 @@ e por fim
 
 Agora um caso particular:
 \[\begin{tikzcd}
-	(M,\omega)\arrow[dr,"i",swap]&&(T^*\mathcal{L}\arrow[dl,"i"]\\
-&\mathcal{L}
+	(M,\omega)&&T^*\mathcal{L}\\
+&\mathcal{L}\arrow[ul,hook,"i"]\arrow[ur,"i",swap,hook]
 \end{tikzcd}\]
-(arrows reversed they are inclusions) onde $Q$ est\'a metida no fibrado cotangente como a se\c c\~ao zero.
+onde $Q$ est\'a dentro do fibrado cotangente como a se\c c\~ao zero.
 
 \subsection{Teorema das vizinhanças Lagrangianas de Weinstein}
 
