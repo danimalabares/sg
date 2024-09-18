@@ -608,7 +608,26 @@ $(M,\omega)$ variedade simpl\'etica com o colchete $\{\cdot ,\cdot \}$.
 			est\'a dada em cada ponto por
 			\[(\omega^\sharp )_{ij}=\{x_i,x_j\}\]
 			por defini\c c\~ao.
-		
+
+			{\color{magenta}(My interpretation)} Especificamente, considere coordenadas de Darboux \\$(x^1,\ldots,x^n,y^1,\ldots,y^n)$ en $M$. Em \cite{lee}, eq. 22.9 vemos que para qualquer fun\c c\~ao $f \in\mathcal{C}^\infty(M)$, o seu campo Hamiltoniano est\'a dado por
+			\[X_f=\sum_{i=1}^n\left( \frac{\partial f}{\partial y^i}\frac{\partial }{\partial x^i}-\frac{\partial f}{\partial x^i} \frac{\partial }{\partial y^i} \right) \]
+			assim,
+			\[X_{x^i}=-\frac{\partial }{\partial y^i},\qquad X_{y^i}=\frac{\partial }{\partial x^i}.\]
+			Isso \'e uma base do espaço tangente. De fato, para qualquer base $v_1,\ldots,v_n$ de um espaço vetorial com base dual $v^*_1,\ldots,v_n^*$, se $w=\sum_{i}w^iv_i$, \'e super básico que
+			\[\omega\left( v_i,w \right) =\omega\left( v_i,\sum_{j}w^jv_j \right) =\sum_{j}\omega(v_i,v_j)w^j=\sum_{j}\omega(v_i,v_j)v_j^*(w)\]
+			ie.
+			\[i_{v_i}\omega=\omega(v_i,\cdot )=\sum_{j}\omega(v_i,v_j)v_j^*\]
+			Da\'i, em coordenadas,
+			\[\omega^\flat(v_i)=\begin{pmatrix} \omega(v_i,v_1)\\\vdots \\\omega(v_i,v_{n} \end{pmatrix} \]
+			ou seja
+			\[\omega^\flat =\begin{pmatrix} \omega(v_1,v_1)&\cdots &\omega(v_n,v_1)\\
+			\vdots &&\vdots \\
+		\omega(v_1,v_n)&\cdots &\omega(v_n,v_n)\end{pmatrix} \]
+		Agora note que os vetores Hamiltonianos associados as coordenadas de Darboux $(x^1,\ldots,x^n,y^1,\ldots,y^n)$ satisfazem as rela\c c\~oes do seguinte item nesta observa\c c\~ao (pode comprovar isso usando a fórmula do colchete de Poisson em coordenadas de Darboux). Da\'i, nessa base de vetores Hamiltonianos,
+
+		\[\omega^\flat =\begin{pmatrix} 0&-I\\I&0 \end{pmatrix} \]
+		Mas que n\~ao \'e que a gente tava buscando $\omega^\sharp$? Pois \'e, essa matriz elevada ao quadrado \'e $-\operatorname{id}$, da\'i a sua inversa \'e s\'o botar um signo menos…
+
 		\item A estrutura simpl\'etica can\'onica $\omega_0=\sum_{i}dp_i\wedge dp_i$ em $\mathbb{R}^{2n}$ est\'a determinada (\'e a \'unica tal que) por
 			\[\{q_i,q_j\}=0=\{p_i,p_j\},\qquad \{p_i,q_j\} =\delta_{ij}.\]
 			\'E como se tivesse uma base simpl\'etica boa em todos os pontos…
@@ -1506,6 +1525,231 @@ Por \'ultimo vamos ver por qu\'e e que $\mathbb{R}P^{3}\cong \operatorname{SO}(3
 
 \section{Aula 12}
 
+\subsection{\'Algebras de Lie}
+
+\begin{defn}
+	Uma \textit{\textbf{\'algebra de Lie}} \'e um espaço vetorial (sobre $\mathbb{R}$) munido de uma forma bilinear 
+	\begin{align*}
+		[\cdot,\cdot ]: \mathfrak{g} \times \mathfrak{g} &\longrightarrow \mathfrak{g}
+	\end{align*}
+tal que
+\begin{itemize}
+	\item $[u,v]=-[v,u]$.
+	 \item Jacobi.
+\end{itemize}
+
+Um \textit{\textbf{morfismo de \'Algebras de Lie}} \'e um mapa linear $T:\mathfrak{g} \to \mathfrak{g}$ tal que $[Tu,Tv]=T[u,v]$.
+
+Uma  \textit{\textbf{sub\'algebra de lie}} \'e $\mathfrak{h} \subset \mathfrak{g}$ subespaço tal que $[\mathfrak{h},\mathfrak{h} ]\subseteq\mathfrak{h}$, ie. $[\mathfrak{g},\mathfrak{h} ]\subseteq \mathfrak{h}$ ideal.
+\end{defn}
+
+\begin{example}\leavevmode 
+	\begin{itemize}
+		\item $M_n(\mathbb{R})$ matrizes de $n\times n$ com $[A,B]=AB-BA$. Se denota  $\mathfrak{gl}(n)$.
+
+		\item $V$ espaço vetorial com $[\cdot,\cdot ]\equiv_0$ (abelianos).
+
+		\item $\mathfrak{o}(n) =\{A\in M_n(\mathbb{R}):A=-A^{\mathbf{T}}\}$.
+
+		\item $\mathfrak{sl}(n) =\{A\in M_n(\mathbb{R}):\operatorname{tr}A=0\}$.
+
+		\item Em dimens\~ao $\infty$, $(\mathfrak{X}(M),[ \cdot,\cdot ])$ campos vetoriais, e tamb\'em $(\mathcal{C}^\infty(M),\{\cdot,\cdot\} )$ simpl\'etica.
+	\end{itemize}
+\end{example}
+
+\subsection{Rela\c c\~ao entre grupos de Lie e álgebras de Lie}
+\c c\~ao
+\[\begin{tikzcd}
+	\text{Grupos de lie}\arrow[rr,"diferenciaçao" ]&&\text{\'Algebras de Lie}  
+\end{tikzcd}\]
+
+\begin{defn}
+	Dado um grupo de Lie $G$ e um elemento $g\in G$, a \textit{\textbf{multiplica\c c\~ao à esquerda}} \'e
+	\begin{align*}
+		L_g: G &\longrightarrow G \\
+		a &\longmapsto ga
+	\end{align*}
+que \'e um difeomorfismo. Tamb\'em est\'a a \textit{\textbf{multiplica\c c\~ao à direita}} $R_g$. Temos que  $(L_g)^{-1}=L_{g^{-1}}$.
+\end{defn}
+
+\begin{defn}
+	Um campo de vetores $X\in\mathfrak{X}(G)$ \'e \textit{\textbf{invariante à esquerda}} se  \[(L_{g})_*X=X \qquad \text{ para toda }g \in G\]
+	ou
+	\[(dL_g)|_{h}(X_h)=X_{gh}\qquad \forall g,h\]
+\end{defn}
+
+\begin{remark}\leavevmode 
+	\begin{itemize}
+	\item O conjunto de campos invariantes à esquerda $\mathfrak{X}^L(G) \subseteq \mathfrak{X}(G)$ \'e uma sub\'algebra de Lie (o colchete de Lie \'e fechado aqui).
+	\item $X\in\mathfrak{X}^L(G)$ \'e completamente determinado por  $X_e$ onde  $e\in G$ \'e a unidade.
+
+	\item Temos um isomorfismo de espaços vetoriais
+		\begin{align*}
+			\mathfrak{X}^L(G)  &\overset{ \cong }{\longrightarrow}T_eG\\
+			X &\longmapsto X_e
+		\end{align*}
+		e para voltar s\'o pegamos um vetor em  $T_eG$ e espalhamos por todos lados:
+\begin{align*}
+	T_eG  &\longrightarrow \mathfrak{X}^L(G) \\
+	u &\longmapsto u^L
+\end{align*}
+		Talvez aqui devemos provar que ese espalhamento produz um campo suave.
+
+		Al\'em disso, esse mapa induz uma estrutura de \'algebra de Lie em $T_eG$. Essa  \'e a \textit{\textbf{\'algebra de Lie}} de $G$, denotada por  $\operatorname{Lie}(G)$.
+			\end{itemize}
+\end{remark}
+
+\paragraph{Extra:} $(\mathfrak{X}(M),-[\cdot,\cdot ])$ \'e a \'algebra de Lie de $\operatorname{Diff}(M)$.
+
+\paragraph{Importante:} Essa associa\c c\~ao \'e funtorial:
+
+\begin{prop}
+	Se $\phi:G_1\to G_2$ \'e um morfismo de grupos de Lie, ele induiz uma aplica\c c\~ao entre as algebras de Lie dado por
+	\[\operatorname{Lie}(\phi):=d_e\phi:T_eG_1\longrightarrow T_eG_2\]
+	que \'e um morfismo de \'algebras de Lie.
+\end{prop}
+
+\begin{proof}[Demostra\c c\~ao]
+	Muito f\'acil.
+\end{proof}
+
+Esse \'e chamado de \textit{\textbf{funtor de Lie}}.  \'E um funtor de diferencia\c c\~ao nesse sentido. Como ir na outra dire\c c\~ao?
+
+\begin{remark}\leavevmode 
+	\begin{itemize}
+	\item $V$ espaço vetorial, $G\longrightarrow \operatorname{GL}(V)$ morfismo de grupos de Lie se chama de \textit{\textbf{representa\c c\~ao}} de $G$ em $V$.
+	\item $\mathfrak{g} \longrightarrow \mathfrak{gl}(V)$ morfismo de \'algebras de Lie se chama de \textit{\textbf{representa\c c\~ao}} de $\mathfrak{g}$ em $V$.
+	\end{itemize}
+\end{remark}
+
+\begin{example}\leavevmode 
+	\begin{itemize}
+	\item $\mathfrak{gl}(n,\mathbb{R}) =\operatorname{Lie}(\operatorname{GL}(n,\mathbb{R}))$.
+	\item $(V,[\cdot,\cdot ]=0)=\operatorname{Lie}(V,+)$.
+
+	\item Pode ter grupos de Lie diferentes com a mesma \'algebra de Lie, por exemplo $(\mathbb{R},+)$ e $S^1$ tem \'algebra de Lie $(\mathbb{R},[\cdot,\cdot ])$. Outro exemplo \'e $\mathfrak{o}(n)= \operatorname{Lie}(\operatorname{O}(n)$, e como esse grupo de Lie tem dois componentes conexas (det 1 e det -1), e a \'algebra de Lie est\'a determinada s\'o pela componente da identidade, temos que $\mathfrak{o}(n)=\mathfrak{so}(n)= \operatorname{Lie}(\operatorname{SO}(n))$.
+
+	\item $\mathfrak{so}(3) \cong \mathbb{R}^{3}$ com
+		\[\begin{pmatrix} 0&a &-b\\-a &0&c\\b-c &0 \end{pmatrix} \longrightarrow \begin{pmatrix} a \\b\\ c \end{pmatrix} \]
+
+	\item Recobrimentos $2:1$.
+
+	 \item Na lista 1 vimos que $\mathfrak{sp}(2n)= \{A\in M_n(\mathbb{R}):A^{\mathbf{T}}J_0+J_0A=0\} =\operatorname{Lie}(\operatorname{Sp}(2n) )$ 
+
+	\item $\operatorname{Lie}(\operatorname{GL}(n,\mathbb{C})) =M_n(\mathbb{C})$.
+
+	\item $\operatorname{Lie}(\operatorname{SL}(n,\mathbb{C})) =\mathfrak{sl}(n,\mathbb{C})=\{A\in M_n(\mathbb{C}):\operatorname{tr}A=0\}$.
+	\item $\operatorname{Lie}(\operatorname{U}(n)) =\mathfrak{un}(n) =\{A\in M_n(\mathbb{C}):A=-A^*\}$.
+	\item $\operatorname{Lie}(\operatorname{SU}(n)) =\mathfrak{su}(n) =\{A\in M_n(\mathbb{C}):\operatorname{tr}A=0,A=-A^*\}$
+	\end{itemize}
+\end{example}
+
+\begin{exercise}\leavevmode 
+	\begin{itemize}
+	\item $u\in\mathfrak{g}$, $u^L\in\mathfrak{X}^L(G)$ \'e completo. Aqui \'e elongar cualquer curva integral usando a trasla\c c\~ao a esquerda.
+
+	Seja $\gamma_e:\mathbb{R}\to G$ curva integral de $u^L$ com  $\gamma_u(0)=e$. 
+
+	\item $\gamma_u(t+s)=\gamma_u(t)\gamma_u(s)$ ($\gamma_u$  \'e um homomorfismo de grupos)
+
+	\item $\gamma_{tu}(1)=\gamma_{u}(t)$ (homogenidade)
+	\end{itemize}
+\end{exercise}
+
+\begin{defn}
+	\begin{align*}
+		\operatorname{exp}:\mathfrak{g}  &\longrightarrow G \\
+		u &\longmapsto \gamma_u(1)
+	\end{align*}
+\end{defn}
+
+\begin{remark}
+\[\operatorname{exp}((t+s) u)=\operatorname{exp}(tu) \operatorname{exp}(su) \]
+\[\operatorname{exp}(-tu) =\operatorname{exp}(tu)^{-1}\]
+\end{remark}
+
+\begin{remark}\leavevmode 
+	\begin{itemize}
+	\item Fluxo de $u^L$ \'e $R_{\operatorname{exp}(tu)}$ :
+		\begin{align*}
+			\frac{d}{dt}R_{\operatorname{exp}(tu)}(g)&=\frac{d}{dt}\Big|_{t=0}(g\operatorname{exp}(tu) )\\
+			&=\frac{d}{dt}\Big|_{t=0}L_g\operatorname{exp}(tu)\\
+			 &=\frac{d}{dt}|_{t=0}L_g(u)\\
+			 &=u^L|_{g}
+		\end{align*}
+	\item Fluxo de $u^R$ \'e $L_{\operatorname{exp}(tu)}$.
+	\end{itemize}
+\end{remark}
+
+\subsection{Propriedades fundamentais}
+
+\begin{enumerate}
+	\item $\operatorname{exp}: \mathfrak{g}\to G$ \'e um difeomorfismo entre vizinhançasde $0\in\mathfrak{g}$ e de $e\in G$. ($d_{0}\operatorname{exp}= \operatorname{id}$.
+
+	\item $\phi:G\to H$ morfismo de grupos de Lie, $\Phi=\operatorname{Lie}(\phi) :\mathfrak{g} \to  \mathfrak{h}$. O diagrama comuta:
+\[\begin{tikzcd}
+	G\arrow[r,"\Phi"]&H\\
+	\mathfrak{g}\arrow[u,"\operatorname{exp_G}"]\arrow[r,"\phi"]&\mathfrak{h}\arrow[u,"\operatorname{exp}_H",swap]
+\end{tikzcd}\]
+\end{enumerate}
+
+\begin{example}
+	Para $G=\operatorname{GL}(n)$ e $\mathfrak{g} =M_n(\mathbb{R})$,
+	\begin{align*}
+		\operatorname{exp}: M_n(\mathbb{R}) &\longrightarrow \operatorname{GL}(n) \\
+		A &\longmapsto e^A
+	\end{align*}
+	Note que
+	\[\det :\operatorname{GL}(n)\to \mathbb{R}^*\]
+	\[\begin{tikzcd}
+		\operatorname{GL}(n)\arrow[r,"\det "]&\mathbb{R}^*\\
+		M_n(\mathbb{R})\arrow[u,"\operatorname{exp}"]\arrow[r,swap,"\operatorname{tr}"]&\arrow[u,"\operatorname{exp}",swap]
+	\end{tikzcd}\]
+	Lembre que $\det(e^A)=e^{\operatorname{tr}A}$.
+\end{example}
+
+\begin{remark}
+	Numa variedade Riemanniana com uma m\'etrica invariante, a defini\c c\~ao da exponencial usando geod\'esicas coincide com essa daqui.
+\end{remark}
+
+\subsection{Teoremas fundamentais de Lie (da \'algebra para o grupo)}
+
+\begin{thm}[Teoremas fundamentais de Lie]\leavevmode
+	\begin{enumerate}
+		\item[Lie I] $\mathfrak{g} =\operatorname{Lie}(G)$, existe um \'unico grupo de Lie $\tilde{G}$ simplesmente conexo tal que $\mathfrak{g} =\operatorname{Lie}(\tilde{G})$. A ideia e simplificar a topologia do grupo preservando a sua \'algebra. Aqui se usa o recobrimento universal da componente conexa da identidade.
+	
+		\item[Lie II] $\varphi:\mathfrak{g} =\operatorname{Lie}(G)\to \mathfrak{h} =\operatorname{Lie}(H)$. Se $G$ \'e simplesmente conexo, existe um morfismo $\phi:G\to H$ tal que $\varphi =\operatorname{Lie}(\phi)$.
+
+			\begin{example}
+				O fluxo irracional  \'e um morfismo de grupos de Lie que n\~ao se factora (s\'o se factora se a \'orbita fecha)
+				\[\begin{tikzcd}
+				\mathbb{R}\arrow[r]\arrow[d,dashed,swap]&\mathbb{T}^2\\
+				S^1\arrow[ur]
+				\end{tikzcd}\]
+			\end{example}
+
+		\item[Lie III] Toda \'algebra de Lie de dimens\~ao finita \'e \'algebra de Lie de um grupo de Lie.
+
+			\begin{thm}[Ado]\leavevmode
+				Cualquer \'algebra de Lie pode ser vista de maneira fiel dentro de $\mathfrak{gl}(n)$, ie. $\mathfrak{g} \hookrightarrow \mathfrak{gl}(n)$. (isso no acontece para grupos de Lie e $\operatorname{GL}(n)$.)
+			\end{thm}
+			Da\'i pode usar o teorema de Frobenius para mostrar que toda sub\'algebra de Lie da um subgrupo de Lie: espalha a sub\'algebra (subespaço do tangente em $e$ ) usando multiplica\c c\~ao a esquerda, que \'e Frobenius integr\'avel porque \'e \'algebra de Lie, assim ele vem de uma distribui\c c\~ao, pega a \'orbita que pasa por $e$, essa da\'i \'e um subgrupo.
+	\end{enumerate}
+\end{thm}
+
+\begin{remark}
+	Em dimens\~ao infinita tem obstru\c c\~oes.
+\end{remark}
+
+\paragraph{Em resumo:}
+
+\[\begin{tikzcd}
+	\{\text{Grupos de Lie simp. conexo} \} \arrow[rr,"\text{Lie} "]&&\{\text{\'Algebras de Lie} \}
+\end{tikzcd}\]
+\'e uma equivalencia de categor\'ias.
+
+
+\section{}
 
 
 

@@ -20,4 +20,71 @@
 
 
 
+\section{No\c c\~oes b\'asicas de mec\^anica qu\'antica}
+\begin{tabular}{ c c}
+Mec\^anica Cl\'asica	 & Mec\^anica qu\^antica\\
+\hline
+O estado de uma part\'icula est\'a determinado pela posi\c c\~ao e a velocidade. Equivalentemente, est\'a determinada pela posi\c c\~ao $\mathbf{x}$ e o momento $\mathbf{p}=m\dot\mathbf{x}$ See \href{https://mathoverflow.net/questions/19932/what-is-a-symplectic-form-intuitively}{intuition on symplectic form}.& A fun\c c\~ao de onda cont\'em a informa\c c\~ao da part\'icula em todo tempo.\\
+\end{tabular}
+
+\subsection{Cl\'asica}
+
+Sistema f\'isico \'e uma variedade com estrutura adicional. A variedade consiste dos estados do sistema (posi\c c\~ao, momento), e a estrutura adicional s\~ao as leis de movimento. A din\^amica do sistema est\'a determinada por uma fun\c c\~ao, o Hamiltoniano. Por medio de uma forma simpl\'etica podemos obter um campo vetorial associado à $H$ 
+
+\begin{itemize}
+\item $\omega$ n\~ao degenerada implica que sempre podemos achar esse campo vetorial
+
+\item  $\omega$ alternante (\texttt{sg.pdf} prop. 6.11) implica que $H$ \'e constante ao longo do fluxo Hamiltoniano ($X_H$ aponta na  dire\c c\~ao de energia constante).
+
+\item F\'ormula de Cartan implica que $\omega$  \'e constante ao longo do fluxo Hamiltoniano, ie. fluxo Hamiltoniano simpl\'etico (independente do tempo?) ie. $\mathcal{L}_{X_H}\omega=0$ se e somente se $\omega$ \'e fechada.
+\end{itemize}
+
+As equa\c c\~oes de Hamilton s\~ao s\'o outra formula\c c\~ao da segunda lei do Newton. O campo vetorial Hamiltoniano \'e uma formula\c c\~ao geom\'etrica das equa\c c\~oes de Hamilton.
+
+\begin{prop}[18.9 \texttt{das.pdf}]
+	$\{f,H\}=0$ ($f$ \'e primeira integral do fluxo de $X$) se e somente se $f$ \'e constante ao longo das curvas integrais de $X_F$.
+\end{prop}
+
+\subsection{Qu\^antica}
+
+
+
+ Equa\c c\~ao de Schr\"odinger
+ \[i\hbar \frac{\partial \psi}{\partial t}=\hat{H}\psi.\]
+ Distintas escolhas de Hamiltoniano $\hat{H}$ descrevem diferentes leis da natureza. Para part\'iculas n\~ao relativistas em treis dimens\~oes com energia potencial $V(x)$, o Hamiltoniano  \'e
+ \[\hat{H}=-\frac{\hbar^2}{2m}\nabla^2+V(x).\]
+ \'E um operador diferencial. O Laplaciano \'e
+ \[\nabla^2=\frac{\partial^2}{\partial^2 x^2}+\frac{\partial^2}{\partial^2 y^2}+\frac{\partial^2}{\partial^2z^2}.\]
+ Na mec\^anica cl\'asica, o Hamiltoniano est\'a relacionado com a energia do sistema, que para n\'os \'e
+ \[E=\frac{1}{2m}\mathbb{p}^2+V(x)\]
+ onde $\mathbb{p}=m\dot\mathbb{x}$ o momentum da part\'icula.
+
+ Nem toda teoria f\'isica pode ser descrita usando um Hamiltoniano. (Em termos gerais, s\'o as teorias que tem conserva\c c\~ao da energia podem ser descritas com o Hamiltonano.) Importantemente, isso mesmo acontece na mec\^anica qu\^antica.
+
+ O experimento do buraco duplo: a fun\c c\~ao de onda se comporta como part\'icula e como onda.
+
+ \begin{defn}
+ 	Um \textit{\textbf{estado qu\^antico}} \'e uma fun\c c\~ao de onda $\psi(\mathbb{x},t)$ normaliz\'avel, ie.
+	\[\int d^3x|\psi|^2<\infty.\]
+ \end{defn}
+ Esses estados qu\^anticos moram num espaço de Hilbert (tem produto Hermitiano): se a part\'icula est\'a num espaço $M$, o espaço de Hilbert relavante \'e $L^2(M)$.
+
+\begin{defn}
+	\textit{\textbf{Observ\'avel}}: s\~ao fun\c c\~oes  de $\mathbf{x}$ e $\mathbf{p}$. Por exemplo, $\mathbf{x}$ e $\mathbf{p}$ mesmas, ou o \textit{momento angular} $\mathbf{L}=\mathbf{x}\times \mathbf{p}$ ou a \textit{energia} $E=\frac{\mathbf{p}^2}{2m}+V(\mathbf{x})$.
+
+	Os observ\'aveis s\~ao representados por \textit{\textbf{operadores}} no espaço de Hilbert. Agem numa fun\c c\~ao de onda e d\~ao outra fun\c c\~ao.
+\end{defn}
+
+\begin{remark}
+	O reemplazo das matrices nos espaços de dimens\~ao infinita s\~ao os operadores diferenciais.
+\end{remark}
+
+\begin{remark}
+	O resultado de qualquer medi\c c\~ao de um operador est\'a no seu espectro (conjunto de eigenvalores).
+\end{remark}
+
+O espectro do Hamiltoniano determina os poss\'iveis n\'iveis de energia do sistema qu\^antico.
+
+Todo observ\'avel f\'isico corresponde a um operador Hermitiano (autoadjunto).
+
 \end{document}
