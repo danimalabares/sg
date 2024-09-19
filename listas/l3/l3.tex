@@ -149,25 +149,24 @@ Da\'i, \begin{align*}
 
 \addcontentsline{toc}{subsection}{Problem 4}
 \paragraph{Problem 4} Consider a smooth map $\phi:Q_1\to Q_2$, and let
-\[R_{\phi}:=\left\{ \left( (x,\xi),(y,\eta) \right) :y=\phi(x),\;\xi=((T\phi)^*\eta \right\} \subset T^*Q_1\times T^*Q_2.\]
+\[R_{\phi}:=\left\{ \left( (x,\xi),(y,\eta) \right) :y=\phi(x),\;\xi=(T\phi)^*\eta \right\} \subset T^*Q_1\times T^*Q_2.\]
 Verify that $R_\phi$ is a lagrangian submanifold of $T^* Q_1\times \overline{T^*Q_2}$. Whenever $\phi$ is a diffeo, what is the relation between $R_\phi$ and the cotangent lift $\hat{\phi}$?
 
 Denote by $\Gamma_\phi\subset Q_1\times Q_2$ the graph of $\phi$. What is the relation between $N^*T_\phi$ (the conormal bundle of $\Gamma_\phi$) and  $R_\phi$?
 
 \begin{proof}[Solution]\leavevmode
-	Parece que o pullback $(T\phi)^*$ coincide com o pullback usual  $\phi^*$, pois o primeiro \'e s\'o composi\c c\~ao de fun\c c\~oes enquanto o segundo \'e composi\c c\~ao com a diferencial de $\phi$.
+	Podemos escrever
+	\[R_\phi=\{\big((x,(T\phi)^*\eta),(\phi(x),\eta)\big):x\in Q_1,\eta\in T^*Q_2\}\]
+	de forma que 
 
-	Note que $R_\phi$ \'e o produto cartesiano dos grafos de $\phi$ e do seu pullback $\phi^*$ :
 	\begin{align*}
-		\Gamma_\phi&=\{(x,\phi(x)):x\in Q_1\} \\
 		\Gamma_{\phi^*}&=\{\left( \phi^*\eta,\eta \right) :\eta\in T^*Q_2\}
 	\end{align*}
-	esses dois s\~ao variedades suaves de dimens\~oes
+	(j\'a que a primeira entrada, o ponto base, est\'a determinada pelos covectores).
 	\begin{align*}
-		\dim \Gamma_\phi&=\dim Q_1\\
-		\dim \Gamma_{\phi^*}&=(\dim Q_2)^2
+		\dim \Gamma_{\phi^*}&=\dim T^*Q_2=(\dim Q_2)^2.
 	\end{align*}
-
+	Por\'em, se $Q_1$ n\~ao tem a mesma dimens\~ao que $Q_2$, ent\~ao a dimens\~ao de $R_\phi$ n\~ao pode ser a metade da dimens\~ao do espaço ambiente $T^*Q_1\times \overline{T^*Q_2}$. Isso acontece quando $\phi$ \'e um difeomorfismo. Nesse caso, $R_{\phi}$ \'e simplesmente a variedade que representa a inversa do levantamiento cotangente de $\phi$, j\'a que esse levantamiento \'e definido usando o mapa inverso do pullback "para que siga na mesma dire\c c\~ao". Nesse caso \'e imediato que $R_\phi$  \'e lagrangiano, pois j\'a sabemos que o levantamento cotangente preserva as formas can\'onicas e que o grafo de um simplectomorfismo \'e uma variedade lagrangiana (i.e. que a restri\c c\~ao da forma simpl\'etica no produto cartesiano se anula no grafo).
 \end{proof}
 
 \end{document}
