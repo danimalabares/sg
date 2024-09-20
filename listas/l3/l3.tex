@@ -9,7 +9,7 @@
 	\begin{minipage}{1\textwidth}
 		Geometria Simpl\'etica \hfill Daniel González Casanova Azuela
 		
-		{\small Profs. Henrique Bursztyn and Leonardo Macarini\hfill\href{https://github.com/danimalabares/sg}{github.com/danimalabares/sg}}
+		{\small Profs. Henrique Bursztyn e Leonardo Macarini\hfill\href{https://github.com/danimalabares/sg}{github.com/danimalabares/sg}}
 	\end{minipage}
 \end{minipage}\vspace{.2cm}\hrule
 
@@ -19,23 +19,54 @@
 \tableofcontents
 
 \addcontentsline{toc}{subsection}{Problem 1}
-\paragraph{Problem 1}
+\paragraph{Problem 1} Consider a symplectic manifold $(M^{2n},\omega)$ with hamiltonian $H\in\mathcal{C}^\infty(M)$. Let $f_1,\ldots,f_k\in\mathcal{C}^\infty(M)$ be first integrals of the flow of $H$, i.e., $\{H,f_i\} =0$. Let $F=(f_1,\ldots,f_k):M\longrightarrow \mathbb{R}^{k}$, and let $c \in\mathbb{R}^{k}$ be a regular value. Note that $M_c:=F^{-1}(c)$ is invariant by the flow of $H$. We will show that  $M_c$ carries a natural invariant volume form.
+\begin{enumerate}[label=\alph*.]
+	\item Take a neighborhood $\mathcal{U}$ of $M_{c}$ where $df_1,\ldots,df_k$ are linearly independent pointwise. Show that the Liouville volume form $\Lambda_\omega=\omega^n/n!$ can be written in $\mathcal{U}$ as $\Lambda_\omega=df_1\wedge \ldots \wedge df_k\wedge \sigma$ for some $\sigma\in\Omega^{2n-k}(M)$. We then define a volume form $\Lambda_c:= i\sigma\in\Omega^{2n-k}(M_c)$ where $i:M_c\to M$ is the inclusion.
+	\item Show that $df_1\wedge \ldots \wedge df_k\wedge  \mathcal{L}_{X_H}\sigma=0$ and use this fact to see that we can write $\mathcal{L}_{X_H}\sigma=\sum_{i=1}^kdf_i\wedge \rho_i$. Conclude that $\Lambda_c$ is invariant by the flow of $H$.
+	 \item Show that $\Lambda_c$ does not depend on the choice of $\sigma$.
+\end{enumerate}
 
 \begin{proof}[Solution]\leavevmode
 	\begin{enumerate}[label=\alph*.]
-		\item Ideia inicial: mostrar que uma base de $T_x^*M$ \'e $df_1,\ldots,df_k,dx_{k+1},\ldots,dx_{2n}$. Da\'i, toda $2n$-forma \'e um m\'ultiplo de $df_1\wedge \ldots \wedge df_k\wedge dx_{k+1}\wedge \ldots\wedge d_{2n}$. Mas esse argumento n\~ao da porque a equa\c c\~ao deve ser v\'alida numa vizinhança de $M_c$.
-			
-		Segunda ideia: pegue um ponto $p\in\mathcal{U}\subset M$. Podemos completar $(df_1)_p,\ldots,(df_k)_p$ a uma base de $T^*M$. Tamb\'em podemos extender essa base para uma vizinhança $p\in V\subset \mathcal{U}$ como segue: extenda os covectores a toda $M$ usando uma fun\c c\~ao "quindim" (=bump function) que seja 1 num compacto perto de $p$. Da\'i, como os covectores s\~ao linearmente independentes em $p$, o determinante da fun\c c\~ao de coeficentes deles \'e n\~ao zero em $p$, mas como o determinante \'e cont\'inuo, existe uma vizinhança de $p$ onde \'e n\~ao zero. Defina $\tilde{\sigma}$ como o wedge product dos covectores que acabamos de const ruir.
+		\item (Idea certa de parcialmente inspirada em  \href{https://math.stackexchange.com/questions/2857126/df-1-df-k-linearly-independent-rightarrow-frac-omegann-df-1-wedge}{StackExchange}.) Note que como $\dim \Omega^{2n}(M) =1$, basta mostrar que existe $ \sigma\in\Omega^{2n-k}(M)$ tal que $df_1\wedge \ldots \wedge df_k\wedge \sigma\in\Omega^{2n}(W)$.
 
-		Essa prova n\~ao t\'a funcionando bem porque s\'o definimos $\sigma$ numa  vizinhança do ponto $p$. Falta construir uma forma definida em todo $\mathcal{U}$. 
+		Sabemos que para qualquer ponto $p\in M_c$ existe uma vizinhança $V$ de $p$ com coodenadas locais $(f_1,\ldots,f_k,x_{k+1},\ldots,x_{2n})$. Daí, uma base de $T_x^*V$ é $df_1,\ldots,df_k,\\dx_{k+1},\ldots,dx_{2n}$. Defina $\sigma_V=dx_{k+1}\wedge \ldots \wedge dx_{2n}$. Pegue uma coberta aberta $V_\alpha$ de $\mathcal{U}$ e defina uma partição da unidade $\rho_\alpha$ para estender cada forma $\sigma_{V_\alpha}$ a uma forma em $\mathcal{U}$, $\sigma_{V_\alpha}\rho_\alpha$. A forma $\sum_{\alpha}\sigma_{V_\alpha}\rho_\alpha$ é a buscada.
 
-		\item Pela f\'ormula de Cartan,
+
+		Outra ideia que tive: pegue um ponto $p\in\mathcal{U}\subset M$. Podemos completar $(df_1)_p,\ldots,(df_k)_p$ a uma base de $T^*M$. Tamb\'em podemos extender essa base para uma vizinhança $p\in V\subset \mathcal{U}$ como segue: extenda os covectores a toda $M$ usando uma fun\c c\~ao "quindim" (=bump function) que seja 1 num compacto perto de $p$---i.e. estamos extendedo essas formas que achamos em $p$ para um campo covetorial constante. Da\'i, como os covectores s\~ao linearmente independentes em $p$, o determinante da fun\c c\~ao de coeficentes deles \'e n\~ao zero em $p$, mas como o determinante \'e cont\'inuo, existe uma vizinhança de $p$ onde \'e n\~ao zero. Defina $\tilde{\sigma}$ como o wedge product dos covectores que acabamos de achar. Daí, de novo, é so estender cada $\tilde{\sigma}$ a uma forma em $\mathcal{U}$. O problema aquí é comprovar que a escolha dos covetores coincide nas interseções dos abertos---algo que acontece na construção anterior porque estamos usando un atlas de $M$.
+
+		\item Pela f\'ormula de Cartan, em cada vizinhança $V$ como no item anterior,
 			\begin{align*}
 				df_1\wedge \ldots df_k\wedge \mathcal{L}_{X_H}\sigma&=df_1\wedge \ldots df_k\wedge \left(i_{X_H}d\sigma+d(i_{X_H}\sigma)\right)\\
 				%&=df_1\wedge \ldots df_k\wedge d(i_{X_{H}})\sigma\\
 				&=
 			\end{align*}
-		
+Pela f\'ormula de Cartan, em cada vizinhança $V$ como no item anterior,
+\begin{align*}
+	\mathcal{L}_{X_H}\sigma_V&=\mathcal{L}_{X_H}(dx_{k+1}\wedge \ldots \wedge dx_{2n})\\
+	&=\mathcal{L}_{X_H}dx_{k+1}\wedge dx_{k+2}\wedge  \ldots \wedge dx_{2n}\\
+	&+dx_{k+1}\wedge \mathcal{L}_{X_H}x_{k+2}\wedge \ldots \wedge dx_{2n}\\
+	&+\ldots +dx_{k+1}\wedge \ldots \wedge \mathcal{L}_{X_H}dx_{2n}.
+\end{align*}
+Só note que cada termo dessa suma que não é zero deve conter um múltiplo de alguma $df_j$ porque essa é a única maneira de ter formas linealmente independentes no wedge product.
+
+		Sabendo que $ \mathcal{L}_{X_H}\sigma=\sum_{j}df_j\wedge \rho_j$, temos que
+		\begin{align*}
+			\mathcal{L}_{X_H}i^*\sigma&=i^*\mathcal{L}_{X_H}\sigma\\
+			&=i^*\left(\sum_{j}df_j\wedge \rho_j\right)\\
+			&=\sum_{j}di^*f_j\wedge i^*\rho\\
+			&=0
+		\end{align*}
+		já que $f_i$ é constante em $M_c$.
+
+		\item Suponha que $\tilde{\sigma}\in\Omega^{2n-k}(M)$ também é tal que $\Lambda_\omega =df_1\wedge \ldots df_k\wedge \tilde{ \sigma}$. Então
+			\begin{align*}
+				df_1\wedge \ldots \wedge df_k\wedge (\sigma-\tilde{\sigma})&=0\\
+				\implies \qquad \sigma\wedge \tilde{\sigma}&=df_1\wedge \ldots df_{k+1}\wedge \gamma, \qquad \gamma \in\Omega^{2n-k}(M)\\
+				\implies i^*(\sigma-\tilde{\sigma})&=i^*(df_1\wedge \ldots df_{k+1}\wedge \gamma)=0\\
+				\implies\qquad  i^*\sigma &=i^*\tilde{\sigma}
+			\end{align*}
+			já que wedge product igual a zero e equivalente a dependendência linear e de novo porque $f_j$ são constantes em $M_c$.
 	\end{enumerate}
 \end{proof}
 
@@ -144,7 +175,7 @@ Da\'i, \begin{align*}
 \paragraph{Problem 3}
 
 \begin{proof}[Solution]\leavevmode
-	By an analogue argument to Problem 2a we know that $\operatorname{Ann}(D)$ is a coisotropic submanifold iff $\{f,g\} =0$ for all $f,g\in I_{\operatorname{Ann}(D)}$. Now a vector field $X$ corresponds naturally to an element of the double dual $\xi \in T^*(T^*(M))$ given by $\xi\eta(X)=\eta(X)$ for  $\eta\in T^*M$. Notice that if $X \in D$ then $\xi \in \operatorname{Ann}(\operatorname{Ann}(D) ) $.
+	By an analogue argument to Problem 2a we know that $\operatorname{Ann}(D)$ is a coisotropic submanifold iff $\{f,g\} =0$ for all $f,g\in I_{\operatorname{Ann}(D)}$. Now a vector field $X$ corresponds naturally to an element of the double dual $\xi \in T^*(T^*(M))$ given by $\xi\eta(X)=\eta(X)$ for  $\eta\in T^*M$. Notice that if $X \in D$ then $\xi \in \operatorname{Ann}(\operatorname{Ann}(D) )$.
 \end{proof}
 
 \addcontentsline{toc}{subsection}{Problem 4}
@@ -155,18 +186,34 @@ Verify that $R_\phi$ is a lagrangian submanifold of $T^* Q_1\times \overline{T^*
 Denote by $\Gamma_\phi\subset Q_1\times Q_2$ the graph of $\phi$. What is the relation between $N^*T_\phi$ (the conormal bundle of $\Gamma_\phi$) and  $R_\phi$?
 
 \begin{proof}[Solution]\leavevmode
-	Podemos escrever
-	\[R_\phi=\{\big((x,(T\phi)^*\eta),(\phi(x),\eta)\big):x\in Q_1,\eta\in T^*Q_2\}\]
-	de forma que 
+	A nota\c c\~ao $(T\phi)^*$ \'e um pouco confusa, mas terminhei por interpreta-l\'a como simplesmente a precomposi\c c\~ao, ie. $(T\phi)^*=\phi\circ T\phi$, ou seja, o pullback usual $\phi^*$. Da\'i, \'e f\'acil ver que se $\phi$ \'e um difeomorfismo, $R_\phi$ \'e justamente o grafo do pullback
+	\begin{align*}
+		\phi^*: T^*Q_2 &\longrightarrow T^*Q_1 \\
+		(\phi(x),\eta ) &\longmapsto (x,\phi^*\eta )
+	\end{align*}
+que por defini\c c\~ao \'e o inverso do levantamento cotangente de $\phi$. Por\'em, se $\phi $ n\~ao \'e injetiva, esse mapa n\~ao est\'a bem definido. Mas ainda, parece que $R_\phi$ \'e lagrangiana al\'em disso. \'E facil ver que a dimens\~ao de $R_\phi$ \'e a metade do espaço ambiente, j\'a que est\'a parametrizado por pares $(x,\eta)\in Q_1\times T^*Q_2$. Isso significa que a dimens\~ao dele \'e $\dim Q_1+\dim Q_2=\frac{1}{2}\dim (T^*Q_1\times T^*Q_2)$. Para comprovar que \'e um subvariedade lagrangiana basta ver que o mergulho $\gamma:R^{\phi} \hookrightarrow T^*Q_1\times \overline{T^*Q_2}$ puxa a forma can\'onica em zero (ie. \'e isotr\'opica).
 
-	\begin{align*}
-		\Gamma_{\phi^*}&=\{\left( \phi^*\eta,\eta \right) :\eta\in T^*Q_2\}
-	\end{align*}
-	(j\'a que a primeira entrada, o ponto base, est\'a determinada pelos covectores).
-	\begin{align*}
-		\dim \Gamma_{\phi^*}&=\dim T^*Q_2=(\dim Q_2)^2.
-	\end{align*}
-	Por\'em, se $Q_1$ n\~ao tem a mesma dimens\~ao que $Q_2$, ent\~ao a dimens\~ao de $R_\phi$ n\~ao pode ser a metade da dimens\~ao do espaço ambiente $T^*Q_1\times \overline{T^*Q_2}$. Isso acontece quando $\phi$ \'e um difeomorfismo. Nesse caso, $R_{\phi}$ \'e simplesmente a variedade que representa a inversa do levantamiento cotangente de $\phi$, j\'a que esse levantamiento \'e definido usando o mapa inverso do pullback "para que siga na mesma dire\c c\~ao". Nesse caso \'e imediato que $R_\phi$  \'e lagrangiano, pois j\'a sabemos que o levantamento cotangente preserva as formas can\'onicas e que o grafo de um simplectomorfismo \'e uma variedade lagrangiana (i.e. que a restri\c c\~ao da forma simpl\'etica no produto cartesiano se anula no grafo).
+(Ver \href{https://math.stackexchange.com/questions/2859956/conormal-bundle-and-lagrangian-submanifold}{StackExchange}.)A forma can\'onica em $T^*Q_1\times \overline{T^*Q_2}$ \'e $ \omega:=\operatorname{pr}_1^*\omega_1-\operatorname{pr}_2^*\omega_2$ onde $ \omega_1,\omega_2$ s\~ao as formas can\'onicas nos fibrados cotangentes. Queremos ver que $\gamma^*\omega=0$.
+Temos que:
+\begin{align*}
+	 \gamma^*\omega&= \gamma^* (\operatorname{pr}_1^*\omega_1-\operatorname{pr}_2^*\omega_2)\\
+	 &=(\operatorname{pr}_1\circ \gamma)^*\omega_1-(\operatorname{pr}_2\circ  \gamma)^*\omega_2\\
+	 &=\sum_{i}dx^i\wedge d((T\phi )^*\eta )-d\phi \wedge d\eta^i
+\end{align*}
+e isso deve dar zero. Não fiquei muito seguro de por que, mas a idea e assim: quando derivamos o termo que inclui $(T\phi)^*$ vira uma soma de dois termos, um dos quais se cancela com  $d\phi \wedge d\eta^i$, e o outro \'e zero por antisimetr\'ia.
+
+Por último vejamos a rela\c c\~ao de $R_\phi$ com o anulador $N^* \Gamma_\phi$:
+\begin{align*}
+	N^*\Gamma_\phi&=\{\big((x,\xi),(y,\eta)\big)\in T^*Q_1\times T^*Q_2\cong T^*(Q_1\times Q_2):\text{se anula em }T_{(x,\phi(x))}\Gamma_\phi \}
+\end{align*}
+Agora note que o espaço tangente $T_{(x,\phi(x))}\Gamma_\phi$ está generado por pares de vetores da forma $\frac{\partial }{\partial x^i}+\phi_*\frac{\partial }{\partial x^i}$. Isso segue simplesmente do fato de que em coordenadas locais, os vetores can\'onicos s\~ao as derivadas de curvas $(x_i,\phi(x_i))$. Ent\~ao, um elemento $\big((x,\xi ),(y,\eta)\big)$ em $N^*\Gamma_\phi$ deve satisfacer que quando $y=\phi(x)$, essas formas se anulan no subespaço tangente generado por  $\frac{\partial }{\partial x^i}+\phi_*\frac{\partial }{\partial x^i}$. Em s\'imbolos:
+\begin{align*}
+	0&=\xi \left( \frac{\partial }{\partial x^i} \right) +\eta\left( \phi_*\frac{\partial }{\partial x^i } \right) \\
+\iff	\xi \left( \frac{\partial }{\partial x^i} \right) &=-\eta\left( \phi_*\frac{\partial }{\partial x^i} \right) \\
+\iff\qquad\; \quad 	\xi &=-(T\phi)^*\eta
+\end{align*}
+notando que a reflex\~ao $(T \phi)^*\eta\mapsto -(T\phi)^*\eta$ \'e um simplectomorfismo, vemos que $N^*\Gamma_\phi$ de fato \'e simplectomorfo à $R_\phi$.
 \end{proof}
+
 
 \end{document}
