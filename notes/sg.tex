@@ -399,7 +399,7 @@ O fibrado cotangente possui uma 1-forma tautol\'ogica definida assim:
 	\[\lambda_{(p,\xi)}(v)\in\mathbb{R},\qquad v\in T_{(p,\xi)(T^*M)}\]
 	\'e igual a
 	\[\xi(d\pi_{(q,\xi)(v)})\]
-	ussando o mapa
+	usando o mapa
 \[T_{(p,\xi)}(T^* M)\overset{d\pi_{(p,\xi)}}{\longrightarrow}T_{p}M\]
 \end{defn}
 
@@ -860,7 +860,7 @@ Os dois exemplos anteriores s\~ao $S=Q$ e  $S=\{x\}$ da seguinte prop:
 \end{prop}
 
 \begin{proof}[Demostra\c c\~ao]
-	Ussando coordenadas adaptadas e a forma tautol\'ogica do $T^*Q$, damos coordenadas $N^*Q$ da forma $(x_1,\ldots,x_k,\xi_{k+1},\ldots,\xi_n)$ e assim o pullback da forma tautol\'ogica \'e zero porque ele evalua os covectores $\xi_{\text{grande} }$ em vectores $x_{\text{pequeno} }$.
+	Usando coordenadas adaptadas e a forma tautol\'ogica do $T^*Q$, damos coordenadas $N^*Q$ da forma $(x_1,\ldots,x_k,\xi_{k+1},\ldots,\xi_n)$ e assim o pullback da forma tautol\'ogica \'e zero porque ele evalua os covectores $\xi_{\text{grande} }$ em vectores $x_{\text{pequeno} }$.
 \end{proof}
 
 \begin{example}
@@ -903,7 +903,7 @@ Dadas dois formas simpl\'eticas numa variedade, como podemos achar um simplectom
 A diferencia\c c\~ao sempre \'e simples n\'e? Fixa um ponto e varia o tempo, obt\'em uma curva.
 \[\phi_t\mapsto X_t(\varphi_t(x)=\frac{d}{d\tau}|_{t=\tau}\varphi_\tau(x).\]
 
-A rec\'iproca \'e mais dif\'icil. A ideia e extender a variedade  \'a $M\times \mathbb{R}$, e considerar $\overline{X}(x,t)=(X_t(x),\frac{d}{dt})$. Esse depende do tempo, assim podemos achar um fluxo $\phi_t$ de $\overline{X}_t$. Aqui se deve extender o fluxo ussando bump functions, assim a gente tem que $\phi_t$ est\'a definido para toda $t$.
+A rec\'iproca \'e mais dif\'icil. A ideia e extender a variedade  \'a $M\times \mathbb{R}$, e considerar $\overline{X}(x,t)=(X_t(x),\frac{d}{dt})$. Esse depende do tempo, assim podemos achar um fluxo $\phi_t$ de $\overline{X}_t$. Aqui se deve extender o fluxo usando bump functions, assim a gente tem que $\phi_t$ est\'a definido para toda $t$.
 
 Note que $\phi_t(x,s)=(G_t,t+s)$ para alguma fun\c c\~ao $G$ na variedade. Podemos achar uma inversa dela assim:
 \[(x,s)=\phi_{-t}(\phi_t(x,s))=G_{-t}(G_t(x,s),t+s),s)\]
@@ -934,7 +934,7 @@ Voltando ao m\'etodo de Moser, para achar $\varphi^*\omega_1=\omega_0$, pegamos 
 
 		\item A regra da cadeia diz que para uma fun\c c\~ao $F(a,b)$,
 \[\frac{d}{dt}F(t,t)=\frac{\partial}{\partial a}F(t,t)+\frac{\partial}{\partial b}F(t,t)\]
-e olha para $\varphi^*_a\beta_b$ como a $F$. Sustiuindo e ussando  a., o resultado segue.
+e olha para $\varphi^*_a\beta_b$ como a $F$. Sustiuindo e usando  a., o resultado segue.
 	\end{enumerate}
 \end{proof}
 
@@ -1161,7 +1161,7 @@ Note que no caso de formas fechadas, o termo da direita se anula e a gente prova
 	Idea: aplica\c c\~ao exponencial.
 \end{proof}
 
-\section{Monitoria 2}
+\subsection{Monitoria 2}
 
 \begin{prop}
 	$\phi:M^{2n}\to \mathbb{R}^{k}$ suave, $c \in\mathbb{R}^{k}$ valor regular.
@@ -1749,8 +1749,252 @@ Esse \'e chamado de \textit{\textbf{funtor de Lie}}.  \'E um funtor de diferenci
 \'e uma equivalencia de categor\'ias.
 
 
-\section{}
+\section{Aula 13}
 
+\subsection{Ações}
+
+\begin{defn}
+	Uma \textbf{\textit{ação (à esquerda)} } de $G$ em $M$ é aplicação suave
+	\begin{align*}
+		\psi: G\times M &\longrightarrow M \\
+		(g,x) &\longmapsto gx=\psi(g,x)= \psi_{g}(x)
+	\end{align*}
+	tal que
+	\begin{align*}
+		\psi_e(x)&=x,\qquad \forall x\in M\\
+		\psi_{gh}&=\psi_g\cdot \psi_h
+	\end{align*}
+	 que é equivalente a que
+	\[\forall g\in G, \quad \psi_g\in\operatorname{Diff}(M), \quad G\mapsto \operatorname{Diff}(M)\]
+	é homeomorfismo de grupos.
+\end{defn}
+
+\paragraph{Notação} $G\overset{\psi}{\curvearrowright }M$
+
+\begin{remark}
+	Análogo para ações à direita com $\psi_{gh}=\psi_h\cdot \psi_g$.
+\end{remark}
+
+\paragraph{Terminologia} $M$ + ação por $G$ se llama \textit{\textbf{$G$-variedade}}.
+
+\begin{defn}
+	Um \textit{\textbf{morfismo de  $G$-variedades}} é
+\[\begin{tikzcd}
+	M_1\arrow[r,"\phi"]\arrow[d,"g",swap]&M_2\arrow[d,"g"]\\
+	M_1\arrow[r,"\phi"]&M_2
+\end{tikzcd}\]
+ie.,
+\[\phi(g\cdot x)=g\phi(x)\]
+ie., \textit{\textbf{$G$-equivariante}}.
+\end{defn}
+
+\begin{example}\leavevmode 
+	\begin{enumerate}
+		\item $M=V$  espaço vetorial. Ações  por transformações  lineares=representações .
+			\[G\overset{\psi}{\longrightarrow}\operatorname{GL}(V)\subset \operatorname{Diff}(V)\]
+			tem representação dual  $G\curvearrowright V^*$ dada por
+			\[G\overset{\psi^*}{\longrightarrow}\operatorname{GL}(V^*)\]
+			dada por
+			\[\left<(\psi^*)_g(\xi ),v\right> =\left<\xi,\psi_{g ^{-1}(v)}\right> ,\quad \xi \in V^*,v\in V\]
+	
+		\item $\operatorname{GL}(n)\curvearrowright \mathbb{R}^{n}$ restringe $\operatorname{O}(n)\curvearrowright S^{n-1}$.
+
+		\item $G=\mathbb{R}\curvearrowright M$, $\mathbb{R}$-ação $\longleftrightarrow $ fluxo (completo) pois $\psi_{t+s}=\psi_t\cdot \psi_s$. Além disso, $\mathbb{R}^{n}\curvearrowright M \longleftrightarrow $ $n$-fluxos que comutam, pois
+		\[\psi_{(t_1,\ldots,t_n)}=\psi_{t_1}^1\circ \ldots \circ \psi^n_{t_n}\]
+
+	\item $G$ age em si mesmo de várias formas:
+		\begin{itemize}
+		\item $\psi_g=L_g$, $L_g(a)=ga$, ação por multiplicação à esquerda.
+
+		\item $\psi_g=R_g$ à direita. (Note que  $\psi_g=R_{g ^{-1}}$ é ação à esquerda.)
+
+		\item $\psi_g=I_g=L_g\circ R_{g ^{-1}}$, $ I_g(a)=gaq ^{-1}$, ação por cnjugação (ação por automorphismos de $G$ ).
+
+		\item \textit{\textbf{Ação ou representação adjunta}}. $G$ age em $\mathfrak{g} =\operatorname{Lie}(G)$
+			\begin{align*}
+				\operatorname{Ad}: G &\longrightarrow \operatorname{GL}(\mathfrak{g})\subseteq \operatorname{Diff}(\mathfrak{g}) \\
+				g &\longmapsto d_e I_g:\mathfrak{g} \to \mathfrak{g}
+			\end{align*}
+			
+		\item \textit{\textbf{Representação dual}}. $G\curvearrowright \mathfrak{g}^*$. 
+			\begin{align*}
+				\operatorname{Ad}^*: G &\longrightarrow \operatorname{GL}(\mathfrak{g}^*) \\
+				g &\longmapsto \begin{aligned}
+				\psi_g:\mathfrak{g}^*\longrightarrow \mathfrak{g}^* \\
+				\left<\psi_g(\mu),v\right> =\left<\mu,\operatorname{Ad}_{g ^{-1}}(v)\right> 
+				\end{aligned}
+			\end{align*}
+			$(\operatorname{Ad}^* )_g=(\operatorname{Ad}_{g ^{-1}})^*$.
+
+
+		\end{itemize}
+		\item Levantamiento tangente cotangente. $G\overset{\psi}{\curvearrowright }M$.
+			\begin{itemize}
+			\item $G\curvearrowright TM$
+				\[g\mapsto \begin{tikzcd}d\psi_g:TM\arrow[r,"\cong "]\arrow[d]& TM\arrow[d]\\ M \arrow[r,"\psi_g"]&M\end{tikzcd}\]
+
+			\item $G\curvearrowright T^*M$
+				\[g \longrightarrow \begin{tikzcd}(d\psi_g)^* :T^* M\arrow[r,"\cong "]\arrow[d]& T^* M\arrow[d]\\ M\arrow[r,"\psi_g"]&M\end{tikzcd}\]
+			\end{itemize}
+
+	\end{enumerate}
+\subsection{Descrição infinitesimal de $G$-ações}
+
+\paragraph{Lembre} $\mathbb{R}$ ação  $\longleftrightarrow $fluxos $\psi_t\rightsquigarrow $campos de vetores $X(x)=\frac{d}{dt}\Big|_{t=0}\psi_t(x)$
+
+\paragraph{Generalização para $G$-ações} $G$ grupo de Lie, $\mathfrak{g} =\operatorname{Lie}(G)$, $G\overset{\psi}{\curvearrowright }M$.
+
+\paragraph{Note}  cada $u\in\mathfrak{g}$ determina uma $\mathbb{R}$-ação = fluxo em $M$.
+
+O que aqui acontece é que cada vetor no tangente à identidade de $G$ genera um fluxo na variedade $M$ quando $G$ age em $M$.
+
+\[\begin{tikzcd}
+	\mathbb{R}\arrow[r,"\gamma_u"]\arrow[rr, bend left]& G\arrow[r,"\psi"]&\operatorname{Diff}(M) \\
+	t \arrow[rr,maps to]&&\psi_{\operatorname{exp}(tu)}
+\end{tikzcd}\]
+
+\begin{defn}
+	O \textbf{\textit{gerador infinitesimal} }  de $\psi$ correspondendo a $u\in\mathfrak{g}$ é o campo
+	\[u_M(x):=\frac{d}{dt}\Big|_{t=0}\psi_{\operatorname{exp}(tu)}(x)\]
+\end{defn}
+Em conclusão, uma $G$-ação da lugar a um mapa
+\begin{align*}
+	\mathfrak{g}  &\longrightarrow \mathfrak{X}(M) \\
+	u &\longmapsto u_{M}
+\end{align*}
+
+Heurísticamente (só que $\operatorname{Diff}(M)$ não tem dimensão finita), tendo um mapa
+\[G\to \operatorname{Diff}(M)\]
+derivando obtemos
+\[\mathfrak{g} \to \mathfrak{X}(M).\]
+
+\begin{example}\leavevmode 
+	\begin{enumerate}
+		\item $G\overset{\psi}{\curvearrowright }G$. $\psi_g=L_g\rightsquigarrow \begin{aligned}
+			\mathfrak{g}  &\longrightarrow \mathfrak{X}(G) \\
+			u &\longmapsto u^R
+		\end{aligned}$
+	Aqui temos que fazer uma conta:
+	\begin{align*}
+		u_G(a)&=\frac{d}{dt}\Big|_{t=0}L_{\operatorname{exp}(tu)(a)}\\
+		&=\frac{d}{dt}\Big|_{t=0}R_a(\operatorname{exp}(tu))\\
+		 &=d_eR_a(u)\\
+		 &=u^R(a)
+	\end{align*}
+
+	Análogamente,  outros generadores infinitesimais são
+
+\item \[\psi_g=R_g\implies u_G=u^L\]
+	\[\psi_g=R_{g ^{-1}}\implies u_G=-u^L\]
+\item \[\psi_g=I_g=L_g\circ R_{g ^{-1}}\implies \begin{aligned}
+	\mathfrak{g} &\longrightarrow \mathfrak{X}(G) \\
+	u &\longmapsto u^R-u^L
+\end{aligned} \]
+	\end{enumerate}
+\end{example}
+
+\subsection{No caso de representações}
+\[G \overset{\psi}{\longrightarrow}\operatorname{GL}(V)\subset \operatorname{Diff}(M)\]
+diferenciando,
+$\mathfrak{g} \longrightarrow \mathfrak{gl}(V) \subset \mathfrak{X}(V)$ 
+
+A partir de uma transformação linear podemos gerar um campo vetorial:
+\[\{A:V\to V \text{linear} \} =\mathfrak{gl}(V) \hookrightarrow \mathfrak{X}(V)\]
+pega um vetor $v$. Em $v$, o vetor do campo vetorial  é $Av$.
+$X_A(v)=Av\in T_vV=V$
+
+\subsection{Geradores infinitesimais das ações adjunta e coadjunta}
+
+Lembre que essas ações correspondem a $G\curvearrowright \mathfrak{g}$ e $G\curvearrowright \mathfrak{g}^*$. Daí,
+\begin{itemize}
+\item $G\overset{\operatorname{Ad}}{\curvearrowright }\mathfrak{g}$ com
+	\begin{align*}
+		\operatorname{Ad}: G &\longrightarrow \operatorname{GL}(\mathfrak{g}) \\
+		g &\longmapsto (\operatorname{Ad}_g:\mathfrak{g} \to \mathfrak{g} )
+	\end{align*}
+	"diferenciando" obtemos
+	\begin{align*}
+		\operatorname{ad}: \mathfrak{g} &\longrightarrow \mathfrak{gl}(\mathfrak{g}) \\
+		u(?) &\longmapsto (\operatorname{ad}_u:\mathfrak{g} \to \mathfrak{g} )
+	\end{align*}
+	
+\end{itemize}
+
+\begin{lemma}
+	 \begin{align*}
+		u_\mathfrak{g} =\operatorname{ad}_u &\mathfrak{g}\longrightarrow \mathfrak{g} \\
+		u &\longmapsto u_\mathfrak{g} =[u,\cdot ]
+	\end{align*}
+\end{lemma}
+
+\begin{proof}[Demostração]
+	É so por definição e a regra da cadeia:
+	\begin{align*}
+		u_{\mathfrak{g}}(v)&=\frac{d}{dt}\Big|_{t=0}\operatorname{Ad}_{\operatorname{exp}(tu)}(v)\\
+		&=\frac{d}{dt}\Big|_{t=0}d_e(R_{\operatorname{exp}(-tu) \cdot L_{\operatorname{exp}(tu)}}(v)\\
+		&=\frac{d}{dt}\Big|_{t=0}dR_{\operatorname{exp}(-tu)}(v^L(\operatorname{exp}(tu))\\
+		&=[u^L,v^L]|_{e}\\
+		&=[u,v]
+	\end{align*}
+\end{proof}
+\end{example}
+
+\subsubsection{Dualização}
+Agora considere $G\overset{\operatorname{Ad}}{\curvearrowright }\mathfrak{g}^*$,
+\[\left<u_{\mathfrak{g}}^*,v\right> =-\mu\left( [u,v] \right) \]
+com $\mu\in\mathfrak{g}^*$, $u_{\mathfrak{g}^*}\in\mathfrak{g}^*=T_\mu\mathfrak{g}^*$.
+
+\begin{question}
+	$\mathfrak{g} \to \mathfrak{X}(M)$
+\end{question}
+
+\begin{prop}\leavevmode 
+	\begin{enumerate}
+		\item $M_1,M_2$ $G$-variedades, $ \varphi:M_1\to M_2$ $G$-equivatiante, então $u_{M_1}\overset{\varphi}{\sim}u_{M_2}$, ie; $d\varphi (u_{M_1}(x)=u_{M_2}(\varphi(x))$.
+
+		\item $M$ é $G$-variedad, então $\mathfrak{g} \to \mathfrak{X}(M)$ é (anti!) homomorfismo de álgebra de Lie.
+
+		\item $M$  é $G$-variedade, $(\psi_g)_*(u_M)=(\operatorname{Ad}_g(u))$.
+	\end{enumerate}
+\end{prop}
+
+\begin{proof}[Demostração]\leavevmode 
+	\begin{enumerate}
+	\item \[\varphi((\operatorname{exp}(tu) \cdot x)=\operatorname{exp}(tu),\qquad \varphi(x)\]
+			\[\frac{d}{dt}\Big|_{t=0}\implies d\varphi (u_{M_1}(x))=u_{M_1}(\varphi(x))\]
+
+		\item Note: resultado vale para \[\phi_g=R_{g ^{-1}}\rightsquigarrow \begin{aligned}
+			\mathfrak{g} &\longrightarrow \mathfrak{X}(G) \\
+			u &\longmapsto -u^L
+		\end{aligned}\]
+		Seja $G\curvearrowright \overline{M}=G\times M$ uma ação, \[g(a,z)=(R^{-1}_{g}(a), \qquad u_{\overline{M}}=(-u^L,0)\]
+
+		Note: $[v_{\overline{M}},u_{\overline{M}}=-\left( [u,v]_{\overline{M}} \right) $. Considere
+		\begin{align*}
+			F: G\curvearrowright \overline{M}=G\times M &\longrightarrow M\curvearrowleft G  \\
+			(a,x) &\longmapsto \bar{a}^1x
+		\end{align*}
+		é $G$-equivariante Daí,
+		\[u_{\overline{M}} \overset{\sim}{F}u_M\implies \begin{aligned}
+			F_*([u_{\overline{M}},v_{\overline{M}}])&=[u_{M},v_M]\\
+			F_*([u,v]_{\overline{M}}&=[u,v]
+		\end{aligned}\]
+		
+		\item A fórmula que eu quero vale em $ \overline{M}$, $F$ é $G$-equivariante, $\implies $ vale em $M$.
+	\end{enumerate}
+\end{proof}
+
+\paragraph{Próxima aula} 
+Estamos usando um funtor
+\[\begin{tikzcd}
+\{G\text{-variedades} \}\arrow[r]&\{\mathfrak{g} \text{-variedades} \} \arrow[l,bend right, dashed]	
+\end{tikzcd}\]
+e queremos estudar em que casos podemos voltar.
+
+
+\section{Aula 14}
+
+\section{Aula 15}
 
 
 \end{document}

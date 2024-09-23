@@ -1,4 +1,4 @@
-\input{/Users/daniel/github/config/preamble.sty}
+\input{/Users/daniel/github/config/preamble-por.sty}
 
 \usepackage[style=authortitle-terse,backend=bibtex]{biblatex}
 \addbibresource{bibliography.bib}
@@ -56,8 +56,8 @@ As equa\c c\~oes de Hamilton s\~ao s\'o outra formula\c c\~ao da segunda lei do 
  \'E um operador diferencial. O Laplaciano \'e
  \[\nabla^2=\frac{\partial^2}{\partial^2 x^2}+\frac{\partial^2}{\partial^2 y^2}+\frac{\partial^2}{\partial^2z^2}.\]
  Na mec\^anica cl\'asica, o Hamiltoniano est\'a relacionado com a energia do sistema, que para n\'os \'e
- \[E=\frac{1}{2m}\mathbb{p}^2+V(x)\]
- onde $\mathbb{p}=m\dot\mathbb{x}$ o momentum da part\'icula.
+ \[E=\frac{1}{2m}\mathbf{p}^2+V(x)\]
+ onde $\mathbf{p}=m\dot\mathbf{x}$ o momentum da part\'icula.
 
  Nem toda teoria f\'isica pode ser descrita usando um Hamiltoniano. (Em termos gerais, s\'o as teorias que tem conserva\c c\~ao da energia podem ser descritas com o Hamiltonano.) Importantemente, isso mesmo acontece na mec\^anica qu\^antica.
 
@@ -88,8 +88,37 @@ O espectro do Hamiltoniano determina os poss\'iveis n\'iveis de energia do siste
 Todo observ\'avel f\'isico corresponde a um operador Hermitiano (autoadjunto).
 
 
-\section{Quantization}
+\section{Quantização}
 
 \href{https://math.stackexchange.com/questions/4540394/need-help-understanding-the-proof-of-diracs-famous-relation-between-commutators}{Aqui } tem uma perguna de StackExchange: "Need help understanding the proof of Dirac's famous relation between commutators and Poisson brackets". So maybe that could be kind of an exercise/proof to carry out in the talk.
+
+No seguinte vou ler sobre tudo \href{https://en.wikipedia.org/wiki/Geometric_quantization}{wiki} e um pouco de  \texttt{quank3.pdf}
+
+\subsection{Prequantização}
+
+Passar de uma variedade simplética a um espaço de Hilbert assinalando um operadores autoadjuntos às funções suaves na variedade, ie. oberváveis clássicos à observáveis quânticos, satisfazendo:
+\begin{enumerate}
+	\item Linearidade: $\hat{f+g}=\hat{f}+\hat{g}$, $\hat{\lambda f}=\lambda\hat{f}$.
+	\item Morfismo de álgebras de Lie a menos de uma constante.
+	\item Identidade vai para identidade.
+	\item Os operadores $\hat{q_i}$ e $\hat{p_i}$ agem irreduzivelmente no espaço de Hilbert.
+\end{enumerate}
+
+
+Por exemplo, o espaço de funções integráveis respeito a forma de Liouville. Manda uma função suave $f$ em $Q(f):=-i\hbar \left( X_f+\frac{1}{i\hbar}\theta(X_f) \right) +f$.
+
+Otro exemplo: um fibrado linear $L$ munido de uma conexão tal que a sua forma de curvatura é $ \omega /\hbar$. Aqui o espaço de Hilbert é o espaço de seções quadrado-integráveis de $L$ como o operador $Q(f)=-i\hbar \nabla_{X_f}+f$. Neste caso temos que $[Q(f),Q(g)]=i\hbar Q(\{f,g\}).$
+
+\subsection{Polarização}
+
+É a escolha de um subespaço Lagrangiano em cada ponto de $M$.
+
+\begin{defn}[\href{https://ncatlab.org/nlab/show/polarization#OfASymplecticManifold}{nLab}]
+	Uma \textit{\textbf{polarização}} de uma variedade simplética $(X,\omega )$ é a escolha de um subfibrado Lagrangiano involutivo $\mathcal{P}\hookrightarrow T_{\mathbb{C}}X$ do fibrado tangente complexificado de $X$.
+\end{defn}
+
+\begin{example}
+	O fibrado holomorfo ou antiholomorfo caso $(X,\omega,g,I)$ seja K\"ahler.
+\end{example}
 
 \end{document}
