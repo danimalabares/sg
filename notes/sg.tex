@@ -1991,10 +1991,283 @@ Estamos usando um funtor
 \end{tikzcd}\]
 e queremos estudar em que casos podemos voltar.
 
-
 \section{Aula 14}
 
+$G\overset{\psi}{\curvearrowright }$. Um elemento da algebra de Lie, pega o vetor na identidade, vai para o grupo, daí gera um fluxo na variedade, diferencia o fluxo e já tem um campo vetorial.
+
+\paragraph{Propriedades} 
+\begin{itemize}
+\item Anti-homomorpfismo de álgebras de Lie.
+\item Se $\phi$ é uma aplicação equivariante (preserva ação), os campos vetoriais são relacionados.
+\end{itemize}
+
+\subsection{Ações  infinitesimais ($\mathfrak{g}$-ações)}
+
+$\mathfrak{g}$ álgebra de Lie ($\dim <\infty$).
+
+\begin{defn}
+	Uma \textit{\textbf{ação (à esquerda)}} de $\mathfrak{g}$ em $M$ é anti-homomorfismo de álgebras de Lie
+	\begin{align*}
+		\mathfrak{g} &\longrightarrow \mathfrak{X}(M) \\
+		u &\longmapsto u_M
+	\end{align*}	
+\end{defn}
+
+\paragraph{Notação} $\mathfrak{g} \curvearrowright M$, $M$ é $\mathfrak{g}$-variedade.
+
+Para essas variedades exista uma noção de morfismo: suponha que $\mathfrak{g} \curvearrowright M\overset{\phi}{\longrightarrow}M\curvearrowleft \mathfrak{g}$, então $\phi$ é  \textit{\textbf{$\mathfrak{g}$-equivariante}} se
+\[u_{M_1}\overset{\phi}{\sim}u_{M_2}\qquad \forall u\in\mathfrak{g}.\]
+
+\paragraph{Em resumo}
+\[\begin{tikzcd}[row sep =tiny]
+G\text{-variedades} \arrow[rrr,"\text{functor de diferenciação}" ]&&&\mathfrak{g}\text{-variedades, }\mathfrak{g} =\operatorname{Lie}(G) \\ 
+g\curvearrowright M\arrow[rrr,maps to]&&&\begin{aligned}
+	\mathfrak{g} &\longrightarrow \mathfrak{X}(M) \\
+	u &\longmapsto u_M
+\end{aligned}\\
+\mathfrak{g} \curvearrowright M\overset{\phi}{\longrightarrow}M\curvearrowleft \mathfrak{g}\arrow[rrr]&&&\mathfrak{g} \curvearrowright M\overset{\phi}{\longrightarrow}M\curvearrowleft \mathfrak{g}\arrow[lll,bend left,"\text{integração?}" ]
+\end{tikzcd}\]
+Nem sempre pode voltar. Precisa que o campo vetorial seja \textbf{completo}, ie. precisamos de uma $\mathbb{R}$-ação infinitesimal $\mathbb{R}\to \mathfrak{X}(M)$. Isso da uma $R$-ação que é um fluxo. Mas, nem tudo campo vetorial é completo.
+
+\begin{thm}[Lie-Richard Palais]\leavevmode
+	Seja uma ação 
+	\begin{align*}
+		\mathfrak{g} &\longrightarrow \mathfrak{X}(M) \\
+		u &\longmapsto u_M
+	\end{align*}
+	seja $G$ um grupo de Lie simplesmente conexo tal que $\mathfrak{g} =\operatorname{Lie}(G)$. Então $\mathfrak{g}$-ação se integra a uma ação $\iff$ cada $u_M$  é completo $\forall u\in\mathfrak{g}$.
+\end{thm}
+
+\begin{remark}
+	Tem a ver com pensar em uma $S^1$ ação em lugar de uma $\mathbb{R}$-ação. Por isso pedimos simplesmente conexo.
+\end{remark}
+
+
+
+
+\paragraph{Sobre sinais/convenção} 
+
+\[\begin{aligned}
+	G &\overset{\phi}{\longrightarrow}\operatorname{Diff}(M)  \\
+	\psi_g\psi_h &=\phi_{gh} 
+\end{aligned}\qquad \qquad \begin{aligned}
+g \longrightarrow \mathfrak{X}(M)
+\end{aligned}\]
+Mas esse daí e um \textit{anti}homomorfismo de álgebra de Lie.
+
+Também temos outros anti-homomorfismos de grupos (é muito importante que aparece uma sinal):
+\begin{align*}
+	\operatorname{Diff}(M)&\cong \operatorname{Aut}(\mathcal{C}^\infty(M))\\
+	\phi :M\to M&\rightsquigarrow \phi^*:\mathcal{C}^\infty(M)\to \mathcal{C}^\infty(M)\\
+	\phi \circ \psi&\rightsquigarrow \phi^*\circ \phi^*\\ \\
+	\operatorname{Lie}(\operatorname{Diff}(M)) \cong \mathfrak{X}(M) &\overset{\cong }{\longrightarrow}\operatorname{Lie}(\operatorname{Aut}(\mathcal{C}^\infty(M))) \cong \operatorname{Der}(\mathcal{C}^\infty(M))
+\end{align*}
+Porque de fato a gente já tinha definido o colchete de Lie como uma derivação. Aí o que acontece é que quando voltamos para o lado esquerdo temos que botar uma sinal.
+
+\subsection{Mais sobre ações}
+
+Suponha $G\overset{\psi}{\curvearrowright }M$ e seja $ x\in M$.
+
+\begin{defn}
+	\textit{\textbf{Órbita de $x$}}: $\mathcal{O}_x=\{\psi_g(x)=gx:g\in G\} \subseteq M$.
+\end{defn}
+		A ação da lugar a uma relação de equivalência em $M$ : $x\sim y\iff \exists g\in G$ tal que $y=g\cdot x$. Nesse caso as órbitas são as classes de equivalência (partição de $M$).
+
+\begin{remark}
+	Se $M=\mathcal{O}_x$, a ação é dita \textit{\textbf{transitiva}} e  $M$ é \textit{\textbf{espaço $G$-homogéneo}}.
+\end{remark}
+
+\begin{example}\leavevmode
+	\begin{itemize}
+	\item $G\overset{L,R}{G}$, $L_g$ e  $R_g$ são transitivas.
+	\item $G\overset{I}{\curvearrowright}G$, $I_g(a)=gag^{-1}$ não é transitiva ($\{e\}$ é órbita).
+	\item $\operatorname{SO}(3) \curvearrowright \mathbb{R}^3$ cujas órbitas são esferas e a origem.
+	\end{itemize}
+\end{example}
+
+\begin{defn} \textit{\textbf{Grupo de isotropía ou estabilizador}}: $G_x=\{g\in G:\psi_g=x\} \subseteq G$.
+\end{defn}
+
+\begin{remark}
+$x\sim y\implies G_x\cong G_y$.
+\end{remark}
+
+\begin{example}
+	$\operatorname{SO}(3) \curvearrowright \mathbb{R}^{3}$. Para $x=0$,  $G_x=\operatorname{SO}(3)$, mais para $x \neq 0$ temos $G_x\cong S^1$, as rotações com eixo a linha da origem a $x$.
+\end{example}
+
+Agora pegue uma ação infinitesimal $\mathfrak{g} \curvearrowright M$, ie. um mapa
+\begin{align*}
+	\mathfrak{g} &\longrightarrow \mathfrak{X}(M) \\
+	u &\longmapsto u_M
+\end{align*}
+
+\begin{defn}\leavevmode
+	\begin{enumerate}
+		\item \textit{\textbf{Distribuição orbital}}: $D\subseteq TM$ dado por
+			\[x\longmapsto T_xM\supseteq D_x=\{u_M(x):u\in\mathfrak{g}\}\]
+	
+		\item \textit{\textbf{Álebra de isotropía}}: $\mathfrak{g}_{x}\subseteq \mathfrak{g}$ dada por
+			\[\mathfrak{g}_x=\{u\in\mathfrak{g} :u_M(x)=0\}\]
+	\end{enumerate}
+\end{defn}
+
+	Será que tudo encaixa? O estabilizador é um grupo de Lie cuja álgebra de Lie a álgebra de isotropía… a distribuição orbital é o fibrado tangente das órbitas?
+
+\begin{prop}[órbitas, isotropias, … (Warner)]\leavevmode 
+	\begin{itemize}
+	\item $G_x\subseteq G$ é um subgrupo de Lie e $\operatorname{Lie}(G_x) =\mathfrak{g}_x$.
+	\item O conjunto das classes laterias $G/G_x$  é uma variedade $C^\infty$ tal que $G\to G/G_x$ é submersão.
+
+	\item Temos uma aplicação natural 
+		 \begin{align*}
+			G &\longrightarrow \mathcal{O}_x \\
+			g &\longmapsto g\cdot x
+		\end{align*}
+		E de fato
+		\[\begin{tikzcd}[row sep=tiny]
+			G\arrow[rr,"\text{sobre} "]&&\mathcal{O}_x\\
+			g\arrow[rr,maps to]\arrow[dr]&& g\cdot x\\
+			& G/G_x\arrow[ur,"\text{bijeção} "]
+		\end{tikzcd}\]
+		Assim, $\mathcal{O}_x$ tem estrutura $C^\infty$ tal que $\mathcal{O}_x \overset{\operatorname{dif}}{\cong } G/G_x$.
+
+		E mais. $\mathcal{O}_x\hookrightarrow M$ é uma imersão.
+		
+	\end{itemize}
+\end{prop}
+
+\begin{remark}
+	Se $M$ é $G$-variedade homogênea, então $M\cong G/G_x$ para qualquer  $x\in M$.
+\end{remark}
+
+\begin{example}\leavevmode
+	\begin{itemize}
+		\item $S^{n-1}$. Qual é grupo de isotropia de $e_n$?
+			\[\begin{pmatrix} &&& 0\\
+			& \operatorname{O}(n-1)&&0\\
+			&&&0\\
+			0&0&0&1\end{pmatrix} \]
+		de fato,
+		\[S ^{n-1}\cong \dfrac{\operatorname{O}(n)}{\operatorname{O}(n-1)}=\dfrac{\operatorname{SO}(n)}{\operatorname{SO}(n-1)}\]
+		já que os dois agem transitivamente na esfera---lembre que a variedade não é mais que o quociente do grupo-estabilizador quando tem uma ação homogênea.
+
+\item \[\mathbb{R}P^{n-1}=\dfrac{\operatorname{SO}(n)}{\operatorname{O}(n-1)}\]
+	Pode fazer uma leve meditação ao respeito. Agora tem que fixar uma linha, não só um ponto. Tem que fixar mais pontos, tem menos transformações. Ele colocou uma matriz assim:
+				\[\begin{pmatrix} &&& 0\\
+			& \operatorname{O}(n-1)&&0\\
+			&&&0\\
+			0&0&0&\pm 1\end{pmatrix} \]
+Porque pode refleitir no ponto antípoda e tudo bem.
+	\item \[\mathbb{C}P^{n_01}=\dfrac{\operatorname{SU}(n)}{\operatorname{U}(n-1)}\]
+	\end{itemize}
+\end{example}
+
+\paragraph{Fato geral}  $G$ grupo de Lie $H\subseteq G$ subgrupo fechado, então $G/H$  é $C^\infty$-variedade e $G\to G/H$ é submersão.
+
+Lembre: uma ação livre, propria… tem o Slice theorem, onde tem que pegar uma vizinhança das órbitas.
+
+\begin{example}[Curiosidade]
+	$V$ espaço vetorial, $\operatorname{Fr}_p(V)=\{(v_1,\ldots,v_p):\text{l.i.} \}$. Tem uma ação $\operatorname{GL}(n)\curvearrowright \operatorname{Fr}_p(V)$. Pode calcular o grupo de isotropía $H$, e daí dar uma estrutura diferenciável a $\operatorname{Fr}_p(V)$. Essa variedade se chama \textit{\textbf{variedade de Stiefel}}.
+\end{example}
+
+\subsection{De valto à geometria simplética}
+
+Queremos finalmente estudar órbitas coadjuntas e quocientes simpléticos.
+
+Pegue um grupo de Lie $G$ e lembre a ação coadjunta $G\overset{\psi=\operatorname{Ad}^*}{ \curvearrowright }\mathfrak{g}^*$. É assim:
+\begin{align*}
+	(\operatorname{Ad}^*)_g: \mathfrak{g}^* &\longrightarrow \mathfrak{g}^* \\
+	\left<\operatorname{Ad}^*)_g(\xi ),u\right>  &=\left<\xi,\operatorname{Ad}_{g^{-1}}(u)\right> 
+\end{align*}
+onde $u\in\mathfrak{g}$ e $\xi \in\mathfrak{g}^*$. De fato,
+\begin{align*}
+	\operatorname{Ad}_g=d_e I_g:\mathfrak{g} &\longrightarrow \mathfrak{g} \\
+	I_g(a) &=gag^{-1}
+\end{align*}
+
+\begin{remark}
+	$I_g:G\to G$ é um homomorfismo de grupos, $\implies \operatorname{Ad}_g:\mathfrak{g} \to \mathfrak{g}$ é homomorfismo de álgebra de Lie, ie. $\operatorname{Ad}_g[u,v]=[\operatorname{Ad}_gu,\operatorname{Ad}_gv]$.
+
+	Também vimos que
+	\begin{align*}
+		: \mathfrak{g} &\longrightarrow \mathfrak{X}(\mathfrak{g}^*) \\
+		u &\longmapsto u_{\mathfrak{g}^*}
+	\end{align*}
+	\[u_{\mathfrak{g}^*}=-\xi([u,\cdot ])\]
+	onde $T_\xi \mathfrak{g}^*=\mathfrak{g}^*$
+\end{remark}
+
+Agora. Pegue $\eta\in\mathfrak{g}^*$ fixo. então
+\[\mathcal{O}=\mathcal{O}_\eta=\{\operatorname{Ad}^*(\eta):g\in G\} \subseteq \mathfrak{g}^*\]
+\[T_\xi \mathcal{O}=\{u_{g^*}(\xi ):u\in\mathfrak{g}\}\]
+
+\begin{defn}
+	$\xi \in\mathcal{O}$, $\omega_\xi \in\Lambda^{2}(T_\xi^*\mathcal{O})$,
+	\[\omega_\xi(u_{\mathfrak{g}^*} (\xi ),v_{\mathfrak{g}^*}(\xi ):=\left<\xi,[u,v]\right> \]
+	Onde tem que mostrar que isso está bem definido. Para isso poderia usar que $\left<\xi,[u,v]\right> =-u_{\mathfrak{g}^*}(\xi )(x)$…
+\end{defn}
+
+\begin{thm}[KKS=Kirillov-Kostant-Sourian]
+	$\omega\in\Omega^{2}(\mathcal{O})$ é simplética.
+\end{thm}
+
+\begin{proof} Seja $\xi \in\mathcal{O}$
+	\begin{enumerate}[label=\textbf{Paso \arabic*}]
+		\item \textbf{$\omega_\xi$ está bem definido.} $u,u'\in\mathfrak{g}$ tal que $u_{\mathfrak{g}^*}=u'_{\mathfrak{g}^*}(\xi )$, mais isso é equivalente a que $\xi([u,\cdot ])=\xi([u',\cdot ])$.
+
+	\item \textbf{$\omega_\xi$ não degenerada}:
+			\begin{align*}
+				\omega_\xi(u_{\mathfrak{g}^*}(\xi ),v_{\mathfrak{g}^*}(\xi )&=0\\
+				\implies =\xi([u,v])&=u_{\mathfrak{g}^*}(\xi )(x)=0\\
+				\iff u_{\mathfrak{g}^*}(\xi)&=0.
+			\end{align*}
+
+\item \textbf{$\xi \longrightarrow \omega_\xi$ é suave}. Para isso vamos mostrar que $\omega$ é $G$-invariante, ie. que $(\operatorname{Ad}^*)_g\xi =g\xi$.
+
+	\begin{exercise}
+		Numa variedade $G $-homogénea, uma forma $G$-invariante é suave.
+	\end{exercise}
+\begin{align*}
+	(\mathfrak{g}^*\omega )_\xi(u_{\mathfrak{g}^*}(\xi,v_{\mathfrak{g}^*}(\xi))&\overset{\operatorname{def}}{=}\omega_{g\xi}(g_*(u_{\mathfrak{g}^*}(\xi ),g_*(v_{\mathfrak{g}^*}(\xi )))\\
+	&=\omega_{g\xi}\left((\operatorname{Ad}_g(u))_{\mathfrak{g}^*}(\xi ),(\operatorname{Ad}_g(v))_{\mathfrak{g}^*}(x)\right)\\
+	&\overset{\operatorname{def}\omega}{=}\left<(\operatorname{Ad}^*)_g\xi,[\operatorname{Ad}_g(u),\operatorname{Ad}_g(v)]\right> \\
+	&=\omega_\xi(u_{\mathfrak{g}^*}(\xi ),v_{\mathfrak{g}^*}(\xi ))\\
+	\implies g^*\omega &=\omega
+\end{align*}
+
+\item \textbf{$\omega$ é fechada}. Vamos usar invariânça de novo. A invariância significa que
+	\[0=\mathcal{L}_{u_{\mathfrak{g}^*}}\omega=i_{u_{\mathfrak{g}^*}}d\omega +di_{u_{\mathfrak{g}^*}}\omega\]
+	\[\implies i_{u_{\mathfrak{g}^*}}d\omega =-d(i_{u_{\mathfrak{g}^*}}\omega )\]
+	\begin{claim}
+		$i_{u_{\mathfrak{g}^*}}\omega =du$. Já como é o dual do dual, podemos ver a $u$ como uma função $u\in\mathfrak{g} =\mathcal{C}^\infty_{\operatorname{lin}}(\mathfrak{g}^*)\subseteq \mathcal{C}^\infty(\mathfrak{g})$.
+	\end{claim}
+	Como $u$ é linear, $d|_{\xi}(\eta)=u(\eta)$. Daí,
+	\begin{align*}
+		du|_{\xi}(v_{\mathfrak{g}^*}(\xi )&=u(v_{\mathfrak{g}^*}(\xi ))=\left<\xi,[u,v]\right> =\omega_{\xi}(u_{\mathfrak{g}^*}(\xi ),v_{\mathfrak{g}^*}(\xi )).
+	\end{align*}
+
+	\end{enumerate}
+\end{proof}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 \section{Aula 15}
+
+\section{Aula 16}
 
 
 \end{document}
