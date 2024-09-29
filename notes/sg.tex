@@ -198,11 +198,20 @@ $\Omega\in \Lambda^{2} V^{*}$ \'e n\~ao degenerada \'e chamada simpl\'etica. $(V
 Sejam $(V,\Omega)$ evs e $V\subseteq V$ subespa\c co.
 
 \begin{defn}
-\[W^{\Omega} :=\{u\in |\Omega(u,w)=0\;\forall w\in W\}\]
-	Considere a restri\c c\~ao  de $\Omega$ \`a W:
-	\[i:W\hookrightarrow V\qquad i^{*} \Omega(\Omega|_{W}\in \Lambda_2W^{*},\]
+	Seja $(V,\Omega)$ um espaço vetorial simplético. Dado um subespaço $W\subseteq V$, definimos seu \textit{\textbf{ortogonal simplético}} como
+\[W^{\Omega} :=\{v\in V|\Omega(v,w)=0\;\forall w\in W\}\]
+Note que se
+\begin{align*}
+	\Omega^\flat: V &\longrightarrow V^* \\
+	v &\longmapsto i_v\Omega=\Omega(v,\cdot )
+\end{align*}
+temos que
+\[\ker \Omega:=\ker \Omega^\flat=W^\Omega.\]
+
+Considere a restri\c c\~ao  de $\Omega$ \`a W:
+	\[i:W\hookrightarrow V,\qquad i^{*} \Omega=\Omega|_{W}\in \Lambda^2W^{*},\]
 	ent\~ao
-	\[\ker (\Omega|_{W})=\{w\in W |\Omega(w,w')=0\;\forall w'\in W\}=W\cap W^{\Omega}\]
+	\[\ker (\Omega|_{W})=W\cap W^{\Omega}\]
 Casos de interesse:
 \begin{itemize}
 	\item \textit{\textbf{Isotr\'opico}}: $W\subseteq W^{\Omega}$ ($\iff\Omega|_{W}\equiv 0$).
@@ -358,6 +367,12 @@ Tem a forma simpl\'etica \'e o pullback:
 
 \section{Aula 3}
 
+Se $V$ é ume spaço vetorial real, uma \textit{\textbf{estrutura complexa}} em $V$ é um endomorfismo linear $J:V\to V$ tal que $J^2=-\operatorname{id}$.
+
+Seja $(V,\Omega)$ um espaço vetorial simplético. Uma estrutura complexa em $V$ é \textit{\textbf{compatível}} com $ \Omega$ se para todo $u, v\in V$,
+\[g(u,v):=\Omega(u,Jv)\]
+é um produto interno. (Acho que) isso implica que
+\[\Omega(Ju,Jv)=\Omega(u,v),\qquad\text{e}  \qquad \Omega(u,Ju)>0\;\forall u \neq 0\]
 \section{Aula 4}
 
 \section{Aula 5}
@@ -1297,9 +1312,9 @@ onde $Q$ est\'a dentro do fibrado cotangente como a se\c c\~ao zero.
 
 
 \begin{thm}[das vizinhanças Lagrangianas de Weinstein]\leavevmode
-	(As subvariedades Lagrangianas est\~ao definidas "intrinsecamente", pois existe uma vizinhança delas que \'e simplectomorfa a ela como subvariedade no tangente dela)
+	(As subvariedades Lagrangianas est\~ao definidas "intrinsecamente", pois existe uma vizinhança delas que \'e simplectomorfa a ela como subvariedade no cotangente dela)
 
-	Existem vizinhanças $U_0\supseteq \mathcal{L}$ em $T^*\mathcal{L}$ e $U_1\supset eq \mathcal{L}$ em $M$ e um simplectomorfismo
+	Existem vizinhanças $U_0\supseteq \mathcal{L}$ em $T^*\mathcal{L}$ e $U_1\supseteq \mathcal{L}$ em $M$ e um simplectomorfismo
 	\[\varphi:U_0\to U_1\]
 \end{thm}
 
