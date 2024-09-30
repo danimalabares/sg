@@ -35,17 +35,12 @@ We say that $\omega$ is \textit{\textbf{basic}} (with respect to $\pi$) if there
 
 	(Ver \href{https://math.stackexchange.com/questions/69658/basic-differential-forms}{StackExchange}) Para $\impliedby$ o mais natural é definir uma forma em $B$ como
 	\[\overline{\omega}(\pi_*X_1,\ldots,\pi_*X_k):=\omega(X_1,\ldots,X_1)\]
-já que assim $\pi^*\overline{\omega}=\omega$. Mais não é imediato para mim que isso faz sentido, pois devo comprovar todo campo vetorial em $B$ pode ser visto como o pushforward de um campo vetorial em 
+já que assim $\pi^*\overline{\omega}=\omega$. Mais não é imediato para mim que isso faz sentido, pois devo comprovar todo campo vetorial em $B$ pode ser visto como o pushforward de um campo vetorial em $M$. Finalmente descobri em \href{https://ncatlab.org/nlab/show/vertical+vector+field}{nLab} que para cualquer sumersão surjetiva como $\pi$, temos uma descomposição
+\[TM=\pi^*TB\oplus \ker \pi_*\]
 
-Devemos mostrar que $\overline{\omega}$ está bem definida.
+Agora vamos mostrar que $\overline{\omega}$ está bem definida. Primeiro vamos verificar que  {\color{4}$\pi_*X_1=\pi_*X_1'\implies \omega(X_1,X_2,\ldots,X_k)=\omega(X_1',X_2,\ldots,X_k)$.}
 
 Agora suponha que $\omega$ é fechada e que $\ker \pi_*\subseteq \ker \omega$. Pegue $X$ tangente às fibras de $\pi$; vimos acima que $\pi_*X=0$, então $X\in\ker \omega$, i.e. $i_X\omega=0$ e também $0=\mathcal{L}_{X}\omega =di_X\omega+i_Xd\omega$.
-
-\begin{itemize}
-\item {\color{4}$\pi_*X_1=\pi_*X_1'\implies \omega(X_1,X_2,\ldots,X_k)=\omega(X_1',X_2,\ldots,X_k)$.}
-
-	Isso segue de que 
-\end{itemize}
 
 \item Usando o item anterior, basta mostrar que $i_X\omega =0=\mathcal{L}_{X}\omega$ para todo $X$ tangente às fibras de $\pi$. Mas, se $X$ é tangente às fibras de $\pi$, ele tá no $\ker \pi_*=\ker \omega$. Daí, $i_X\omega=0$ e também $0=\mathcal{L}_{X}\omega=di_X\omega+i_Xd\omega$. Para ver que $\overline{\omega}$ é simplética lembre que $\ker \overline{\omega}=\{v\in TM: i_{v}\overline{\omega}=0\}$, logo se $v\in\ker \overline{\omega}$ sabemos que existe $u\in TM$ tal que $\pi_*u=v$, e daí $i_u\omega=i_u\pi^*\overline{\omega}=\overline{\omega}(v,\cdot )=i_v\overline{\omega}=0$. Isso mostra que $u\in\ker \omega=\ker \pi_*\omega\implies \pi_*u=v=0$.
 

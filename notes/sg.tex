@@ -1250,9 +1250,9 @@ Lembre
 		\end{proof}
 \end{itemize}
 
-Para esse teorema pode imaginar que cada vizinhança de $Q$ \'e uma variedade diferente. Mas ent\~ao a condi\c c\~ao de que as dois formas s \~ao iguais encima de $Q$ j\'a n\~ao faz sentido. Precisamos de um isomorfismo simpl\'etico entre esses espaços tangentes.
 
 \subsection{Darboux generalizado vers\~ao 2.0}
+No teorema anterior pode imaginar que cada vizinhança de $Q$ \'e uma variedade diferente. Mas ent\~ao a condi\c c\~ao de que as duas formas sejam iguais acima de $Q$ j\'a n\~ao faz sentido. Precisamos de um isomorfismo simpl\'etico entre esses espaços tangentes.
 
 \begin{thm}[Teorema de Darboux generalizado Vers\~ao 2.0]\leavevmode
 	\[\begin{tikzcd}
@@ -1264,16 +1264,16 @@ Para esse teorema pode imaginar que cada vizinhança de $Q$ \'e uma variedade di
 	TM_0|_{Q}\arrow[rr,"\phi"]\arrow[dr,swap]&&TM_1|_{Q}\arrow[dl]\\
 	&Q
 	\end{tikzcd}\]
-	e tal que $d\phi|_{TQ}:TQ\to TQ$ e $\operatorname{id}_TQ$.
+tal que $\phi|_{TQ}:TQ\to TQ$ é $\operatorname{id}_{TQ}$.
 
-	Ent\~ao $\phi$ estende a um simplectomorfismo
+	Ent\~ao $\phi$ estende à derivada de um simplectomorfismo
 	\[\begin{tikzcd}
 	U_0\subset M_0\arrow[rr,"\varphi"]&&U_1\subset M_1\\
 	&Q\arrow[ul]\arrow[ur,swap]
 	\end{tikzcd}\]
-	tal que
-	\[d\pi|_{Q}=\phi:TM_0|_{Q}\to TM_1|_{Q}\]
-	Isto \'e, a derivada do simplectomofismo (entre as vizinhanças de $M_1$ e $M_2$) que obtemos estende o isomorfismo simpl\'eticos dos fibrados tangentes.
+	i.e.,
+	\[d\varphi|_{Q}=\phi:TM_0|_{Q}\to TM_1|_{Q}\]
+	Em palavras: a derivada do simplectomofismo (entre as vizinhanças de $M_1$ e $M_2$) que obtemos é estendida pelo isomorfismo simpl\'etico dos fibrados tangentes dado.
 \end{thm}
 
 \begin{proof}[Demostra\c c\~ao]
@@ -1336,10 +1336,9 @@ onde $Q$ est\'a dentro do fibrado cotangente como a se\c c\~ao zero.
 			TM|_{\mathcal{L}}\arrow[rr,"\cong "]\arrow[dr,swap]&&T\mathcal{L}\oplus (T\mathcal{L})^*\arrow[dl]\\
 			&\mathcal{L}
 			\end{tikzcd}\]
-			onde no espaço $T\mathcal{L}\oplus (T\mathcal{L})^*$ \'e
-			\[\nu((X,\alpha),(Y,\beta))=\beta(X)-\alpha(Y)\]
-
-			Lembrando um exerc\'icio da lista 1 (de \'alebra linear) que diz que um subespaço Lagrangiano \'e nos da uma descomposi\c c\~ao do espaço usando o seu dual.
+			onde no espaço $T\mathcal{L}\oplus (T\mathcal{L})^*$ a forma simplética \'e,
+			\[\nu((X,\alpha),(Y,\beta))=\beta(X)-\alpha(Y),\]
+			lembrando um exerc\'icio da lista 1 (de \'alebra linear) que diz que um subespaço Lagrangiano nos da uma descomposi\c c\~ao em soma direta usando o seu dual.
 
 			\begin{proof}[Demostra\c c\~ao do Lema]\leavevmode 
 
@@ -1367,12 +1366,11 @@ que \'e que acontece? Ent\~ao,
 				\end{enumerate}
 			\end{proof}
 	\end{enumerate}
-	Da\'i, o lema queda provado simplesmente notando que
+	Da\'i, o teorema queda provado simplesmente aplicando o lema em $TM|_{\mathcal{L}}$ e em $T(T^*\mathcal{L})|_{\mathcal{L}}$ para construir o isomorfismo de fibrados que buscavamos:
 	\[\begin{tikzcd}
-	&T\mathcal{L}\oplus T\mathcal{L}\arrow[dl,"\cong ",swap]\arrow[dr,"\cong "]\\
-	TM|_{\mathcal{L}}\arrow[rr,"\phi"]&&T(T^*\mathcal{L})|_{\mathcal{L}}
+	&T\mathcal{L}\oplus (T\mathcal{L})^*\arrow[dr,"\cong "]\\
+	TM|_{\mathcal{L}}\arrow[rr,"\phi"]\arrow[ur,"\cong "]&&T(T^*\mathcal{L})|_{\mathcal{L}}
 	\end{tikzcd}\]
-	(diagonal arrows reversed).
 \end{lemma}
 \end{proof}
 

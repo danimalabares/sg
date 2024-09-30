@@ -30,8 +30,6 @@ para qualquer marco orientado. Daí é claro que $\Lambda_t(E_1,\ldots,E_n)>0$, 
 
 	Para ver que $\left[ \Lambda_0 \right] =\left[ \Lambda_1 \right] $ lembre que $H^{n}(M)$ tem dimensão 1. Daí existe um escalar $\alpha$ tal que $\left[ \Lambda_0 \right] =\alpha \left[ \Lambda_1 \right] $. Mas, como a integral está bem definida em classes de cohomologia, $\int_{M}\left[ \Lambda_0 \right] =\int_{M}\left[ \Lambda_1 \right] \implies \alpha=1$.
 
-	Esse argumento pode ser usado direitamente em $\Omega^{n}(M)$ em lugar de $H^{n}(M)$, concluindo que $\Lambda_0=\Lambda_1$. Mas acho que isso nem sempre é verdade.
-
 Para concluir só devemos aplicar o Método de Moser. Já temos uma família de formas cohomologas, assim existe uma isotopía $ \varphi_t$ tal que $\varphi^*_{t}\Lambda_t=\Lambda_0$. Pegando $t=1$ obtemos o difeomorfismo buscado.
 \end{proof}
 
@@ -45,15 +43,15 @@ Para concluir só devemos aplicar o Método de Moser. Já temos uma família de 
 	\[\omega = \alpha \, dx \wedge dy + \beta \, dx \wedge dz + \gamma \, dx \wedge dw + \delta \, dy \wedge dz + \varepsilon \, dy \wedge dw + \phi \, dz \wedge dw \, .\]
 	Daí,
 	\[\omega \wedge \omega =2 F \, dx \wedge dy \wedge dz \wedge dw\]
-	onde $F = \alpha \phi - \beta \varepsilon + \gamma \delta$ (vou fazer essa conta num caso análogo abaixo). Segue que $\omega$ é não degenerada se e só se $F\neq 0$. (Então as formas degeneradas são a conica $F=0$)
+	onde $F = \alpha \phi - \beta \varepsilon + \gamma \delta$ (vou fazer essa conta num caso análogo abaixo). Segue que $\omega$ é não degenerada se e só se $F\neq 0$. {\color{2}(Então as formas degeneradas são a conica $[F=0]$.)}
 
-	Nosso primeiro problema é achar $\omega_0$ e $\omega_1$ tais que as suas funções associadas como acima, $F_1$ e $F_2$, sejam não-zero, mas que exista uma combinação convexa delas $\omega_t$ cuja função $F_t$ sim seja zero. Note que se $\omega_t=(1-t)\omega_0+t\omega_1$,
+	Nosso primeiro problema é achar $\omega_0$ e $\omega_1$ tais que as suas funções associadas como acima, $F_0$ e $F_1$, sejam não-zero, mas que exista uma combinação convexa delas $\omega_t$ cuja função $F_t$ sim seja zero. Note que se $\omega_t=(1-t)\omega_0+t\omega_1$,
 \begin{align*}
 	\omega_t\wedge \omega_t&=\Big( (1-t)\omega_0+t\omega_1 \Big) \wedge \Big( (1-t)\omega_0+t \omega_1 \Big) \\
-	&=(1-t)^2\omega_0\wedge \omega_0+t(1-t)\Big(\omega_0\wedge \omega_1+\omega_1\wedge \omega_0\Big)+t^2\omega_1\wedge \omega_1\\
-	&=(1-t)^2\omega_0\wedge \omega_0+\Big(2t(1-t)\Big)\omega_0\wedge \omega_1+t^2\omega_1\wedge \omega_1\
+	&=(1-t)^2\omega_0\wedge \omega_0 +t(1-t)\Big(\omega_0\wedge \omega_1+\omega_1\wedge \omega_0\Big)+t^2\omega_1\wedge \omega_1\\
+	&=(1-t)^2\omega_0\wedge \omega_0+\Big(2t(1-t)\Big)\omega_0\wedge \omega_1+t^2\omega_1\wedge \omega_1
 \end{align*}
-de forma que estamos interessados em calcular $\omega_0\wedge \omega_1$:
+Agora vou calcular $\omega_0\wedge \omega_1$:
 \begin{align*}
 	&\omega_0\wedge \omega_1\\
 	&=\Big( \alpha_1 \, dx \wedge dy + \beta_1 \, dx \wedge dz + \gamma_1 \, dx \wedge dw + \delta_1 \, dy \wedge dz + \varepsilon_1 \, dy \wedge dw + \phi_1 \, dz \wedge dw \Big)\\
@@ -61,14 +59,58 @@ de forma que estamos interessados em calcular $\omega_0\wedge \omega_1$:
 	&= 2\alpha_1 \phi_2dx\wedge dy\wedge dz\wedge dw+\;2\beta_1\varepsilon_2 dx\wedge dz\wedge dy\wedge dw+\; 2\gamma_1\delta_2dx\wedge dw \wedge dy\wedge dz
 \end{align*}
 de forma que
-\[\omega_0\wedge \omega_1=2\Big(\alpha_1\phi_2-\beta_1 \varepsilon_2+\gamma_1 \delta_2\Big)dx\wedge dy\wedge dz\wedge dw\]
-Então pegue $\alpha_1=\alpha_2=\phi_1=\phi_2=\beta_1=\gamma_2=1$ e o resto zero. Obtemos
-\[\omega_t\wedge \omega_t=2\left( 2(1-t)^2+2 \right)  \]
+\[\omega_0\wedge \omega_1=2\Big(\alpha_1\phi_2-\beta_1 \varepsilon_2+\gamma_1 \delta_2\Big)dx\wedge dy\wedge dz\wedge d\]
+Definamos $F_{01}:=\alpha_1\phi_2-\beta_1 \varepsilon_2+\gamma_1 \delta_2$.
 
-The best proof that there exists a path of symplectic forms joining $\omega_0$ to $\omega_1$ consists in showing that the hypersurface $[F=0]$ separates $\mathbb{R}^{4}$ into two connected components given by $[F>0]$ and  $F<0$ (which is proved in \href{https://math.stackexchange.com/questions/2864834/non-linear-path-between-symplectic-forms-in-mathbbr4}{StackEchange}). Then showing that there is a path joining  $\omega_0$ and $\omega_1$ ammounts to showing that they belong to the same connected component, i.e. $F_i$ is positive or negative for both $i=1,2$, which is indeed the case since we have $F_1=F_2=1$.
+Agora pegue $\alpha_1=\alpha_2=\phi_1=\phi_2=\beta_1=1$, $\varepsilon_2=2$ e o resto zero. Obtemosque $F_0=F_1=1$, e que $F_{01}=-1$. Então
+\begin{align*}
+\omega_t\wedge \omega_t&=2\left( (1-t)^2-2t(1-t)+t^2 \right)  dx\wedge dy\wedge dz\wedge dw\\
+&=2\Big( 1-2t+t^2-2t+2t^2+t^2 \Big)dx\wedge dy\wedge dz\wedge dw\\
+&=2\Big( 1-4t+4t^2 \Big)dx\wedge dy\wedge dz\wedge dw\\
+&=2(1-2t)^2dx\wedge dy\wedge dz\wedge dw
+\end{align*}
+Por fim, $\omega_t$ é degenerada quando $t=1/2$.
 
-Para o nosso propósito basta achar notar o seguinte: os valores de $\beta$ e $\gamma$ não alteram a conta anterior, de modo que 
+{\color{2}The best proof that there exists a path of symplectic forms joining $\omega_0$ to $\omega_1$ consists in showing that the hypersurface $[F=0]$ separates $\mathbb{R}^{6}$ into two connected components given by $[F>0]$ and  $[F<0]$ (which is proved in \href{https://math.stackexchange.com/questions/2864834/non-linear-path-between-symplectic-forms-in-mathbbr4}{StackEchange}). Then showing that there is a path joining  $\omega_0$ and $\omega_1$ ammounts to showing that they belong to the same connected component, i.e. $F_i$ is positive or negative for both $i=1,2$, which is indeed the case since we have $F_1=F_2=1$.}
 
+Contudo, uma prova mas direita consiste em observar o seguinte: os valores de $\beta_1$ e $\varepsilon_2$ não alteram o fato de que $\omega_0$ e $\omega_1$ sejam formas não degeneradas (e que induzem a mesma orientação), enquanto que $\omega_t\wedge \omega_t$ sí pode mudar.
+
+Um exemplo onde toda combinação convexa de duas formas  $\omega_0$ e $\omega_1$ é o seguinte. Fixe os mesmos valores $\alpha_1,\alpha_2,\ldots$ como no caso anterior, mas troque $\varepsilon_2=1$. Obtemos que $F_{01}=0$, de modo que
+\begin{align*}
+\omega_t\wedge \omega_t&=2\left( (1-t)^2+t^2 \right)  dx\wedge dy\wedge dz\wedge dw\\
+&=2\Big( 1-2t+2t^2 \Big)dx\wedge dy\wedge dz\wedge dw
+\end{align*}
+que é não zero para todo valor de $t$.
+
+Para um exemplo mais elaborado considere de novo formas $\omega_0$ e $\omega_1$ do primeiro exemplo. De fato, existe um caminho de formas simpléticas que as conecta. O método é trocar $\beta_1$ e $\varepsilon_0$ por funções de $t$.
+
+Primeiro fixe os mesmos valores $\alpha_1,\alpha_2,\ldots$ como no caso anterior, mas deixe $\beta_1$ e $\varepsilon_2$ sem definir. Obtemos que:
+\begin{align*}
+\omega_t\wedge \omega_t&=2\left( (1-t)^2+2t(1-t)\beta_1\varepsilon_2+t^2 \right)  dx\wedge dy\wedge dz\wedge dw\\
+&=2\Big( 1-2t+t^2+2t\beta_1\varepsilon_2-2t^2\beta_1\varepsilon_2+t^2 \Big)dx\wedge dy\wedge dz\wedge dw\\
+&=2\Big((2-2\beta_1\varepsilon_2)t^2-2t(\beta_1\varepsilon_2-1)t+1\Big)dx\wedge dy\wedge dz\wedge dw
+\end{align*}
+Agora defina
+\begin{align*}
+	\beta_1=-2(t-1/2),\qquad \qquad \varepsilon_0=4(t-1/2) 
+\end{align*}
+e considere a família de formas  $\omega'_t=(1-t)\omega_0(t) \omega_1(t)$. Note que $\omega_0'=\omega_0$ e $\omega_1'=\omega_1$. Daí,
+\begin{align*}
+\omega_t\wedge \omega_t&=2\Bigg(\big((2-2\big(\underbrace{-2(t-1/2)}_{\beta_1}\big)\underbrace{4(t-1/2)}_{\varepsilon_2}\big)t^2\\
+&\; \;-2t\Big(\big(\underbrace{-2(t-1/2)}_{\beta_1}\big)\underbrace{4(t-1/2)}_{\varepsilon_2}-1\Big)t+1\Bigg)dx\wedge dy\wedge dz\wedge dw
+\end{align*}
+Para calcular isso calculei que
+\[\beta_1\varepsilon_2=-8t^2-4t+1\]
+daí cheguei a que
+\[\omega_t\wedge \omega_t=2\big(32t^4-32t^3+6t^2+1\big)dx\wedge dy\wedge dz\wedge dw\]
+de modo que $F_t$ nunca se anula.
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.4\textwidth]{fig1}
+	\caption*{$F_t$}
+\end{figure}
+
+Em fim, no caso de $\mathbb{R}^{2}$, as formas $\omega_0$ e $\omega_1$ nunca se anulam já que elas são formas de grau máximo. Daí, toda combinação convexa delas, que também é de grau máximo, não pode ser zero e portanto é não degenerada.
 \end{proof}
 
 \addcontentsline{toc}{subsection}{Problem 3}
@@ -84,7 +126,7 @@ Let $(V,\Omega)$ be a symplectic vector space (or vector bundle) and let $W\subs
 
 \begin{proof}[Solução]\leavevmode 
 \begin{enumerate}[label=\alph*.]
-	\item 	Basta ver que $\ker \Omega|_{E}=0$. Se $e\in\ker \Omega|_{E}$, então eu gostaria de ver que $e\in W^\Omega$. Seja $w\in W$. Enão $\Omega(e,w)=\Omega(e,w_1+w_2)$ com $w_1\in W^\Omega$ e $w_2\in E$. Daí $\Omega(e,w)=\Omega(e,w_1)$. Se $e\in W$ acabamos. Se $e \notin W$…
+	\item 	Basta ver que $\ker \Omega|_{E}=0$. Se $e\in\ker \Omega|_{E}$, então eu gostaria de ver que $e\in W^\Omega$ para concluir que $e=0$. Seja $w\in W$. Então $\Omega(e,w)=\Omega(e,w_1+w_2)$ com $w_1\in W^\Omega$ e $w_2\in E$. Daí $\Omega(e,w)=0$ já que tanto $\Omega(e,w_1)=0$ porque $e\in E\subset W$ quanto $\Omega(e,w_2)=0$ porque $w_2\in E$.
 
 	\item Considere o mapa
 		\begin{align*}
@@ -93,10 +135,61 @@ Let $(V,\Omega)$ be a symplectic vector space (or vector bundle) and let $W\subs
 		\end{align*}
 		Note que $J(W^\Omega)$ e $W^\Omega$ são espaços vetorias de dimensões iguais, e que esse mapa tem kernel trivial pela não degeneração de $\Omega$. Isso explica que é um isomorfismo.
 
+	Para construir o isomorfismo requerido note que por definição $W\cong E\oplus W^\Omega$. E como mostramos que $W^\perp\cong (W^\Omega)^*$, sabemos que $V\cong W\oplus (W^\Omega)^*$. Daí o isomorfismo algébrico está comprovado por causa de que a soma direita é associativa. Issto é, temos um isomorfismo de espaços vetoriais
+	\begin{align*}
+		\Phi: V &\longrightarrow E\oplus W^\Omega\oplus (W^\Omega)^* \\
+		v &\longmapsto (v_1,v_2,v_3)
+	\end{align*}
+	onde $g(v_1,v_2)=0$ e $g(v_1+v_2,v_3)=0$.
 
-		
-\end{enumerate}
+	Agora vamos comprovar que esse mapa é um simplectomorfismo, 
 	
+\end{enumerate}
+\end{proof}
+
+\addcontentsline{toc}{subsection}{Problem 4}
+\paragraph{Problem 4}Prove the following generalizaion of Weinstein's lagrangian neighbourhood theorem to coisotropic submanifolds (due to Gotay, 1982): Let $(M_0,\omega_0)$ be and $(M_1,\omega_1)$ be symplectic manifolds, and $\iota_0:Q\longrightarrow M_0$, $\iota_1:Q\longrightarrow M_1$ be coisotropic embeddings. If $\iota^*_0\omega_0=\iota_1^*\omega_1$ then there exist open  neighbourhoods $\mathcal{U}_0$ and $\mathcal{U}_1$ of $Q$, in $M_0$ and $M_1$, and a diffeomorphism $\varphi:\mathcal{U}_0\longrightarrow \mathcal{U}_1$ such that $\varphi(p)=p$ for all $p\in Q$ and $\varphi^*\omega_1=\omega_0$.
+
+\begin{proof}[Solução]\leavevmode
+	Estamos aqui:
+	\[\begin{tikzcd}
+		(M_0,\omega_0)&&(M_1,\omega_1)\\
+	&Q\arrow[ul,"\iota_0",hook]\arrow[ur,"\iota_1",hook,swap]
+	\end{tikzcd}\]
+Em aula demostramos que:
+\begin{thm}[Teorema de Darboux generalizado Vers\~ao 2.0]\leavevmode
+	Suponha que, além do diagrama anterior, temos um isomorfismo de fibrados simpl\'ecticos
+	\[\begin{tikzcd}
+	TM_0|_{Q}\arrow[rr,"\phi"]\arrow[dr,swap]&&TM_1|_{Q}\arrow[dl]\\
+	&Q
+	\end{tikzcd}\]
+	tal que $\phi|_{TQ}:TQ\to TQ$ é $\operatorname{id}_{TQ}$.
+
+	Ent\~ao $\phi$ estende a derivada de um simplectomorfismo
+	\[\begin{tikzcd}
+	U_0\subset M_0\arrow[rr,"\varphi"]&&U_1\subset M_1\\
+	&Q\arrow[ul]\arrow[ur,swap]
+	\end{tikzcd}\]
+	i.e.,
+	\[d\varphi|_{Q}=\phi:TM_0|_{Q}\to TM_1|_{Q}\]
+	Em palavras: a derivada do simplectomofismo (entre as vizinhanças de $M_1$ e $M_2$) que obtemos é estendida pelo isomorfismo simpl\'etico dos fibrados tangentes que nos foi dado.
+\end{thm}
+Portanto, para nosso exercício só precisamos achar um simplectomorfismo $\phi$ de fibrados tangentes que restringe a identidade no $TQ$.
+
+Também é bom lembrar que na prova do teorema das vizinhanças lagrangianas construiimos esse simplectomorfismo de fibrados do seguinte jeito:
+	\[\begin{tikzcd}
+	&T\mathcal{L}\oplus (T\mathcal{L})^*\arrow[dr,"\cong "]\\
+	TM|_{\mathcal{L}}\arrow[rr,"\phi"]\arrow[ur,"\cong "]&&T(T^*\mathcal{L})|_{\mathcal{L}}
+	\end{tikzcd}\]
+	Issto é, mostrando que, no caso lagragiano, existe um isomorfismo de fibrados tangentes entre o fibrado tangente da variedade ambiente restrito à subvariedade lagrangiana e a soma direita $T\mathcal{L}\oplus (T\mathcal{L})^*$. Aplicando isso usando como variedade ambiente tanto $M$ quanto $T^*M$ construimos o diagrama anterior.
+
+	A estrutura complexa foi usada para obter a descomposição $T\mathcal{L}\oplus (T\mathcal{L})^*$: o que fizemos foi construir o complemento ortogonal usando a métrica compatível e daí mostramos que esse complemento é de fato isomorfo a $(T\mathcal{L})^*$.
+
+	No caso coisotrópico temos, pelo exercício anterior, dois isomorfismos de fibrados
+\begin{align*}TM_1\cong E_1\oplus \Big(TQ^\omega\oplus (TQ^\omega)^*\Big),\qquad \qquad 
+TM_2&\cong E_2\oplus \Big(TQ^\omega\oplus (TQ^\omega)^*\Big)
+\end{align*}
+então é claro que se $E_1\cong E_2$ terminhamos. Mas $E_i$ é só o complemento ortogonal de $TQ^\omega$ respeito à métrica compatível $g_i$ em $TQ$, enquanto $g_1$ e $g_2$ coincidem em $TQ$ já que $\omega_1|_{Q}=\omega_2|_{Q}$ por hipótese (o pullback das incluções coincide). Note que também é imediato que a restrição desse isomorfismo a $TQ$  é a identidade.
 \end{proof}
 
 \end{document}
