@@ -29,7 +29,16 @@ We say that $\omega$ is \textit{\textbf{basic}} (with respect to $\pi$) if there
 
 \begin{proof}[Solution]\leavevmode
 \begin{enumerate}[label=\alph*.]
-	\item Primeiro note que se $X$ é tangente às fibras de $\pi$, o pushforward dele baixo $\pi$ é zero já que o espaço tangente a um ponto é trivial (podemos ver $X$ como um campo em cada fibra, que é uma subvariedade, e a projeção manda ele no vetor zero na base). Daí a implicação $\implies $ é imediata.
+	\item Depois de muita confusão, descobri em \href{https://ncatlab.org/nlab/show/vertical+vector+field}{nLab} que para cualquer sumersão surjetiva como $\pi$, temos uma descomposição
+\[TM=\pi^*TB\oplus \ker \pi_*,\]
+que segue do fato de que $\pi_* :TM\longrightarrow \pi^*TB$ é surjetiva. Aqui $\pi^*TB$ é o pullback bundle, definido como $\pi^*TB=\{(m,v)\in M\times TB:v\in T_{\pi(m)}B\}$. Então temos uma sequência exata curta
+\[\begin{tikzcd}
+	0\arrow[r]&\ker \pi_*\arrow[r]& TM\arrow[r]&\pi^*TB\arrow[r]&0
+\end{tikzcd}\]
+que, como toda sequência exata curta de fibrados vetoriais sobre variedades, se divide.
+
+
+		Primeiro note que se $X$ é tangente às fibras de $\pi$, o pushforward dele baixo $\pi$ é zero já que o espaço tangente a um ponto é trivial (podemos ver $X$ como um campo em cada fibra, que é uma subvariedade, e a projeção manda ele no vetor zero na base). Daí a implicação $\implies $ é imediata.
 
 	Para $\impliedby$ vamos provar primeiro localmente
 

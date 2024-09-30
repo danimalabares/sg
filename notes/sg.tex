@@ -1573,7 +1573,7 @@ Uma  \textit{\textbf{sub\'algebra de lie}} \'e $\mathfrak{h} \subset \mathfrak{g
 \subsection{Rela\c c\~ao entre grupos de Lie e álgebras de Lie}
 \c c\~ao
 \[\begin{tikzcd}
-	\text{Grupos de lie}\arrow[rr,"diferenciaçao" ]&&\text{\'Algebras de Lie}  
+	\text{Grupos de lie}\arrow[rr,"\text{diferenciação}" ]&&\text{\'Algebras de Lie}  
 \end{tikzcd}\]
 
 \begin{defn}
@@ -2184,7 +2184,7 @@ Lembre: uma ação livre, propria… tem o Slice theorem, onde tem que pegar uma
 	$V$ espaço vetorial, $\operatorname{Fr}_p(V)=\{(v_1,\ldots,v_p):\text{l.i.} \}$. Tem uma ação $\operatorname{GL}(n)\curvearrowright \operatorname{Fr}_p(V)$. Pode calcular o grupo de isotropía $H$, e daí dar uma estrutura diferenciável a $\operatorname{Fr}_p(V)$. Essa variedade se chama \textit{\textbf{variedade de Stiefel}}.
 \end{example}
 
-\subsection{De valto à geometria simplética}
+\subsection{De volta à geometria simplética}
 
 Queremos finalmente estudar órbitas coadjuntas e quocientes simpléticos.
 
@@ -2262,22 +2262,199 @@ Agora. Pegue $\eta\in\mathfrak{g}^*$ fixo. então
 	\end{enumerate}
 \end{proof}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 \section{Aula 15}
+
+Na aula pasada:
+\begin{itemize}
+\item Ação coadjunta de uma grupo de Lie na sua álgebra de Lie:
+	\[G\overset{\operatorname{Ad}^*}{\curvearrowright}\mathfrak{g}^*\qquad \qquad \operatorname{Ad}_{g}=d I_g,\qquad I_g(a)=gag^{-1}\]
+\item Numa órbita $\mathcal{O}\hookrightarrow \mathfrak{g}^*$,
+	\[\omega\left( u_{\mathfrak{g}^*}(\xi),v_{\mathfrak{g}^*}(\xi) \right) :=\left<\xi,[u,v]\right> \]
+	para $u,g\in\mathfrak{g},\xi\in\mathcal{O}\subseteq \mathfrak{g}^*$, é uma estrutura simplética em $\mathcal{O}$.
+\end{itemize}
+Hoje: exemplos concretos
+
+\section{Exemplos concretos (da ação coadjunta)}
+\begin{remark}
+	Suponha que $k=\left<\cdot,\cdot\right> $ é uma forma bilinear simplética \textit{não degenerada} e \textit{$\operatorname{Ad}$-invariante} em  $\mathfrak{g}$, ie.
+	\[\left<\operatorname{Ad}_g(u),\operatorname{Ad}_g(v)\right> \]
+	Então podemos identificar órbitas adjuntas e coadjuntas assim:
+	\begin{align*}
+		k^\flat: \operatorname{Ad}\curvearrowright \mathfrak{g} &\xrightarrow{\cong }\mathfrak{g}^*\curvearrowleft \operatorname{Ad}^*  \\
+		u &\longmapsto \left<u,\cdot\right> 
+	\end{align*}
+	já que é \textit{equivariante}.
+\end{remark}
+
+\begin{idea3}{Exemplo concreto da órbita e ação coadjunta}\leavevmode
+	\begin{align*}
+		\operatorname{SO}(3)&=\{A\in \mathcal{M}_{3\times 3}(\mathbb{R}):AA^{\mathbf{T}}=\operatorname{id},\det A=1\} \\
+		\mathfrak{so}(3) &=\{A\in\mathcal{M}_{3\times 3}(\mathbb{R}):A=-A^{\mathbf{T}}\}\\
+	\end{align*}
+	Note que aqui a ação adjunta de $\operatorname{SO}(3)$ em $\mathfrak{so}(3)$ é por conjugação. Agora, podemos identificar
+	\begin{align*}
+		 \mathfrak{so}(3) &\longrightarrow \mathbb{R}^{3} \\
+		\begin{pmatrix} 0&-z&y\\z&0&-x\\-y&x&0 \end{pmatrix}  &\longmapsto \begin{pmatrix} x\\y\\z \end{pmatrix} =u\\
+		[\cdot,\cdot ]& \longmapsto (u,v)\mapsto u\times v
+	\end{align*}
+Aqui a ação é por multiplicação de matrizes! I.e., $\operatorname{SO}(3) \curvearrowright \mathfrak{so}(3) \cong \mathbb{R}^{3}$ é dada por
+\begin{align*}
+	\operatorname{Ad}_A(v)&=Av,\qquad v\in\mathbb{R}^{3}\\
+	\operatorname{ad}_u(v)&=u\times v
+\end{align*}
+e além disso, se o produto interno canónico de $\mathbb{R}^{3}$ é $\left<\cdot,\cdot\right> $, temos que essa ação é $\operatorname{Ad}_{\mathfrak{so}(3)}$-invariante. Isso nos permete 
+\[\begin{tikzcd}
+	\mathfrak{so}(3)\arrow[r]\arrow[d,"\cong "]&\mathfrak{so}(3)\arrow[d]\\
+	\mathbb{R}^{3}\arrow[r,"\left<\cdot\text{,} \cdot\right>" ]&(\mathbb{R}^{3})^*
+\end{tikzcd}\]
+	Para entender as orbitas coadjuntas de $\operatorname{SO}(3)$ em $\mathfrak{so}(3)$ basta analizar o caso em $\mathbb{R}^{3}$.
+
+	{\color{5}\bfseries \'Orbitas (co-)adjuntas em $\mathbb{R}^{3}$ ($\cong \mathfrak{so}(3)$).}\hspace{.5em} De fato, isso vai ser um exercício. Vai concluir que a estrutura simplética nas órbitas dessa ação coincide com a estrutura simplética na esfera.
+
+	\begin{exercise}\leavevmode
+		Mostre que a forma de área na esfera é um múltiplo constante da forma  KKS. O múltiplo é $1/r$ onde  $r$ é o raio da esfera.
+	\end{exercise}
+\end{idea3}
+
+\begin{idea6}{Outro exemplo concreto}\leavevmode
+	\begin{align*}
+		G&=\operatorname{U}(n) =\{A\in\operatorname{GL}(n,\mathbb{C}):A A^*=\operatorname{id}\} \\
+		\mathfrak{g} &=\mathfrak{u}(n)=\{u\in\mathcal{M}_{n\times n}(\mathbb{C}):u=-u^*\}
+	\end{align*}
+	Aqui a ação adjunta $\operatorname{U}(n) \curvearrowright \mathfrak{u}(n)$ é por conjugação. Agora vamos estudar a ação coadjunta.
+
+	Temos um prouto interno $\operatorname{Ad}$-invariante em $\mathfrak{u}(n)$:
+	\[(u,v)\longmapsto \operatorname{tr}(u^kv)=-\operatorname{tr}(uv).\]
+	Portanto temos uma identificação 
+	\[\operatorname{U}(n) \curvearrowright \operatorname{U}(n) \xrightarrow{\cong }\mathfrak{u}(n)^*\curvearrowleft \operatorname{U}(n).\]
+	Ou seja, a forma de estudar isto é olhando para a ação de $\operatorname{U}(n)$.
+
+	Note ainda que $\mathfrak{u}(n) =i\mathcal{H}$ onde $\mathcal{H}=\{\xi \in\mathcal{M}_{n}(\mathbb{C}):\xi=\xi^*\}$. Com isso,
+	\[\operatorname{U}(n) \overset{\operatorname{Ad}^*}{\curvearrowright}\mathfrak{u}(n)^*\cong \mathfrak{u}(n) \cong \mathcal{H}\overset{\operatorname{Ad}^*}{\curvearrowleft}\operatorname{U}(n)\]
+	e então 
+	\[\operatorname{Ad}_A^*(\xi)=A\xi^{-1}A.\]
+	Portanto,
+	\begin{align*}\xi,\xi'\in\mathcal{H}\text{ estão na mesma órbita coadjunta }\mathcal{O}\\
+		\overset{\text{teo. espectral} }{\iff}  \operatorname{sp ec}(\xi)=\operatorname{s pec}(\xi')
+		\end{align*}
+		Ado $\Lambda=(\lambda_1,\ldots,\lambda_n)$, $\lambda_i\in\mathbb{R}$, $\lambda_1\leq \ldots \leq \lambda_n$. Daí as órbitas são
+		\[\mathcal{O}_\Lambda=\{\xi \in\mathcal{H}:\operatorname{s pec}(\xi)=\Lambda\}\]
+		e se chaman de \textit{\textbf{isoespetrais}}.
+
+	{\color{5}Qual é a topologia dessa órbita?}
+\begin{idea3}{Alguns casos}\leavevmode
+	\begin{itemize}
+	\item $\lambda_1<\lambda_2=\ldots =\lambda_n$ cada $\xi\in\mathcal{O}_\Lambda$ é determinada pelo autoespaço de $\lambda_1$, ou seja, una linha em $\mathbb{C}^{n}$. Defina $\mu=\lambda_2=\ldots =\lambda_n$. (Como o teorema espectral nos da uma descomposição ortogonal com os autoespaços de uma transformação hermitiana, a ação de uma transformação $\xi \in\mathcal{H}$ fica determinada por essa linha.) Daí,
+		\[\mathcal{O}_\Lambda\cong \mathbb{C}P^{n-1}\]
+
+	\item $\lambda_1=\ldots =\lambda_k<\lambda_{k+1}=\ldots =\lambda_n$. Obtemos
+		\[\mathcal{O}_\Lambda=\operatorname{Gr}(k,n)\]
+	\item $\lambda_1<\lambda_2<\ldots <\lambda_n$. Aqui $\xi \in\mathcal{O}_\Lambda$ está determinada pelos autoespaços $L_1\sim\lambda_1,\ldots,L_n\sim\lambda_n$. Equivalentemente,
+		\begin{align*}
+			E_1&=L_1\\
+			E_2&=L_1\oplus L_2\qquad \qquad \text{ aqui só $L_2$ e nova info.}\\
+			\vdots \\
+			E_j&=L_1\oplus \ldots \oplus L_j\\
+			\vdots \\
+			E_n&=\mathbb{C}^n
+		\end{align*}
+		Então temos
+		 \[L_1=E_1\subseteq\ldots \subseteq E_n=\mathbb{C}^{n}\]
+		isso se chama de \textit{\textbf{variedade bandeira (completa)}}.
+	\end{itemize}
+\end{idea3}
+\end{idea6}
+
+\begin{idea1}{Projeto?}\leavevmode
+	Relação entre geometria simplética e álgebra linear. Tem um teorema básico sobre matrizes hermitianas:
+	\begin{thm}[Schur-Horn]\leavevmode
+		$\mathcal{O}_\Lambda$ uma variedade isoespetral (todos os caras hermitianos cujo espetro e esse $\Lambda$), $\{\xi \in\mathcal{H}:\operatorname{s pec}(\xi)=\Lambda\}$.
+		Considere o mapa diagonal
+		\begin{align*}
+			\operatorname{diag}: \mathcal{O}_\Lambda &\longrightarrow \mathbb{R}^{n}
+		\end{align*}
+		(É só pegar a diagonal da matriz e colocá-la num vetor.) Então, a imagem de $\operatorname{diag}$ é um poítopo convexo com vertices dados pelas $n!$ permutações  de $\Lambda=(\lambda_1,\ldots,\lambda_n)$.
+	\end{thm}
+	\begin{remark}
+		Esse teorema pode ser generalizado (Atiyah-?) trocando $\mathcal{O}_\Lambda$ por uma variedade simplética com a ação do toro maximal.
+	\end{remark}
+	\begin{idea3}{Horn's problem}\leavevmode
+		Descrever o espectro da soma de dois matrizes hermiticanas com espectros conhecidos. Tem um artigo expositório (survey) de A. Knutson, \textit{AThe symplectic and algebraic geometry of Horn's problem}. Também tem um artigo de pesquisa famoso com Terry Tau, e outro dele com Terry Tau e Chris Woodsword (esses estão citados no survey).
+	\end{idea3}
+\end{idea1}
+
+\section{Ponto de vista "Poisson"}
+
+Lembre:
+ \begin{idea7}{Estrutura de Poisson}\leavevmode
+ 	\begin{align*}
+ 		\{\cdot,\cdot\}: \mathcal{C}^\infty(M)\times \mathcal{C}^\infty(M) &\longrightarrow \mathcal{C}^\infty(M)
+ 	\end{align*}
+	forma $ \mathbb{R}$-bilinear antisimétrica ($\{f,g\} =-\{g,f\}$) Jacobi e Leibniz ($\{f,gh\} =\{f,g\} h+\{f,h\} g$.
+ \end{idea7}
+
+\begin{idea6}{Exemplos}\leavevmode
+	\begin{itemize}
+	\item $\{\cdot,\cdot\} =0$.
+	\item $(M,\omega)$ simplética, $\{f,g\} =\omega(X_g,X_f)$.
+	\item (Exemplo nem simplético nem trivial.) $\mathbb{R}^{3}=\{\xi=(x,y,z)\}$,
+		\[\{f,g\}(\xi)=\left<\xi,\nabla f(\xi)\times \nabla g(\xi)\right> \]
+		onde $\nabla$ denota gradiente.
+
+		Note que pela condição Leibniz do colchete de Poisson, $\{f,\cdot\}$ é uma derivação, que sabemos que é equivalente a dizer que é um campo vetorial. Assim, para toda função $f\in\mathcal{C}^\infty(M)$ existe um campo vetorial Hamiltoniano. De fato, isso é consistente com o caso do colchete de Poisson associado a uma variedade simplética.
+
+		Pegue o Hamiltniano
+		\[H(x,y,z)=\frac{x^2}{2I_1}+\frac{y^2}{2I_2}+\frac{z^2}{2I_3}\]
+		Daí vêm as equações de Euler-?
+	\end{itemize}
+\end{idea6}
+
+\subsubsection{Descrição tensorial (do colchete de Poisson)}
+
+Considere $\pi \in\Gamma(\Lambda^{2}(TM))$ e o colchete
+\[\{f,g\} =\pi(df,dg).\]
+Em coordenadas
+\[\pi=\sum_{i<k}\pi_{ij}(x)\frac{\partial }{\partial x_i}\wedge \frac{\partial }{\partial x_j}\]
+
+\subsubsection{Distribuição característica}
+Os vectores são vectores  hamiltonianos de alguma função :
+\[R\subseteq TM,\qquad \qquad R_x=\{X_f(x):f\in\mathcal{C}^\infty(M)\}\]
+
+\begin{thm}\leavevmode
+	\begin{itemize}
+	\item $R\subseteq TM$ é integrável.
+	\item Cada folha tem estrutura simplética natural. Obtemos a \textit{\textbf{folheação simplética}}. Ela determina, caracteriza, a estrutura de Poisson.
+	\end{itemize}
+\end{thm}
+
+\subsubsection{Uma clase especial de variedades de Poisson}
+
+Uma clase de estruturas de Poisson à que pertence o exemplo que nem é trivial nem é simplético.
+
+$M=V$ espaço vetorial. $\mathcal{C}^\infty_{\operatorname{lin}}(V)\subseteq \mathcal{C}^\infty(M)$. Note que  $\{\cdot,\cdot\}$ é linear. Suponha que $\left\{ \mathcal{C}^\infty_{\operatorname{lin}}(V),\mathcal{C}^\infty_{\operatorname{lin}}(V) \right\} \subseteq \mathcal{C}^\infty_{\operatorname{lin}}(V)$. Note que $\mathcal{C}^\infty_{\operatorname{lin}}(V)\cong V^*$.
+
+Por outro lado, $(\mathfrak{g},[\cdot,\cdot ]\rightsquigarrow \{\cdot,\cdot\}$ é linear em $\mathfrak{g}^*$, e como $\mathfrak{g} =\mathcal{C}^\infty_{\operatorname{lin}}(\mathfrak{g}^*)\subseteq \mathcal{C}^\infty(\mathfrak{g})$, existe um único $\{\cdot,\cdot\}$ tal que
+\[\{\cdot,\cdot\}|_{\mathfrak{g}}=[\cdot,\cdot ]\]
+
+Agora vamos ver a fórmula para o colchete de Poisson associado a $[\cdot,\cdot ]$:
+\[\{f,g\}(\xi)=\left<\xi,[df(\xi),dg(\xi)]\right> \]
+para $f,g\in\mathcal{C}^\infty(\mathfrak{g}^*)$.
+
+\begin{idea4}{Conclusão}\leavevmode
+	\[\substack{\text{estruturas de Poisson}  \\ \text{lineares em $V=\mathfrak{g}^*$} }\longleftrightarrow \substack{\text{álgebra de Lie}  \\ \text{em $V^*=\mathfrak{g}$} }\]
+\end{idea4}
+
+Pode ver que
+\[\begin{tikzcd}
+	&(\mathfrak{g},[\cdot,\cdot ]\text{ álg. de Lie} \arrow[dl]\arrow[dr]\\
+	\substack{ G \overset{\operatorname{Ad}^*}{\curvearrowright}\mathfrak{g}^*\\\text{simpléticas}} && \substack{(\mathfrak{g}^* ,\{\cdot,\cdot\})\\\text{folheação simplética}} 
+\end{tikzcd}\]
+de onde as órbitas coadjuntas correspondem às folhas. O importante aqui é saber que a folheação tem estrutura de Poisson.
+
+
+
+
+
 
 \section{Aula 16}
 
