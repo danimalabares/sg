@@ -29,33 +29,35 @@ We say that $\omega$ is \textit{\textbf{basic}} (with respect to $\pi$) if there
 
 \begin{proof}[Solution]\leavevmode
 \begin{enumerate}[label=\alph*.]
-	\item Depois de muita confusão, descobri em \href{https://ncatlab.org/nlab/show/vertical+vector+field}{nLab} que para cualquer sumersão surjetiva como $\pi$, temos uma descomposição
+	\item Primeiro note que se $X$ é tangente às fibras de $\pi$, o pushforward dele baixo $\pi$ é zero já que o espaço tangente a um ponto é trivial (podemos ver $X$ como um campo em cada fibra, que é uma subvariedade, e a projeção manda ele no vetor zero na base). Daí a implicação $\implies $ é imediata.
+
+	Para $\impliedby$ vamos provar primeiro localmente
+
+	(Ver \href{https://math.stackexchange.com/questions/69658/basic-differential-forms}{StackExchange}) Para $\impliedby$ o mais natural é definir uma forma em $B$ como
+	\[\overline{\omega}(\pi_*X_1,\ldots,\pi_*X_k):=\omega(X_1,\ldots,X_k)\]
+já que assim $\pi^*\overline{\omega}=\omega$. Mais não é imediato para mim que isso faz sentido, pois devo comprovar todo campo vetorial em $B$ pode ser visto como o pushforward de um campo vetorial em $M$. Finalmente descobri em \href{https://ncatlab.org/nlab/show/vertical+vector+field}{nLab} que para cualquer sumersão surjetiva como $\pi$, temos uma descomposição
 \[TM=\pi^*TB\oplus \ker \pi_*,\]
 que segue do fato de que $\pi_* :TM\longrightarrow \pi^*TB$ é surjetiva. Aqui $\pi^*TB$ é o pullback bundle, definido como $\pi^*TB=\{(m,v)\in M\times TB:v\in T_{\pi(m)}B\}$. Então temos uma sequência exata curta
 \[\begin{tikzcd}
 	0\arrow[r]&\ker \pi_*\arrow[r]& TM\arrow[r]&\pi^*TB\arrow[r]&0
 \end{tikzcd}\]
-que, como toda sequência exata curta de fibrados vetoriais sobre variedades, se divide.
+que, como toda sequência exata curta de fibrados vetoriais sobre variedades, se divide. Em fim, isso é só para comprovar que todo campo vetorial em $B$ tem uma cópia dele em $M$, de modo que a definição de $\overline{\omega}$ faiz sentido.
 
+Contudo, isso não é suficiente para mostrar que $\overline{\omega}$ está bem definida. Devemos verificar que  $\pi_*X_1=\pi_*X_1'\implies \omega(X_1,X_2,\ldots,X_k)=\omega(X_1',X_2,\ldots,X_k)$. De fato, $\pi_*(X_1-X_1')=0$ signfica que $X_1-X_1'\in\ker \pi_*$, de forma que $X_1-X_1'$ é tangente às fibras de $\pi$, e portanto $i_{X_1-X_2}\omega=0$.
 
-		Primeiro note que se $X$ é tangente às fibras de $\pi$, o pushforward dele baixo $\pi$ é zero já que o espaço tangente a um ponto é trivial (podemos ver $X$ como um campo em cada fibra, que é uma subvariedade, e a projeção manda ele no vetor zero na base). Daí a implicação $\implies $ é imediata.
+Para concluir só falta mostrar que se $X_1,\ldots,X_k$ são campos vetoriais em $M$, o valor de $\omega$ é constante em diferentes pontos de uma fibra de $\pi$. Isso é tanto como dizer que se $Y$ é tangente às fibras de $\pi$, $0=\mathcal{L}_{Y}\omega(X_1,\ldots,X_k)=Y(\omega(X_1,\ldots,X_k))$. Para mostrar isso usamos a equação 
+\begin{align*}
+	Y(\omega(X_1,\ldots,X_k))&=\mathcal{L}_{Y}\omega(X_1,\ldots,X_k)+\omega([Y,X_1],X_2,\ldots,X_k)+\\
+				 &\qquad  +\omega(X_1,\ldots,X_{k-1},[Y,X_k])
+\end{align*}
+que é zero já que $\mathcal{L}_{Y}\omega=0$ por hipótese, e porque $[Y,X_i]\in\ker \pi_* $ (usando de novo que $i_Z\omega=0$ para $ Z\in\ker \pi_* $). Isso último segue de que $\pi_* [Y,X_i]= [\pi_* Y,\pi_* X]=0$.
 
-	Para $\impliedby$ vamos provar primeiro localmente
-
-	(Ver \href{https://math.stackexchange.com/questions/69658/basic-differential-forms}{StackExchange}) Para $\impliedby$ o mais natural é definir uma forma em $B$ como
-	\[\overline{\omega}(\pi_*X_1,\ldots,\pi_*X_k):=\omega(X_1,\ldots,X_1)\]
-já que assim $\pi^*\overline{\omega}=\omega$. Mais não é imediato para mim que isso faz sentido, pois devo comprovar todo campo vetorial em $B$ pode ser visto como o pushforward de um campo vetorial em $M$. Finalmente descobri em \href{https://ncatlab.org/nlab/show/vertical+vector+field}{nLab} que para cualquer sumersão surjetiva como $\pi$, temos uma descomposição
-\[TM=\pi^*TB\oplus \ker \pi_*\]
-
-Agora vamos mostrar que $\overline{\omega}$ está bem definida. Primeiro vamos verificar que  {\color{4}$\pi_*X_1=\pi_*X_1'\implies \omega(X_1,X_2,\ldots,X_k)=\omega(X_1',X_2,\ldots,X_k)$.}
-
-Agora suponha que $\omega$ é fechada e que $\ker \pi_*\subseteq \ker \omega$. Pegue $X$ tangente às fibras de $\pi$; vimos acima que $\pi_*X=0$, então $X\in\ker \omega$, i.e. $i_X\omega=0$ e também $0=\mathcal{L}_{X}\omega =di_X\omega+i_Xd\omega$.
+\vspace{1em}
+Para concluir este exercício suponha que $\omega$ é fechada e que $\ker \pi_*\subseteq \ker \omega$. Pegue $X$ tangente às fibras de $\pi$; vimos acima que $\pi_*X=0$, então $X\in\ker \omega$, i.e. $i_X\omega=0$ e também $0=\mathcal{L}_{X}\omega =di_X\omega+i_Xd\omega$.
 
 \item Usando o item anterior, basta mostrar que $i_X\omega =0=\mathcal{L}_{X}\omega$ para todo $X$ tangente às fibras de $\pi$. Mas, se $X$ é tangente às fibras de $\pi$, ele tá no $\ker \pi_*=\ker \omega$. Daí, $i_X\omega=0$ e também $0=\mathcal{L}_{X}\omega=di_X\omega+i_Xd\omega$. Para ver que $\overline{\omega}$ é simplética lembre que $\ker \overline{\omega}=\{v\in TM: i_{v}\overline{\omega}=0\}$, logo se $v\in\ker \overline{\omega}$ sabemos que existe $u\in TM$ tal que $\pi_*u=v$, e daí $i_u\omega=i_u\pi^*\overline{\omega}=\overline{\omega}(v,\cdot )=i_v\overline{\omega}=0$. Isso mostra que $u\in\ker \omega=\ker \pi_*\omega\implies \pi_*u=v=0$.
 
 	\item De acordo com o inciso b., basta ver que $\ker \pi_*=\ker \omega|_{N}$ (já que $\omega|_{N}$ é uma forma fechada, pois é o pullback de $\omega$ baixo a inclusão).Como $TN\cap TN^\omega$ é uma distribuição intergável, por cada ponto de $N$ pasa uma folha de uma folheação. Pegue $V$ tangente às folhas da distribuição, de modo que  $\pi_*V=0$ já que as folhas são pontos em $B$. Mas ainda, por definição dessa distribuição, que $V$ seja tangente às folhas significa que $V\in TN\cap TN^\omega$. Mas já sabemos que $TN\cap TN^{\omega}$ é o kernel de $\omega|_{N}$.
-
-		{\color{5}…Mas talvez existe outro campo vetorial $V\in\ker\pi_*$ que não é tangente às folhas da distribuição. Nesse caso $V$  não pode estar em $TN^\omega$, …}
 
 		Pegue $V\in\ker \omega |_{N}=TN\cap TN^\omega$, então $V$ é tangente às fibras da distribuição e portanto está em $\ker \pi_*$.
 

@@ -39,11 +39,11 @@ Para concluir só devemos aplicar o Método de Moser. Já temos uma família de 
 \end{idea8}
 
 \begin{proof}[Solução]\leavevmode
-	{\color{2} (See \href{https://math.stackexchange.com/questions/2864834/non-linear-path-between-symplectic-forms-in-mathbbr4}{StackExchange}. Here can also be found a nice general explanation of this problem where degenerate forms are seen as a hypersurface in the space of 2-forms.)}\hspace{.5em} Lembre que no problema 1 da lista 1 vimos que uma 2-forma $\omega$ é não degenerada se é só se $\omega^n\neq 0$. No nosso caso, qualquer 2-forma em $\mathbb{R}^{4}$ pode ser expressada como
+	{\color{2} (See \href{https://math.stackexchange.com/questions/2864834/non-linear-path-between-symplectic-forms-in-mathbbr4}{StackExchange}.)}\hspace{1em} Lembre que no problema 1 da lista 1 vimos que uma 2-forma $\omega$ é não degenerada se é só se $\omega^n\neq 0$. No nosso caso, qualquer 2-forma em $\mathbb{R}^{4}$ pode ser expressada como
 	\[\omega = \alpha \, dx \wedge dy + \beta \, dx \wedge dz + \gamma \, dx \wedge dw + \delta \, dy \wedge dz + \varepsilon \, dy \wedge dw + \phi \, dz \wedge dw \, .\]
 	Daí,
 	\[\omega \wedge \omega =2 F \, dx \wedge dy \wedge dz \wedge dw\]
-	onde $F = \alpha \phi - \beta \varepsilon + \gamma \delta$ (vou fazer essa conta num caso análogo abaixo). Segue que $\omega$ é não degenerada se e só se $F\neq 0$. {\color{2}(Então as formas degeneradas são a conica $[F=0]$.)}
+	onde $F = \alpha \phi - \beta \varepsilon + \gamma \delta$ (vou fazer essa conta num caso análogo abaixo). Segue que $\omega$ é não degenerada se e só se $F\neq 0$.
 
 	Nosso primeiro problema é achar $\omega_0$ e $\omega_1$ tais que as suas funções associadas como acima, $F_0$ e $F_1$, sejam não-zero, mas que exista uma combinação convexa delas $\omega_t$ cuja função $F_t$ sim seja zero. Note que se $\omega_t=(1-t)\omega_0+t\omega_1$,
 \begin{align*}
@@ -71,18 +71,19 @@ Agora pegue $\alpha_1=\alpha_2=\phi_1=\phi_2=\beta_1=1$, $\varepsilon_2=2$ e o r
 \end{align*}
 Por fim, $\omega_t$ é degenerada quando $t=1/2$.
 
-{\color{2}The best proof that there exists a path of symplectic forms joining $\omega_0$ to $\omega_1$ consists in showing that the hypersurface $[F=0]$ separates $\mathbb{R}^{6}$ into two connected components given by $[F>0]$ and  $[F<0]$ (which is proved in \href{https://math.stackexchange.com/questions/2864834/non-linear-path-between-symplectic-forms-in-mathbbr4}{StackEchange}). Then showing that there is a path joining  $\omega_0$ and $\omega_1$ ammounts to showing that they belong to the same connected component, i.e. $F_i$ is positive or negative for both $i=1,2$, which is indeed the case since we have $F_1=F_2=1$.}
+Para mostrar que existe uma trajetória de formas simpléticas conectando $\omega_0$ e $\omega_1$ note que o espaço de 2-formas pode ser identificado com $\mathbb{R}^{6}$ com coordenadas $(\alpha,\beta,\gamma,\delta,\varepsilon,\phi)$. Pelas observações anteriores, vemos que o conjunto de formas degeneradas é a variedade (algébrica) $[F=0]$. Duas formas determinan a mesma  orientação quando estão no mesmo conjunto $[F>0]$ ou  $[F<0]$. Por exemplo, as formas $\omega_0$ e $\omega_1$ estão em $[F>0]$.
 
-Contudo, uma prova mas direita consiste em observar o seguinte: os valores de $\beta_1$ e $\varepsilon_2$ não alteram o fato de que $\omega_0$ e $\omega_1$ sejam formas não degeneradas (e que induzem a mesma orientação), enquanto que $\omega_t\wedge \omega_t$ sí pode mudar.
+Mostrar que existe um caminho que conecta essas formas (o quaisquer duas que induzam a mesma orientação) é tanto como mostrar que $[F>0]$ (e $[F<0]$) é un conjunto conexo. Aseguir mostrarei que de fato a variedade $[F=0]$ separa  $\mathbb{R}^{6}$ em duas componentes conexas $[F>0]$ e  $[F<0]$.
 
-Um exemplo onde toda combinação convexa de duas formas  $\omega_0$ e $\omega_1$ é o seguinte. Fixe os mesmos valores $\alpha_1,\alpha_2,\ldots$ como no caso anterior, mas troque $\varepsilon_2=1$. Obtemos que $F_{01}=0$, de modo que
-\begin{align*}
-\omega_t\wedge \omega_t&=2\left( (1-t)^2+t^2 \right)  dx\wedge dy\wedge dz\wedge dw\\
-&=2\Big( 1-2t+2t^2 \Big)dx\wedge dy\wedge dz\wedge dw
-\end{align*}
-que é não zero para todo valor de $t$.
+Primeiro note que o gradiente de  $F$ é $\nabla F=(\phi,-\varepsilon,\delta, \gamma,-\beta,\alpha)$. Ele é não-zero em $\mathbb{R}^{6}\setminus 0$, de modo que, $[F=0]\setminus 0$ é uma variedade suave. Como $0\in [F=0]$, podemos fixar nossa atenção em $\mathbb{R}^{6}\setminus 0$, que é um retrato por deformação de $S^5\subset \mathbb{R}^{6}$ e mostrar que $F|_{S^5}$ induiz duas componentes conexas.
 
-Para um exemplo mais elaborado considere de novo formas $\omega_0$ e $\omega_1$ do primeiro exemplo. De fato, existe um caminho de formas simpléticas que as conecta. O método é trocar $\beta_1$ e $\varepsilon_0$ por funções de $t$.
+Como $S^5$ é compacto, $F|_{S^5}$ tem pelo menos um máximo local em $[F>0]$ e um mínimo local em $[F<0]$. Note que dado um ponto no conjunto $[F>0]$, existe um caminho, determinado pelo gradiente, que conduiz até um ponto máximo local dentro de $[F>0]$. Dados dois pontos em  $[F>0]$, podemos achar um caminho entre eles dentro de  $[F>0]$ se conseguimos mostrar que qualquer par de maximos locais  está conectado por um caminho dentro de $[F>0]$.  O mesmo acontece para pontos em $[F<0]$.  Então a prova está concluida se mostramos que os pontos críticos (máximos ou mínimos) de $F$ estão na mesma componente conexa (i.e. $[F>0]$ ou  $[F<0]$, respectivamente).
+
+Como $\nabla F$ é um vetor que aponta na direção de maior pendente, um ponto $p \in S^5$ é critico se e só se $\nabla F_p$ é paralelo $p$. Podemos ver $\nabla F$ como uma transformação linear $\mathbb{R}^{6}\longrightarrow \mathbb{R}^{6}$, $p \mapsto \nabla_p F$. De fato, ela é dada pela matriz $H$ que tem $(1,-1,1,-1,1)$ na antidiagonal e zero no resto. Então vemos que os pontos críticos são exatamente os vetores próprios dessa matriz.
+
+Fazendo as \href{https://www.wolframalpha.com/input?i=%7B%7B0%2C0%2C0%2C0%2C0%2C1%7D%2C%7B0%2C0%2C0%2C0%2C%E2%88%921%2C0%7D%2C%7B0%2C0%2C0%2C1%2C0%2C0%7D%2C%7B0%2C0%2C1%2C0%2C0%2C0%7D%2C%7B0%2C%E2%88%921%2C0%2C0%2C0%2C0%7D%2C%7B1%2C0%2C0%2C0%2C0%2C0%7D%7D+&lang=es}{contas} de álgebra linear, pode comprovar que os valores próprios de $H$ são $\pm 1$, cada um com multiplicade 3. Assim, temos dois espaços próprios de dimensão 3. Quando intersectamos esses espaços com $S^5$, obtemos duas esferas de dimensão 2. Essas esferas são disjuntas e conexas, e representas os conjuntos de pontos críticos de $F$.
+
+{\color{1}\bfseries Uma solução mais terrenal.}\hspace{1em}Contudo, uma prova mais directa consiste em observar o seguinte: os valores de $\beta_1$ e $\varepsilon_2$ não alteram o fato de que as formas $\omega_0$ e $\omega_1$ sejam formas não degeneradas (e que induzem a mesma orientação), enquanto que $\omega_t\wedge \omega_t$ sí pode mudar. Vamos mostrar que as formas $\omega_0$ e $\omega_1$ definidas acima podem ser conectadas por um caminho de formas simpléticas trocando $\beta_1$ e $\varepsilon_0$ por funções de $t$.
 
 Primeiro fixe os mesmos valores $\alpha_1,\alpha_2,\ldots$ como no caso anterior, mas deixe $\beta_1$ e $\varepsilon_2$ sem definir. Obtemos que:
 \begin{align*}
@@ -110,7 +111,8 @@ de modo que $F_t$ nunca se anula.
 	\caption*{$F_t$}
 \end{figure}
 
-Em fim, no caso de $\mathbb{R}^{2}$, as formas $\omega_0$ e $\omega_1$ nunca se anulam já que elas são formas de grau máximo. Daí, toda combinação convexa delas, que também é de grau máximo, não pode ser zero e portanto é não degenerada.
+Em fim, no caso de $\mathbb{R}^{2}$, suponha que $\omega_0$ e $\omega_1$ são duas formas não degeneradas. Sabemos que em qualquer ponto de $\mathbb{R}^{2}$ elas são um múltiplo da outra. Portanto, uma combinação convexa delas não pode ser degenerada porque é da forma
+\[\omega_t=(1-t)\omega_0+t\lambda\omega_0=(1-t+\lambda t)\omega_0.\]
 \end{proof}
 
 \addcontentsline{toc}{subsection}{Problem 3}

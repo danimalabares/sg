@@ -1,4 +1,6 @@
-\input{/Users/daniel/github/config/preamble-por.sty}
+\input{/Users/daniel/github/config/preamble.sty}
+\input{/Users/daniel/github/config/thms-por.sty}
+
 %This preamble is in github.com/danimalabares/config
 
 \begin{document}
@@ -2452,11 +2454,269 @@ Pode ver que
 de onde as órbitas coadjuntas correspondem às folhas. O importante aqui é saber que a folheação tem estrutura de Poisson.
 
 
-
-
-
-
 \section{Aula 16}
+
+Vimos
+\begin{itemize}
+\item $G$ grupo de Lie. $\mathcal{O}\hookrightarrow \mathfrak{g}^*$ orbitas coadjuntas possuim uma estrutura simplética canónica. Isso na verdade é um exemplo de um objeto mais geral que a gente vai discutir hoje: ações hamiltonianas.
+\end{itemize}
+\subsection{Caso mais simples}
+Quando $G=\mathbb{R}$. Seja $(M,\omega)$ simplética. Temos:
+\[\mathbb{R}\text{-ação =fluxo }\psi \rightsquigarrow X \in\mathfrak{X}(M) \text{campo de vetores}  \]
+\begin{defn}\leavevmode
+\begin{itemize}
+\item Uma $\mathbb{R}$-ação é \textit{\textbf{simplética}} se $\psi_t^*\iff\mathcal{L}_{X}\omega=0$. ($X$ é um campo simplético.)
+\item $R$-ação é \textit{\textbf{hamiltoniana}} se  $X$ é hamiltoniano, i.e., existe uma função $H$ tal que $X=X_H$
+\end{itemize}
+\end{defn}
+
+Agora vamos generalizar isso.
+
+\subsection{Caso geral}
+
+\begin{defn}\leavevmode
+	\begin{itemize}
+	\item Uma $G$-ação é simplética se $\psi_{g}^*\omega=\omega$ para toda $g \in G$, i.e.
+		\[\begin{tikzcd}
+			 \psi:G\arrow[r]\arrow[dr]&\operatorname{Dif}(M)\\
+			  &\operatorname{S im p}(M,\omega)\arrow[u,hook]
+		\end{tikzcd}\]
+		
+	\item $G$-ação é \textit{\textbf{hamiltoniana}} se existe uma \textit{aplicação momento}.
+	\end{itemize}
+\end{defn}
+
+Vamos supor a exitência de um mapa
+
+\[\begin{tikzcd}[ column sep=small,row sep=small]
+	&\mathcal{C}^\infty(M)\arrow[dd]& f\arrow[dd,maps to]\\
+\mathfrak{g} \arrow[ur,"\hat{\mu}"]\arrow[dr]\\
+u\arrow[dr, maps to]&\mathfrak{X}(M)&X_f\\
+&u_M
+\end{tikzcd}\]
+
+\begin{remark}\leavevmode 
+	\begin{itemize}
+	\item Se $\hat{\mu}$ existe, não é unicamente determinado.
+	\item Sempre podemos supor que $\hat{\mu}$ é linear.
+	\end{itemize}
+	\item É equivalente dar $\hat{\mu}$ como função $\hat{\mu}:\mathfrak{g} \longrightarrow \mathcal{C}^\infty(M)$ ou como uma função
+		\begin{align*}
+			\mu: M &\longrightarrow \mathfrak{g}^* \\
+			\hat{\mu}(u)(x) & =\left<\mu(x),u\right>  
+		\end{align*}	
+\end{remark}
+
+\begin{defn}\leavevmode
+	Seja $G\overset{\varphi}{\curvearrowright}(M,\omega)$ uma ação simplética. Dizemos que é \textit{\textbf{fracamente hamiltoniana}} se existe  $\mu:M\to \mathfrak{g}^*$ (equivalentemente, $\hat{ \mu}:\mathfrak{g} \longrightarrow \mathcal{C}^\infty(M)$ linear) tal que
+	 \begin{equation}\label{eq:a}
+	i_{u_M}\omega=d\left<\mu,u\right> \qquad (u_M=X_{\hat{\mu}(u)}	 	
+	 \end{equation}
+	e a ação é \textit{\textbf{hamiltoniana}} se, além disso, vale
+	\begin{equation}\label{eq:b}
+		\mu\text{ é equivariante} 
+	\end{equation}
+	issto é, $\mu:G \curvearrowright M\longrightarrow \mathfrak{g}^*  \overset{\operatorname{Ad}^*}{\curvearrowleft}G$,
+	\[\mu\circ \psi_g=(\operatorname{Ad}^*)_g(\mu)\]
+\end{defn}
+
+No casso abeliano, que é o caso dos fluxos, essa segunda condição de equivariança é trivialmente satisfeita.
+
+\begin{idea5}{Terminologia}\leavevmode
+	\begin{itemize}
+	\item $(M,\omega,\mu)$ é um  \textit{\textbf{$G$-espaco hamiltoniano}}.
+	\item $\mu$ é \textit{\textbf{aplicação momento}}.
+	\item $G$ abeliano: $\mu$ é $G$-equivariante $\iff$ $\mu$ é $G$-invariante.
+	\end{itemize}
+\end{idea5}
+
+\begin{example}\leavevmode
+No caso abeliano, isso vira simplesmente escolher uma função que seja a hamiltoniana do campo vetorial associado à $ \mathbb{R}$-ação. Issto é, a apliação momento para uma $\mathbb{R}$-ação com campo gerador $X$ é uma função $H\in\mathcal{C}^\infty(M)$ tal que $X=X_H$. Note que  $H$ é constante ão longo do fluxo de $X_H$.
+	\end{example}
+
+	(Agora?) veremos resultados de existência/obstrução para aplicações momento adiante. (Adiante.)
+
+\begin{remark}\leavevmode
+	Em termos do \textit{\textbf{comomento}}  $\hat{\mu}:\mathfrak{g}\longrightarrow \mathcal{C}^\infty(M)$, a equivariância de $\mu$ é equivalente a que
+	\begin{align*}
+		\iff \psi^* _g(\hat{\mu}(u))&=\hat{\mu}(\operatorname{Ad}_{g^{-1}}(u)\qquad \forall u\in\mathfrak{g}\\
+		\implies \mathcal{L}_{v_M}(\hat{\mu}(u))&=\hat{m}\left( [u,v] \right) 
+	\end{align*}
+	pegando $g=\operatorname{exp}(tv)$, $\frac{d}{dt}\Big|_{t=0}$. Lembre que $\{\hat{\\mu}(v),\hat{\mu}(v)\} =\mathcal{L}_{v_M}(\hat{\mu}(u))$.
+	i.e. $G$-equivariância implica que $\hat{\mu}$ é um \textit{antihomomorfismo} de álgebras de Lie. A conversa é verdade supongo que $G$ é conexo.
+\end{remark}
+
+\begin{remark}\leavevmode
+	A primeira condição da definição diz que podmoe achar a função que é o hamiltoniano do campo vetorial associado ão elemento em $\mathfrak{g}$. A segunda condição diz que esse mapa $\mathfrak{g} \longrightarrow \mathcal{C}^\infty(M)$ é um antihomomorfismo de álgebras de Lie (ver diagrama)
+\end{remark}
+
+\subsection{Princípio de Noether}
+
+$(M,\omega,\mu)$ $G$-espaço hamiltoniano, $H\in\mathcal{C}^\infty(M)$ hamiltoniano. Então,
+\[H \text{ é $G$-invariante}\iff \mu\text{ é preservada pelo fluxo hamiltoniano de }H  \]
+\begin{proof}\leavevmode
+	\begin{align*}
+		\mathcal{L}_{X_H}\left<\mu,u\right> &=i_{X_H}d(\left<\mu,u\right> )=i_{X_H}i_{u_M} \omega=-i_{u_M} \underbrace{i_{X_H}\omega}_{dH}=-\mathcal{L}_{u_M}H
+	\end{align*}
+\end{proof}
+(É um desses exemplos onde a definição faz o teorema trivial.)
+
+\subsection{Exemplos de ações Hamiltonianas}
+
+\begin{enumerate}
+	\item $M=\mathbb{R}^{2n}=T^*\mathbb{R}^{n}$. $\omega=\sum_{i}dq_i\wedge dp_i$. $G=\mathbb{R}^{n}$. $\mathbb{R}^{n}\curvearrowright \mathbb{R}^{2n}$ por traslação, ie. $g\cdot(p,q)=(q+g,p)$. Isso claramente é uma ação. Mas, como pode achar uma aplicação momento para ela?
+
+		{\color{4}\bfseries Geradores infinitesimais.}\hspace{.5em}$g=tu$,
+		\[u_{M}|_{(q,p}=\sum_{i}u_i \frac{\partial }{\partial q_i}\]
+		Queremos ver se esse campo é hamiltoniano. De fato,
+		\[i_{u_M}\omega=i_{u_M}\left( \sum_{i}dq_i\wedge dp_i \right) =\sum_{i}u_i dp_i=d \left( \left<p,u\right>  \right) \]
+
+	\item  {\color{4}\bfseries Aplicação momento.}\hspace{.5em}
+\begin{align*}
+	\mu: \mathbb{R}^{2n} &\longrightarrow \mathbb{R}^{n} \\
+	(q,p) &\longmapsto p
+\end{align*}
+
+\end{enumerate}
+
+\begin{thm}[Noether]\leavevmode
+	$H$ invariante por traslação $\iff$ $p$ é preservado pelo fluxo de $H$
+\end{thm}
+
+\begin{remark}\leavevmode
+	Lembre do ensino medio onde tinhamos energia cinética mas potencial, $K+V$.  O teorema diz que um potencial invariante por traslação iff momento linear é preservado.
+\end{remark}
+
+\section{De forma mais geral}
+
+Quando temos $(M,\omega)$ e $\omega=-d\theta$ é exata. Com uma ação $G\overset{\psi}{\curvearrowright}(M,\omega)$, temos $\psi_g^*\theta=\theta$, então $\mathcal{L}_{u_{M}}\theta=0$. Nesse caso, a ação é hamiltoniana e a aplicação momento está dada por
+\begin{align*}
+	M &\longrightarrow \mathfrak{g}^* \\
+	\left<\mu,\theta\right>  &=i_{u_{M}}\theta
+\end{align*}
+
+\begin{proof}\leavevmode
+	\begin{itemize}
+	\item 
+		 \begin{align*}
+			i_{u_M}\omega&\overset{?}{=} d \left<\mu,u\right> =di_{u_M}\theta=\underbrace{\mathcal{L}_{u_{M}}}_{=0}\theta-i_{u_{M}}d\theta=i_{u_{M}}\omega
+		\end{align*}
+	\item 
+		\begin{align*}
+			(\operatorname{Ad}^*)_g\mu&\overset{?}{=}\left<\mu\circ \psi_g,u\right> =\psi^* _g(\left<\mu,u\right> )=\psi^* _g(i_{u_M}\theta)=i_{(\psi_{g^{-1}})^*u_M}(\psi_g^*\theta)\\
+			&=i_{(\operatorname{Ad}_{g^{-1}}(u))_M}\theta=\left<\mu,\operatorname{Ad}_{g^{-1}}(u)\right> =\left<(\operatorname{Ad}^*)_g\mu,u\right> 
+		\end{align*}
+	\end{itemize}
+\end{proof}
+
+\begin{example}[Levantamiento cotangente]\leavevmode
+	$M=T^*Q$, $\omega_{\operatorname{can}}=-d\alpha$.
+	\[G\overset{\psi}{\curvearrowright}Q\rightsquigarrow G\overset{\hat{\psi}}{\curvearrowright}T^*Q\]
+	\[\hat{\psi}_g=(d\hat{\psi}_{g^{-1}})^*\]
+	Y vimos que o levantamiento cotangente preserva a forma tautológica, i.e., $(\hat{\psi}_{g})^*\alpha=\alpha$. Isso implica que temos uma ação hamiltoniana.
+
+	\begin{idea5}{Ação momento}\leavevmode
+		\begin{align*}
+			\mu:T^*Q  &\longrightarrow \mathfrak{g}^* \\
+			\left<\mu,u\right>  &=i_{u_M}\alpha 
+		\end{align*}
+		
+		\textbf{Simplificação:}  $\left<\mu(\xi),u\right> =\xi(u_Q)$.
+
+		Lembre como estava definida a forma tautológica:
+		\[\begin{tikzcd}
+			\xi \in\arrow[d,maps to]& T^*Q\arrow[d,"\pi"]\\
+			x\in&Q
+		\end{tikzcd}\]
+		onda simplesmente $\alpha_\xi=\pi^*\xi$.
+		
+	\end{idea5}
+\end{example}
+
+\begin{example}[Outros exemplos]\leavevmode
+	\begin{itemize}
+	\item $\operatorname{SO}(3) \curvearrowright \mathbb{R}^3\overset{\text{levantamento} }{\rightsquigarrow }\operatorname{SO}(3) \curvearrowright \mathbb{R}^{6}\cong T^*\mathbb{R}^{3}\cong \mathbb{R}^{3}\times \mathbb{R}^{3}\times \mathbb{R}^{3}$. Com aplicação momento (dada pelo isomorfismo da álgebra $\mathfrak{so}(3)^*\cong \mathbb{R}^{3}$ que já vimos?)
+		\begin{align*}
+			\mu: \mathbb{R}^{3}\times \mathbb{R}^{3} &\longrightarrow \mathfrak{so}(3)^*\cong \mathbb{R}^{3} \\
+			(q,p) &\longmapsto q\times p
+		\end{align*}
+		que se chama \textit{\textbf{momento angular}}.
+	\end{itemize}
+
+	\item Produtos direitos, restrição a subgrupo (vai vir na lista).
+
+	\item \'Orbitas coadjuntas. $G \curvearrowright(\mathcal{O},\omega_{\operatorname{KKS}})\overset{\mu=i}{\hookrightarrow }\mathfrak{g}^*$.
+\end{example}
+
+\section{Aplicações momento: quando existem e o que fazer com elas}
+
+Nem sempre pode pegar um quociente simplético (a diferencia do mundo Riemanniano). No mundo simplético, temos que pegar conjuntos de nível da aplicação momento.
+
+\begin{thm}[Marsden-Weinstein, Megre]\leavevmode
+	$G\curvearrowright(M,\omega)$, ação hamiltoniana, $\mu:M\to \mathfrak{g}^*$ aplicação momento. Suponha que $0\in\mathfrak{g}^*$ é um valor regular. Então, pela equivariância de $\mu$ temos uma ação $G \curvearrowright \mu^{-1}(0)$:
+	\begin{align*}
+		x\in\mu^{-1}(0),&\qquad \mu(x)=0\\
+		\mu(\psi_g(x))& =\operatorname{Ad}^* _g(\underbrace{\mu(x)}_{=0}=0
+	\end{align*}
+	(isso significa que tem uma ação de $G$ em $\mu^{-1}(0)$.) Suponha além disso que a ação é boa, i.e. \textit{regular} (definido na seguinte seção), que $\mu^{-1}(0)/G$ é suavem que a projeção  é sumersão. Então, existe uma úmica forma $\omega_{\operatorname{red}}$ simplética em $M_0$ tal que  $i^*\omega=\pi_0^*\omega_{\operatorname{red}}$. Issto é, a forma simplética é o pullback de uma forma no quociente,
+	\[\begin{tikzcd}
+		G\curvearrowright \mu^{-1}(0)\arrow[r,hook]\arrow[d,"\pi_0"]&M\\
+M_0:=\mu^{-1}(0)/G
+	\end{tikzcd}\]
+\end{thm}
+
+\begin{remark}\leavevmode
+	Esse resultado tem muita história: primero o Meyer provou no Salvador, mas foi desapercebido. Daí esse mesmo ano Marsden-Weinsten provarom. Mas também parece que tudo esta relacionado com o Smale, que depois de mostrar a conjetura de Poincaré em dimensões altas estava tentando resolver o problema de treis corpos (talvez usando redução simplética).
+\end{remark}
+
+\section{Quocientes de ações por grupos de Lie}
+
+\subsubsection{Criterio para ações regulares}
+
+$G \curvearrowright P$, $G$ grupo de Lie, $P$ vareidade, $G/P$ espaço de órbitas com topologua quociente.
+\[\begin{tikzcd}
+P\arrow[d,"\pi"]\\
+P/G
+\end{tikzcd}\]
+Mas ese espaço pode ser ruim. Por exemplo, $G=\mathbb{R}\curvearrowright R$ com $(t,x)\mapsto e^tx$ gera um espaço de treis órbitas: $R^-$ para $x<0$,  $\mathbb{R}^+$ para $x>0$ e  $0$ para  $x=0$. Mas cualquer aberto contendo  $0$  é todo $\mathbb{R}$: esse espaço nem é Hausdorff.
+
+\begin{defn}\leavevmode
+	$G \curvearrowright P$ é \textit{\textbf{regular}} se  $P/G$  é uma $\mathcal{C}^\infty$-variedade e $p\overset{\pi}{\longrightarrow}P/G$ é sumersão.
+\end{defn}
+
+\begin{idea2}{Critério}\leavevmode
+	$G \curvearrowright P$.
+	\begin{itemize}
+	\item \textit{\textbf{Livre}}: $\forall  p \in P$, $G_p=\{e\}$ ($g\cdot p=p \implies g=e$).
+	\item \textit{\textbf{Própria}}: a função
+		\begin{align*}
+			G\times P &\longrightarrow P\times P \\
+			(g,p) &\longmapsto (g\cdot p,p)
+		\end{align*}
+		é \textit{\textbf{própria}} se a imagem inversa de compacto é compacto.
+	\end{itemize}
+\end{idea2}
+
+\begin{example}\leavevmode
+	$G$ compacto $\implies $ $G$-ação é própria.
+\end{example}
+
+\begin{thm}[Palais]\leavevmode
+	$G \curvearrowright P$ livre, própria, então é regular.
+\end{thm}
+
+\begin{proof}[Idea da prova]\leavevmode
+	Queremos construir uma estrutura suave em $P/G$. Pegue um ponto.  É uma órbita. Pegue uma subvariedade complementar, transversal, à órbita: $T_{x}S\oplus T_{x}\mathcal{O}=T_{x}P$. Faça agir o grupo nesa variedade transversal localmente. O resultado de uma vizinhança da órbita. Essa vai ser a carta. Usar teorema da função inversa.
+
+	Também pode usar criterio de Godement (isso é mais geral). Uma variedade $M$, uma relação de equivalencia $R \subseteq M\times M$ (pode ser foleação, …). Então o quociente é variedade suave se e só se a relação de equivalência é fechada e mergulhada e a projeção a um dos fatores é sumersão. Então aqui a gente só prova que o mapa da definição de mapa próprio é um mergulho  fechado.
+\end{proof}
+
+
+
+
+\section{Aula 17}
+
+
 
 
 \end{document}
