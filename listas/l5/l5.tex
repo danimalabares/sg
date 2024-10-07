@@ -1,0 +1,247 @@
+\input{/Users/daniel/github/config/preamble.sty}%This is available at github.com/danimalabares/config
+
+%\usepackage[style=authortitle-terse,backend=bibtex]{biblatex}
+%\addbibresource{bibliography.bib}
+
+\begin{document}
+
+\begin{minipage}{\textwidth}
+	\begin{minipage}{1\textwidth}
+		Geometria Simpl\'etica \hfill Daniel González Casanova Azuela
+		
+		{\small Profs. Henrique Bursztyn e Leonardo Macarini\hfill\href{https://github.com/danimalabares/sg}{github.com/danimalabares/sg}}
+	\end{minipage}
+\end{minipage}\vspace{.2cm}\hrule
+
+\vspace{10pt}
+{\huge Lista 3}
+
+\tableofcontents
+
+\addcontentsline{toc}{subsection}{Problem 1}
+\paragraph{Problem 1} Consider a symplectic manifold $(M^{2n},\omega)$ with hamiltonian $H\in\mathcal{C}^\infty(M)$. Let $f_1,\ldots,f_k\in\mathcal{C}^\infty(M)$ be first integrals of the flow of $H$, i.e., $\{H,f_i\} =0$. Let $F=(f_1,\ldots,f_k):M\longrightarrow \mathbb{R}^{k}$, and let $c \in\mathbb{R}^{k}$ be a regular value. Note that $M_c:=F^{-1}(c)$ is invariant by the flow of $H$. We will show that  $M_c$ carries a natural invariant volume form.
+\begin{enumerate}[label=\alph*.]
+	\item Take a neighborhood $\mathcal{U}$ of $M_{c}$ where $df_1,\ldots,df_k$ are linearly independent pointwise. Show that the Liouville volume form $\Lambda_\omega=\omega^n/n!$ can be written in $\mathcal{U}$ as $\Lambda_\omega=df_1\wedge \ldots \wedge df_k\wedge \sigma$ for some $\sigma\in\Omega^{2n-k}(M)$. We then define a volume form $\Lambda_c:= i\sigma\in\Omega^{2n-k}(M_c)$ where $i:M_c\to M$ is the inclusion.
+	\item Show that $df_1\wedge \ldots \wedge df_k\wedge  \mathcal{L}_{X_H}\sigma=0$ and use this fact to see that we can write $\mathcal{L}_{X_H}\sigma=\sum_{i=1}^kdf_i\wedge \rho_i$. Conclude that $\Lambda_c$ is invariant by the flow of $H$.
+	 \item Show that $\Lambda_c$ does not depend on the choice of $\sigma$.
+\end{enumerate}
+
+\begin{proof}[Solution]\leavevmode
+	\begin{enumerate}[label=\alph*.]
+		\item (Ver \href{https://math.stackexchange.com/questions/2857126/df-1-df-k-linearly-independent-rightarrow-frac-omegann-df-1-wedge}{StackExchange}.) Note que como $\dim \Omega^{2n}(M) =1$, basta mostrar que existe $ \sigma\in\Omega^{2n-k}(M)$ tal que $df_1\wedge \ldots \wedge df_k\wedge \sigma\in\Omega^{2n}(W)$.
+
+		Sabemos que para qualquer ponto $p\in M_c$ existe uma vizinhança $V$ de $p$ com coodenadas locais $(f_1,\ldots,f_k,x_{k+1},\ldots,x_{2n})$. Daí, uma base de $T_x^*V$ é $df_1,\ldots,df_k,\\dx_{k+1},\ldots,dx_{2n}$. Defina $\sigma_V=dx_{k+1}\wedge \ldots \wedge dx_{2n}$. Pegue uma coberta aberta $V_\alpha$ de $\mathcal{U}$ e defina uma partição da unidade $\rho_\alpha$ para estender cada forma $\sigma_{V_\alpha}$ a uma forma em $\mathcal{U}$, $\sigma_{V_\alpha}\rho_\alpha$. A forma $\sum_{\alpha}\sigma_{V_\alpha}\rho_\alpha$ é a buscada.
+
+
+		\textbf{Outra ideia que tive}: pegue um ponto $p\in\mathcal{U}\subset M$. Podemos completar $(df_1)_p,\ldots,(df_k)_p$ a uma base de $T^*M$. Tamb\'em podemos extender essa base para uma vizinhança $p\in V\subset \mathcal{U}$ como segue: extenda os covectores a toda $M$ usando uma fun\c c\~ao "quindim" (=bump function) que seja 1 num compacto perto de $p$---i.e. estamos extendedo essas formas que achamos em $p$ para um campo covetorial constante. Da\'i, como os covectores s\~ao linearmente independentes em $p$, o determinante da fun\c c\~ao de coeficentes deles \'e n\~ao zero em $p$, mas como o determinante \'e cont\'inuo, existe uma vizinhança de $p$ onde \'e n\~ao zero. Defina $\tilde{\sigma}$ como o wedge product dos covectores que acabamos de achar. Daí, de novo, é so estender cada $\tilde{\sigma}$ a uma forma em $\mathcal{U}$. O problema aquí é comprovar que a escolha dos covetores coincide nas interseções dos abertos---algo que não acontece na construção anterior porque estamos usando un atlas de $M$.
+
+		\item Pela f\'ormula de Cartan, em cada vizinhança $V$ como no item anterior,
+\begin{align*}
+	\mathcal{L}_{X_H}\sigma_V&=\mathcal{L}_{X_H}(dx_{k+1}\wedge \ldots \wedge dx_{2n})\\
+	&=\mathcal{L}_{X_H}dx_{k+1}\wedge dx_{k+2}\wedge  \ldots \wedge dx_{2n}\\
+	&+dx_{k+1}\wedge \mathcal{L}_{X_H}x_{k+2}\wedge \ldots \wedge dx_{2n}\\
+	&+\ldots +dx_{k+1}\wedge \ldots \wedge \mathcal{L}_{X_H}dx_{2n}.
+\end{align*}
+Só note que cada termo dessa suma que não é zero deve conter um múltiplo de alguma $df_j$ porque essa é a única maneira de ter formas linealmente independentes no wedge product.
+
+		Sabendo que $ \mathcal{L}_{X_H}\sigma=\sum_{j}df_j\wedge \rho_j$, temos que
+		\begin{align*}
+			\mathcal{L}_{X_H}i^*\sigma&=i^*\mathcal{L}_{X_H}\sigma\\
+			&=i^*\left(\sum_{j}df_j\wedge \rho_j\right)\\
+			&=\sum_{j}di^*f_j\wedge i^*\rho\\
+			&=0
+		\end{align*}
+		já que $f_i$ é constante em $M_c$.
+
+		\item Suponha que $\tilde{\sigma}\in\Omega^{2n-k}(M)$ também é tal que $\Lambda_\omega =df_1\wedge \ldots df_k\wedge \tilde{ \sigma}$. Então
+			\begin{align*}
+				df_1\wedge \ldots \wedge df_k\wedge (\sigma-\tilde{\sigma})&=0\\
+				\implies \qquad \sigma\wedge \tilde{\sigma}&=df_1\wedge \ldots df_{k+1}\wedge \gamma, \qquad \gamma \in\Omega^{2n-k}(M)\\
+				\implies i^*(\sigma-\tilde{\sigma})&=i^*(df_1\wedge \ldots df_{k+1}\wedge \gamma)=0\\
+				\implies\qquad  i^*\sigma &=i^*\tilde{\sigma}
+			\end{align*}
+			já que o wedge product igual a zero e equivalente a dependendência linear e de novo porque $f_j$ são constantes em $M_c$.
+	\end{enumerate}
+\end{proof}
+
+\addcontentsline{toc}{subsection}{Problem 2}
+\paragraph{Problem 2} Let $M$ be a symplectic manifold, $\Psi=(\psi^1,\ldots,\psi^k):M\to \mathbb{R}^{k}$ a smooth map, and $c$ a regular value. Consider a submanifold $N=\Psi^{-1}(c)\hookrightarrow M$.
+\begin{enumerate}[label=\alph*.]
+	\item Show that $N$ is coisotropic if and only if $\{\psi^i,\psi^j\}|_{N}=0$ for all $i,j=1,\ldots,k$.
+	
+	\item Show that $N$ is symplectic if and only if the matrix $(c^{ij})$, with $c^{ij}=\{\psi^i,\psi^j\}$, is invertible for all $x\in N$. In this case, verify that we have the following expression for the Poisson bracket $\{\cdot,\cdot\}_N$ on $N$ (known as \textit{\textbf{Dirac's bracket}}):
+	\[\{f,g\}_N=\left.\left(\{\tilde{f},\tilde{g}\} =\sum_{ij}\{\tilde{f},\tilde{g}\} c_{ij}\{\psi^j,\tilde{g}\}\right)\right|_{N}\]
+		where $(c_{ij})=(c^{ij })^{-1}$, $f,g\in \mathcal{C}^\infty(N)$, and $\tilde{f},\tilde{g}\in\mathcal{C}^\infty(M)$ are arbitrary extensions of $f$ and $g$.
+\end{enumerate}
+
+\begin{proof}[Solution]\leavevmode
+	\begin{enumerate}[label=\alph*.]
+		\item Since $M$ is symplectic we have a bundle isomorphism
+\begin{align*}
+	\omega^\flat: TM &\longrightarrow T^*M \\
+	v &\longmapsto i_v\omega
+\end{align*}
+Then 
+\[T N^\omega=(\omega^\flat )^{-1}(\operatorname{Ann}(T N)).\]
+Since $M$ is the level set of a regular value, there are local coordinates of the form $(\psi^1,\ldots,\psi^k,x^{k+1},\ldots,x^{2n})$. Vectors tangent to $N$ are expressed only in terms of the vectors $\partial_{k+1},\ldots,\partial_{2n}$ and thus covectors that vanish on $T N$ are those which vanish on $\partial_{k+1},\ldots, \partial_{2n}$. This means that a basis for $\operatorname{Ann}(T N)$ is given by $d\psi^1,\ldots,d\psi^k$ (an explanation of this might be that the canonical basic covectors for the coordinates $\psi^i$ are the differentials $d\psi^i$, which maybe can be checked using the usual change of coordinates formula). These generators map to their hamiltonian vector fields under $(\omega^\flat)^{-1}$:
+\[\left(\omega^\flat \right)^{-1}(d\psi^i)=X_{\psi^i}\]
+So $T N^\omega$ is generated by the $X_{\psi^i}$. Notice that any vector $v \in TM$ is actually in $T N$ iff $\alpha(v)=0\;\forall \alpha\in\operatorname{Ann}(T N) $. Then we see that
+\begin{align*}
+	T N^\omega\subset TM&\iff X_{\psi^i}\in T N\quad i=1,\ldots,k\\
+	&\iff d\psi^j(X_{\psi^i})|_{N}=0 \quad i,j=1,\ldots,k\\
+	&\iff \omega(X_{\psi^i},X_{\psi^j})|_{N}=0\quad i,j=1,\ldots,k\\
+	&\iff \{\psi^i,\psi^j\}|_{N}=0\quad i,j=1,\ldots,k
+\end{align*}
+
+\item Em qualquer sistema de coordenadas $(x^1,\ldots,x^{2n})$, os vetores hamilatonianos $X_{x^1},\ldots,X_{x^{2n}}$ formam uma base do espaço tangente. Nessa base, os coeficientes da matriz que representa $\omega^\flat$ s\~ao exatamente os colchetes de Poisson  $\{x^i,x^j\}$. A forma $\omega$ \'e n\~ao degenerada se e somente se a sua matriz \'e invert\'ivel (j\'a que nesse caso temos o isomofismo $\omega^\flat$ bem definido). Então, o que queremos \'e ver que a restri\c c\~ao $\omega|_{N}$ \'e invert\'ivel em cada ponto de $N$.
+
+	Nas coordenadas de subvariedade $(\psi^1,\ldots,\psi^k,x^{k+1},\ldots,x^{2n})$, a matrix que representa $\omega^\flat$ \'e
+	\[\begin{pmatrix} \{\psi^1,\psi^1\} &\cdots &\{\psi^k,\psi^1\} &\{x^{k+1},\psi^1\} &\cdots &\{x^{2n},\psi^1\}\\
+	\vdots &&\vdots &&&\vdots\\
+\{\psi^1,\psi^k\} &\cdots &\{\psi^k,\psi^k\} &\{x^{k+1},\psi^k\} &\cdots &\{x^{2n},\psi^k\}\\
+	\{\psi^1,x^{k+1}\} &\cdots &\{\psi^k,x^{k+1}\} &\{x^{k+1},x^{k+1}\} &\cdots &\{x^{2n},x^{k+1}\} \\
+	\vdots &&\vdots &&&\vdots\\
+	\{\psi^1,x^{2n}\} &\cdots &\{\psi^k,x^{2n}\} &\{x^{k+1},x^{2n}\} &\cdots &\{x^{2n},x^{2n}\}
+\end{pmatrix}\]
+No entanto,
+\begin{align*}
+	\{x^i,\psi^j\}&=dx^i(X_{\psi^j})=0\\
+\{\psi^j,x^i\} &=d\psi^j(X_{x^i})=0
+\end{align*}
+se os covetores $dx^i$ e $d\psi^j$ s\~ao de fato a base dual de $X_{x^i}$, $X_{\psi^j}$. Se isso for certo, podemos escrever a matriz representada acima como
+\[\begin{pmatrix}\begin{array}{c|c}
+	\{\psi^i,\psi^j\}&0\\ \hline
+	0&\{x^i,x^j\} 
+\end{array}  \end{pmatrix}, \]
+cujo determinante \'e o produto dos determinantes das matrizes de bloco n\~ao zero. Algo neste argumento não funcionona, pois o determinante da matriz $\{x^i,x^j\}$ pode ser zero se $k=n$ e tomamos uma carta coordenada de Darboux. Perguntei no \href{https://math.stackexchange.com/questions/4974063/level-set-submanifold-is-symplectic-iff-poisson-bracket-matrix-is-nonsingular}{StackExchange}, mas sem resposta por enquanto.
+
+Para a última parte do exercício suponha por enquanto que dadas as proje\c c\~oes
+\[\begin{tikzcd}
+&TM|_{N}=T N\oplus T N^\omega\arrow[dl,"q_1",swap]\arrow[dr,"q_2"]\\
+T N&&T N^{\omega}
+\end{tikzcd}\]
+\'e verdade que
+\[X_f=q_1(X_{\tilde{f}}),\qquad q_2(Y)=\sum_{i,j}d\psi^i(Y)c_{ij}X_{\psi^j}.\]
+Ent\~ao, (para facilitar leitura n\~ao escrevo a resitri\c c\~ao à $N$, mas isso s\'o tem sentido em $N$)
+\begin{align*}
+	\{\tilde{f},\tilde{g}\}&=\omega(X_{\tilde{f}},X_{\tilde{g}})\\
+			       &=\omega(q_1(X_{\tilde{f}}),q_1(X_{\tilde{g}}))+\omega(q_1(X_{\tilde{f}}),q_2(X_{\tilde{g}}))\\
+	&+\omega(q_2(X_{\tilde{f}}),q_1(X_{\tilde{g}}))+\omega(q_2(X_{\tilde{f}}),q_2(X_{\tilde{g}}))\\
+	&=\omega(X_{f},X_{g})+\omega(q_2(X_{\tilde{f}}),q_2(X_{\tilde{g}}))\\
+	&=\{f,g\}_{N}+\omega(q_2(X_{\tilde{f}}),q_2(X_{\tilde{g}}))
+\end{align*}
+	\end{enumerate}
+	para calcular o \'ultimo termo notamos que
+	\begin{align*}
+		\begin{aligned}
+		q_2(X_{\tilde{f}})&=\sum_{i,j}d\psi^i(X_{\tilde{f}})c_{ij}X_{\psi^j}\\
+		&=\sum_{ij}-\{\tilde{f},\psi^i\} c_{ij}X_{\psi^j}
+	\end{aligned}\qquad\quad \quad 
+	\begin{aligned}
+		q_2(X_{\tilde{g}})&=\sum_{k,\ell}d\psi^k(X_{\tilde{g}})c_{k \ell}X_{\psi^\ell}\\
+		&=\sum_{k,\ell}\{\psi^k,\tilde{g}\} c_{k \ell}X_{\psi^\ell}
+	\end{aligned}
+	\end{align*}
+	de modo que
+	\begin{align*}
+		\omega(q_2(X_{\tilde{f}}),q_2(X_{\tilde{g}}))&=\sum_{i,j,k,\ell} -\{\tilde{f},\psi^i\} c_{ij}\{\psi^k,\tilde{g}\} c_{k \ell}\omega(X_{\psi^j},X_{\psi^\ell})\\
+	&=\sum_{i,j,k,\ell} -\{\tilde{f},\psi^i\} c_{ij}c^{j\ell}c_{k \ell}\{\psi^k,\tilde{g}\}\\
+	&=\sum_{i,j,k,\ell} \{\tilde{f},\psi^i\} c_{ij}c^{j\ell}c_{\ell k}\{\psi^k,\tilde{g}\}\\
+	&=\sum_{i,k} \{\tilde{f},\psi^i\} c_{i k}\{\psi^k,\tilde{g}\}
+	\end{align*}
+	usando que a $c_{\ell k}=-c_{k\ell}$ por ser uma matriz antisim\'etrica. Com isso seria demonstrado o exerc\'icio.
+
+	O fato de que $X_f=q_1(X_{\tilde{f}})$ segue de que tanto $M$ quanto $N$ s\~ao variedades simpl\'eticas, de modo que existe um \'unico campo vetorial associado à  $df=d\tilde{f}|_{N}$ em $N$.
+
+       A falta de uma prova rigurosa, a equa\c c\~ao $q_2(Y)=\sum_{i,j}d\psi^i(Y)c_{ij}X_{\psi^j}$ é simplesmente a expresão em coordenadas de $Y$ na base de vetores Hamiltonianos $X_{\psi^j}$ do espaço $T N^\omega$. 
+	\iffalse
+	Primeiro considere o caso simples do vetor $\frac{\partial }{\partial x^i}\in TM|_{N}$ para $i\leq k$ fixa. A mudança de coordenadas $\Psi\times \operatorname{id}_{2n-k}=(\psi^1,\ldots,\psi^k,x^{k+1},\ldots,x^{2n})$ disse que
+\[\frac{\partial }{\partial x^i}=\sum_{j}\frac{\partial \psi^j}{\partial x^i}V^j\]
+onde $V^j$ \'e o marco de campos vetorias associado as novas coordenadas. Qual \'e esse marco? Sabemos que uma base $k$ kk
+
+
+pegue um vetor tangente a $M$ ancorado sobre $N$. Podemos expressá-lo em coordenadas locais:
+\[TM|_{N}\ni Y=\sum_{i=1}^kY^i\frac{\partial }{\partial x_i}+\sum_{i=k+1}^{2n}Y^i\frac{\partial }{\partial x^i}\]
+Da\'i, \begin{align*}
+	Y&=\sum_{i=1}^kY^i\sum_{j=1}^k\frac{\partial \psi^j}{\partial x^i}\frac{\partial }{\partial }
+\end{align*}\fi
+\end{proof}
+
+\addcontentsline{toc}{subsection}{Problem 3}
+\paragraph{Problem 3} Let $D\subseteq TM$ be a vector subbundle, and let $\operatorname{Ann}(D) \subseteq T^*M$ be its annihilator. Show that $D$ is involutive iff $\operatorname{Ann}(D)$ is a coisotropic submanifold of $ T^*M$.
+
+\begin{proof}[Solution]\leavevmode
+	For the implication $\implies$ we use Frobenius theorem to obtain an integral manifold of $D$, which means that $\operatorname{Ann}(D)$ is just the conormal bundle of such a manifold. We have seen in class that the conormal bundle of any manifold is a lagrangian submanifold of the cotangent bundle, so in particular it is coisotropic.
+
+	Para a implicação $\impliedby$ proponho o seguinte esquema:
+	\[\begin{tikzcd}[row sep= small]
+		D\subset TM\arrow[r]&\operatorname{Ann}(\operatorname{Ann}(D)) \subset T^* (T^*M)\arrow[r,"\omega ^\sharp"]& \operatorname{Ann}(D)^\omega\subset T(T^* M)\\
+		X\arrow[r, maps to]&
+			\begin{aligned}
+				X^*: T^*M \longrightarrow \mathbb{R} \\
+				\eta \longmapsto \eta(X)
+			\end{aligned}
+			\arrow[r, maps to]& \omega ^\sharp(X^*)
+	\end{tikzcd}\]
+	Por um  \href{https://math.stackexchange.com/questions/4578202/equivalent-condition-for-coisotropic-submanifold}{argumento análogo} ao Problema 2a, sabemos que $\operatorname{Ann}(D)^\omega$ está generado pelas diferenciais de funções  que se anulam em $\operatorname{Ann}(D)$. Isso significa que $\omega^\sharp X^*$ é uma combinação linear de campos Hamiltonianos $X_f$ com  $f|_{\operatorname{Ann}(D)}=0$, digamos $X=\sum_{i}X_{f_i}$.
+
+	Como $\operatorname{Ann}(D)$ é coisotrópica, o colchete de Poisson de duas funções que se anulam em $\operatorname{Ann}(D)$ é zero (isso também é  \href{https://math.stackexchange.com/questions/4578202/equivalent-condition-for-coisotropic-submanifold}{análogo} ao Problema 2a). Segue que, para $X,Y\in D$,
+	\begin{align*}
+		[\omega^\sharp X^*,\omega^\sharp Y^*]_{T(T^*M)}&=\left[ \sum_{i}X_{f_i},\sum_{j}X_{g_j} \right]_{T(T^*M)}\\
+						     &=\sum_{i,j}[X_{f_i},X_{g_j}]_{T(T^*M)}\\
+						     &=-\sum_{i,j}X_{\{f_{i},g_{j}\}}\\
+						     &=-\sum_{i,j}X_{0}\\
+						     &=0
+	\end{align*}
+Finalmente, \href{https://mathoverflow.net/questions/140578/poisson-structure-on-the-cotangent-bundle}{podemos} restringir o colchete $[\cdot,\cdot ]_{T(T^*M)}$ à $D$ vendo  $D$ como subvariedade de $T^*M$ na seção zero. Isso implica que de fato o colchete de Lie em $D$ é zero.
+
+\end{proof}
+
+\addcontentsline{toc}{subsection}{Problem 4}
+\paragraph{Problem 4} Consider a smooth map $\phi:Q_1\to Q_2$, and let
+\[R_{\phi}:=\left\{ \left( (x,\xi),(y,\eta) \right) :y=\phi(x),\;\xi=(T\phi)^*\eta \right\} \subset T^*Q_1\times T^*Q_2.\]
+Verify that $R_\phi$ is a lagrangian submanifold of $T^* Q_1\times \overline{T^*Q_2}$. Whenever $\phi$ is a diffeo, what is the relation between $R_\phi$ and the cotangent lift $\hat{\phi}$?
+
+Denote by $\Gamma_\phi\subset Q_1\times Q_2$ the graph of $\phi$. What is the relation between $N^*T_\phi$ (the conormal bundle of $\Gamma_\phi$) and  $R_\phi$?
+
+\begin{proof}[Solution]\leavevmode
+	A nota\c c\~ao $(T\phi)^*$ \'e um pouco confusa, mas terminhei por interpreta-l\'a como simplesmente a precomposi\c c\~ao, ie. $(T\phi)^*=\phi\circ T\phi$, ou seja, o pullback usual $\phi^*$. Da\'i, \'e f\'acil ver que se $\phi$ \'e um difeomorfismo, $R_\phi$ \'e justamente o grafo do pullback
+	\begin{align*}
+		\phi^*: T^*Q_2 &\longrightarrow T^*Q_1 \\
+		(\phi(x),\eta ) &\longmapsto (x,\phi^*\eta )
+	\end{align*}
+que por defini\c c\~ao \'e o inverso do levantamento cotangente de $\phi$. Por\'em, se $\phi $ n\~ao \'e injetiva, esse mapa n\~ao est\'a bem definido. Mas ainda, parece que $R_\phi$ \'e lagrangiana al\'em disso. \'E facil ver que a dimens\~ao de $R_\phi$ \'e a metade do espaço ambiente, j\'a que est\'a parametrizado por pares $(x,\eta)\in Q_1\times T^*Q_2$. Isso significa que a dimens\~ao dele \'e $\dim Q_1+\dim Q_2=\frac{1}{2}\dim (T^*Q_1\times T^*Q_2)$. Para comprovar que \'e um subvariedade lagrangiana basta ver que o mergulho $\gamma:R^{\phi} \hookrightarrow T^*Q_1\times \overline{T^*Q_2}$ puxa a forma can\'onica em zero (ie. \'e isotr\'opica).
+
+(Ver \href{https://math.stackexchange.com/questions/2859956/conormal-bundle-and-lagrangian-submanifold}{StackExchange}.)A forma can\'onica em $T^*Q_1\times \overline{T^*Q_2}$ \'e $ \omega:=\operatorname{pr}_1^*\omega_1-\operatorname{pr}_2^*\omega_2$ onde $ \omega_1,\omega_2$ s\~ao as formas can\'onicas nos fibrados cotangentes. Queremos ver que $\gamma^*\omega=0$.
+Temos que:
+\begin{align*}
+	 \gamma^*\omega&= \gamma^* (\operatorname{pr}_1^*\omega_1-\operatorname{pr}_2^*\omega_2)\\
+	 &=(\operatorname{pr}_1\circ \gamma)^*\omega_1-(\operatorname{pr}_2\circ  \gamma)^*\omega_2\\
+	 &=\sum_{i}dx^i\wedge d((T\phi )^*\eta )-d\phi \wedge d\eta^i
+\end{align*}
+e isso deve dar zero. Não fiquei muito seguro de por que, mas a idea e assim: quando derivamos o termo que inclui $(T\phi)^*$ vira uma soma de dois termos, um dos quais se cancela com  $d\phi \wedge d\eta^i$, e o outro \'e zero por antisimetr\'ia.
+
+Por último vejamos a rela\c c\~ao de $R_\phi$ com o anulador $N^* \Gamma_\phi$:
+\begin{align*}
+	N^*\Gamma_\phi&=\{\big((x,\xi),(y,\eta)\big)\in T^*Q_1\times T^*Q_2\cong T^*(Q_1\times Q_2):\text{se anula em }T_{(x,\phi(x))}\Gamma_\phi \}
+\end{align*}
+Agora note que o espaço tangente $T_{(x,\phi(x))}\Gamma_\phi$ está generado por pares de vetores da forma $\frac{\partial }{\partial x^i}+\phi_*\frac{\partial }{\partial x^i}$. Isso segue simplesmente do fato de que em coordenadas locais, os vetores can\'onicos s\~ao as derivadas de curvas $(x_i,\phi(x_i))$. Ent\~ao, um elemento $\big((x,\xi ),(y,\eta)\big)$ em $N^*\Gamma_\phi$ deve satisfacer que quando $y=\phi(x)$, essas formas se anulan no subespaço tangente generado por  $\frac{\partial }{\partial x^i}+\phi_*\frac{\partial }{\partial x^i}$. Em s\'imbolos:
+\begin{align*}
+	0&=\xi \left( \frac{\partial }{\partial x^i} \right) +\eta\left( \phi_*\frac{\partial }{\partial x^i } \right) \\
+\iff	\xi \left( \frac{\partial }{\partial x^i} \right) &=-\eta\left( \phi_*\frac{\partial }{\partial x^i} \right) \\
+\iff\qquad\; \quad 	\xi &=-(T\phi)^*\eta
+\end{align*}
+notando que a reflex\~ao $(T \phi)^*\eta\mapsto -(T\phi)^*\eta$ \'e um simplectomorfismo, vemos que $N^*\Gamma_\phi$ de fato \'e simplectomorfo à $R_\phi$.
+\end{proof}
+\iffalse
+\addcontentsline{toc}{subsection}{Problem 5}
+\paragraph{Problem 5} Let $M$ be a manifold and $\omega\in\Omega^{k}(M)$. Suppose that $\pi:M\to B$ is a surjective submersion with connected fibers. We say that $\omega$ is \textit{\textbf{basic}} (with respect to $\pi$) if there exists a form $\overline{\omega} \in \Omega^{k}(B)$ such that $\pi^*\overline{\omega} =\omega$.
+\begin{enumerate}[label=\alph*.]
+	\item Show that $\omega$ is basic iff $i_X\omega=0$ and $\mathcal{L}_{X}\omega=0$ for all vector fields $X$ tangent to the fibers of $\pi$. In particular, if $\omega$ is closed, show that it is basic if $\ker(T\pi)\subseteq\ker \omega$ (pointwise in $M$ ).
+
+		\item Suppose that $\omega$ is a closed 2-form on $M$ and $\ker(T\pi)=\ker \omega$. Show that $\omega=\pi^*\overline{\omega}$ and $\overline{\omega}\in\Omega^{2}(B)$ is symplectic.
+
+		\item 
+\end{enumerate}
+\fi
+\end{document}

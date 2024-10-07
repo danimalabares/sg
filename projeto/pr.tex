@@ -1,4 +1,6 @@
-\input{/Users/daniel/github/config/preamble-por.sty}
+\input{/Users/daniel/github/config/preamble.sty}%available at github.com/danimalabres/config
+\input{/Users/daniel/github/config/thms-por.sty}%available at github.com/danimalabres/config
+
 
 \usepackage[style=authortitle-terse,backend=bibtex]{biblatex}
 \addbibresource{bibliography.bib}
@@ -21,15 +23,15 @@
 
 
 \section{No\c c\~oes b\'asicas de mec\^anica qu\'antica}
-\begin{tabular}{ c c}
+\iffalse\begin{tabular}{c c}
 Mec\^anica Cl\'asica	 & Mec\^anica qu\^antica\\
 \hline
-O estado de uma part\'icula est\'a determinado pela posi\c c\~ao e a velocidade. Equivalentemente, est\'a determinada pela posi\c c\~ao $\mathbf{x}$ e o momento $\mathbf{p}=m\dot\mathbf{x}$ See \href{https://mathoverflow.net/questions/19932/what-is-a-symplectic-form-intuitively}{intuition on symplectic form}.& A fun\c c\~ao de onda cont\'em a informa\c c\~ao da part\'icula em todo tempo.\\
-\end{tabular}
+O estado de uma part\'icula est\'a \\determinado pela posi\c c\~ao e a velocidade.\\ Equivalentemente, est\'a determinada \\pela posi\c c\~ao $\mathbf{x}$ e o momento \\$\mathbf{p}=m\dot\mathbf{x}$ See \href{https://mathoverflow.net/questions/19932/what-is-a-symplectic-form-intuitively}{intuition on symplectic form}.& A fun\c c\~ao de onda cont\'em a informa\c c\~ao \\& da part\'icula em todo tempo.
+\end{tabular}\fi
 
 \subsection{Cl\'asica}
 
-Sistema f\'isico \'e uma variedade com estrutura adicional. A variedade consiste dos estados do sistema (posi\c c\~ao, momento), e a estrutura adicional s\~ao as leis de movimento. A din\^amica do sistema est\'a determinada por uma fun\c c\~ao, o Hamiltoniano. Por medio de uma forma simpl\'etica podemos obter um campo vetorial associado à $H$ 
+Sistema f\'isico \'e uma variedade com estrutura adicional. A variedade consiste dos estados do sistema (posi\c c\~ao, momento), e a estrutura adicional s\~ao as leis de movimento. A din\^amica do sistema est\'a determinada por uma fun\c c\~ao, o Hamiltoniano. Por medio de uma forma simpl\'etica podemos obter um campo vetorial associado a $H$ 
 
 \begin{itemize}
 \item $\omega$ n\~ao degenerada implica que sempre podemos achar esse campo vetorial
@@ -51,20 +53,20 @@ As equa\c c\~oes de Hamilton s\~ao s\'o outra formula\c c\~ao da segunda lei do 
 
  Equa\c c\~ao de Schr\"odinger
  \[i\hbar \frac{\partial \psi}{\partial t}=\hat{H}\psi.\]
- Distintas escolhas de Hamiltoniano $\hat{H}$ descrevem diferentes leis da natureza. Para part\'iculas n\~ao relativistas em treis dimens\~oes com energia potencial $V(x)$, o Hamiltoniano  \'e
+ Distintas escolhas de Hamiltoniano $\hat{H}$ descrevem diferentes leis da natureza. Para partículas não relativistas em treis dimensões com energia potencial $V(x)$, o Hamiltoniano  é
  \[\hat{H}=-\frac{\hbar^2}{2m}\nabla^2+V(x).\]
  \'E um operador diferencial. O Laplaciano \'e
  \[\nabla^2=\frac{\partial^2}{\partial^2 x^2}+\frac{\partial^2}{\partial^2 y^2}+\frac{\partial^2}{\partial^2z^2}.\]
  Na mec\^anica cl\'asica, o Hamiltoniano est\'a relacionado com a energia do sistema, que para n\'os \'e
  \[E=\frac{1}{2m}\mathbf{p}^2+V(x)\]
- onde $\mathbf{p}=m\dot\mathbf{x}$ o momentum da part\'icula.
+ onde $\mathbf{p}=m\dot{\mathbf{x}}$ o momentum da partícula.
 
- Nem toda teoria f\'isica pode ser descrita usando um Hamiltoniano. (Em termos gerais, s\'o as teorias que tem conserva\c c\~ao da energia podem ser descritas com o Hamiltonano.) Importantemente, isso mesmo acontece na mec\^anica qu\^antica.
+ Nem toda teoria f\'isica pode ser descrita usando um Hamiltoniano. (Em termos gerais, s\'o as teorias que tem conserva\c c\~ao da energia podem ser descritas com o Hamiltonano.) Importantemente, isso mesmo acontece na mecânica quântica.
 
- O experimento do buraco duplo: a fun\c c\~ao de onda se comporta como part\'icula e como onda.
+ O experimento do buraco duplo: a função de onda se comporta como part\'icula e como onda.
 
  \begin{defn}
- 	Um \textit{\textbf{estado qu\^antico}} \'e uma fun\c c\~ao de onda $\psi(\mathbb{x},t)$ normaliz\'avel, ie.
+ 	Um \textit{\textbf{estado quântico}} é uma função de onda $\psi(\mathbf{x},t)$ normalizável, ie.
 	\[\int d^3x|\psi|^2<\infty.\]
  \end{defn}
  Esses estados qu\^anticos moram num espaço de Hilbert (tem produto Hermitiano): se a part\'icula est\'a num espaço $M$, o espaço de Hilbert relavante \'e $L^2(M)$.
@@ -96,16 +98,16 @@ No seguinte vou ler sobre tudo \href{https://en.wikipedia.org/wiki/Geometric_qua
 
 \subsection{Prequantização}
 
-Passar de uma variedade simplética a um espaço de Hilbert assinalando um operadores autoadjuntos às funções suaves na variedade, ie. oberváveis clássicos à observáveis quânticos, satisfazendo:
+Passar de uma variedade simplética a um espaço de Hilbert assinalando operadores autoadjuntos às funções suaves na variedade, ie. oberváveis clássicos a observáveis quânticos, satisfazendo:
 \begin{enumerate}
-	\item Linearidade: $\hat{f+g}=\hat{f}+\hat{g}$, $\hat{\lambda f}=\lambda\hat{f}$.
+	\item Linearidade: $\widehat{f+g}=\hat{f}+\hat{g}$, $\widehat{\lambda f}=\lambda\hat{f}$.
 	\item Morfismo de álgebras de Lie a menos de uma constante.
 	\item Identidade vai para identidade.
 	\item Os operadores $\hat{q_i}$ e $\hat{p_i}$ agem irreduzivelmente no espaço de Hilbert.
 \end{enumerate}
 
 
-Por exemplo, o espaço de funções integráveis respeito a forma de Liouville. Manda uma função suave $f$ em $Q(f):=-i\hbar \left( X_f+\frac{1}{i\hbar}\theta(X_f) \right) +f$.
+Por exemplo, o espaço de funções integráveis respeito à forma de Liouville. Manda uma função suave $f$ em $Q(f):=-i\hbar \left( X_f+\frac{1}{i\hbar}\theta(X_f) \right) +f$.
 
 Otro exemplo: um fibrado linear $L$ munido de uma conexão tal que a sua forma de curvatura é $ \omega /\hbar$. Aqui o espaço de Hilbert é o espaço de seções quadrado-integráveis de $L$ como o operador $Q(f)=-i\hbar \nabla_{X_f}+f$. Neste caso temos que $[Q(f),Q(g)]=i\hbar Q(\{f,g\}).$
 
@@ -120,5 +122,11 @@ Otro exemplo: um fibrado linear $L$ munido de uma conexão tal que a sua forma d
 \begin{example}
 	O fibrado holomorfo ou antiholomorfo caso $(X,\omega,g,I)$ seja K\"ahler.
 \end{example}
+
+A polarização no  \texttt{k3quant.pdf} é a escolha de um fibrado linear; a gente vai tomar seções holomorfas para construir o espaço de Hilbert.
+
+\subsection{\texttt{k3quant.pdf}}
+
+After the definition of \textit{\textbf{full quantization}} written above, we have definition of \textit{\textbf{quantizable}} manifold in terms of curvature in the subbundle. And construction of Berezin-Toeplitz operators, which includes the construction of the Hilbert space of $L^2$-measuable sections of the bundle. Then \textit{\textbf{Hardy space}}, should I read this? Is there a proof that the operatrs are good?
 
 \end{document}

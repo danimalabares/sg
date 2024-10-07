@@ -2714,8 +2714,205 @@ Mas ese espaço pode ser ruim. Por exemplo, $G=\mathbb{R}\curvearrowright R$ com
 
 
 
-\section{Aula 17}
+\section{Aula 17: redução simplética (quociente simplético)}
 
+Lembre:
+\begin{itemize}
+\item \textit{\textbf{Ação hamiltoniana}}: existe uma pliação momento $\mu:M\longrightarrow \mathfrak{g}^*$ satisfazendo duas propriedades: $i_{u_M}\omega=\partial \left<\mu,u\right> $ e $G$-equivariância de $\mu$, i.e. $\mu\cdot \psi_g=(\operatorname{Ad}^*)_g\mu$
+\end{itemize}
+
+Hoje: Redução simplética (quociente simplético)
+
+\subsection{Uma proposição parecida ão exerício 5 da lista 3}
+
+Precisaremos considerar a seguinte situação:
+\[\begin{tikzcd}
+G\curvearrowright P\arrow[d]\\
+B=P/G
+\end{tikzcd}\]
+que é uma ação \textit{\textbf{regular}} (livre, própria).
+
+\begin{question}\leavevmode
+	Quando $\omega\in\Omega^{2}(P)$ é \textit{\textbf{básica}}, ie. da forma $\pi^*\bar{\omega}$, $\bar{\omega} \in\Omega^{2}(B)$?
+\end{question}
+
+\begin{defn}\leavevmode
+	$\omega$ da forma $\pi^*\omega$ é dita \textit{\textbf{básica}} (com respeito à ação ).
+\end{defn}
+
+\subsection{$G$ conexo}
+
+
+\begin{remark}\leavevmode
+	$G$ conexo $\implies $ órbitas conexas $\implies $ $\pi$ é sumersão com fibras conexas. Nesse caso, (lista 3)
+	\[\omega\text{ é básica} \iff\begin{cases}
+		\mathcal{L}_{u_M}\omega=0,\qquad \forall u\in\mathfrak{g}\\
+		i_{u_M}\omega=0
+	\end{cases}\]
+\end{remark}
+
+\subsection{$G$ qualquer}
+
+Primeiro lembre que
+
+\begin{prop}\leavevmode
+	\begin{enumerate}
+		\item $\omega$ é basica se e somente se $\omega$ é {\color{1}$G$-invariante (em caso de $G$ ser conexo isso é equivalente a $\mathcal{L}_{u_M}\omega=0$}), e $i_{u_M}\omega=0$, i.e. $\ker \pi_* \subseteq \ker \omega$.
+
+			E mais, se $\omega=\pi^*\bar{\omega} $, vale
+		\item $ d \omega=0\iff d \bar{\omega} =0$
+		\item $\bar{\omega} $ não degenerada $\iff$ $\ker \pi_* =\ker \omega$.
+	\end{enumerate}
+\end{prop}
+
+\begin{prop}\leavevmode
+	\begin{enumerate}
+		\item Só tem um jeito de definir $\bar{\omega} $:
+	\[\bar{\omega}_b (\bar{X},\bar{Y})=\omega_p(X,Y)\]
+	onde $\pi_*(X)=\bar{X}$ e $\pi_*(Y)=\bar{Y}$ e $b=\pi(p)$. Daí só tem que verificar que $\bar{\omega} $ está bem definido:
+	\begin{itemize}
+	\item Não depende das escolhas de $X$ e $Y$. Fixando $p$, temos que
+		\[X+\ker \pi_*,Y+\ker \pi_*\]
+	\item Não depende de $p$ tal que $\pi(p)=b$. Aqui usamos que $\omega$ é $G$-invariante, {\color{4}essa é a única diferencia com o exercício 5 da lista 3}. Temos
+		\[\pi(p)=\pi(p')\iff p=g\cdot p'\]
+		\[\omega_p (X,Y)=\omega_{p'}(X',Y')\]
+		\[X=d\psi_g(X'),\qquad Y=d\psi_g(Y)\]
+		assim, $\overline{\omega}$ está bem definido, é suave e $\pi^*\overline{\omega}=\omega$ 
+	\end{itemize}
+	\item Como na lista 3
+	\item Como na lista 3.
+	\end{enumerate}
+\end{prop}
+
+\subsection{Redução simplética}
+
+Pegue $G\overset{\psi}{\curvearrowright}(M,\omega)$, a aplicação momento, $x\in\mathfrak{g}^*$, e algumas outras coisas mais que não consegui escrever (é o escenário para:)
+
+\begin{thm}[Marsden-Weinsten, Meyer]\leavevmode
+{\color{4}Por cada elemento no dual da algebra de Lie, temos uma variedade pegando imagem inversa do mapa momento e quocientando.}
+
+	$G\curvearrowright(M,\omega)$, $\mu:M\longrightarrow \mathfrak{g}^*$. Seja $\xi\in\mathfrak{g}^*$ valor regular de $\mu$, ie. $\mu^{-1}(\xi)\twoheadrightarrow M_\xi=\mu^{-1}(\xi)/G_\xi$. Suponha $G_\xi\curvearrowright \mu^{-1}(\xi)$ é uma subvariedade regular.
+
+Então existe uma única forma simplética $\omega_{\operatorname{red}}$ em $M_\xi=\mu^{-1}(\xi/G_\xi$ tal que
+\[\pi^* _\xi\omega_{\operatorname{red}}=i^*_\xi\omega\]
+ie,
+\[\begin{tikzcd}
+	\mu^{-1}(\xi)\arrow[r,hook,"i_\xi"]\arrow[d,"\pi_\xi"]& M^\omega\\
+	(M_\xi,\omega_{\operatorname{red}})
+\end{tikzcd}\]
+\end{thm}
+
+\begin{remark}\leavevmode
+	A diferencia com a outra vez que enunciamos o teorema é que quando pegamos um ponto arbitrário no $\mathfrak{g}^*$ temos que ter cuidado com qual é o grupo que é invariante na variedade para quocientar: pode não ser o $G$ tudo.
+\end{remark}
+
+\begin{proof}\leavevmode
+	Só temos que checar que
+	\[i^*\xi(\omega)\in\Omega^{2}(\mu^{-1}(\xi) \text{ é básica para $G_\xi$-ação} \]
+	ou seja, de acordo com a proposição, queremos ao fim de contas, que
+	\begin{itemize}
+	\item $G_\xi$-invariante. (Isso é muito simples.)
+	\item $\ker(\pi_\xi)_* =\ker(i^*_\xi\omega)$. Só falta ver isso. Note que
+		\[T_x(G_\xi\cdot x)=\ker(\pi_\xi)_* |_{x},\qquad \ker(i_\xi^*\omega)|_{x}=T_x(\mu^{-1}(\xi))\cap T(\mu^{-1}(\xi))^\omega\]
+		Agora vamos trabalhar com isso na forma de um lema:
+
+	\begin{lemma}\leavevmode
+		\begin{enumerate}
+			\item $T_x(\mu^{-1}(\xi))=T_x(G\cdot x)^\omega$.
+		
+			\item $T_x(G_x\cdot x)=T_x(G\cdot x)\cap T_x(\mu^{-1}(\xi))$
+		\end{enumerate}
+	\end{lemma}
+	Daí podemos pegar  $\omega$-complemento na igualadade 1., daí sustituimos na igualdade 2. e o teorema segue.
+
+	\begin{proof}[do Lema]\leavevmode 
+	\begin{enumerate}
+		\item Isso é provar que $\ker d_x\mu=T_x(G\cdot x)^\omega$. Isso é verdade porque (propriedades do mapa momento)
+			\begin{align*}
+				x\in\ker d_x\mu&\iff \left<d \mu(X),u\right> =0\quad \forall u\\
+				&\iff i_X \underbrace{d \left<\mu,u\right> }_{i_{u_M}\omega}=0\quad \forall u\\
+				&\iff X\in T_x(G \cdot x)^\omega
+			\end{align*}
+		\item Por um lado,
+			\[T_x(G_\xi\cdot x)=\{u_M(x)|u\in\mathfrak{g}\}=\{u_M(x)|u\text{ satisfaz }u_{\mathfrak{g}^*}(\xi)=0 \}\]
+		Por outro lado, (equivariância de $\mu$)
+		\[T_x(G\cdot x)=\{u_M(x)|u\in\mathfrak{g}\}\]
+		\[\ker d_* \mu=T_x(\mu^{-1}(\xi)=\{X|d\mu(X)=0\}\]
+		Intersectando ambos obtemos
+		\[\{u_M(x)|d\mu(u_M(x)=0\}\]
+		e pela equivariância de $\mu$, $d\mu(u_M(x)=0\iff u_{\mathfrak{g}^*}(\xi)=0$.
+	\end{enumerate}
+	\end{proof}
+	\end{itemize}
+\end{proof}
+
+
+\subsection{Alguns comentários sobre o teorema}
+
+\begin{idea4}{Para que serve?}\leavevmode
+Por exemplo, para disminuir os graus de liberdade de um sistema Hamiltoniano em uma variedade. Também pode ser que o espaço de moduli seja esse quociente.
+\end{idea4}
+
+\begin{idea5}{Em vários casos a redução é "singular"}\leavevmode
+	É quando a ação não é regular, não tem quociente suave. Aqui pode usar "espaços estatificados". Também pode usar um approach mas algébrico: redução "homológica". Isso último leva aos métodos BRST e BV.
+\end{idea5}
+
+\begin{exercise}\leavevmode
+	$x\in M$, $\mathfrak{g}_x\subseteq \mathfrak{g}$, então vale
+	\[\operatorname{Ann}(\mathfrak{g}_x) =\operatorname{img} d_x\mu\]
+	daí, $\xi$ é um valor regular $\implies $ $\mathfrak{g}_x=\{0\}$ $\implies $ $G_x$  é discreta $\implies $ $G_\xi\curvearrowright \mu^{-1}(\xi)$ é localmente livre. Se $G_\xi$ é compacto, $M_\xi$ é um \textit{\textbf{orbifold simplético}}.
+\end{exercise}
+
+\begin{idea1}{Outro comentário}\leavevmode
+	$\xi$ valor regular, $M_\xi=\mu^{-1}(\xi)/G_\xi$ onde $G_\xi$ age livremente em $\mu^{-1}(\xi)$.
+	\begin{align*}
+		\dim M_\xi&=\dim \mu^{-1}(\xi)-\dim G_\xi\\
+		&=\dim M-\underbrace{\dim \mathfrak{g}^*}_{\dim G}-(\dim G-\dim \mathcal{O}_\xi)\\
+		&=\dim M+\dim \mathcal{O}_\xi-2\dim G
+	\end{align*}
+\end{idea1}
+
+
+\begin{idea2}{Shift trick}[Vai vir na lista]…\leavevmode
+	A redução simplética depende da escolha do $\xi$. Se pegamos $\xi,\xi'$ na mesma órbita coadjunta, então $M_\xi\cong M_{\xi'}$. Tem mais: bota tudo em um espaço mais grande para mostrar que todo quociente é um quociente do zero naquele espaço maior… vai vir na lista
+\end{idea2}
+
+\begin{idea6}{Hamiltoniano em $M$ da hamiltoniano em $M_\xi$}\leavevmode
+	Isso mem
+\end{idea6}
+
+\subsection{Um exemplo muito simples}
+
+
+\begin{idea4}{Um exemplo muito simlpes}\leavevmode
+	
+A reta agindo numa variedade simplética, que é o fluxo de algum campo $X$. A aplicação momento é o Hamiltoniano $H\in\mathcal{C}^\infty(M)$, $X_H=X$, a aplicação momento é $H:M\longrightarrow \mathbb{R}$. Isso daqui é uma ação hamiltoniana no caso mais simples.
+
+Agora pegue um valor regular de  $H$, $\xi$. Se a ação $\mathbb{R}\curvearrowright H^{-1}(\xi)$ é boa, obtemos que $H^{-1}(\xi)/\mathbb{R}$ é uma variedade simplética com $\omega_{\operatorname{red}}$.
+\end{idea4}
+
+\begin{idea3}{Exemplo}\leavevmode
+	Muito parecido: considere $R\dashrightarrow \mathbb{S}^1\curvearrowright \mathbb{C}^{n+1}=\mathbb{R}^{2n+2}$, a ação do círculo assim:
+	\[e^{i\theta}(z_0,\ldots,z_n)=(e^{i\theta}z_0,\ldots,e^{i\theta}z_n)\]
+Agora, pelo teorema da aplicação momento (?), temos que
+\begin{align*}
+	\mu: \mathbb{C}^{n+1} &\longrightarrow \mathbb{R} \\
+	\mu(z) &=-\frac{1}{2}\|z\|^2\underbrace{+1/2}_{\text{opcional} }
+\end{align*}
+assim, $\mu^{-1}(0)/\mathbb{S}^1=\mathbb{C}P^{n},\omega_{\operatorname{red}}$, i.e., {\color{3}pelo teorema de Marsden-Weinsten, o $\mathbb{C}P^{n}$ tem uma estrutura simplética}.
+\end{idea3}
+
+\begin{idea4}{Mesmo mas mais geral}\leavevmode
+	Agora pegue
+	\[e^{i\theta}(z_0,\ldots,z_n)=(e^{ik_0\theta}z_0,\ldots,e^{ik_n\theta}z_n)\]
+	Considere caso $n=1$, temos
+	\[e^{i\theta}(z_0,z_1)=(e^{k\theta}z_0,e^{i\theta}z_1)\]
+	obtemos
+	\[\mu(z_0,z_1)=-\frac{1}{2}\left( k\|z_0\|^2+\|z_1\|^2 \right) \]
+	Pegue $\xi<0$ valor regular. Se $k=1$ obtemos um quociente que  é topologicamente uma esfera, mas tem uma singularidade: a \textit{\textbf{gota de lágrima}}---uma esfera com um pontinho singular.
+\end{idea4}
+
+\section{Aula 18}
 
 
 
