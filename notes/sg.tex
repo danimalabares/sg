@@ -2913,6 +2913,165 @@ assim, $\mu^{-1}(0)/\mathbb{S}^1=\mathbb{C}P^{n},\omega_{\operatorname{red}}$, i
 
 \section{Aula 18}
 
+Lembre:
+\begin{itemize}
+\item Ação de um grupo de Lie numa variedade simplética, o mapa momento $\mu:M\longrightarrow \mathfrak{g}^*$.
+\item Redução simplética
+\item Exemplos
+\end{itemize}
+
+\subsection{Outros exemplos}
+
+\subsubsection{Reduções de fibrados cotantentes}
+
+Pegue uma variedade com uma ação de grupo de Lie, $Q\curvearrowright G$, a gente já viu (quando?) passa para o levantamento cotangente obtendo uma ação $G\curvearrowright T^*M$. Se a ação em $Q$ é livre e própria, também a ação no cotangente.
+
+O mapa momento em $T^*Q$ é
+
+\begin{align*}
+	\mu:T^*Q  &\longrightarrow \mathfrak{g}^* \\
+	\xi_x &\longmapsto \mu(\xi_x)\\
+	\left<\mu(\xi_x,u\right> &:=\xi(u_Q(x))
+\end{align*}
+
+
+Então, quando reduzimos no $\xi=0$ obtemos
+\[(T^* Q)_{\xi=0}=T^*(Q/G)\]
+
+Mas isso é mais interessante para $\xi\neq 0$. Considere a  ação de um grupo de Lie $G$ nele mesmo pela multiplicação a esquerda, $G\overset{L_g}{\curvearrowrightG}$. Note que $G/G=\operatorname{pt}$.
+
+A aplicaco momento é
+\begin{align*}
+	\mu: T^*G &\longrightarrow \mathfrak{g}^* \\
+	\xi &\longmapsto (d_eR_g)^*(\xi)
+\end{align*}
+Nesse caso, todo $\xi$ é valor regular e
+\[\mu^{-1}(\xi)=\{(g,\xi^R|_{g}),\forall g\in G\}\]
+Que é basicamente pegar uma forma e espalhar $\xi$ por todos lados usando o grupo. Fazendo redução obtemos
+\[\mu^{-1}(\xi)/G_\xi\cong G/G_\xi\cong \mathcal{O}_\xi\]
+
+\begin{exercise}[Vai vir la lista]\leavevmode
+	De fato, $\omega_\operatorname{red}=\omega_{K K S}$. Mas ainda, toda órbita KKS pode ser vista desse jeito.
+\end{exercise}
+
+\begin{remark}\leavevmode
+	Lembre que toda variedade de Poisson tem uma descomoposição em folhas simpléticas (isso é totalmente geral). No caso de $\mathfrak{g}^*$, essas folhas são as órbitas coadjuntas. Aqui temos que de fato  $\mathfrak{g}^*=(T^*G)/G$ quando pegamos o quociente do grupo de Lie $G$ levantado agindo em $T^*G$.
+
+	Isso é mas geral. Pode ter qualquer variedade simplética com uma ação Hamiltoniana boa. Pega quociente: $M/G$  não tem por que ser simplético, mas ele tem uma estrutura de Poisson, e então uma descomposição em folhas que são simpléticas. O interessante é que essas folhas são da forma $\mu^{-1}(\xi)/G_\xi$, i.e. são órbitas coadjuntas.
+\end{remark}
+
+\subsubsection{Um espaço de moduli}
+
+Considere alguns caras positivos assim: $\lambda_1,\ldots,\lambda_n>0$. Para $\lambda>0$, defina $\mathbb{S}^2_\lambda$ a esfera untária com forma simplética $\lambda\omega_{\operatorname{area}}$. Considere a variedade $M$ seguinte com a ação seguinte:
+\[\mathsf{SO}(3) \curvearrowright \underbrace{\mathbb{S}^2_{\lambda_1}\ldots \times \mathbb{S}^2_{\lambda_n}}_{M}\]
+e a hamiltoniana (tu pode ver que isso é certo)
+\begin{align*}
+	\mu: M &\longrightarrow \mathfrak{so}(3)^*=\mathbb{R}^3 \\
+	(x_1,\ldots,x_n) &\longmapsto \lambda_1x_1+\ldots +\lambda_nx_n
+\end{align*}
+e agora considere o espaço reduzido em $\xi=0$,
+\[\mathcal{M}_{\lambda_1,\ldots,\lambda_n}:=\mu^{-1}(0)/\mathsf{SO}(3) =\{(x_1,\ldots,x_n)\in(\mathbb{S}^2)^n|\lambda_1x_1+\ldots +\lambda_nx_n=0\} \Big/\mathsf{SO}(3)\]
+isso tá bom pelo teorema. Vai ser o \textit{\textbf{espaço de polígonos espaciais em $\mathbb{R}^{3}$}}.
+
+\begin{defn}\leavevmode
+	Um \textit{\textbf{polígono espacial em $\mathbb{R}^{3}$}} é uns pontos $(v_1,\ldots,v_n)\in\mathbb{R}^{3}$, lados $(\ell_1,\ldots,\ell_n)$ que conectam vértices ciclicamente. Os $\ell$s são as diferencias dos $v$s. A condição do cara fechar é $\ell_1+\ldots +\ell_n=0$
+\end{defn}
+
+Consideremos o espaço de polígonos a menos de movimentos rígidos (traslações, rotações) no $\mathbb{R}^{3}$. Agora note
+\begin{itemize}
+\item Por traslação, podemos assumir que $v_1=0$.
+\item Polígonos com $v_1=0$ são representados pelos lados $\ell_1,\ldots,\ell_n$ a menos de rotação.
+\item Defina $\lambda_i=\|\ell_i\|$, $x_i=\ell_i/\lambda_i$.
+\item obtemos $\mathcal{M}_{\lambda_1,\ldots,\lambda_n}$. É simplético e suave a menos de polígonos degenerados. Topologia dele: Kavitch Millson. "Moment maps and GIT quotients": C. Roodwand. Até é Kähler. Relação com outros espaços moduli como espaço de conexões planas na esfera com furos. Tem ação tórica. São exemplos de variedades quiver (representações).
+\end{itemize}
+
+O punto de tudo isso é que esse espaço aparece como uma redução simplética relativamente simples.
+
+\subsubsection{Um exemplo de mecânica}
+
+Lembre que tudo isso vem do trabalho do Smale quando ele tava estudando mecânica celeste.
+
+Considere o problema de dois corpos. O espaço de fase de dois partículas é
+\[Q=\{(r_1,r_2),r_i=(q_i^1,q_i^2,q_i^3)\} =\mathbb{R}^6\]
+Daí,
+\[M=T^* Q=\mathbb{R}^{12}=\{(r_1,r_2,P_1,P_2)\}\]
+vamos denotar a estrutura canónica assim: $\omega=\sum dr_jdP_j$.
+
+Vamos botar uma ação:
+\begin{align*}
+	G&=\mathbb{R}^{3}\curvearrowright Q=\mathbb{R}^{6}\\
+	(r_1,r_2)&\longmapsto(r_1+g,r_2+g),\qquad g\in G=\mathbb{R}^{3}
+\end{align*}
+O levantamento cotangente da:
+\[(r_1,r_2,P_1,P_2) \overset{g}{\mapsto }(r_1+g,r_2+g,P_1,P_2)\]
+E a aplicação momento é
+\begin{align*}
+	\mu: \mathbb{R}^{12}  &\longrightarrow \mathbb{R}^{3} \\
+	(r_1,r_2,P_1,P_2) &\longmapsto P_1+P_2
+\end{align*}
+O que é $\mu^{-1}/G_\xi$?
+
+Vamos fazer uma mudança de coordenadas em $Q$ (um difeomorfismo):
+\begin{align*}
+	\mathbb{R}^{6} &\overset{\operatorname{\cong }}{\longrightarrow} \mathbb{R}^{6} \\
+	(r_1,r_2) &\longmapsto (r_{\operatorname{cm}},r_{\operatorname{rel}})
+\end{align*}
+onde
+\[r_{\operatorname{cm}}=\frac{m_1r_1+m_2r_2}{m_1+m_2}\qquad \qquad r_{\operatorname{rel}}=r_1-r_2\]
+são o centro de masa e a posição relativa.
+
+Você calcula que o levantamento cotange é
+\begin{align*}
+	\mathbb{R}^{12} &\longrightarrow \mathbb{R}^{12} \\
+	(r_1,r_2,P_1,P_2) &\longmapsto \left( r_{\operatorname{cm}}:=r,r_{\operatorname{rel}}:=\bar{r},P_1+P_2:=P,\frac{1}{m_1+m_2}(m_2P_1-m_1P_2):=\bar{P} \right) 
+\end{align*}
+e
+\[\omega=dr\cdot dP+d\bar{r}\cdot d\bar{P}\]
+Temos uma ação levantada certo, as coordenadas dela nas novas coordenadas é
+\[(r,\bar{r},p,\bar{p})\overset{g}{\longmapsto}(r+g,\bar{r},p,\bar{p})\]
+A ideia é usar um sistema de coordenadas com o centro de masa na origem, e isso simplifica o negocio. Pode reduzir a dimensão para $\mathbb{R}^{6}$.
+
+Agora vamos botar um hamiltoniano para transportar tudo ao reduzido. Lembre a redução de hamiltoniano é quando temos uma função $H\in\mathcal{C}^\infty(M)$ que é $G$-invariante, ie. constante ao longo das órbitas, assim está bem definido no quociente $\mu^{-1}(\xi)/G$. Pegue o Hamiltoniano
+\[H(r_1,r_2,P_1,P_2)=\frac{1}{2}\left( \frac{|P_1|^2}{m_1}\frac{|P_2|^2}{m_2} \right) -\frac{Km_1m_2}{|r_1-r_2|}\]
+é um hamiltoniano classico para o problema de dois corpos. Note que é $\mathbb{R}^{3}$-invariante olhando a definição da ação que dimos acima. Como ele vira no quociente? Assim:
+\[H_{\operatorname{red}}(\bar{r},\bar{P})=\frac{1}{2}\frac{|P|^2}{\bar{m}}-\frac{K(m_1+m_2)\bar{m} }{\bar{r}}\]
+Alí o que a gente consigui foi levar um problema de dois corpos a um problema de um corpo. Mas ainda, nesse quociente tem uma $\mathsf{SO}(3)$-ação, assim pode reduzir ainda mais, e resolver completamente o problema de dois corpos.
+
+\subsubsection{Um exemplinho de mecânica com geometria riemanniana}
+
+Porque achar geodésica é um problema de mecânica. $G$ grupo de Lie, $\left<\cdot,\cdot\right> $ uma métrica invariante à esquerda. $\left<\cdot,\cdot\right> $ é determinada um produto interno $\left<\cdot,\cdot\right> $ em $\mathfrak{g}$, que por sua vez é determinado por um operador simétrico autoadjunto $I:\mathfrak{g} \longrightarrow \mathfrak{g}^*$ de maneira que
+\[\left<u,v\right>_{g}=\left<I(u),I(v)\right> \]
+i.e. é o mesmo ter esse produto interno que ter a outra coisa.
+
+Considere $G\curvearrowright G$, $G\curvearrowright T^*G$, $\mathcal{O}_\xi=\mu^{-1}(\xi)/G_\xi$ para $\xi \in\mathfrak{g}^*$.
+
+O sistema hamiltoniano reduzido em $\mathcal{O}_\xi$ é
+\[\dot \eta(t)=-\operatorname{ad}^*_{I^{-1}(\eta(t))}(\eta(t))\]
+que é a equação de Euler, uma versão reduzida das equações das geodésicas.
+\[dH_{\operatorname{red}}|_{\eta}=I^{-1}(\eta)\]
+\[H_{\operatorname{red}}=\frac{1}{2}(\eta(I^{-1}(\eta))\]
+a parte da mecânica entra quando consideramos $G=\mathsf{SO}(3)$. Pense num corpo que tá voando por todos lados mas tem um ponto fixo num lugar. A solução desse corpo rígido é dada por geodésicas no $\mathsf{SO}(3)$.
+
+O que acontece é que
+\[I=\begin{pmatrix} I_1&0&0\\0&I_2&0\\0&0&I_3 \end{pmatrix} ,\qquad I_i>0\]
+é o \textit{\textbf{momento de métrica}} cujos autovalores se chaman de \textit{\textbf{valores principais?}}. Esse cara  é o que vai determinar a métrica. No caso desse corpo rígido, temos a \textit{\textbf{equação de Eulor para o corpo rígido}}:
+\[\frac{d\eta_i}{dt}(t)=(I_k^{-1}-I_j^{-1})\eta_j\eta_k\]
+\[\dot \eta(t)=\eta\times I^{-1}\eta\]
+que são esferas. As soluções da equação de Euler é um negocio bem bonito: pega uma esfera, tem 6 pontos de equilíbrio que estão em pares, dois em cada autoespaço. Quatro estáveis, dos inestáveis. {\color{4}É como rodar um livro no eixo diagonal…}
+
+\begin{remark}\leavevmode
+	Tem muitíssimas EDPs relacionadas a equações  reduzidas de geodésicas quando $G$ é de dimensão infinita. Por exemplo $G=\operatorname{Dif}_{\operatorname{Vol}}(M,\left<\cdot,\cdot\right> )$. Por exemplo a de Burger aparece com $M=\mathbb{S}^1$.
+\end{remark}
+
+
+
+
+
+
+
+
+
+\section{Aula 19}
 
 
 \end{document}
