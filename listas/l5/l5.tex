@@ -22,8 +22,103 @@
 \begin{idea1}{Problem 1}\leavevmode
 	Let  $G$ be a Lie group. Let $X:G\longrightarrow TG$ be a section of the projection $TG\longrightarrow G$, not necessarily smooth. Show that if  $X$ is left invariant (i.e., $dL_g(X)=X\circ L_g$ for all $g\in G$), then $X$ is automatically smooth.
 
-	Conclude that an analogous result holds for differential forms: if a section $\eta:G\longrightarrow \Lambda^{k}(T^*G)$ is left-invariant ($L^*_g\eta=\eta$), then $\eta$
+	Conclude that an analogous result holds for differential forms: if a section $\eta:G\to \Lambda^{k}(T^*G)$ is left-invariant ($L^*_g\eta=\eta$), then $\eta$ is a smooth $k$-form. Check that an analogous result holds for $G$-invariant forms on a homogeneous manifold.
 \end{idea1}
 
+\begin{proof}[Solution]\leavevmode
+	(Idea by my) We know that $X_g=dL_g(X_e)$. We want to show that the map $G \to TG:g\mapsto dL_g(X_e)$ is smooth. Suggestion by Ted Shiffrin is to consider 
+	\begin{align*}
+		\mu: G\times G &\longrightarrow G \\
+		(g,h) &\longmapsto L_gh=gh
+	\end{align*}
+	which is smooth and thus has smooth differential which turns out to have the expression
+	\begin{align*}
+		d\mu: TG\times TG &\longrightarrow TG \\
+		(u_g,v_h) &\longmapsto dR_hu_g+dL_g v_h
+	\end{align*}
+	Choosing $g$ arbitrary, $h=e$, $u_g=0$ and $v_h=X_e$, we obtain
+	\[d\mu(u_g,v_h)=dL_gX_e\]
+	and, as we have said, this differential depends smoothly on $g$.
+
+	To generalize this result we just notice that left multiplication $L_g$ induces smooth maps the Grassman algebra by
+	\begin{align*}
+		\mathbf{L_g}: \Lambda^{k}(G) &\longrightarrow \Lambda^{k}(G) \\
+		\eta &\longmapsto \begin{aligned}
+			\mathbf{L_g}\eta: \mathfrak{X}^k(G) &\longrightarrow \mathbb{R} \\
+			(X_1,\ldots,X_k) &\longmapsto (dL_gX_1,\ldots,dL_gX_1)
+		\end{aligned}
+	\end{align*}
+and similarly group multiplication $\mu$ induces maps
+\begin{align*}
+	\mu: \Lambda^{k}(G) \times \Lambda^{k}(G)&\longrightarrow \Lambda^{k}(G) \\
+	(\alpha,\beta) &\longmapsto \mathbf{R_h}\alpha+\mathbf{L_g}\beta
+\end{align*}
+so again chosing 
+	
+\end{proof}
+
+\addcontentsline{toc}{section}{Problem 2}
+\begin{idea4}{Problem 2}\leavevmode
+	\begin{enumerate}[label=\alph*.]
+		\item Prove that any connected Lie group $G$ is generated as a group by any open neighbourhood $U$ of the identity element (i.e. $G=\bigcup_{n=1}^\infty U^n$).
+		\item Suppose that two Lie group homomorphisms $\varphi,\psi:G\to H$ are such that $d\varphi|_{e}=d\psi|_{e}$. Show that $\varphi$ and $\psi$ coincide on the connected component of $G$ containing the identity $e$.
+	\end{enumerate}
+\end{idea4}
+
+\begin{idea1}{Problem 3}\leavevmode
+	Consider the Lie groups $\mathsf{SU}(2) =\{A\in\mathcal{M}_{2}(\mathbb{C})|AA^*=\operatorname{Id}, \det A=1\}$ and $\mathsf{SO}(3) =\{A\in\mathcal{M}_{3}(\mathbb{R})|AA^{\mathbf{T}}=\operatorname{Id},\det A=1\}$.
+	\begin{enumerate}[label=\alph*.]
+		\item Show that
+		\[\mathsf{SU}(2) =\left\{ \begin{pmatrix} a&b\\-\bar{b}&\bar{a} \end{pmatrix} ,a,b\in\mathbb{C},|a|^2+|b|^2=1\right\} \]
+		Conclude that, as a manifold $\mathsf{SU}(2)$ is diffeomorphic to $S^3$ (hence it is simply connected).
+
+		Recall the definition of the quaternions $\mathbb{H}$. Show that the sphere $S^3$, seen as quaternions of norm 1, inherits a Lie group structure with respect to which it is isomorphic to $\mathsf{SU}(2)$.
+
+	\item Verify that
+		\begin{equation}\label{eq:1}
+			\mathfrak{su}(2) =\left\{ \begin{pmatrix} i\alpha &\beta\\-\bar{\beta} &-i\alpha \end{pmatrix} ,\alpha\in\mathbb{R},\beta\in\mathbb{C} \right\} .
+		\end{equation}
+		Consider the identification $\mathfrak{su}(2) \cong \mathbb{R}^{3}$, that takes the element in $\mathfrak{su}(2)$ determined by $\alpha,\beta$ to the vector $(\alpha,\operatorname{Re}\beta,\operatorname{Im}\beta)$ in $\mathbb{R}^{3}$. Observe that, with respect to this identification, $ \det $ in $\mathfrak{su}(2)$ corresponds to $\|\cdot\|^2$ in $\mathbb{R}^{3}$.
+
+
+	\item Verify that each element $A\in\mathsf{SU}(2)$ defines a linear transformation on the vector space $\mathfrak{su}(2)$ by conjugation: $B\mapsto ABA^{-1}$. Show that, with the identification $\mathfrak{su}(2) \cong \mathbb{R}^{3}$, we obtain a representation (i.e., a linear action) of $\mathsf{SU}(2)$ on $\mathbb{R}^{3}$ that is norm preserving. Conclude that we have homomorphism $\phi:\mathsf{SU}(2) \to \mathsf{O}(3)$, verifying that is image is $\mathsf{SO}(3)$ and its kernel is $\{\operatorname{Id},-\operatorname{Id}\}$.
+
+	\item Conclude that $\mathsf{SU}(2) \cong S^3$ is a double cover of $\mathsf{SO}(3)$ *hence is its universal cover, since it's simply connected), qnd the covering map identifies antipodal points of $S^3$. Hence, as manifolds, $\mathsf{SO}(3)$ is identified with $\mathbb{R}P^{3}$.
+	\end{enumerate}
+\end{idea1}
+
+\begin{proof}[Solution]\leavevmode
+	\begin{enumerate}[label=\alph*.]
+		\item Given the computation {\color{2}above}, it is clear that $\mathsf{SU}(2)$ is diffeomorphic to $S^3$ since its parameters $a,b\in\mathbb{C}$, $|a|^2+|b|^2=1$, can be understood as vectors $x\in\mathbb{R}^{4}$ of norm 1.
+
+		The quaternions are the only 4-dimensional real division algebra. This means it is a 4-dimensional real vector space equipped with a (non-commutative) multiplication. They are also equipped with a norm that coincides with euclidean norm. With respect to this norm we define the unit sphere $S^3$. 
+		
+			To see that $S^3$ is a Lie subgroup we first need to check that it is closed under quaternion product. The easiest way to see that is via quaternion conjugate: if $x=x_1+ix_2+jx_3+kx_4$ is a quaternion, its conjugate is $\bar{x}=x_1-ix_2-jx_3-kx_4$. It may be computed that the norm is given by $|x| =x\bar{x}$. Then we see that if $x,y\in S^3$
+			\[|xy\overline{xy}|=|xy\bar{y}\bar{x}| =\Big|x|y| \bar{x}\Big|=1\]
+			Then the fact that $S^3$ is a Lie group follows from the fact that the restricition (the multiplication and inverse map) of smooth maps to embedded submanifolds remains smooth (\cite{lee}, prop ?).
+
+			An identification between $S^3\subset \mathbb{H}$ and $\mathsf{SU}(2)$ as expressed above is given by
+			\[a+bi+cj+dk\longmapsto \begin{pmatrix} a+bi&c+di\\-c+di&a-bi\end{pmatrix} \]
+			Checking that this map is a group isomorphism ammounts to checking that matrix multiplication in $\mathsf{SU}(2)$ is the same as quaternion multiplication 
+
+
+			\item (Proof from \cite{hall}, prop. 3.24 and coro. 3.46).
+				\begin{enumerate}[label=\textbf{Step \arabic*}]
+					\item Show that the tangent space at identity of a matrix Lie group $G$ is the same as the matrices $X$ such that $ \operatorname{exp}(tX) \in G$ for all $t\in\mathbb{R}$.
+					\item Then we look for the matrices such that
+						\[\operatorname{exp}(tX)^* =(\operatorname{exp}(tX)^{-1}=\operatorname{exp}(-tX) \qquad \text{ and} \qquad \det \operatorname{exp}(tX)=1. \]
+						This means that
+						\[\operatorname{exp}(tX^*) =\operatorname{exp}(-tX) \qquad \text{and} \qquad \operatorname{ Tr}(X)=0.\]
+						The first condition is equivalent to $X^*=-X$. Thus we see that
+						\[\mathfrak{su}(2)=\{X\in\mathcal{M}_{2\times 2}(\mathbb{C}):X^* =-X\text{ and }\operatorname{Tr}(X)=0 \}\]
+					\item It is immediate that the expression in \cref{eq:1} is contained in the set above. For the other inclusion first notice that the condition $X^*=-X$ makes the entries in the diagonal be such that
+						\begin{align*}							x+iy&=-\overline{x+iy}=-(x-iy)=-x+iy\implies x=-x\implies x=0						\end{align*}
+						while the traceless condition implies the two entries in the diagonal must be additive inverses. For the entries in the antidiagonal we literally see the definition of conjugate transpose.
+				\end{enumerate}
+
+Now let's identify $\mathfrak{su}(2)$ with $\mathbb{R}^{3}$ via $\alpha,\beta \mapsto (\alpha,\operatorname{Re}\beta,\operatorname{Im}\beta)$. We immediately see that
+\[\det \begin{pmatrix} i\alpha&\beta\\-\bar{\beta} &-i\alpha\end{pmatrix} =i\alpha(-i\alpha)=\beta(-\bar{\beta} )=\alpha^2+|\beta|^2=\|(\alpha,\operatorname{Re}\beta,\operatorname{Im}\beta)\|^2\]
+	\end{enumerate}
+\end{proof}
 
 \end{document}
