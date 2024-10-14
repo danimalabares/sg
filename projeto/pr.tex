@@ -1,7 +1,6 @@
 \input{/Users/daniel/github/config/preamble.sty}%available at github.com/danimalabres/config
 \input{/Users/daniel/github/config/thms-por.sty}%available at github.com/danimalabres/config
 
-
 \usepackage[style=authortitle-terse,backend=bibtex]{biblatex}
 \addbibresource{bibliography.bib}
 
@@ -129,4 +128,18 @@ A polarização no  \texttt{k3quant.pdf} é a escolha de um fibrado linear; a ge
 
 After the definition of \textit{\textbf{full quantization}} written above, we have definition of \textit{\textbf{quantizable}} manifold in terms of curvature in the subbundle. And construction of Berezin-Toeplitz operators, which includes the construction of the Hilbert space of $L^2$-measuable sections of the bundle. Then \textit{\textbf{Hardy space}}, should I read this? Is there a proof that the operatrs are good?
 
+\subsection{Coherent states}
+
+Let's read a little bit of \href{https://en.wikipedia.org/wiki/Coherent_states_in_mathematical_physics}{wiki}. A \textit{\textbf{family of coherent states}} is a set of vectors in some locally compact space  $X$ that satisfy the following properties in relation with some complex separable hilbert space $\mathfrak{H}$. To every element $x$ in the family of coherent states asocciate an element $|x\rangle$ and ask that
+\begin{enumerate}
+	\item the map $x\mapsto |x\rangle$ be weakly continuous (every functional evaluated on the vector is continuous… somehow)
+
+	\item Some condition called \textit{\textbf{resolution of the identity}} that "ensures that an arbitrary vector  $|\psi\rangle$ be expressible as a linear integral combination of these (the coherent states?) vectors. Indeed the resolution of the identity immediately implies that $|\psi\rangle=\int_{X}\Psi(x)|x\rangle d\nu(x)$" where $\Psi(x)=\left<x|\psi\right> $ and $d\nu$ is a measure on $X$.
+\end{enumerate}
+
+{\color{4}But how is this related to the quantization in \texttt{raw.pdf}}?
+
+{\color{1}\begin{quotation}
+		"The Hilbert space on which th efunctions act as operators consists of holomorphic sections of a suitably chosen line bundle. Evaluation at a point is a continuous linear functional {\color{3}Evaluation at a point gives me a vector in the line bundle which is a functional on $\mathcal{C}^\infty(X)$ functions} and gives rise to a vector in the Hilbert space {\color{3}How because a vector in the Hilbert space is a whole section…} which is labelled by that point.
+\end{quotation}}
 \end{document}

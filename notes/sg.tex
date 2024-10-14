@@ -1930,7 +1930,7 @@ Lembre que essas ações correspondem a $G\curvearrowright \mathfrak{g}$ e $G\cu
 		\operatorname{Ad}: G &\longrightarrow \operatorname{GL}(\mathfrak{g}) \\
 		g &\longmapsto (\operatorname{Ad}_g:\mathfrak{g} \to \mathfrak{g} )
 	\end{align*}
-	"diferenciando" obtemos
+	"diferenciando" (ver \cite{lee}lee, thm 20.27) obtemos
 	\begin{align*}
 		\operatorname{ad}: \mathfrak{g} &\longrightarrow \mathfrak{gl}(\mathfrak{g}) \\
 		u(?) &\longmapsto (\operatorname{ad}_u:\mathfrak{g} \to \mathfrak{g} )
@@ -2296,7 +2296,7 @@ Hoje: exemplos concretos
 		\operatorname{SO}(3)&=\{A\in \mathcal{M}_{3\times 3}(\mathbb{R}):AA^{\mathbf{T}}=\operatorname{id},\det A=1\} \\
 		\mathfrak{so}(3) &=\{A\in\mathcal{M}_{3\times 3}(\mathbb{R}):A=-A^{\mathbf{T}}\}\\
 	\end{align*}
-	Note que aqui a ação adjunta de $\operatorname{SO}(3)$ em $\mathfrak{so}(3)$ é por conjugação. Agora, podemos identificar
+	Lembre que a ação adjunta de $\operatorname{SO}(3)$ em $\mathfrak{so}(3)$ é por conjugação. Agora, podemos identificar
 	\begin{align*}
 		 \mathfrak{so}(3) &\longrightarrow \mathbb{R}^{3} \\
 		\begin{pmatrix} 0&-z&y\\z&0&-x\\-y&x&0 \end{pmatrix}  &\longmapsto \begin{pmatrix} x\\y\\z \end{pmatrix} =u\\
@@ -2457,7 +2457,7 @@ Pode ver que
 de onde as órbitas coadjuntas correspondem às folhas. O importante aqui é saber que a folheação tem estrutura de Poisson.
 
 
-\section{Aula 16}
+\section{Aula 16: ações Hamiltonianas e aplicação momento}
 
 Vimos
 \begin{itemize}
@@ -3066,15 +3066,168 @@ que são esferas. As soluções da equação de Euler é um negocio bem bonito: 
 	Tem muitíssimas EDPs relacionadas a equações  reduzidas de geodésicas quando $G$ é de dimensão infinita. Por exemplo $G=\operatorname{Dif}_{\operatorname{Vol}}(M,\left<\cdot,\cdot\right> )$. Por exemplo a de Burger aparece com $M=\mathbb{S}^1$.
 \end{remark}
 
+\section{Aula 19: comentários de possíveis projetos}
 
+Lembre:
+\begin{itemize}
+\item Ações hamiltonianas e redução.
+\item Aplicação momento, estrutura simplética nas órbitas da ação coadjunta.
+\item Diversos exemplos.
+\end{itemize}
 
+Hoje:
+\begin{itemize}
+\item Super exemplo.
+\item $G=\mathbb{T}^n$ toro.
+\end{itemize}
 
+\subsection{Super exemplo (de ação hamiltoniana e redução simplética)}
 
+Advertencia: os objetos não tem sentido mas são expressoes de objetos geométricos.
 
+{\color{5}\bfseries Objetos.}\hspace{.5em} $\Sigma$ variedade compacta conexa orientada, $G$compacto grupo de Lie, $\mathfrak{g}$ munida de um produto interno $\left<\cdot,\cdot\right> $ $\operatorname{Ad}$-invariante.
+\begin{itemize}
+\item $\mathcal{A}=\Omega^{1}(\Sigma,\mathfrak{g})$. Formas que tomam valores em $\mathfrak{g}$ em lugar de em $\mathbb{R}$. \textbf{Interpretação geométrica:}  espaço das conexões em 
+	\[\begin{tikzcd}
+	\Sigma\times G\arrow[d]\\
+	\Sigma
+	\end{tikzcd}\]
+	\begin{remark}[Conexões]\leavevmode
+		\[\begin{tikzcd}
+		G\curvearrowright P\arrow[d,"\pi"]\\
+		B=P/G
+		\end{tikzcd}\]
+		com ação livre, própria. Temos o \textit{\textbf{fibrado vertical}}, que  $\ker \pi$, o espaço tangente às fibras de $\pi$. Uma \textit{\textbf{conexão}} é a escolha de um subfibrado $H$ que complemente o fibrado vertical, dizemos que é \textit{\textbf{horizontal}}, e que  é $G$-invariante. Em soma, $TP=V\oplus H$ e $g_* H=H$.
 
+		A ideia é que o fibrado horizontal permite conectar fibras, transporte paralelo.
 
+		Comparando com a noção de conexão em geometria riemanniana, uma conexão em
+		\[\begin{tikzcd}
+		E\arrow[d]\\
+		M
+		\end{tikzcd}\]no sentido riemanniano, é uma conexão no sentido daqui em
+		\[\begin{tikzcd}
+		\operatorname{Fr}(E)\arrow[d]\\
+		M
+		\end{tikzcd}\]onde $\operatorname{Fr}(E)$ é o bundle de bases das fibras de $E$, que é um fibrado principal com a ação de $\mathsf{GL}(n)$.
+	\end{remark}
+	A ideia será que os núcleos das formas em $\mathcal{A}$ são conexões. Em fim, é só para menter em mente que esse $\mathcal{A}$ define conexoes em $\Sigma\times G$.
 
-\section{Aula 19}
+	\item  $ \mathcal{G}=\mathcal{C}^\infty(\Sigma,G)$. \textbf{Interpretação geométrica}: é um \textit{\textbf{grupo de calibre}} quando temos
+		 \[\begin{tikzcd}
+			G\curvearrowright P\arrow[r]\arrow[d]&P\curvearrowleft G\arrow[d]\\
+			\Sigma\arrow[r,"\operatorname{id}"]&\Sigma
+		\end{tikzcd}\]
+
+	\item $\mathcal{G}\curvearrowright \mathcal{A}$, $gA=\operatorname{Ad}_g(A)-g^*\theta^R$. \textbf{Interpretação geométrica}: se chama de \textit{\textbf{ação de calibre}}. São transformações  muito naturais no mundo dos grupos de calibre.
+
+	\item $\Omega^{1}(\Sigma,\mathfrak{g}) \to \Omega^{2}(\Sigma,\mathfrak{g})$. Dada por  $A\mapsto dA+\frac{1}{2}[A,A]$. Aqui $[A,A](X,Y):=[A(X),A(X)]-[A(Y),A(X)]$
+
+		\begin{remark}[Curvatura]\leavevmode
+			A importança da conexão e conectar fibras. É um levantamento de campos vetorias na base. Como muda o colchete? Isso é o que mede a curvatura. Se a curvatura é zero, é plana, a distribuição no espaço total é integrável.
+		\end{remark}
+\end{itemize}
+
+{\color{8}\bfseries Portanto}\hspace{.5em}$\mathcal{A}$ é uma variedade simplética com a forma, para $A\in A$ e $u,v\in T_A \mathcal{A}\cong \mathcal{A}=\Omega^{1}(\Sigma,\mathfrak{g}) $
+\[\omega_A(u,v)=\int_{\Sigma}\left<u,v\right> \]
+onde definimos $\left<u,v\right>(X,Y)=\left<u(X),v(Y)\right> -\left<u(Y),v(X)\right> $ ussando o produto interno que botamos em $\mathfrak{g}$.
+
+{\color{3}\bfseries Identificações.}\hspace{.5em}
+\begin{itemize}
+\item $\mathsf{Lie}(\mathcal{G}) =\Omega^{0}(\Sigma,\mathfrak{g})$.
+\item $\mathsf{Lie}(\mathcal{G})^* =\Omega^{2}(\Sigma,\mathfrak{g})$.
+\end{itemize}
+
+\begin{thm}[Atiyah-Bott]\leavevmode
+	$\mathcal{G}\curvearrowright \mathcal{A}$ é hamiltoniana. A aplicação momento é 
+	\begin{align*}
+		\operatorname{curv}: \mathcal{A}=\Omega^{1}(\Sigma,\mathfrak{g}) &\longrightarrow \mathsf{Lie}(\mathcal{G})^* =\Omega^{2}(\Sigma,\mathfrak{g}) \\
+	\end{align*}
+	Fazendo redução, de acordo com o teorema de Marsden-Weinsten,
+	\[\operatorname{curv}^{-1}(0)\Big/\mathcal{G}=\mathcal{M}\]
+	é um espaço simplético, o espaço moduli de conexões planas.
+\end{thm}
+
+{\color{8}\bfseries Onde é que isso aparece?}\hspace{.5em}
+
+\begin{itemize}
+\item Por qué esse espaço tem dimensão finita? porque
+	\[\mathcal{M}=\dfrac{\operatorname{Hom}(\pi_{1}(\Sigma),G)}{G}\]
+
+\item $\mathcal{M}$ e o espaço de fase de \textit{\textbf{Chern-Simons}} (física).
+
+\item Em topologia, esse espaço da invariantes de 3-variedades. Corta uma 3-variedade. A intersação é uma superficie. Calcula o seu $\mathcal{M}$. Olha para as conexoes que são restrição es de conexoes planas em $M^3$ de um lado do plano com que cortou. Isso é uma subvariedade lagrangiana de $\mathcal{M}$. Otro lado. Interseção das lagrangianas é invariante simplético.
+
+\item Se a variedade tem bordo, $\mathcal{M}$ é só de Poisson. Tem um negocio que não consegui entender.
+
+\item Também pode botar mas estrutura. Em alguns casos $\mathcal{M}$ é Kähler.
+\end{itemize}
+
+\subsection{Aplicação de redução: cortes simpléticos}
+
+Pegue uma variedade simplética conexa com uma ação hamiltoniana de $S^1$. $S^1\curvearrowright(M,\omega)\overset{H}{\longrightarrow}\mathbb{R}$. Considere $M\times \overline{\mathbb{C}}\cong \mathbb{R}^{2}$. Alí também pode agir com $S^1$ onde $S^1$ é rotação em $\mathbb{C}$.Você vai ver na lista que em casos assim, a aplicação momento é $H(x)-\frac{1}{2}|z|^2$.
+
+Agora pode olhar para
+\[\mu^{-1}(\xi)= \underbrace{H^{-1}(\xi)\times \{0\}}_{\cong H^{-1}(\xi)}\sqcup \left( \bigsqcup_{r>0}H^{-1}(\xi+r)\times  \left\{ \frac{1}{2}|z|^2=r \right\}  \right) \]
+Esse segundo conjunto é também $=\{(x,z)|H(x)>\xi,z=e^{i\theta}\sqrt{H(x)-\xi} \} \cong \{H>\xi\} \times S^1$.
+
+Agora vamos supor que $\xi$ é um valor regular de $H$, e $S^1\curvearrowright H^{-1}(\xi)$ é livre, própria. Mesmo para $\mu$. Se consigo fazer redução simplética para $H$ e $(M,\omega)$, vou conseguir também para $M\times \overline{\mathbb{C}}$. Vamos:
+\[\mu^{-1}(\xi)/S^1\cong H^{-1}(\xi)/S^1\sqcup\left( \dfrac{\{H>\xi\} \times S^1}{S^1} \right) \cong M_\xi\sqcup \{H>\xi\}\]
+Qué é que estou dizendo? A variedade simplética $\mu^{-1}(\xi)/S^1$ é uma união de dois coisas: níveis da aplicação momento, e, no bordo $\mu^{-1}(\xi)$ fazemos redução para ter também estrutura simplética. Também poderiamos olhar para niveis que estão abaixo de $\xi$. Uma variedade podemos chamar $M_{\geq \xi}$ e a outra $M_{\leq \xi}$. Então separamos $M$ em duas variedades ao longo de $\mu^{-1}(\xi)$.
+
+{\color{1}\bfseries Colagem simplética (Symplectic glueing).}\hspace{.5em} O Eugene Lerman introduiz essa operação muito linda para desfazer o processo anterior (acho, não será que o Lerman introduiz o corte simplético mesmo?). Isso é chamado \textit{\textbf{blow-up simplético}}, onde tiramos não um ponto senão uma bola e pegamos o fibrado de Hopf…
+
+\section{Dois resultados de ações hamiltonianas por toros}
+
+Lembre: tudo isso é o que a gente não vai falar.
+
+Vamos falar rapidamente de convexidade. $(M,\omega)$ simplética, conexa e compacta. Ação hamiltoniana de algum toro $\mathbb{T}^n\curvearrowright(M,\omega)$ $\mu:M\to \mathbb{R}^{m}$.
+
+\begin{thm}[Atiyah/Guilleimen-Steinberg]\leavevmode
+	A imagem da aplicação momento é convexa.
+
+	De fato, a imagem da aplicação momento é o fecho convexo da imagem dos pontos fixos da ação. Esse é o \textit{\textbf{politopo momento}}.
+\end{thm}
+
+\begin{example}[Que de fato motivou isso, Horn-Schur]\leavevmode
+	Pegue $\lambda_1,\ldots,\lambda_n$ é olha as matrizes hermitianas que tem esse especto, $\mathcal{O}_{\lambda_1,\ldots,\lambda_n}$. Quer saber a diagonal, ela fica na envoltura conexa dos $\lambda_{i}$ (acho).
+\end{example}
+
+\subsection{Variedade simpléticas tóricas}
+
+\begin{defn}\leavevmode
+\textit{\textbf{Variedade simplética tórica}}: $M^{2n}$ variedades conexas compactas com ação hamiltoniana (efetiva=qualquer elemento do grupo move pelo menos um elemento) de $\mathbb{T}^n$.	
+\end{defn}
+
+\begin{example}\leavevmode
+\begin{itemize}
+	\item $S^1\curvearrowright S^2$ por rotações aplicação momento é função altura (polo norte, polo sur). O politopo momento é o intervalo $[-1,1]$.
+\item $\mathbb{T}^2\curvearrowright \mathbb{C}P^{2}$ dada por
+	\[(e^{i\theta_1},e^{i\theta_2})([z_1:z_2:z_3])=([z_0,e^{i\theta_1}z_1,e^{i\theta_2}z_2])\]
+	a aplicação momento resulta ser
+	\[\mu([z_0,z_1,z_2])=-\frac{1}{2}\left( \frac{|z_1|^2}{|z_0|^2+|z_1|^2+|z_2|^2} ,\ldots\right) \]
+	e o politopo momento é um triangulsinho conectando $(-1/2,0)$ e  $(0,-1/2)$.
+\end{itemize}\end{example}
+
+Para variedades tóricas,
+\begin{itemize}
+\item É possível caracterizar os politopos que são imagem de aplicaçã oes momento, se chamam de \textit{\textbf{politopos de Delzant}}.
+ \item As variedades simpléticas tóricas estão classificadas opr politopos de Delzant
+\end{itemize}
+
+\begin{thm}[Delzant]\leavevmode
+	\[\left\{ \text{variedades simpléticas tóricas}  \right\} \overset{1-1}{\longleftrightarrow} \{\text{politopos de Delzant} \}\]
+\end{thm}
+
+\begin{remark}\leavevmode
+	Cortar variedades simpléticas como falamos antes corresponde com cortar o politopo!
+\end{remark}
+
+\begin{remark}\leavevmode
+	Olha para um livro de Guilleimin. A Anna pede para fazer muitos exercícios se quer  entender bem. Também o Audin.
+\end{remark}
+
+\section{Aula 20}
 
 
 \end{document}

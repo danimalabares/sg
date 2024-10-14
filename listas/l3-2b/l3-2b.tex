@@ -1,0 +1,56 @@
+\input{/Users/daniel/github/config/preamble.sty}%This is available at github.com/danimalabares/config
+\input{/Users/daniel/github/config/thms-eng.sty}%This is available at github.com/danimalabares/config
+
+%\usepackage[style=authortitle-terse,backend=bibtex]{biblatex}
+%\addbibresource{bibliography.bib}
+
+\begin{document}
+
+\begin{minipage}{\textwidth}
+	\begin{minipage}{1\textwidth}
+		Geometria Simpl\'etica \hfill Daniel González Casanova Azuela
+		
+		{\small Profs. Henrique Bursztyn e Leonardo Macarini\hfill\href{https://github.com/danimalabares/sg}{github.com/danimalabares/sg}}
+	\end{minipage}
+\end{minipage}\vspace{.2cm}\hrule
+
+\vspace{10pt}
+{\huge Lista 3}
+
+\addcontentsline{toc}{subsection}{Problem 2}
+\paragraph{Problem 2} Let $M$ be a symplectic manifold, $\Psi=(\psi^1,\ldots,\psi^k):M\to \mathbb{R}^{k}$ a smooth map, and $c$ a regular value. Consider a submanifold $N=\Psi^{-1}(c)\hookrightarrow M$.
+\begin{enumerate}[label=\alph*.]
+	
+	\item[b.] Show that $N$ is symplectic if and only if the matrix $(c^{ij})$, with $c^{ij}=\{\psi^i,\psi^j\}$, is invertible for all $x\in N$.\end{enumerate}
+
+\begin{proof}[Solution]\leavevmode
+	(From \href{https://math.stackexchange.com/questions/4974063/level-set-submanifold-is-symplectic-iff-poisson-bracket-matrix-is-nonsingular?noredirect=1#comment10675364_4974063}{StackExchange}.) \hspace{0.5em} Consider the following form on $M$ determined by the symplectic form $\omega$:
+	\begin{align*}
+		\pi: T^*M\times T^*M  &\longrightarrow \mathbb{R} \\
+		(\alpha,\beta) &\longmapsto \omega_m(\omega ^\sharp\alpha,\omega ^\sharp\beta)
+	\end{align*}
+It is immediate that $\pi$ is nondegenerate when $\omega$ is. We will show that the induced map $i^*\pi$ on $N$, where $i:N\hookrightarrow M$ is the inclusion, is also nondegenerate. This furnishes $N$
+
+\begin{enumerate}[label=\textbf{Step \arabic*}]
+\item \begin{claim}\leavevmode
+	A form $\eta:TX\times TX\to \mathbb{R}$ is nondegenerate iff
+	\begin{align*}
+		\pi_\eta: T^*X\times T^*X &\longrightarrow \mathbb{R} \\
+		(\alpha,\beta) &\longmapsto \eta(\eta ^\sharp \alpha,\eta^\sharp\beta)
+	\end{align*}
+	is nondegenerate.
+\end{claim}
+\item Then we only need to show that
+\begin{align*}
+	\pi_{i^*\omega}: T^*N\times T^*N &\longrightarrow \mathbb{R} \\
+	(i^*\alpha,i^*\beta) &\longmapsto \omega(\omega ^\sharp,\omega ^\sharp\beta)
+\end{align*}
+is nondegenerate.
+
+\item Then we use that that $\mathsf{N}N\oplus T^*N=TM$ and that a form on a vector space decomposed as a direct sum is nondegenerate iff it is nondegenerate on any of the components. That is, it suffices to show that $\pi_{i^*\omega}$ is nondegenerate on $\mathsf{N}N\times \mathsf{N}N$.
+
+\item There's another part concerning the Possion bracket.
+\end{enumerate}
+\end{proof}
+
+\end{document}
