@@ -26,12 +26,12 @@
 \end{idea1}
 
 \begin{proof}[Solution]\leavevmode
-	(Idea by my) We know that $X_g=dL_g(X_e)$. We want to show that the map $G \to TG:g\mapsto dL_g(X_e)$ is smooth. Suggestion by Ted Shiffrin is to consider 
+	We know that $X_g=dL_g(X_e)$. We want to show that the map $G \to TG:g\mapsto dL_g(X_e)$ is smooth. Suggestion by \href{https://math.stackexchange.com/questions/1126553/left-invariant-vector-fields-smoothness}{Ted Shiffrin at StackExchange} is to consider 
 	\begin{align*}
 		\mu: G\times G &\longrightarrow G \\
 		(g,h) &\longmapsto L_gh=gh
 	\end{align*}
-	which is smooth and thus has smooth differential which turns out to have the expression
+	which is smooth and thus has smooth differential which \href{https://math.stackexchange.com/questions/1740179/differential-of-the-multiplication-and-inverse-maps-on-a-lie-group}{turns out to have the expression}
 	\begin{align*}
 		d\mu: TG\times TG &\longrightarrow TG \\
 		(u_g,v_h) &\longmapsto dR_hu_g+dL_g v_h
@@ -40,21 +40,39 @@
 	\[d\mu(u_g,v_h)=dL_gX_e\]
 	and, as we have said, this differential depends smoothly on $g$.
 
-	To generalize this result we just notice that left multiplication $L_g$ induces smooth maps the Grassman algebra by
+	The pullback map is an induced map by $L_g$ on the Grassman algebra:
 	\begin{align*}
-		\mathbf{L_g}: \Lambda^{k}(G) &\longrightarrow \Lambda^{k}(G) \\
+		L_g^*: \Lambda^{k}(G) &\longrightarrow \Lambda^{k}(G) \\
 		\eta &\longmapsto \begin{aligned}
-			\mathbf{L_g}\eta: \mathfrak{X}^k(G) &\longrightarrow \mathbb{R} \\
-			(X_1,\ldots,X_k) &\longmapsto (dL_gX_1,\ldots,dL_gX_1)
+			L_g^*\eta: \mathfrak{X}^k(G) &\longrightarrow \mathbb{R} \\
+			(X_1,\ldots,X_k) &\longmapsto \eta(dL_gX_1,\ldots,dL_gX_1)
 		\end{aligned}
 	\end{align*}
-and similarly group multiplication $\mu$ induces maps
+and we have by hypothesis that 
+\[L_g^*\eta=\eta.\]
+
+Similarly, group multiplication $\mu$ induces a map on the Grassman algebra:
 \begin{align*}
 	\mu: \Lambda^{k}(G) \times \Lambda^{k}(G)&\longrightarrow \Lambda^{k}(G) \\
-	(\alpha,\beta) &\longmapsto \mathbf{R_h}\alpha+\mathbf{L_g}\beta
+	(\alpha,\beta) &\longmapsto R_h^*\alpha+L_g^*\beta
 \end{align*}
-so again chosing 
-	
+so again chosing $\alpha=0$ and $\beta=\eta$ we see that $\eta$ is smooth.
+
+Now let $\eta$ be a $G$-invariant form on a homogeneous manifold $X$. Following \href{https://math.stackexchange.com/questions/4298636/smoothness-of-a-g-invariant-k-form}{Jack Lee's suggestion}, we can pull back $\eta$ to $G$ via the map $\pi:G\to X$, $g\mapsto g\cdot p$ for any fixed $p \in X$. This gives a form $\pi^*\eta$ on $G$ that is left-invariant since  $\eta$ is $G$-invariant: pushing vectors with left-multiplication preserves the orbit of a given point. More explicitly:
+\begin{align*}
+	L^*_g(\pi^*\eta)&=\pi^*\eta\qquad \text{because}\qquad 
+	L^*_g(\pi^*\eta)=\eta\circ d\pi\circ dL_g
+\end{align*}
+and $\eta$ is constant along vectors on the orbit of $p$, which are the images of $d\pi\circ dL_g$. By the previous exercise we see that $\pi^*\eta$ is smooth.
+
+Then we notice that $\pi$ is a submersion. This follows since $\pi$ is a surjective map (bacuse $X$ is homogeneous)  of constant rank. Constant rank means that $d\pi$ has the same rank at every point of $G$. This can be seen moving around the tangent spaces of both  $G$ and $X$ using the differentials of both the action of  $G$ on $M$, and the left-translation action of $G$ on $G$ as follows. There is a commutative diagram:
+\[\begin{tikzcd}
+	T_gG\arrow[r,"d\pi"]\arrow[d,swap,"d(\text{action}) "]&T_{gp}X\arrow[d,"d(\text{action})" ]\\
+	T_{hg}G\arrow[r,"d\pi"]&T_{hgp}X
+\end{tikzcd}\]
+and those vertical differentials are diffeomorphisms by smothness of the actions.
+
+Finally we conclude by taking a local inverse $\sigma$ of $\pi$ via inverse function theorem. Then we simply notice that $\eta=\sigma ^*\pi^*\eta$, which is smooth by construction.
 \end{proof}
 
 \addcontentsline{toc}{section}{Problem 2}
@@ -64,6 +82,21 @@ so again chosing
 		\item Suppose that two Lie group homomorphisms $\varphi,\psi:G\to H$ are such that $d\varphi|_{e}=d\psi|_{e}$. Show that $\varphi$ and $\psi$ coincide on the connected component of $G$ containing the identity $e$.
 	\end{enumerate}
 \end{idea4}
+
+\begin{proof}[Solution]\leavevmode
+	\begin{enumerate}[label=\alph*.]
+		\item 
+
+		\item Let $g\in G$ be any element. Suppose we find a vector $v\in T_eG$ such that its integral curve $\gamma$ passes through $g$ at time $t_0$. Then we can map this vector both by $d\varphi$ and $d\psi$ to obtain a vector $w:=d_e\varphi(v)=d_e\psi(v)\in T_eH$. Then the integral curve $\eta$ of  $w$ is the same as the integral curve of $v$ pushed by either of  $\varphi$ or $\psi$. Let me show this explicitly for self-conviction:
+			\begin{quotation}
+				$\varphi\circ \gamma(t)=\eta(t)$ for all $t$ because differentaition at $t=0$ yields  $\frac{d}{dt}(\varphi\circ \gamma)\Big|_{t=0}=d_e\varphi\gamma'(0)=d_e\varphi v=\eta'(0)$ so both $\varphi\circ \gamma$ and $\eta$ are solutions to the same differential equation thus coincide.
+			\end{quotation}
+			Of course the same goes for $\psi$. Then we get that
+			\[\gamma(t_0)=g\implies \varphi(g)=\varphi(\gamma(t_0))=\eta(t_0)=\psi(\gamma(t_0))=\psi(g)\]
+$\mathsf{OK}$ now we only need to find the vector $v$. The statement is that for every $g\in G$ there is a maximal integral curve starting at the identity passing through $g$. Since $g$ is the same connected component as the identity we can find a curve connecting them. But this curve need not be a maximal integral curve nor homotopic to one. So I'm stuck and I suppose that there is no maximal integral curve. Then all the vectors in the unit ball… \href{https://math.stackexchange.com/questions/1258904/how-to-show-that-for-every-element-g-in-a-lie-group-the-curve-gammat-g}{I'm pretty sure here is the answer}.
+
+	\end{enumerate}
+\end{proof}
 
 \addcontentsline{toc}{section}{Problem 3}
 \begin{idea1}{Problem 3}\leavevmode
@@ -103,9 +136,9 @@ so again chosing
 			Checking that this map is a group isomorphism ammounts to checking that matrix multiplication in $\mathsf{SU}(2)$ is the same as quaternion multiplication 
 
 
-			\item (Proof from \cite{hall}, prop. 3.24 and coro. 3.46).
+			\item (Proof from \cite{hall}, prop. 3.24 and coro. 3.46). We will show that $\mathfrak{su}(3)$ is the space of traceless anti-hermitian matrices and \cref{eq:1} will follow.
 				\begin{enumerate}[label=\textbf{Step \arabic*}]
-					\item Show that the tangent space at identity of a matrix Lie group $G$ (definition in lectures) is the same as the matrices $X$ such that $ \operatorname{exp}(tX) \in G$ for all $t\in\mathbb{R}$.
+					\item Show that the Lie algebra of a matrix Lie group $G$, defined as the tangent space at identity, is the same as the matrices $X$ such that $ \operatorname{exp}(tX) \in G$ for all $t\in\mathbb{R}$.
 
 						\begin{proof}[Proof of Step 1]\leavevmode
 							(\cite{hall}, coro. 3.46) If $X \in T_{\operatorname{Id}}G$, by definition of exponential map we have $\operatorname{exp}(tX) \in G$.%Define a curve $\gamma$ via the exponential map (seen in lectures, also see figure): $\gamma(t)=\operatorname{exp}(tX)$ which is in $G$ by definition of exponential map.
@@ -118,13 +151,25 @@ Now suppose that $X$ is such that $\operatorname{exp}(tX)\in G$ for all $t\in\ma
 						\end{proof}
 
 					\item Then we look for the matrices such that for all $t\in\mathbb{R}$,
-						\[\operatorname{exp}(tX)^* =(\operatorname{exp}(tX)^{-1}=\operatorname{exp}(-tX) \qquad \text{ and} \qquad \det \operatorname{exp}(tX)=1. \]
+						\[\operatorname{exp}(tX)^* =\operatorname{exp}(tX)^{-1}=\operatorname{exp}(-tX) \qquad \text{ and} \qquad \det \operatorname{exp}(tX)=1. \]
 						This means that
 						\[\operatorname{exp}(tX^*) =\operatorname{exp}(-tX) \qquad \text{and} \qquad \operatorname{ Tr}(X)=0.\]
-						The first condition is equivalent to $X^*=-X$. Thus we see that
+						The first implication is the result of the general facts that $e^{A}^*=e^{A^*}$ and $(e^A)^{-1}=e^{A^{-1}}$. Let's have a look at the second one:
+\begin{quotation}
+	{\color{3}$(e^A)^{-1}=e^{A^{-1}}$}\hspace{.5em}This is nicely shown in \cite{lee} as follows. For any $X\in\mathsf{Lie}(G)$ map $t\mapsto \operatorname{exp}(tX)$ is a group homomorphism  $\mathbb{R}\to G$ because $\operatorname{exp}((t_1+t_2)X)=\operatorname{exp}(t_1X)\operatorname{exp}(t_2X)$ (but of course that could be justified…) anyway from this it follows that this map preserves inverses, which what we wanted.
+\end{quotation}
+
+						Now let's have a look at why determinant 1 in Lie group translates to vanishing trace in Lie algebra.
+\begin{quotation}
+	{\color{3}\bfseries $\forall X\in\mathcal{M}_{n}(\mathbb{C}), \;\det e^X=e^{\operatorname{tr}X}$.}\hspace{.5em}This is easy to see if $X$ is diagonalizable with eigenvalues  $\lambda_1,\ldots,\lambda_n$; then the eigenvalues of $e^{X}$ are $e^{\lambda_1},\ldots,e^{\lambda_n}$. So $\det e^X=\prod e^{\lambda_i}=e^{\sum \lambda_i}=e^{\operatorname{tr}X}$. But if $X$ is not diagonalizable we must do Jordan decomposition and some more computations.
+\end{quotation}
+
+						Finally, differentiating and evaluating at $t=0$ the equation $\operatorname{exp}(tX^*) =\operatorname{exp}(-tX)$ gives $X^*=-X$. (See \cite{hall}, prop. 2.4. It is intuitive but not immediate.)
+
+						In conclusion, we see that
 						\[\mathfrak{su}(2)=\{X\in\mathcal{M}_{2\times 2}(\mathbb{C}):X^* =-X\text{ and }\operatorname{Tr}(X)=0 \}\]
 		
-					\item It is immediate that the expression in \cref{eq:1} is contained in the set above. For the other inclusion first notice that the condition $X^*=-X$ makes the entries in the diagonal be such that
+					\item It is immediate that the right-hand side in \cref{eq:1} is contained in the set above. For the other inclusion first notice that the condition $X^*=-X$ makes the entries in the diagonal be such that
 						\begin{align*}							x+iy&=-\overline{x+iy}=-(x-iy)=-x+iy\implies x=-x\implies x=0						\end{align*}
 						while the traceless condition implies the two entries in the diagonal must be additive inverses. For the entries in the antidiagonal we literally see the definition of conjugate transpose.
 				\end{enumerate}
@@ -132,7 +177,7 @@ Now suppose that $X$ is such that $\operatorname{exp}(tX)\in G$ for all $t\in\ma
 Now let's identify $\mathfrak{su}(2)$ with $\mathbb{R}^{3}$ via $\alpha,\beta \mapsto (\alpha,\operatorname{Re}\beta,\operatorname{Im}\beta)$. We immediately see that
 \[\det \begin{pmatrix} i\alpha&\beta\\-\bar{\beta} &-i\alpha\end{pmatrix} =i\alpha(-i\alpha)=\beta(-\bar{\beta} )=\alpha^2+|\beta|^2=\|(\alpha,\operatorname{Re}\beta,\operatorname{Im}\beta)\|^2\]
 
-\item De acordo como exercício anterior, é suficiente mostrar que $ABA^{-1}$ tem traza zero é $ABA^{-1}=-(ABA^{-1})^*$. A primeira propriedade é imediata dado que, em geral, $\operatorname{Tr}(XY)=\operatorname{Tr}(YX)$. Para a segunda propriedade note que
+\item De acordo com o exercício anterior, é suficiente mostrar que $ABA^{-1}$ tem traza zero e $ABA^{-1}=-(ABA^{-1})^*$. A primeira propriedade é imediata dado que, em geral, $\operatorname{Tr}(XY)=\operatorname{Tr}(YX)$. Para a segunda propriedade note que
 	\[(ABA^{-1})^*=(A^{-1})^*B^*A^*=(A^*)^*(-B)A^{-1}=-ABA^{-1}\]
 	O fato de que essa ação em $\mathsf{SU}(2)$ preserva a norma é immediato do item anterior e do fato de que determinante de um produto de matrizes é o produto dos determinantes.
 

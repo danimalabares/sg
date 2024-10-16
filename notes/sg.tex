@@ -3227,7 +3227,184 @@ Para variedades tóricas,
 	Olha para um livro de Guilleimin. A Anna pede para fazer muitos exercícios se quer  entender bem. Também o Audin.
 \end{remark}
 
-\section{Aula 20}
+\section{Aula 20: Exitência e unicidade de aplicações momento}
+
+\begin{idea8}{Projeto final}\leavevmode
+	Para este domingo: tema e uma ou duas referencias. Aproximadamente um mes depois (22 novembro): primeiro rascunho. Última semana de novembro e primeira de dezembro: apresentações. Uns 40 minutos de apresentação. Não tem que apresentar tudo que está no trabalho escrito.
+
+	
+
+\end{idea8}
+
+\subsection{A primeira obstrução : um diagraminha commutativo}
+
+Lembre:
+\begin{itemize}
+\item $G\curvearrowright(M,\omega)$ ação simplética é \textit{\textbf{Hamiltoniana}} se exite  $\mu:M\to \mathfrak{g}^*$ ou, equivalentemente, $\hat{\mu}:\mathfrak{g} \to \mathcal{C}^\infty(M)$ tal que
+	\begin{enumerate}
+		\item (Diagraminha commutativo aqui embaixo)
+	
+		\item (Seguinte seção)
+	\end{enumerate}
+\end{itemize}
+
+Queremos achar uma aplicação $\hat{\mu}:\mathfrak{g} \to \mathcal{C}^\infty(M)$ tal que
+\[\begin{tikzcd}
+&\mathcal{C}^\infty(M)\arrow[dr]\\
+\mathfrak{g}\arrow[rr,""]\arrow[ur,"\hat{\mu}"]&&\mathfrak{X}(M)
+\end{tikzcd}\]
+onde o mapa $\mathcal{C}^\infty(M)\to  \mathfrak{X}(M)$ é $f\mapsto X_g$.
+\begin{prop}\leavevmode
+	Existe $c_1 \in [\mathfrak{g},\mathfrak{g} ]^0\otimes H^{1}(M)$ tal que 
+	\[\hat{\mu}:\mathfrak{g} \to \mathcal{C}^\infty(M)\text{ satsifazendo o diagrama anterior} \iff c_1=0 \]
+	onde $[\mathfrak{g},\mathfrak{g} ]^0\subset \mathfrak{g}^*$ é o anulador do commutador de $\mathfrak{g} $.
+\begin{proof}\leavevmode
+	A existencia de $\hat{\mu}$ é equivalente a que a imagem do mapa em baixo seja de campos hamiltonianos: pegue uma base de $\mathfrak{g}$, chega a campos hamiltonianos e escolhe uma função para cada um deles. Alí já determinou um $\hat{\mu}$.
+
+	Considere
+\[\begin{tikzcd}
+	\mathfrak{g} \arrow[rr,bend right,"\bar{\psi}" ]\arrow[r,"\psi"]&\mathfrak{X}(M)\arrow[r]&\mathfrak{X}_\omega(M)/\mathfrak{X}_{\operatorname{Ha m}}(M)\cong H^{1}_{\operatorname{dR}}(M)
+\end{tikzcd}\]
+Note que $\bar{\psi}([\mathfrak{g},\mathfrak{g} ] =0$ já que a gente viu no principio do curso que $\mathfrak{X}_\omega(M),\mathfrak{X}_\omega(M)\subseteq \mathfrak{X}_{\operatorname{HAM}}(M)$. Daí a aplicação induzida é
+\[\mathfrak{g} /[\mathfrak{g},\mathfrak{g} ]\overset{c_1}{\longrightarrow}H^{1}(M)\]
+se e somente se
+\[c_1\in\left( \frac{\mathfrak{g}}{[\mathfrak{g},\mathfrak{g} ]} \right)^*\otimes H^{1}(M) \]
+já que em geral $T:V\to W$ linear se e somente se $T\in V^*\otimes W$
+\end{proof}
+\end{prop}
+
+\begin{remark}\leavevmode
+	 Uma ação simplética fracamenta hamiltoniana satisfaz isso (acho).
+\end{remark}
+
+\subsubsection{Interpreatação coholomogica}
+$g$ álgebra de Lie,
+\[C^k=\Lambda^k\mathfrak{g}^*,\qquad \delta:\Lambda^k\mathfrak{g}^*\to \Lambda^{k+1}\mathfrak{g}^*\]
+\[\delta_C(u_0,u_k)= \sum_{i<j}(-1)^{i+j}\subset([u_i,u_j],u_1,\ldots,\hat{u}_i,\hat{u}_j,\ldots,u_k)\]
+que é o operador de \textit{\textbf{Chavalley-Eilenberg}}.
+
+\begin{remark}\leavevmode
+	$\Lambda^k\mathfrak{g}^*\cong \Omega^k(G)^G\subseteq \Omega^{k}(G)$ onde esse na esqueda são as formas $G$-invariantes. Quando $G$ é compacto tem igualdade
+\end{remark}
+
+ \begin{exercise}\leavevmode
+	 $\delta^2=0\iff$ identidade de jacobi em $[\cdot,\cdot ]$. Desse jeito é equivalente dar um espaço vetorial que a forma colchete seja jacobi $(V,[\cdot,\cdot ])$ ou pedir que $\Lambda^\bullet V^*$ tenha uma derivação $\delta$  tal que $\delta^2=0$
+\end{exercise}
+
+\begin{remark}\leavevmode
+	$\delta:\mathfrak{g}^*\to \Lambda^2\mathfrak{g}^*$ é dual (com signo $-$) de $[\cdot,\cdot ]:\Lambda\to \mathfrak{g}$,
+	\[\delta c[u,v]=-c([u,v])\]
+	tem o colchete tem delta, tem delta tem colchete, é só isso.
+\end{remark}
+
+\begin{defn}\leavevmode
+	\[H^{2}(\mathfrak{g})=\frac{\ker \delta}{\operatorname{img} \delta}\]
+\end{defn}
+
+\begin{remark}\leavevmode
+	\begin{itemize}
+	\item Em grau zero $\delta$ é zero: $\delta:\mathbb{R}\to \mathfrak{g}^*$, $\delta=0$
+	\item Em grau um, $\delta:\mathfrak{g}^*\to \Lambda^2\mathfrak{g}^*$, $\delta c(u,v)=-c([u,v])$.
+	\end{itemize}
+	Assim,
+	\[H^{1}(\mathfrak{g})=\ker \delta=[\mathfrak{g},\mathfrak{g} ]^0\]
+\end{remark}
+Por tanto, o resultado da seção anterior pode ser escrito como
+\[c_1\in H^{1}(\mathfrak{g})\otimes H^{1}(M)\]
+
+\subsection{A segunda obstrução: equivariância}
+A outra condição da aplicação momento é que
+\[\hat{\mu}([u,v])=-\{\hat{\mu}(u),\hat{\mu}(v)\}.\]
+
+Vamos supor que conseguimos resolver a primeira obstrução. Vimos que não existe só uma função.  Agora vamos ver cómo fazer uma escolha de $\hat{\mu}$ que permita satisfazer a segunda obstrução.
+
+Fixe $\hat{\mu}$ satisfazendo a primeira obstrução. Considere a \textit{\textbf{falha}}:
+\[c^\mu_2=\hat{\mu}([v,u])-\{\hat{\mu}(u),\hat{\mu}(v)\} \in\mathcal{C}^\infty(M)\]
+for $u,v\in\mathfrak{g}$.
+
+\begin{remark}\leavevmode
+	\[X_{c^\mu_2(u,v)}=\underbrace{\psi([v,u])}_{=[\psi(u),\psi(s)]}-\underbrace{X_{\{\hat{\mu}(u),\hat{\mu}(v)\}}}_{[X_{\hat{\mu}(u)},X_{\hat{\mu}(v)}}=0\]
+	asi que $c_2^\mu(u,v)$ é constante.
+
+	Se $M$  é conexo, $c_2^\mu(u,v)\in\mathbb{R}$. temos um operador antisimétrico
+	\[c_2^\mu:\mathfrak{g} \times \mathfrak{g} \to \mathbb{R}\]
+	i.e., um elemento $c_2^\mu\in \Lambda^2\mathfrak{g}^*$, i.e. uma classe $[c_2^\mu\in H^{2}(\mathfrak{g})$.
+\end{remark}
+
+\begin{idea4}{Lema (Exercício)}\leavevmode
+	$\delta c^\mu_2=0$. Segue da identidade de Jacobi
+\end{idea4}
+
+\begin{lemma}\leavevmode
+	$[c_2^\mu]$ não depende de $\hat{\mu}$ (só depende da ação simplética).
+\end{lemma}
+
+\begin{proof}\leavevmode
+	Suponha $\hat{\mu}_1,\hat{\mu}_2$ que resolvem a primeira obstrução. Bom isso implica que $X_{\hat{\mu}_1}(u)=X_{\hat{\mu}_2(u)}\implies \hat{\mu}_1(u)-\hat{\mu}_2(u)\in\mathbb{R}$ para toda $u\in\mathfrak{g}$. E isso implica que $b:=\hat{\mu}_1-\hat{\mu}_2\in\mathfrak{g}^*$.
+
+Então,
+\[(c_2^{\mu_1}-c_2^{\mu_2}=\hat{\mu}_1([v,u])-\hat{\mu}_2([v,u])- \underbrace{\{\hat{\mu}_1(u),\hat{\mu}_1(v)\} +\{\hat{\mu}_2(u),\hat{\mu}_2(v)\}\}}_{=0}=\delta b(u,v)\]
+Agora lembre que por definição  de $\delta$, $\delta b (u,v)=\big([v,u])$. Isso implica que
+	\[ [c_2^{\mu_1}]=[c_2^{\mu_2}=c_2\in H^{2}(\mathfrak{g})\]
+\end{proof}
+
+\begin{prop}\leavevmode
+	Seja $G\curvearrowright(M,\omega)$ fracamente hamiltoniana (ou seja que a primeira obstrução ta resolvida) ($\iff c_1-0$). Então existe  $\hat{\mu}$ satisfzendo as duas obstruções  $\iff c_2=0$.
+\end{prop}
+
+\begin{idea8}{Ou seja, $c_2$ mede a segunda obstrução}\leavevmode
+\end{idea8}
+
+\begin{proof}[Demostração]
+	\begin{itemize}
+	\item Se $\hat{\mu}$ satisfaiz a segunda obstrução $\implies c_2^\mu=0\implies c_2=0$.
+	
+		\item Se $c_2=0$, então existe  $\hat{\mu}$ com $c_2^\mu=\delta b$. Tome
+			\[\hat{\mu}'=\hat{\mu}-b\text{ satisfaz as duas obstruções} \]
+	\end{itemize}
+	{\color{3}\begin{quotation}
+		ou seja, se tem um cada que resolve a primeira obstrução e o $c_2$ é $\delta b$, então modifica a $\hat{\mu}$ tirando $b$ e já com isso vai resolver também a segunda obstrução.
+	\end{quotation}}
+\end{proof}
+
+\begin{idea5}{Consequencia}\leavevmode
+	$M$ y $G$ conexos. Toda ação simplética em $(M,\omega)$ satisfazendo
+	\begin{itemize}
+	\item $H^{1}(\mathfrak{g})=0$.
+	\item $H^{2}(\mathfrak{g})=0$
+	\end{itemize}
+é hamiltoniana {\color{3}com única aplicação momento (ainda falta falar de unicidade)}.
+\end{idea5}
+
+\begin{remark}\leavevmode
+	$\mathfrak{g}$ semisimple implica $H^{1}(\mathfrak{g})=0$ e $H^{2}(\mathfrak{g})=0$. Isso é um caso particular dos lemas de Whitehead.
+\end{remark}
+
+Ou seja que tudo isso para ver quando existe a aplicação momento.
+
+\subsection{Faltou falar de unicidade}
+
+Suponha $\mu_1,\mu_2$ são aplicações  momento. $b=\hat{\mu}_1-\hat{\mu}_2\in\mathfrak{g}^*$, $M$ conexo. Então, pela equivarância, $b([u,v])=0$, i.e. $b\in [\mathfrak{g},\mathfrak{g} ]^0=H^{2}(\mathfrak{g})$.
+
+Por outro lado, $\mu$ aplicação momento equivarânte e pegamos $b\in [\mathfrak{g},\mathfrak{g} ]^0$, então $\hat{\mu}+b$ é uma nova aplicação momento equivariante. Portanto,
+
+{\color{8}\begin{quotation}
+	aplicações  momento são únicas modulo $H^{1}(\mathfrak{g})$.
+\end{quotation}}
+
+\subsection{Comentarios finais}
+
+\begin{itemize}
+\item $G$ abeliano (e.g. $G=\mathbb{T}^n$. Lembre que no príncipio do curso a gente viu que rotar ão longo de um dos círculos do toro da um campo que é simplético mas não hamiltoniano. Essa ação não admite uma aplicação momento, i.e. $ H^{1}(\mathbb{T}^2)\neq 0$).
+	\begin{itemize}
+	\item Ação simplética não precisa ser hamiltoniana.
+	\item Se  aplicação momento existe, está definida a menos de $\mathfrak{g}^*$. (caso de um toro tem um $\mathbb{R}^{n}$ de escolhas de aplicações  momento; $H^{1}(\mathfrak{g})$ é $\mathbb{R}^{n}$ acho).
+	\end{itemize}
+
+\item Existem condições em $M$ garantindo que toda ação simplética é hamiltoniana. Por exemplo, se $H^{1}(\mathfrak{g})=0$ e além disso $M$ conexa  e compacta.
+\end{itemize}
+
+\section{Aula 21}
 
 
 \end{document}

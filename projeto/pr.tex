@@ -48,10 +48,16 @@ As equa\c c\~oes de Hamilton s\~ao s\'o outra formula\c c\~ao da segunda lei do 
 
 \subsection{Qu\^antica}
 
-
-
- Equa\c c\~ao de Schr\"odinger
+A equação de Schrödinger é o análogo às equações de Hamilton da mecânica clásica (lembre que as equações de Hamilton são só outra formulação das segunda lei de Newton). Assim, a equação de Schrödinger determina a dinámica de um sistema quântico: "decreve como o estado de um sistema quântico muda com o tempo". Ela está determinada pelo Hamiltoniano, que no mundo quântico é um operador.
  \[i\hbar \frac{\partial \psi}{\partial t}=\hat{H}\psi.\]
+ Agora em palavras de Bruno:
+ {\color{3}\begin{quotation}
+ 	O operador $H$ define uma dinamica no espaço de Hilbert, os físicos chamam de equação de Schrodinger. Esse é o analogo de fluxos Hamiltonianos; matematicamente, a gente fala de "strongly continuous one parameter unitary subgroups" no espaço de Hilbert
+ \end{quotation}}
+ O dani:
+ {\color{5}\begin{quotation}
+		 Blz! Então suponho que para cada estado no espaço de Hilbert a gente consegue uma curva aplicando essa família de operadores unitários [que pelo \href{https://en.wikipedia.org/wiki/Stone%27s_theorem_on_one-parameter_unitary_groups}{Stone thm} correponde  a um operador unitário, Hamiltoniano suponho]. As soluções do oscillador armônico quântico são círculos mesmo (tipo pontos que ficam a distancia r de um ponto, ussando a metrica induzida pelo produto interno do espaço de Hilbert)?
+ \end{quotation}}
  Distintas escolhas de Hamiltoniano $\hat{H}$ descrevem diferentes leis da natureza. Para partículas não relativistas em treis dimensões com energia potencial $V(x)$, o Hamiltoniano  é
  \[\hat{H}=-\frac{\hbar^2}{2m}\nabla^2+V(x).\]
  \'E um operador diferencial. O Laplaciano \'e
@@ -114,7 +120,7 @@ Otro exemplo: um fibrado linear $L$ munido de uma conexão tal que a sua forma d
 
 É a escolha de um subespaço Lagrangiano em cada ponto de $M$.
 
-\begin{defn}[\href{https://ncatlab.org/nlab/show/polarization#OfASymplecticManifold}{nLab}]
+\begin{defn}(\href{https://ncatlab.org/nlab/show/polarization#OfASymplecticManifold}{nLab})
 	Uma \textit{\textbf{polarização}} de uma variedade simplética $(X,\omega )$ é a escolha de um subfibrado Lagrangiano involutivo $\mathcal{P}\hookrightarrow T_{\mathbb{C}}X$ do fibrado tangente complexificado de $X$.
 \end{defn}
 
@@ -142,4 +148,29 @@ Let's read a little bit of \href{https://en.wikipedia.org/wiki/Coherent_states_i
 {\color{1}\begin{quotation}
 		"The Hilbert space on which th efunctions act as operators consists of holomorphic sections of a suitably chosen line bundle. Evaluation at a point is a continuous linear functional {\color{3}Evaluation at a point gives me a vector in the line bundle which is a functional on $\mathcal{C}^\infty(X)$ functions} and gives rise to a vector in the Hilbert space {\color{3}How because a vector in the Hilbert space is a whole section…} which is labelled by that point.
 \end{quotation}}
+
+\subsection{\texttt{raw.pdf}}
+
+Aqui só vou fazer um resumo do artigo. Seção 1:
+
+\begin{enumerate}
+	\item Estrutura simplética, campo vetorial Hamiltoniano, função Hamiltoniana. Tem uma sequência exata curta 
+		\[\begin{tikzcd}
+			0\arrow[r]&0\mathbb{R}\arrow[r]&\mathcal{C}^\infty(X)\arrow[r]&\mathfrak{H}(X,\omega):=\{\xi:i_\xi\omega\text{ é exata} \}\arrow[r]&0
+		\end{tikzcd}\]
+onde esse $\mathfrak{H}$ se chama \textit{\textbf{espaço de campos hamiltonianos em $X$}}.
+	\item Fibrado linear, conexão, curvatura, forma de conexão.
+	\item Estrutura hermitiana, fibrado linear hermitiano com conexão (HLBC).
+	\item Uma \textit{\textbf{prequantização}} de $(X,\omega)$ é um HLBC. Existe iff $\omega$ is integral (has integral periods? )
+	\item Um negocião para ver que tem uma sequência curta no mundo dos fibrados lineares análoga à sequência curta no mundo das funções hamiltonianas. No fim de contas, isso da uma representação de álgebras de Lie que se chama \textit{\textbf{prequenantização}}.
+
+	 \item Uma \textit{\textbf{polarização}} de $(X,\omega)$ é um subfibrado comlexo
+\end{enumerate}
+
+{\color{4}\bfseries Seção 2.}\hspace{.5em}
+\begin{itemize}
+	\item Seja $F$ uma polarização de $(X,\omega)$. Dizemos que a quantização é \textit{\textbf{holomorfa}} de  $F\cap \overline{F}=0$. Since $\dim_\mathbb{C}F_X$ is half… Existe uma única estrutura complexa $J$ tal que…
+\item "Em resumo, a quântização holomorfa de $(X,\omega)$ da a $X$ uma estrutura Kähler para a qual $\omega$ é a forma Kähler.
+\end{itemize}
+
 \end{document}
