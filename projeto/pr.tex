@@ -50,14 +50,31 @@ As equa\c c\~oes de Hamilton s\~ao s\'o outra formula\c c\~ao da segunda lei do 
 
 A equação de Schrödinger é o análogo às equações de Hamilton da mecânica clásica (lembre que as equações de Hamilton são só outra formulação das segunda lei de Newton). Assim, a equação de Schrödinger determina a dinámica de um sistema quântico: "decreve como o estado de um sistema quântico muda com o tempo". Ela está determinada pelo Hamiltoniano, que no mundo quântico é um operador.
  \[i\hbar \frac{\partial \psi}{\partial t}=\hat{H}\psi.\]
- Agora em palavras de Bruno:
- {\color{3}\begin{quotation}
+ Agora:
+ 	\begin{thing3}{Bruno}\leavevmode
+ 		
  	O operador $H$ define uma dinamica no espaço de Hilbert, os físicos chamam de equação de Schrodinger. Esse é o analogo de fluxos Hamiltonianos; matematicamente, a gente fala de "strongly continuous one parameter unitary subgroups" no espaço de Hilbert
- \end{quotation}}
+\end{thing3}
+
  O dani:
- {\color{5}\begin{quotation}
+ \begin{thing5}{Dani}\leavevmode
+ 	
 		 Blz! Então suponho que para cada estado no espaço de Hilbert a gente consegue uma curva aplicando essa família de operadores unitários [que pelo \href{https://en.wikipedia.org/wiki/Stone%27s_theorem_on_one-parameter_unitary_groups}{Stone thm} correponde  a um operador unitário, Hamiltoniano suponho]. As soluções do oscillador armônico quântico são círculos mesmo (tipo pontos que ficam a distancia r de um ponto, ussando a metrica induzida pelo produto interno do espaço de Hilbert)?
- \end{quotation}}
+ \end{thing5}
+
+\begin{thing3}{Bruno}\leavevmode
+	Exatamente, Stone Theorem!!
+Agora as soluções do oscilador harmônico quântico não são círculos. A distância pra origem sempre é constante pra evoluções unitárias, mas isso agora diz que a dinâmica unitária preserva vetores normalizados (i.e. as órbitas de um ponto na esfera de dim infinita continuam na esfera)
+\end{thing3}
+
+\begin{thing5}{Dani}\leavevmode
+	Maravilha, mas então em que sentido a dinâmica oscila?
+\end{thing5}
+
+\begin{thing5}{Dani}\leavevmode
+	Na verdade não entendi bem essa parte de \textit{\textbf{evaluação num ponto}}. Cómo é que se definem os estados coerentes? 
+\end{thing5}
+
  Distintas escolhas de Hamiltoniano $\hat{H}$ descrevem diferentes leis da natureza. Para partículas não relativistas em treis dimensões com energia potencial $V(x)$, o Hamiltoniano  é
  \[\hat{H}=-\frac{\hbar^2}{2m}\nabla^2+V(x).\]
  \'E um operador diferencial. O Laplaciano \'e
@@ -116,6 +133,17 @@ Por exemplo, o espaço de funções integráveis respeito à forma de Liouville.
 
 Otro exemplo: um fibrado linear $L$ munido de uma conexão tal que a sua forma de curvatura é $ \omega /\hbar$. Aqui o espaço de Hilbert é o espaço de seções quadrado-integráveis de $L$ como o operador $Q(f)=-i\hbar \nabla_{X_f}+f$. Neste caso temos que $[Q(f),Q(g)]=i\hbar Q(\{f,g\}).$
 
+\subsubsection{Dirac}
+
+In \cite{dirac} we see the formula (in chapter IV, sec. 2.1)
+\[uv-vu=i\hbar [u,v]\]
+where he denotes the Poisson bracket by $[\cdot,\cdot ]$.
+\begin{quotation}
+	\textit{The problem of finding quantum conditions now reduces to the problem of determining Poisson Brackets in quantum mechanics} 
+\end{quotation}
+At least in this one-minut reading session, it seems to me that he is looking for an adequate bracket in the smooth function space, rather than in the Hilbert space operators space.
+
+
 \subsection{Polarização}
 
 É a escolha de um subespaço Lagrangiano em cada ponto de $M$.
@@ -172,5 +200,92 @@ onde esse $\mathfrak{H}$ se chama \textit{\textbf{espaço de campos hamiltoniano
 	\item Seja $F$ uma polarização de $(X,\omega)$. Dizemos que a quantização é \textit{\textbf{holomorfa}} de  $F\cap \overline{F}=0$. Since $\dim_\mathbb{C}F_X$ is half… Existe uma única estrutura complexa $J$ tal que…
 \item "Em resumo, a quântização holomorfa de $(X,\omega)$ da a $X$ uma estrutura Kähler para a qual $\omega$ é a forma Kähler.
 \end{itemize}
+
+\section{Operadores de Berezin-Toeplitz}
+
+Here's a quote from Sergey in quantum surface group, 8 october.
+{\color{4}\begin{quotation}
+Anyway, this shows how hermitian Toepliz operators $T_f$ (and Hermitian Toepliz matrices) can be understood as (matrices of) Berezin-Toepliz operators $T_F$ for harmonic functions $F$ on a unit disc.	
+\end{quotation}}
+
+\section{Espaço de Fock}
+
+
+Consider $\mathbb{C}^{n}$. define
+\[\mathcal{F}_n=\left\{\text{$f(z)$-entire functions  $\mathbb{C}^{n}\to \mathbb{C}$}\Big| \int_{\mathbb{C}^{n}}(f(x))^2e^{-|z|^2}d\lambda(z)<\infty\right\}\]
+
+We have an inner product:
+\[\left<f,g\right> :=\int_{\mathbb{C}^{n}}f(z)\overline{g(z)}e^{-|z|^2}d \lambda(z)\]
+
+\clearpage
+\begin{prop}\leavevmode
+	$z^{\mathbf{k}}:=z_1^{k_1}\cdot\ldots\cdot z_n^{k_n}$, where $\mathbf{k}=(k_1,\ldots,k_n)$, form an orthogonal basis (of monomials) for $\mathcal{F}_n$. Moreover, $\|z^k\|^2=k_1!\ldots k_n!$.
+\end{prop}
+\begin{proof}\leavevmode
+Consider the case $n=1$ and let $k>k'\in\mathbb{Z}_{\geq 0}$. Let's first solve
+ \begin{align*}
+	 \int_{\mathbb{C}}z^k\bar{z}^{k'}e^{-|z|^2}d\lambda&=\int_{\mathbb{C}}(z\bar{z})^{k'}z^{k-k'}e^{-|z|^2} d\lambda\\
+&=\int_{\mathbb{C}}|z|^{2k}z^{k-k'}e^{-|z|^2}d\lambda
+\end{align*}
+and now perform a change of coordinates and remember that the \href{https://en.wikipedia.org/wiki/Polar_coordinate_system#Generalization}{substitution rule} for integrals needs you to put the determinant of the jacobian of the change of coordinate map, which in this case is $x=r\cos \theta$, $y=r\sin \theta$ and the jacobian has determinant r. So the integral is now
+\begin{align*}
+&=\int_{0}^\infty \int_{0}^{2\pi}(re^{i\theta})^{k-k'}|re^{i\theta}|^{2k}e^{-|re^{i\theta}|^2}rd\theta dr\\
+& =\int_{0}^\infty\int_{0}^{2\pi}(re^{i\theta})^{k-k'}r^{2k}e^{-r^2}rd\theta dr\\
+& =\int_{0}^\infty r^{2k}e^{-r^2}r\int_{0}^{2\pi}(re^{i\theta})^{k-k'}d\theta dr
+\end{align*}
+and the integral along the phase (=with respect to $\theta$) vanishes since $e$ has the same value at  $0$ and at $2\pi$. Of course an analogous statement works if $k'>k$.
+
+Now take general case $n$. We have that:
+ \begin{align*}
+	\left<z^{\mathbf{k}},z^{\mathbf{k}'}\right>&= \int_{\mathbb{C}^n}z^{\mathbf{k}}\overline{z^{\mathbf{k}'}}e^{-|z|^2}d\lambda%&=\int_{\mathbb{C}}(z\bar{z})^{\mathbf{k}'}z^{\mathbf{k}-\mathbf{k}'}e^{-|z|^2} d\lambda\\
+%&=\int_{\mathbb{C}}|z|^{2\mathbf{k}}z^{\mathbf{k}-\mathbf{k}'}e^{-|z|^2}d\lambda
+\end{align*}
+This integral will also vanish since the product $z^{\mathbf{k}}\overline{z^{\mathbf{k}'}}$ will factor into a product of modules times a product of powers of the variables  $z_1,\ldots,z_n$. When changing to polar coordinates the latter terms will vanish out of periodicity of the exponential.
+
+Agora vamos confirmar que $\|z^\mathbf{k}\|^2=k_1!\ldots k_n!$. Novamente considere primeiro o caso $n=1$. Temos que
+ \begin{align*}
+	\|z^k\|^2&=\int_{\mathbb{C}}z^k\overline{z^k}e^{-|z|^2}d\lambda\\
+	&=\int_{\mathbb{C}}|z^k|^2e^{-|z|^2}d \lambda\\
+	&=\int_{0}^{2\pi}\int_{0}^\infty|(re^{i\theta})^k|^2e^{-|(re^{i\theta})^2|}rdrd\theta\\
+	&=\int_{0}^{2\pi}\int_{0}^\infty(r^k)^2e^{-r^2}rdrd\theta
+\end{align*}
+Pegando $u=r^2$ obtemos $du=2rdr$ de modo que a integral vira
+ \begin{align*}
+	&=\frac{1}{2}\int_{0}^{2\pi}\int_{0}^\infty u^{k}e^{-u}du d\theta
+\end{align*}
+O integrando respeito a $u$ é exatamente a \href{https://en.wikipedia.org/wiki/Gamma_function}{função Gamma} $\Gamma(k+1)=\int_{0}^\infty t^{k}e^{-t}dt=k!$. Assim, a nossa integral é
+\begin{align*}
+	&=\frac{1}{2}\int_{0}^{2\pi}k!d\theta=\pi k!
+\end{align*}
+{\color{2}Como tiro esse $\pi$ que está sobrando?}
+
+Por fim, para o caso geral pegue $\mathbf{k}=(k_1,\ldots,k_n)$ e $z^\mathbf{k}=z_1^{k_1}\ldots z_n^{k_n}$. Temos que
+
+\begin{align*}
+	\|z^\mathbf{k}\|^2&=\int_{\mathbb{C}^n}z^\mathbf{k}\overline{z^{\mathbf{k}}}e^{-|z|^2}d \lambda\\
+	&=\int_{\mathbb{C}^{n}}|z_1^{k_1}|^2\ldots |z_n^{k_n}|^2e^{-(|z_1|^2+\ldots +|z_n|^2)}d \lambda
+\end{align*}
+que pode ser evaluado como o produto de integrais no caso de uma variável, dando o resultado desejado.
+
+
+\end{proof}
+
+
+\iffalse
+\begin{align*}\left<f,\varphi_a\right> &=\int_{\mathbb{C}^n}f(z)\overline{\varphi_a(z)}e^{-|z|^2}d\lambda(z)\\
+		&=\int_{\mathbb{C}^{n}}f(z)\overline{\operatorname{exp}(z_1\overline{a}_1+\ldots +z_n\overline{a}_n)}e^{-|z|^2}d \lambda(z)
+\end{align*}
+\fi
+
+\section{What to do next?}
+
+Look at \texttt{chernsimons.pdf}, pag. 171 \textit{Lightning review of Kähler quantization} . There's two things that could be useful: "Bergman quantization" (what is the relation between this and Fock space? Looks like in \texttt{chernsimons.pdf} there is a nice formula for the operators. Second thing is the construction (again) for the Kähler quantization. So this is two objectives.
+
+\textbf{Structure of this project} 
+\begin{enumerate}
+	\item Introduction. Definition of quantization. What we want. What we can and can't do. Theorem of what we can't do. Solutions.
+	\item Example 1. Fock space/Bergman quantization.
+	\item Example 2. Kähler quantization.
+\end{enumerate}
 
 \end{document}

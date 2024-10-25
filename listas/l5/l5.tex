@@ -1,7 +1,8 @@
 \input{/Users/daniel/github/config/preamble.sty}%This is available at github.com/danimalabares/config
+\input{/Users/daniel/github/config/thms-eng.sty}%This is available at github.com/danimalabares/config
 
-%\usepackage[style=authortitle-terse,backend=bibtex]{biblatex}
-%\addbibresource{bibliography.bib}
+\usepackage[style=authortitle-terse,backend=bibtex]{biblatex}
+\addbibresource{/Users/daniel/github/config/bibliography.bib}
 
 \begin{document}
 
@@ -19,11 +20,11 @@
 \tableofcontents
 
 \addcontentsline{toc}{section}{Problem 1}
-\begin{idea1}{Problem 1}\leavevmode
+\begin{thing1}{Problem 1}\leavevmode
 	Let  $G$ be a Lie group. Let $X:G\longrightarrow TG$ be a section of the projection $TG\longrightarrow G$, not necessarily smooth. Show that if  $X$ is left invariant (i.e., $dL_g(X)=X\circ L_g$ for all $g\in G$), then $X$ is automatically smooth.
 
 	Conclude that an analogous result holds for differential forms: if a section $\eta:G\to \Lambda^{k}(T^*G)$ is left-invariant ($L^*_g\eta=\eta$), then $\eta$ is a smooth $k$-form. Check that an analogous result holds for $G$-invariant forms on a homogeneous manifold.
-\end{idea1}
+\end{thing1}
 
 \begin{proof}[Solution]\leavevmode
 	We know that $X_g=dL_g(X_e)$. We want to show that the map $G \to TG:g\mapsto dL_g(X_e)$ is smooth. Suggestion by \href{https://math.stackexchange.com/questions/1126553/left-invariant-vector-fields-smoothness}{Ted Shiffrin at StackExchange} is to consider 
@@ -76,16 +77,24 @@ Finally we conclude by taking a local inverse $\sigma$ of $\pi$ via inverse func
 \end{proof}
 
 \addcontentsline{toc}{section}{Problem 2}
-\begin{idea4}{Problem 2}\leavevmode
+\begin{thing4}{Problem 2}\leavevmode
 	\begin{enumerate}[label=\alph*.]
 		\item Prove that any connected Lie group $G$ is generated as a group by any open neighbourhood $U$ of the identity element (i.e. $G=\bigcup_{n=1}^\infty U^n$).
 		\item Suppose that two Lie group homomorphisms $\varphi,\psi:G\to H$ are such that $d\varphi|_{e}=d\psi|_{e}$. Show that $\varphi$ and $\psi$ coincide on the connected component of $G$ containing the identity $e$.
 	\end{enumerate}
-\end{idea4}
+\end{thing4}
 
 \begin{proof}[Solution]\leavevmode
 	\begin{enumerate}[label=\alph*.]
-		\item 
+		\item Let $U$ be an open  neighbourhood of the identity and define
+			\[U^n:=\{g_1\cdot\ldots \cdot g_n:g_{i}\in U\}\]
+		for $n \in\mathbb{N}\setminus\{0\}$. We will show that $\bigcup_{n \in\mathbb{N}} U^n$ is a (non-empty, which is trivial since it contains the identity) closed and open set, implying it is $G$ by connectedness.
+
+		We know that for every $g\in G$ right-multiplication $L_g$  is a diffeomorphism of $G$ (because its inverse is $L_{g^{-1}}$). So it is an open map. This means that $U\cdot g$ is open. Now
+		\[U^2=U\cdot U=\bigcup_{g\in U}U\cdot g \]
+		must be open. Likeways $U^n$ is open and so is $\bigcup_{n \in\mathbb{N}} U^n$.
+
+
 
 		\item Let $g\in G$ be any element. Suppose we find a vector $v\in T_eG$ such that its integral curve $\gamma$ passes through $g$ at time $t_0$. Then we can map this vector both by $d\varphi$ and $d\psi$ to obtain a vector $w:=d_e\varphi(v)=d_e\psi(v)\in T_eH$. Then the integral curve $\eta$ of  $w$ is the same as the integral curve of $v$ pushed by either of  $\varphi$ or $\psi$. Let me show this explicitly for self-conviction:
 			\begin{quotation}
@@ -99,7 +108,7 @@ $\mathsf{OK}$ now we only need to find the vector $v$. The statement is that for
 \end{proof}
 
 \addcontentsline{toc}{section}{Problem 3}
-\begin{idea1}{Problem 3}\leavevmode
+\begin{thing1}{Problem 3}\leavevmode
 	Consider the Lie groups $\mathsf{SU}(2) =\{A\in\mathcal{M}_{2}(\mathbb{C})|AA^*=\operatorname{Id}, \det A=1\}$ and $\mathsf{SO}(3) =\{A\in\mathcal{M}_{3}(\mathbb{R})|AA^{\mathbf{T}}=\operatorname{Id},\det A=1\}$.
 	\begin{enumerate}[label=\alph*.]
 		\item Show that
@@ -119,11 +128,25 @@ $\mathsf{OK}$ now we only need to find the vector $v$. The statement is that for
 
 	\item Conclude that $\mathsf{SU}(2) \cong S^3$ is a double cover of $\mathsf{SO}(3)$ *hence is its universal cover, since it's simply connected), qnd the covering map identifies antipodal points of $S^3$. Hence, as manifolds, $\mathsf{SO}(3)$ is identified with $\mathbb{R}P^{3}$.
 	\end{enumerate}
-\end{idea1}
+\end{thing1}
 
 \begin{proof}[Solution]\leavevmode
 	\begin{enumerate}[label=\alph*.]
-		\item Given the computation {\color{2}above}, it is clear that $\mathsf{SU}(2)$ is diffeomorphic to $S^3$ since its parameters $a,b\in\mathbb{C}$, $|a|^2+|b|^2=1$, can be understood as vectors $x\in\mathbb{R}^{4}$ of norm 1.
+		\item It is very easy to see that a matrix 
+			\[A:=\begin{pmatrix} a &b\\c & d \end{pmatrix} \in\operatorname{Mat}_{2}(\mathbb{C})\]
+			satisfying $A A^*=\operatorname{Id}\iff A^*=A^{-1}$ must be of the form
+			\[\begin{pmatrix} a &b\\-\bar{b}&\bar{a} \end{pmatrix} \]
+			since $A^*=A^{-1}$ translates to
+			\[\begin{pmatrix} \bar{a} &\bar{c}\\\bar{b}&\bar{d} \end{pmatrix} =\begin{pmatrix} d&-b\\-c&a\end{pmatrix} \]
+			which yields immediately $\bar{a} =d$ and $c=-\bar{b}$.
+
+			Conversely, if $|a|^2+|b|^2=1$ the matrix \[B:=\begin{pmatrix} a &b\\-\bar{b}&\bar{a} \end{pmatrix}\] has determinant
+			 \[\det B=a\bar{a}+b \bar{b}=|a|^2+|b|^2=1 \]
+			 and its inverse is
+			 \[B^{-1}=\begin{pmatrix} \bar{a}&-b\\\bar{b}&a \end{pmatrix} =B^*.\]
+
+
+			Having estabilshed this expression for $\mathsf{SU}(2)$, it is clear that it is diffeomorphic to $S^3$ since its parameters $a,b\in\mathbb{C}$, $|a|^2+|b|^2=1$, can be understood as vectors $x\in\mathbb{R}^{4}$ of norm 1.
 
 		The quaternions are the only 4-dimensional real division algebra. This means it is a 4-dimensional real vector space equipped with a (non-commutative) multiplication. They are also equipped with a norm that coincides with euclidean norm. With respect to this norm we define the unit sphere $S^3$. 
 		
@@ -136,25 +159,29 @@ $\mathsf{OK}$ now we only need to find the vector $v$. The statement is that for
 			Checking that this map is a group isomorphism ammounts to checking that matrix multiplication in $\mathsf{SU}(2)$ is the same as quaternion multiplication 
 
 
-			\item (Proof from \cite{hall}, prop. 3.24 and coro. 3.46). We will show that $\mathfrak{su}(3)$ is the space of traceless anti-hermitian matrices and \cref{eq:1} will follow.
+			\item (Proof from \cite{hall}, prop. 3.24.) We will show that $\mathfrak{su}(3)$ is the space of traceless anti-hermitian matrices and \cref{eq:1} will follow.
 				\begin{enumerate}[label=\textbf{Step \arabic*}]
-					\item Show that the Lie algebra of a matrix Lie group $G$, defined as the tangent space at identity, is the same as the matrices $X$ such that $ \operatorname{exp}(tX) \in G$ for all $t\in\mathbb{R}$.
+					\item Show that the Lie algebra of a matrix Lie group $G$, defined as the tangent space at identity, is the same as the matrices $X$ such that $ \operatorname{exp}(tX) \in G$ for all $t\in\mathbb{R}$. (Inspired, though the proof is different because his definitions are different, in \cite{hall}, coro. 3.46.)
 
 						\begin{proof}[Proof of Step 1]\leavevmode
-							(\cite{hall}, coro. 3.46) If $X \in T_{\operatorname{Id}}G$, by definition of exponential map we have $\operatorname{exp}(tX) \in G$.%Define a curve $\gamma$ via the exponential map (seen in lectures, also see figure): $\gamma(t)=\operatorname{exp}(tX)$ which is in $G$ by definition of exponential map.
+							First suppose that $X$ is such that $\operatorname{exp}(tX)\in G$ for all $t\in\mathbb{R}$. Then the curve $\gamma(t)=\operatorname{exp}(tX)$, which is contained in $G$, passes through the identity at $t=0$ with velocity $X$, meaning that $X$ is in the tangent space of the identity element.
+
+							For the converse suppose that $X \in T_{\operatorname{Id}}G$. Our definition of exponential map is to move along the integral curve of $X$, say $\gamma_X$, by 1 unit of time. Then
+							\[\operatorname{exp}(tX) =\gamma_{tX}(1)=\gamma_X(t)\in G\]
+							by homogenity property.
+
+							%Define a curve $\gamma$ via the exponential map (seen in lectures, also see figure): $\gamma(t)=\operatorname{exp}(tX)$ which is in $G$ by definition of exponential map.
 	\begin{figure}[H]		\centering
 		\includegraphics[width=0.4\textwidth]{fig2}	
-	\caption*{\cite{lee}, fig. ?}\end{figure}
-Now suppose that $X$ is such that $\operatorname{exp}(tX)\in G$ for all $t\in\mathbb{R}$.
+	\caption*{(I spent way too much time thinking about this…)}\end{figure}
 
-	I got stuck with the proof in Hall so I will use prop 20.3 from \cite{lee}. The idea is to show see $\mathsf{SU}(2)$ as a subgroup of, say $\mathsf{GL}(2,\mathbb{C})$. Then a
 						\end{proof}
 
 					\item Then we look for the matrices such that for all $t\in\mathbb{R}$,
 						\[\operatorname{exp}(tX)^* =\operatorname{exp}(tX)^{-1}=\operatorname{exp}(-tX) \qquad \text{ and} \qquad \det \operatorname{exp}(tX)=1. \]
 						This means that
 						\[\operatorname{exp}(tX^*) =\operatorname{exp}(-tX) \qquad \text{and} \qquad \operatorname{ Tr}(X)=0.\]
-						The first implication is the result of the general facts that $e^{A}^*=e^{A^*}$ and $(e^A)^{-1}=e^{A^{-1}}$. Let's have a look at the second one:
+						The first implication is the result of the general facts that $(e^{A})^*=e^{A^*}$ and $(e^A)^{-1}=e^{A^{-1}}$. Let's have a look at the second one:
 \begin{quotation}
 	{\color{3}$(e^A)^{-1}=e^{A^{-1}}$}\hspace{.5em}This is nicely shown in \cite{lee} as follows. For any $X\in\mathsf{Lie}(G)$ map $t\mapsto \operatorname{exp}(tX)$ is a group homomorphism  $\mathbb{R}\to G$ because $\operatorname{exp}((t_1+t_2)X)=\operatorname{exp}(t_1X)\operatorname{exp}(t_2X)$ (but of course that could be justified…) anyway from this it follows that this map preserves inverses, which what we wanted.
 \end{quotation}
@@ -177,16 +204,60 @@ Now suppose that $X$ is such that $\operatorname{exp}(tX)\in G$ for all $t\in\ma
 Now let's identify $\mathfrak{su}(2)$ with $\mathbb{R}^{3}$ via $\alpha,\beta \mapsto (\alpha,\operatorname{Re}\beta,\operatorname{Im}\beta)$. We immediately see that
 \[\det \begin{pmatrix} i\alpha&\beta\\-\bar{\beta} &-i\alpha\end{pmatrix} =i\alpha(-i\alpha)=\beta(-\bar{\beta} )=\alpha^2+|\beta|^2=\|(\alpha,\operatorname{Re}\beta,\operatorname{Im}\beta)\|^2\]
 
-\item De acordo com o exercício anterior, é suficiente mostrar que $ABA^{-1}$ tem traza zero e $ABA^{-1}=-(ABA^{-1})^*$. A primeira propriedade é imediata dado que, em geral, $\operatorname{Tr}(XY)=\operatorname{Tr}(YX)$. Para a segunda propriedade note que
+\item De acordo com o exercício anterior, é suficiente mostrar que $ABA^{-1}$ tem traço zero e $ABA^{-1}=-(ABA^{-1})^*$. A primeira propriedade é imediata dado que, em geral, $\operatorname{Tr}(XY)=\operatorname{Tr}(YX)$. Para a segunda propriedade note que
 	\[(ABA^{-1})^*=(A^{-1})^*B^*A^*=(A^*)^*(-B)A^{-1}=-ABA^{-1}\]
 	O fato de que essa ação em $\mathsf{SU}(2)$ preserva a norma é immediato do item anterior e do fato de que determinante de um produto de matrizes é o produto dos determinantes.
 
-	Isso significa que cada elemento em $\mathsf{SU}(2)$ é uma transformação linear $\mathbb{R}^{3}\to \mathbb{R}^{3}$, i.e. um mapa $\mathsf{SU}(2)\to \mathsf{O}(3)$. Esse mapa é um homomorfismo já que 
+	Isso significa que cada elemento em $\mathsf{SU}(2)$ age como uma isometria linear $\mathbb{R}^{3}\to \mathbb{R}^{3}$, i.e. temos um mapa 
+	\begin{align*}
+	\varphi:\mathsf{SU}(2) &\longrightarrow \mathsf{O}(3) \\
+	A &\longmapsto I_A
+\end{align*}
+onde
+\begin{align*}
+	I_A: \mathfrak{su}(2) \cong \mathbb{R}^{3} &\longrightarrow \mathfrak{su}(2) \cong \mathbb{R}^{3} \\
+		B &\longmapsto ABA^{-1}
+\end{align*}
+
+	$\varphi$ é um homomorfismo já que para $A,A'\in  \mathsf{SU}(2)$ e $B\in\mathfrak{su}(2)$ temos que
+	\[I_{A A'}B=(A A')B(A A')^{-1}=A\Big(A'B(A')^{-1}\Big)A^{-1}=(I_A \circ  I_{A'})B.\]
+	Para determinar que matriz corresponde com a transformação $I_A$ mediante a identificação $\mathfrak{su}(2) \cong \mathbb{R}^{3}$, suponha que
+	\[A=\begin{pmatrix} a&b\\-\bar{b}&\bar{a} \end{pmatrix}, \qquad B=\begin{pmatrix} i\alpha &\beta\\-\overline{\beta} &-i\alpha\end{pmatrix}  \]
+	Daí,
+\begin{align*}
+	ABA^{-1}&=ABA^*=\begin{pmatrix} a&b\\-\bar{b}&\bar{a} \end{pmatrix}\begin{pmatrix} i\alpha &\beta\\-\overline{\beta}&-i\alpha \end{pmatrix}\begin{pmatrix} \overline{a}&-b\\\bar{b}&a \end{pmatrix} \\
+&=\begin{pmatrix} a&b\\-\bar{b}&\bar{a} \end{pmatrix}\begin{pmatrix} i \alpha\overline{a}+\beta\overline{b} & -i\alpha b + \beta a\\ -\overline{\beta}\overline{a}-i\alpha \overline{b} & \overline{\beta}b-i \alpha a \end{pmatrix}\\
+&=\begin{pmatrix} a(i \alpha \overline{a}+\beta\overline{b})+b(-\overline{\beta}\overline{a}-i\alpha\overline{b}) &  a(-i \alpha b+\beta a)+b(\overline{\beta}b-i\alpha a)\\ * & * \end{pmatrix} 
+\end{align*}
+Daí, se $(x_1,x_2,x_3)$ é vetor correspondente a $ABA^{-1}$, vemos que
+\begin{align*}
+	ix_1&=a(i \alpha \overline{a}+\beta\overline{b})+b(-\overline{\beta}\overline{a}-i\alpha\overline{b}) \\
+	&=i|a|^2\alpha+a\overline{b}\beta-b\overline{a}\overline{\beta}-i\alpha|b|^2\\
+	x_2+ix_3&=a(-i \alpha b+\beta a)+b(\overline{\beta}b-i\alpha a)\\
+	&=-iab \alpha
+\end{align*}
+Agora considere a base de $\mathfrak{su}(2)$ dada por
+\[\begin{pmatrix} i&0\\0&-i \end{pmatrix},\quad \begin{pmatrix} 0&1\\-1&0 \end{pmatrix} ,\quad \begin{pmatrix} 0&i\\-i&0 \end{pmatrix}  \]
+que corresponde à base canônica de $\mathbb{R}^{3}$. A matriz da transformação $I_A$  terá nas columnas os vetores correspondentes às imagens dessas treis matrizes. Ussando as formulas anteriores, concluimos que
+\[I_A=\begin{pmatrix} |a|^2-|b|^2 & \operatorname{Re}(-i(a\overline{b}-b \overline{a}))& \operatorname{Re}(a \overline{b}+b \overline{a})\\
+0 & \operatorname{Re}(a^2+b^2)& \operatorname{Re}(i(a^2-b^2)) \\
+-2ab& \operatorname{Im}(a^2+b^2)&\operatorname{Im}(i(a^2-b^2))\end{pmatrix} \]
 \end{enumerate}
+Para calcular o kernel de $\varphi$ suponha que a matriz anterior é a identidade. Segue que
+\begin{align*}
+	&=
+\end{align*}
+
+\item Supondo que mostramos que a imagem de $\varphi$ é $\mathsf{SO}(3)$ com kernel $\{\operatorname{Id},-\operatorname{Id}\}$, temos o isomorfismo
+	\[\dfrac{\mathsf{SU}(2)}{\{\operatorname{Id},-\operatorname{Id}\}}\cong \mathsf{SO}(3)\]
+Suponha que dois elementos $A,B \in\mathsf{SU}(2)$ estão na mesma classe de equivâlencia no quociente. Então
+\[AB^{-1}\in\{\operatorname{Id},-\operatorname{Id}\}\iff A=B \text{ ou }A=-B \]
+Assim, cada elemento de $\mathsf{SO}(3)$ correponde com dois elementos de $\mathsf{SU}(2)$. Como $\{\operatorname{Id},-\operatorname{Id}\}$ age de maneira prórpia, livre e disonctínua em $\mathsf{SU}(2)$, temos um recobrimento de $\mathsf{SO}(3)$. Também é claro que estamos identificando pontos antípodas de $S^3$ já que ser antípoda em $S^3$ corresponde com o produto com $-\operatorname{Id}$. Note que $\mathbb{R}P^{3}\cong S^3/\mathbb{Z}_2$.
+	de modo que $\mathsf{SU}(2)$ é um recobrimento de $\mathsf{SO}(3)$: cada ponto de $\mathsf{SO}(3)$ tem uma preimagem composta por dois elementos
 \end{proof}
 
 \addcontentsline{toc}{section}{Problem 4}
-\begin{idea4}{Problem 4}\leavevmode
+\begin{thing4}{Problem 4}\leavevmode
 	Let $\mathfrak{g}$ be the Lie algebra of a Lie group $G$, and let  $k:\mathfrak{g} \times \mathfrak{g}\to \mathbb{R}$be a symmetric bilinear form that is $\operatorname{Ad}$-invariant (i.e. $k(\operatorname{Ad}_g(u),\operatorname{Ad}_g(v))=k(u,v)$ for $g\in G$).
 	\begin{enumerate}[label=\alph*.]
 		\item Show that the map
@@ -200,23 +271,23 @@ Now let's identify $\mathfrak{su}(2)$ with $\mathbb{R}^{3}$ via $\alpha,\beta \m
 
 		\item Verify that \cref{Eq:4a} implies that $k([w,u],v)=-k(u,[w,v])$,  $\forall u,v,w\in\mathfrak{g}$, and that both conditions are equivalent when $G$ is connected.
 	\end{enumerate}
-\end{idea4}
+\end{thing4}
 
 \begin{proof}[Solução]
 	\begin{enumerate}[label=\alph*.]
 		\item É só abrir as definições . Fixe um elemento $x\in\mathfrak{g}$. No lado esquerdo, temos
-			\[k^\sharp \circ \operatorname{Ad}_g(x)=k^\sharp(\operatorname{Ad}_gx)=k(\operatorname{Ad}_gx,\cdot )\]
+			\[\Big(k^\sharp \circ \operatorname{Ad}_g\Big)(x)=k^\sharp(\operatorname{Ad}_gx)=k(\operatorname{Ad}_gx,\cdot )\]
 			e no lado direito,
-			\[(\operatorname{Ad}^* )_g\circ k^\sharp (x)=\operatorname{Ad}^*_g(k^\sharp (x))=\operatorname{Ad}^* _g(k(x,\cdot ))=k(x,\operatorname{Ad}_{g^{-1}}\cdot )\]
+			\[\Big((\operatorname{Ad}^* )_g\circ k^\sharp \Big) (x)=\operatorname{Ad}^*_g(k^\sharp (x))=\operatorname{Ad}^* _g(k(x,\cdot ))=k(x,\operatorname{Ad}_{g^{-1}}\cdot )\]
 			mas, como $k$ é $\operatorname{Ad}$-invariante,
-			$k(x,\operatorname{Ad}_{g^{-1}},\cdot )=k(\operatorname{Ad}_gx,\cdot )$.
+			$k(x,\operatorname{Ad}_{g^{-1}}\cdot )=k(\operatorname{Ad}_gx,\cdot )$.
 
 		\item Must check this later…
 	\end{enumerate}
 \end{proof}
 
 \addcontentsline{toc}{section}{Problem 5}
-\begin{idea1}{Problem 5}\leavevmode
+\begin{thing1}{Problem 5}\leavevmode
 For a Lie algebra $\mathfrak{g}$, there is always a canonical bilinear form $k:\mathfrak{g} \times \mathfrak{g} \to \mathbb{R}$, called \textit{\textbf{Killing form}}, given by:
 \[k(u,v)=\operatorname{tr}(\operatorname{ad}_u\operatorname{ad}_v).\]
 (\textit{Recall:} $\operatorname{ad}_u:\mathfrak{g} \to \mathfrak{g}$, $\operatorname{ad}_u(v)=[u,v]$.)
@@ -224,19 +295,32 @@ For a Lie algebra $\mathfrak{g}$, there is always a canonical bilinear form $k:\
 	\item Note that $k$ is symmetric, and check that it is  $\operatorname{Ad}$-invariant.
 	\item A Lie algebra is called \textit{\textbf{semi-simple}} if $k$ is nondegenerate. Show that $\mathfrak{so}(3)$ is semi-simple.
 \end{enumerate}
-\end{idea1}
+\end{thing1}
 
 \begin{proof}[Solution]\leavevmode
 	\begin{enumerate}[label=\alph*.]
-		\item O fato de $k$ ser simétrica segue de que, em geral, $\operatorname{tr}(AB)=\operatorname{tr}(BA)$. Para ver que $k$ é $\operatorname{Ad}$-invariante, note que, para $g\in G$,
+		\item O fato de $k$ ser simétrica segue de que, em geral, $\operatorname{tr}(AB)=\operatorname{tr}(BA)$. Para ver que $k$ é $\operatorname{Ad}$-invariante vamos mostrar que (a idea vem de \href{https://math.stackexchange.com/questions/2409279/showing-killing-form-is-ad-invariant}{StackExchange}):
+	\begin{equation}\label{Eq:2}	\operatorname{ad}_{\operatorname{Ad}_gu}=\operatorname{Ad}_g\circ \operatorname{ad}_u\circ \operatorname{Ad}_{g^{-1}}.
+		\end{equation}
+			Supondo isso, é fácil ver que
 			\begin{align*}
-				k(\operatorname{Ad}_gu,\operatorname{Ad}_gv)&=\operatorname{tr}(\operatorname{ad}_{\operatorname{Ad}u}\operatorname{ad}_{\operatorname{Ad}v})= \operatorname{tr}([\operatorname{Ad}u,[\operatorname{Ad}v,\cdot ]])=
+				\operatorname{ad}_{\operatorname{Ad}_gu}\circ \operatorname{ad}_{\operatorname{Ad}_{g}v}&=\operatorname{Ad}_{g}\circ \operatorname{ad}_u\circ \operatorname{Ad}_{g^{-1}}\circ \operatorname{Ad}_g\circ \operatorname{ad}_v\circ \operatorname{Ad}_{g^{-1}}\\
+				&=\operatorname{Ad}_g\circ \operatorname{ad}_u\circ \operatorname{ad}_v\circ \operatorname{Ad}_{g^{-1}}
 			\end{align*}
+			e o resultado segue do fato de que a traça é invariante baixo mudanças de coordenadas e que $\operatorname{Ad}_g^{-1}=\operatorname{Ad}_{g^{-1}}$. Isso último segue de que o mapa inverso de $I_g$  é $I_{g^{-1}}$, assim as derivadas deles também são inversa uma da outra.
+
+			Agora vamos mostrar \cref{Eq:2}. Pegue $x\in\mathfrak{g}$. O lado esquerdo diz que
+			\[\operatorname{ad}_{\operatorname{Ad}_gu}x=[\operatorname{Ad}_gu,x]\]
+			enquanto o direito diz que
+			\[\Big(\operatorname{Ad}_g\circ \operatorname{ad}_u\circ \operatorname{Ad}_{g^{-1}}\Big)x=\operatorname{Ad}_g[u,\operatorname{Ad}_{g^{-1}}x]=[\operatorname{Ad}_gu,x\]
+			já que $\operatorname{Ad}_g=d_eI_g$ não é apenas um automorfismo linear, mas é um automorfismo de álgebra de Lie, i.e. $\operatorname{Ad}_g[x,y]=[\operatorname{Ad}_gx,\operatorname{Ad}_gy]$ para $x,y\in\mathfrak{g}$. Isso segue do fato de que o pushforward de colchete de Lie de dois campos vetoriais e o colchete dos pushforwards dos campos vetoriais (ver \cite{lee}, coro. 8.31).
+		
+\item 
 	\end{enumerate}
 \end{proof}
 
 \addcontentsline{toc}{section}{Problem 6}
-\begin{idea4}{Problem 6}\leavevmode
+\begin{thing4}{Problem 6}\leavevmode
 	Consider the linear isomorphism $\mathbb{R}^{3}\to \mathfrak{so}(3)$, given by
 	\[v=(x,y,z)\longmapsto \hat{v}:=\begin{pmatrix} 0&-z&y\\z&0&-x\\-y&x&0 \end{pmatrix} \]
 	\begin{enumerate}[label=\alph*.]
@@ -244,7 +328,7 @@ For a Lie algebra $\mathfrak{g}$, there is always a canonical bilinear form $k:\
 
 		\item Describe the $\mathsf{SO}(3)$-action on $\mathbb{R}^{3}$ corresponding to the adjoint action, its orbits, as well as its infinitesimal generators. Find (without any calculation!) a description of the coadjoint action on $\mathbb{R}^{3}$ (identified with $(\mathbb{R}^{3})^*$ through the canonical inner product).
 	\end{enumerate}
-\end{idea4}
+\end{thing4}
 
 \begin{proof}[Solution]\leavevmode
 	\begin{enumerate}[label=\alph*.]
@@ -272,19 +356,19 @@ Para ver que o produto interno de $\mathbb{R}^{3}$ corresponde com $\frac{1}{2}\
 		       &=\begin{pmatrix} u_3v_3+u_2v_2&*&*\\ *&u_3v_3+u_1v_1&*\\ *&*&u_2v_2+u_1v_1 \end{pmatrix} 
 \end{align*}
 
-Agora vamos calcular a ação adjunta. 
-Primeiro notemos que a ação adjunta, definida como a derivada do operador $I_A(X)=AXA^{-1}$, é ela mesma. Talvez esse é um fato obvio porque $I_A$  é um mapa linear, e a sua derivada coincide com ele. Porém, tem um argumento mais explícito no \href{https://math.stackexchange.com/questions/512026/prove-that-the-action-of-a-lie-group-on-its-lie-algebra-via-the-adjoint-represen}{StackExchange}: a ação adjunta em um vetor  $X\in\mathfrak{so}(3)$ que seja a derivada em $t=0$ da curva $c\subset \mathsf{SO}(3)$, i.e.  $c'(0)=X$, é simplesmente $\frac{d}{dt}Ac(t)A^{-1}\Big|_{t=0}=AXA^{-1}$. A observação chave é que como a álgebra de Lie $\mathfrak{so}(3)$ é um álgebra de matrizes, o produto do lado direito está bem definido.
+\item Agora vamos calcular a ação adjunta. 
+Primeiro notemos que a ação adjunta, definida como a derivada do operador $I_A(X)=AXA^{-1}$, é ela mesma. Talvez esse é um fato obvio porque $I_A$  é um mapa linear, e a sua derivada coincide com ele. Porém, tem um argumento mais explícito no \href{https://math.stackexchange.com/questions/512026/prove-that-the-action-of-a-lie-group-on-its-lie-algebra-via-the-adjoint-represen}{StackExchange}: a ação adjunta em um vetor  $X\in\mathfrak{so}(3)$ que seja a derivada em $t=0$ da curva $\gamma\subset \mathsf{SO}(3)$, i.e.  $\gamma'(0)=X$, é simplesmente $\frac{d}{dt}A\gamma(t)A^{-1}\Big|_{t=0}=AXA^{-1}$. A observação chave é que como a álgebra de Lie $\mathfrak{so}(3)$ é um álgebra de matrizes, o produto do lado direito está bem definido.
 
-Em fim, agora vou seguir \href{https://www.ethaneade.org/lie.pdf}{este documento} para achar uma matriz que representa esse operador linear cuando identificamos $\mathfrak{so}(3)$ com $\mathbb{R}^{3}$. Mais precisamente, queremos achar uma matriz  $\overline{\operatorname{Ad}_A}$ tal que $\operatorname{Ad}_AX=AXA^{-1}\rightsquigarrow \overline{\operatorname{Ad}_A}x$ onde $x\in\mathbb{R}^{3}$  representa a matriz $X\in\mathfrak{so}(3)$.
+Em fim, agora vou seguir \href{https://www.ethaneade.org/lie.pdf}{este documento} para achar uma matriz que representa esse operador linear quando identificamos $\mathfrak{so}(3)$ com $\mathbb{R}^{3}$. Mais precisamente, queremos achar uma matriz  $\overline{\operatorname{Ad}_A}$ tal que $\operatorname{Ad}_AX=AXA^{-1}\rightsquigarrow \overline{\operatorname{Ad}_A}x$ onde $x\in\mathbb{R}^{3}$  representa a matriz $X\in\mathfrak{so}(3)$. Vamos ver que de fato essa matriz é $A$.
 
-O truque é usar que as matrizes em $\mathsf{SO}(3)$, sendo isometrías de $\mathbb{R}^{3}$, preservam o produto vetorial, i.e. $Ax\times Ay=A(x \times y)$ para qualquer $x,y\in\mathbb{R}^{3}$. Temos que
+O truque é usar que as matrizes em $\mathsf{SO}(3)$, sendo isometrías de $\mathbb{R}^{3}$, preservam o produto vetorial, i.e. $Ax\times Ay=A(x \times y)$ para qualquer $x,y\in\mathbb{R}^{3}$.
 \begin{align*}
 	\operatorname{Ad}_AXAy&=
 \end{align*}
 \end{proof}
 
 \addcontentsline{toc}{section}{Problem 7}
-\begin{idea1}{Problem 7}\leavevmode
+\begin{thing1}{Problem 7}\leavevmode
 	Let $(V,\Omega)$ be a symplectic vector space, and consider $H:=V\times \mathbb{R}=\{(v,t)\}$. This space $H$ with the multiplication
 	\[(v_1,t_1)\cdot(v_2,t_2)=\left( v_1+v_2,\frac{1}{2}\Omega(v_1,v_2)+t_1+t_2 \right) \]
 	is a Lie group called the \textit{\textbf{Heisenberg group}} (find the identity elements and inverses in  $H$).
@@ -293,7 +377,7 @@ O truque é usar que as matrizes em $\mathsf{SO}(3)$, sendo isometrías de $\mat
 		\item Verify that $\operatorname{ad}_{(Y,s)}(X,r)=(0,\Omega(Y,X))$. [Recalling that $\operatorname{ad}_{(Y,s)}(X,r)=[(Y,s),(X,r)]$, we obtain a formula for the Lie bracket in $ \mathfrak{h}$.]
 		\item Describe the coadjoint action of $H$ on $\mathfrak{h}^*=V^*\times \mathbb{R}^*$ and its orbits, analyzing the possible dimensions.
 	\end{enumerate}
-\end{idea1}
+\end{thing1}
 
 \begin{proof}[Solution]\leavevmode
 É imediato que a identidade em $H$ é $(0,0)\in V\times \mathbb{R}$, e o elemento inverso de $(v,t)$  é $(-v,-t)$.
@@ -312,7 +396,24 @@ daí é só calcular
 		\end{align*}
 A órbita adjunta de $(X,r)$  é $X\times \mathbb{R}$ sempre que $X\neq 0$ já que $\Omega$ é não degenerada. Caso $X=0$, a  órbita é um ponto, $(0,r)$.
 
-\item Em fim… o problema aqui é que não sei como calcular a derivada de $\operatorname{Ad}$ em $(0,0)$. Porque  $\operatorname{Ad}$ é um mapa de $G$ em  $\operatorname{Aut}(\mathfrak{g})$. 
+\item Para calcular $\operatorname{ad}_{(Y,s)}(X,r)$ devemos calcular o generador infinitesimal da ação adjunta como mapa $\operatorname{Ad}:H\to \mathsf{GL}(\mathfrak{h})$. 
+
+\begin{remark}\leavevmode
+	Não consegui entender por completo essa construção dada na aula, e perguntei no \href{https://math.stackexchange.com/questions/4984625/compute-the-derivative-of-adjoint-action-on-heisenberg-group?noredirect=1#comment10681405_4984625}{StackExchange}. Na verdade não tem muito que dizer: é só entender o que significa cada objeto. Em fim, decidi usar a definição em \cite{hall} de homomorfismo em álgebras de Lie induzido por homomorfismo em grupos de Lie (teo. 3.28). Essa construção me parece mais simples do que a vista em aula (que é para ações)---porém talvez aquela é mais geral.
+\end{remark}
+
+Em fim, parece que tudo se reduce a usar a curva $\gamma(t)=(\operatorname{exp}(tY),e^{ts})$, que em $t=0$ passa por $(0,0)$ com velocidade $(Y,s)$. A derivada de $\operatorname{Ad}_{\gamma(t)}$ em $t=0$ aplicada a um vetor $(X,r)$  é $\operatorname{ad}_{(Y,s)}(X,r)$.
+\begin{align*}
+	\operatorname{ad}_{(Y,s)}(X,r)&=\frac{d}{dt}\operatorname{Ad}_{(\operatorname{exp}(tY),e^{ts})}(X,r)\Big|_{t=0}\\
+	&=\frac{d}{dt}(X,\Omega(\operatorname{exp}(tY),X)+r)\Big|_{t=0}\\
+	&=(\frac{d}{dt}X\Big|_{t=0},\frac{d}{dt}\Omega(\operatorname{exp}(tY),X)+r\\
+	&=(0,D\Omega
+	&=(0,\Omega(Y,X))
+\end{align*}
+já que $\Omega(tY,X)$ é vista como a composição
+\[\begin{tikzcd}
+	\mathbb{R}\arrow[r]& V\times V\arrow[r]&\mathbb{R}
+\end{tikzcd}\]
 
 \end{enumerate}
 \end{proof}

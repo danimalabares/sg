@@ -1949,7 +1949,7 @@ Lembre que essas ações correspondem a $G\curvearrowright \mathfrak{g}$ e $G\cu
 	É so por definição e a regra da cadeia:
 	\begin{align*}
 		u_{\mathfrak{g}}(v)&=\frac{d}{dt}\Big|_{t=0}\operatorname{Ad}_{\operatorname{exp}(tu)}(v)\\
-		&=\frac{d}{dt}\Big|_{t=0}d_e(R_{\operatorname{exp}(-tu) \cdot L_{\operatorname{exp}(tu)}}(v)\\
+				   &=\frac{d}{dt}\Big|_{t=0}d_e(R_{\operatorname{exp}(-tu)}\circ  L_{\operatorname{exp}(tu)})(v)\\
 		&=\frac{d}{dt}\Big|_{t=0}dR_{\operatorname{exp}(-tu)}(v^L(\operatorname{exp}(tu))\\
 		&=[u^L,v^L]|_{e}\\
 		&=[u,v]
@@ -2291,7 +2291,7 @@ Hoje: exemplos concretos
 	já que é \textit{equivariante}.
 \end{remark}
 
-\begin{idea3}{Exemplo concreto da órbita e ação coadjunta}\leavevmode
+\begin{thing3}{Exemplo concreto da órbita e ação coadjunta}\leavevmode
 	\begin{align*}
 		\operatorname{SO}(3)&=\{A\in \mathcal{M}_{3\times 3}(\mathbb{R}):AA^{\mathbf{T}}=\operatorname{id},\det A=1\} \\
 		\mathfrak{so}(3) &=\{A\in\mathcal{M}_{3\times 3}(\mathbb{R}):A=-A^{\mathbf{T}}\}\\
@@ -2319,9 +2319,9 @@ e além disso, se o produto interno canónico de $\mathbb{R}^{3}$ é $\left<\cdo
 	\begin{exercise}\leavevmode
 		Mostre que a forma de área na esfera é um múltiplo constante da forma  KKS. O múltiplo é $1/r$ onde  $r$ é o raio da esfera.
 	\end{exercise}
-\end{idea3}
+\end{thing3}
 
-\begin{idea6}{Outro exemplo concreto}\leavevmode
+\begin{thing6}{Outro exemplo concreto}\leavevmode
 	\begin{align*}
 		G&=\operatorname{U}(n) =\{A\in\operatorname{GL}(n,\mathbb{C}):A A^*=\operatorname{id}\} \\
 		\mathfrak{g} &=\mathfrak{u}(n)=\{u\in\mathcal{M}_{n\times n}(\mathbb{C}):u=-u^*\}
@@ -2347,7 +2347,7 @@ e além disso, se o produto interno canónico de $\mathbb{R}^{3}$ é $\left<\cdo
 		e se chaman de \textit{\textbf{isoespetrais}}.
 
 	{\color{5}Qual é a topologia dessa órbita?}
-\begin{idea3}{Alguns casos}\leavevmode
+\begin{thing3}{Alguns casos}\leavevmode
 	\begin{itemize}
 	\item $\lambda_1<\lambda_2=\ldots =\lambda_n$ cada $\xi\in\mathcal{O}_\Lambda$ é determinada pelo autoespaço de $\lambda_1$, ou seja, una linha em $\mathbb{C}^{n}$. Defina $\mu=\lambda_2=\ldots =\lambda_n$. (Como o teorema espectral nos da uma descomposição ortogonal com os autoespaços de uma transformação hermitiana, a ação de uma transformação $\xi \in\mathcal{H}$ fica determinada por essa linha.) Daí,
 		\[\mathcal{O}_\Lambda\cong \mathbb{C}P^{n-1}\]
@@ -2367,10 +2367,10 @@ e além disso, se o produto interno canónico de $\mathbb{R}^{3}$ é $\left<\cdo
 		 \[L_1=E_1\subseteq\ldots \subseteq E_n=\mathbb{C}^{n}\]
 		isso se chama de \textit{\textbf{variedade bandeira (completa)}}.
 	\end{itemize}
-\end{idea3}
-\end{idea6}
+\end{thing3}
+\end{thing6}
 
-\begin{idea1}{Projeto?}\leavevmode
+\begin{thing1}{Projeto?}\leavevmode
 	Relação entre geometria simplética e álgebra linear. Tem um teorema básico sobre matrizes hermitianas:
 	\begin{thm}[Schur-Horn]\leavevmode
 		$\mathcal{O}_\Lambda$ uma variedade isoespetral (todos os caras hermitianos cujo espetro e esse $\Lambda$), $\{\xi \in\mathcal{H}:\operatorname{s pec}(\xi)=\Lambda\}$.
@@ -2383,22 +2383,22 @@ e além disso, se o produto interno canónico de $\mathbb{R}^{3}$ é $\left<\cdo
 	\begin{remark}
 		Esse teorema pode ser generalizado (Atiyah-?) trocando $\mathcal{O}_\Lambda$ por uma variedade simplética com a ação do toro maximal.
 	\end{remark}
-	\begin{idea3}{Horn's problem}\leavevmode
+	\begin{thing3}{Horn's problem}\leavevmode
 		Descrever o espectro da soma de dois matrizes hermiticanas com espectros conhecidos. Tem um artigo expositório (survey) de A. Knutson, \textit{AThe symplectic and algebraic geometry of Horn's problem}. Também tem um artigo de pesquisa famoso com Terry Tau, e outro dele com Terry Tau e Chris Woodsword (esses estão citados no survey).
-	\end{idea3}
-\end{idea1}
+	\end{thing3}
+\end{thing1}
 
 \subsection{Ponto de vista "Poisson"}
 
 Lembre:
- \begin{idea7}{Estrutura de Poisson}\leavevmode
+ \begin{thing7}{Estrutura de Poisson}\leavevmode
  	\begin{align*}
  		\{\cdot,\cdot\}: \mathcal{C}^\infty(M)\times \mathcal{C}^\infty(M) &\longrightarrow \mathcal{C}^\infty(M)
  	\end{align*}
 	forma $ \mathbb{R}$-bilinear antisimétrica ($\{f,g\} =-\{g,f\}$) Jacobi e Leibniz ($\{f,gh\} =\{f,g\} h+\{f,h\} g$.
- \end{idea7}
+ \end{thing7}
 
-\begin{idea6}{Exemplos}\leavevmode
+\begin{thing6}{Exemplos}\leavevmode
 	\begin{itemize}
 	\item $\{\cdot,\cdot\} =0$.
 	\item $(M,\omega)$ simplética, $\{f,g\} =\omega(X_g,X_f)$.
@@ -2412,7 +2412,7 @@ Lembre:
 		\[H(x,y,z)=\frac{x^2}{2I_1}+\frac{y^2}{2I_2}+\frac{z^2}{2I_3}\]
 		Daí vêm as equações de Euler-?
 	\end{itemize}
-\end{idea6}
+\end{thing6}
 
 \subsubsection{Descrição tensorial (do colchete de Poisson)}
 
@@ -2445,9 +2445,9 @@ Agora vamos ver a fórmula para o colchete de Poisson associado a $[\cdot,\cdot 
 \[\{f,g\}(\xi)=\left<\xi,[df(\xi),dg(\xi)]\right> \]
 para $f,g\in\mathcal{C}^\infty(\mathfrak{g}^*)$.
 
-\begin{idea4}{Conclusão}\leavevmode
+\begin{thing4}{Conclusão}\leavevmode
 	\[\substack{\text{estruturas de Poisson}  \\ \text{lineares em $V=\mathfrak{g}^*$} }\longleftrightarrow \substack{\text{álgebra de Lie}  \\ \text{em $V^*=\mathfrak{g}$} }\]
-\end{idea4}
+\end{thing4}
 
 Pode ver que
 \[\begin{tikzcd}
@@ -2525,13 +2525,13 @@ u\arrow[dr, maps to]&\mathfrak{X}(M)&X_f\\
 
 No casso abeliano, que é o caso dos fluxos, essa segunda condição de equivariança é trivialmente satisfeita.
 
-\begin{idea5}{Terminologia}\leavevmode
+\begin{thing5}{Terminologia}\leavevmode
 	\begin{itemize}
 	\item $(M,\omega,\mu)$ é um  \textit{\textbf{$G$-espaco hamiltoniano}}.
 	\item $\mu$ é \textit{\textbf{aplicação momento}}.
 	\item $G$ abeliano: $\mu$ é $G$-equivariante $\iff$ $\mu$ é $G$-invariante.
 	\end{itemize}
-\end{idea5}
+\end{thing5}
 
 \begin{example}\leavevmode
 No caso abeliano, isso vira simplesmente escolher uma função que seja a hamiltoniana do campo vetorial associado à $ \mathbb{R}$-ação. Issto é, a apliação momento para uma $\mathbb{R}$-ação com campo gerador $X$ é uma função $H\in\mathcal{C}^\infty(M)$ tal que $X=X_H$. Note que  $H$ é constante ão longo do fluxo de $X_H$.
@@ -2618,7 +2618,7 @@ Quando temos $(M,\omega)$ e $\omega=-d\theta$ é exata. Com uma ação $G\overse
 	\[\hat{\psi}_g=(d\hat{\psi}_{g^{-1}})^*\]
 	Y vimos que o levantamiento cotangente preserva a forma tautológica, i.e., $(\hat{\psi}_{g})^*\alpha=\alpha$. Isso implica que temos uma ação hamiltoniana.
 
-	\begin{idea5}{Ação momento}\leavevmode
+	\begin{thing5}{Ação momento}\leavevmode
 		\begin{align*}
 			\mu:T^*Q  &\longrightarrow \mathfrak{g}^* \\
 			\left<\mu,u\right>  &=i_{u_M}\alpha 
@@ -2633,7 +2633,7 @@ Quando temos $(M,\omega)$ e $\omega=-d\theta$ é exata. Com uma ação $G\overse
 		\end{tikzcd}\]
 		onda simplesmente $\alpha_\xi=\pi^*\xi$.
 		
-	\end{idea5}
+	\end{thing5}
 \end{example}
 
 \begin{example}[Outros exemplos]\leavevmode
@@ -2687,7 +2687,7 @@ Mas ese espaço pode ser ruim. Por exemplo, $G=\mathbb{R}\curvearrowright R$ com
 	$G \curvearrowright P$ é \textit{\textbf{regular}} se  $P/G$  é uma $\mathcal{C}^\infty$-variedade e $p\overset{\pi}{\longrightarrow}P/G$ é sumersão.
 \end{defn}
 
-\begin{idea2}{Critério}\leavevmode
+\begin{thing2}{Critério}\leavevmode
 	$G \curvearrowright P$.
 	\begin{itemize}
 	\item \textit{\textbf{Livre}}: $\forall  p \in P$, $G_p=\{e\}$ ($g\cdot p=p \implies g=e$).
@@ -2698,7 +2698,7 @@ Mas ese espaço pode ser ruim. Por exemplo, $G=\mathbb{R}\curvearrowright R$ com
 		\end{align*}
 		é \textit{\textbf{própria}} se a imagem inversa de compacto é compacto.
 	\end{itemize}
-\end{idea2}
+\end{thing2}
 
 \begin{example}\leavevmode
 	$G$ compacto $\implies $ $G$-ação é própria.
@@ -2852,13 +2852,13 @@ ie,
 
 \subsection{Alguns comentários sobre o teorema}
 
-\begin{idea4}{Para que serve?}\leavevmode
+\begin{thing4}{Para que serve?}\leavevmode
 Por exemplo, para disminuir os graus de liberdade de um sistema Hamiltoniano em uma variedade. Também pode ser que o espaço de moduli seja esse quociente.
-\end{idea4}
+\end{thing4}
 
-\begin{idea5}{Em vários casos a redução é "singular"}\leavevmode
+\begin{thing5}{Em vários casos a redução é "singular"}\leavevmode
 	É quando a ação não é regular, não tem quociente suave. Aqui pode usar "espaços estatificados". Também pode usar um approach mas algébrico: redução "homológica". Isso último leva aos métodos BRST e BV.
-\end{idea5}
+\end{thing5}
 
 \begin{exercise}\leavevmode
 	$x\in M$, $\mathfrak{g}_x\subseteq \mathfrak{g}$, então vale
@@ -2866,34 +2866,34 @@ Por exemplo, para disminuir os graus de liberdade de um sistema Hamiltoniano em 
 	daí, $\xi$ é um valor regular $\implies $ $\mathfrak{g}_x=\{0\}$ $\implies $ $G_x$  é discreta $\implies $ $G_\xi\curvearrowright \mu^{-1}(\xi)$ é localmente livre. Se $G_\xi$ é compacto, $M_\xi$ é um \textit{\textbf{orbifold simplético}}.
 \end{exercise}
 
-\begin{idea1}{Outro comentário}\leavevmode
+\begin{thing1}{Outro comentário}\leavevmode
 	$\xi$ valor regular, $M_\xi=\mu^{-1}(\xi)/G_\xi$ onde $G_\xi$ age livremente em $\mu^{-1}(\xi)$.
 	\begin{align*}
 		\dim M_\xi&=\dim \mu^{-1}(\xi)-\dim G_\xi\\
 		&=\dim M-\underbrace{\dim \mathfrak{g}^*}_{\dim G}-(\dim G-\dim \mathcal{O}_\xi)\\
 		&=\dim M+\dim \mathcal{O}_\xi-2\dim G
 	\end{align*}
-\end{idea1}
+\end{thing1}
 
 
-\begin{idea2}{Shift trick}[Vai vir na lista]…\leavevmode
+\begin{thing2}{Shift trick}[Vai vir na lista]…\leavevmode
 	A redução simplética depende da escolha do $\xi$. Se pegamos $\xi,\xi'$ na mesma órbita coadjunta, então $M_\xi\cong M_{\xi'}$. Tem mais: bota tudo em um espaço mais grande para mostrar que todo quociente é um quociente do zero naquele espaço maior… vai vir na lista
-\end{idea2}
+\end{thing2}
 
-\begin{idea6}{Hamiltoniano em $M$ da hamiltoniano em $M_\xi$}\leavevmode
+\begin{thing6}{Hamiltoniano em $M$ da hamiltoniano em $M_\xi$}\leavevmode
 	Isso mem
-\end{idea6}
+\end{thing6}
 
 \subsection{Exemplos simples}
 
-\begin{idea4}{Um exemplo muito simlpes}\leavevmode
+\begin{thing4}{Um exemplo muito simlpes}\leavevmode
 	
 A reta agindo numa variedade simplética, que é o fluxo de algum campo $X$. A aplicação momento é o Hamiltoniano $H\in\mathcal{C}^\infty(M)$, $X_H=X$, a aplicação momento é $H:M\longrightarrow \mathbb{R}$. Isso daqui é uma ação hamiltoniana no caso mais simples.
 
 Agora pegue um valor regular de  $H$, $\xi$. Se a ação $\mathbb{R}\curvearrowright H^{-1}(\xi)$ é boa, obtemos que $H^{-1}(\xi)/\mathbb{R}$ é uma variedade simplética com $\omega_{\operatorname{red}}$.
-\end{idea4}
+\end{thing4}
 
-\begin{idea3}{Exemplo}\leavevmode
+\begin{thing3}{Exemplo}\leavevmode
 	Muito parecido: considere $R\dashrightarrow \mathbb{S}^1\curvearrowright \mathbb{C}^{n+1}=\mathbb{R}^{2n+2}$, a ação do círculo assim:
 	\[e^{i\theta}(z_0,\ldots,z_n)=(e^{i\theta}z_0,\ldots,e^{i\theta}z_n)\]
 Agora, pelo teorema da aplicação momento (?), temos que
@@ -2902,9 +2902,9 @@ Agora, pelo teorema da aplicação momento (?), temos que
 	\mu(z) &=-\frac{1}{2}\|z\|^2\underbrace{+1/2}_{\text{opcional} }
 \end{align*}
 assim, $\mu^{-1}(0)/\mathbb{S}^1=\mathbb{C}P^{n},\omega_{\operatorname{red}}$, i.e., {\color{3}pelo teorema de Marsden-Weinsten, o $\mathbb{C}P^{n}$ tem uma estrutura simplética}.
-\end{idea3}
+\end{thing3}
 
-\begin{idea4}{Mesmo mas mais geral}\leavevmode
+\begin{thing4}{Mesmo mas mais geral}\leavevmode
 	Agora pegue
 	\[e^{i\theta}(z_0,\ldots,z_n)=(e^{ik_0\theta}z_0,\ldots,e^{ik_n\theta}z_n)\]
 	Considere caso $n=1$, temos
@@ -2912,7 +2912,7 @@ assim, $\mu^{-1}(0)/\mathbb{S}^1=\mathbb{C}P^{n},\omega_{\operatorname{red}}$, i
 	obtemos
 	\[\mu(z_0,z_1)=-\frac{1}{2}\left( k\|z_0\|^2+\|z_1\|^2 \right) \]
 	Pegue $\xi<0$ valor regular. Se $k=1$ obtemos um quociente que  é topologicamente uma esfera, mas tem uma singularidade: a \textit{\textbf{gota de lágrima}}---uma esfera com um pontinho singular.
-\end{idea4}
+\end{thing4}
 
 \section{Aula 18}
 
@@ -3229,12 +3229,12 @@ Para variedades tóricas,
 
 \section{Aula 20: Exitência e unicidade de aplicações momento}
 
-\begin{idea8}{Projeto final}\leavevmode
+\begin{thing8}{Projeto final}\leavevmode
 	Para este domingo: tema e uma ou duas referencias. Aproximadamente um mes depois (22 novembro): primeiro rascunho. Última semana de novembro e primeira de dezembro: apresentações. Uns 40 minutos de apresentação. Não tem que apresentar tudo que está no trabalho escrito.
 
 	
 
-\end{idea8}
+\end{thing8}
 
 \subsection{A primeira obstrução : um diagraminha commutativo}
 
@@ -3331,9 +3331,9 @@ for $u,v\in\mathfrak{g}$.
 	i.e., um elemento $c_2^\mu\in \Lambda^2\mathfrak{g}^*$, i.e. uma classe $[c_2^\mu\in H^{2}(\mathfrak{g})$.
 \end{remark}
 
-\begin{idea4}{Lema (Exercício)}\leavevmode
+\begin{thing4}{Lema (Exercício)}\leavevmode
 	$\delta c^\mu_2=0$. Segue da identidade de Jacobi
-\end{idea4}
+\end{thing4}
 
 \begin{lemma}\leavevmode
 	$[c_2^\mu]$ não depende de $\hat{\mu}$ (só depende da ação simplética).
@@ -3352,8 +3352,8 @@ Agora lembre que por definição  de $\delta$, $\delta b (u,v)=\big([v,u])$. Iss
 	Seja $G\curvearrowright(M,\omega)$ fracamente hamiltoniana (ou seja que a primeira obstrução ta resolvida) ($\iff c_1-0$). Então existe  $\hat{\mu}$ satisfzendo as duas obstruções  $\iff c_2=0$.
 \end{prop}
 
-\begin{idea8}{Ou seja, $c_2$ mede a segunda obstrução}\leavevmode
-\end{idea8}
+\begin{thing8}{Ou seja, $c_2$ mede a segunda obstrução}\leavevmode
+\end{thing8}
 
 \begin{proof}[Demostração]
 	\begin{itemize}
@@ -3367,14 +3367,14 @@ Agora lembre que por definição  de $\delta$, $\delta b (u,v)=\big([v,u])$. Iss
 	\end{quotation}}
 \end{proof}
 
-\begin{idea5}{Consequencia}\leavevmode
+\begin{thing5}{Consequencia}\leavevmode
 	$M$ y $G$ conexos. Toda ação simplética em $(M,\omega)$ satisfazendo
 	\begin{itemize}
 	\item $H^{1}(\mathfrak{g})=0$.
 	\item $H^{2}(\mathfrak{g})=0$
 	\end{itemize}
 é hamiltoniana {\color{3}com única aplicação momento (ainda falta falar de unicidade)}.
-\end{idea5}
+\end{thing5}
 
 \begin{remark}\leavevmode
 	$\mathfrak{g}$ semisimple implica $H^{1}(\mathfrak{g})=0$ e $H^{2}(\mathfrak{g})=0$. Isso é um caso particular dos lemas de Whitehead.
@@ -3405,6 +3405,257 @@ Por outro lado, $\mu$ aplicação momento equivarânte e pegamos $b\in [\mathfra
 \end{itemize}
 
 \section{Aula 21}
+
+\subsection{Hiperfície de contato}
+
+\begin{defn}\leavevmode
+	Uma \textit{\textbf{variedade de contato}} $M^{2n-1}$ é uma variedad com uma \textit{\textbf{1-forma de contato}} $\alpha$, ou seja, $\alpha\wedge (d\alpha)^{n-1}$ é uma forma de volume (diferente de zero em todo ponto). Chamamos $\xi=\ker \alpha$ de \textit{\textbf{estrutura de contato}}.
+\end{defn}
+
+Note que $d\alpha|_{\xi_p}$ é não degenerada. $\alpha |_{\ker d\alpha}$ é não nula pelo fato de que $\alpha\wedge (d\alpha)^{n-1}$. Aí podemos dividir essa distribuição de dimensão 1 no lado onde $\alpha$ é  positiva e onde é negativa.
+
+\begin{defn}\leavevmode
+	O \textit{\textbf{campo de Reeb}} de $\alpha$ é o campo vetorial $R_\alpha$ únicamente caracterizado pelas equações 
+	\begin{align*}
+		i_{R_\alpha}d \alpha&=0,\qquad \alpha(R_\alpha)\equiv 1.
+	\end{align*}
+\end{defn}
+
+\begin{remark}\leavevmode
+	Esee é um campo canônicamente associado à forma de contato. Não tem algo assim em variedades simpléticas.
+\end{remark}
+
+\begin{thing4}{Referência}[Para quem quiser estudar mais sobre isso]\leavevmode
+	Geiges, \textit{Introduction to Contact Topology} 
+\end{thing4}
+
+Agora pegue $(M^{2n},\omega)$ simplética e $S\subset M$ hiperfície.
+
+\begin{defn}\leavevmode
+	$S$ é uma \textit{\textbf{hiperfície de contato}} se  $S$ admite uma forma de contato $\alpha$ tal que $d\alpha=\omega|_{S}=i^*\omega$.
+\end{defn}
+
+\begin{thm}\leavevmode
+	Uma hiperfície de contato compacta $S$ de $M$ é de contato se e somente se existe um campo vetorial $X$ definido em uma vizinhança $U$ de $S$ tal que
+	\begin{enumerate}
+		\item $X$ é \textit{\textbf{conformemente simplético}}, ou seja, $\mathcal{L}_X\omega=\omega$.
+		\item $X\pitchfork S$ ($X$ é transversal a $S$)
+	\end{enumerate}
+\end{thm}
+
+\begin{exercise}\leavevmode
+	 Mostre que  $\mathcal{L}_X\omega=\omega\iff \varphi_t^*\omega=e^t \omega$.
+
+	 Compare com o caso simplético: aí a gente tinha que $\mathcal{L}_X\omega=0$, i.e. que o fluxo puxa $\omega$ em $\omega$. Aqui estamos multiplicando por factor, e por isso dizemos que é conforme.
+\end{exercise}
+
+\begin{proof}[Prova do teorema]\leavevmode
+	($\impliedby$) Defina $\alpha=i_X\omega$. Vamos ver que $\alpha$ restringida a $S$ é uma forma de contato. Pela fórmula de Cartan,
+	\begin{align*}
+		d\alpha&=\mathcal{L}_X\omega=\omega
+	\end{align*}
+	Como $S$ possui dimensão ímpar $\exists T\in T_xS$ tal que $\omega_x(Y,v)=0$ $\forall  x\in S$ e $\forall v \in \in T_xS$. Como $\omega$ é não degenerada, $\alpha_x(Y)=\omega_x(x),Y)\neq 0$.
+
+	Portanto,
+	\[D_s=\{v\in T_xS;\omega_x(X(x),v)=0\}\]
+	define uma distribuição de hiperplanos em $S$ complementar a $Y$. (Note que $D_x$ é o ortogonal simplético do plano simplético $ \operatorname{s p a n}\{X(x),Y\}$.)
+
+Consequentemente $\alpha\wedge (d\alpha)^{n-1}\neq 0$ em todo ponto, i.e., forma de volume.
+
+($\implies $) Vamos contruir uma primitiva de $\alpha$ i.e. que $d\alpha$ seja $\omega$. Vamos precisar do seguinte
+
+\begin{lemma}\leavevmode
+	Existe uma vizinhança $U$ de $S$ e uma 1-forma $\tau$ em $U$ tal que $\tau$ é uma primitiva de $\omega$, i.e. $d\tau=\omega$ e $i^*\tau=\alpha$
+\end{lemma}
+
+\begin{proof}[Prova do lema]\leavevmode
+	Pelo teorema da vizinhança tubular, existe uma vizinhança $U$ de $S$ e um difeomorfismo \[\psi:S\times (-1,1)\to U\] tal que \[\psi(x,0)=x\qquad  \text{ para toda}x \in S\]. Compondo a inversa de $\psi$ com a projeção no primeiro fator temos um mapa $r:U\to S$.
+
+	Seja $\mu=i^*\alpha$. Temos que $i^*\mu=i^*r^*\alpha=\alpha$ pois $\underbrace{\pi_1 \circ \psi^{-1}}_{r}\circ i=\operatorname{Id}$.
+
+	Considere a 2-forma
+	\[\eta:=\omega-d\mu\]
+	Repare que $d\eta=0$ e $i^*\eta=0$, pois
+	\[i^*\eta=i^*\omega-di^*\mu=d\alpha-d\alpha=0\]
+
+	{\color{3}$\eta$ é uma 2-forma definida numa vizinhança $U$ de $S$, ela é fechada, e restrita a $S$ é zero. Então pode achar uma primitiva de $\eta$ numa vizinhança de $S$ que se anula quando restrita a $S$ pelo lema de Poincaré generalizado.}
+
+	Pelo lema de Poincaré generalizado, existe uma 1-forma $\xi$ em $U$ tal que
+	 \[\eta=d\xi\qquad \text{e}\qquad i^*\xi=0 \]
+	 Defina então
+	 \[\tau:=\mu+\xi.\]
+	 Como
+	 \[d\tau=d(\mu+\xi)=d\mu \omega-d\mu=\omega\]
+	 e
+	 \[i^*\tau=i^*\mu=\alpha,\]
+	 concluimos a prova do lema.
+\end{proof}
+
+{\color{7}Como terminhamos a demostração do teorema ussando o lema?} Seja $X$ o campo em $U$ tal que $i_X\omega=\tau$. Vamos ver que esse $X$ satisfaiz a duas propriedades.
+
+Primeira propriedade e imediata:
+\[\mathcal{L}_X\omega=d(i_X\omega)=d\tau=\omega.\]
+Agora vejamos que $X\pitchfork S$. Seja  $Y$ o campo de Reeb em $S$ i.e. dado pelas equações
+\begin{align*}
+	\alpha(Y)&\equiv 1,\qquad  i_Yd\alpha=0
+\end{align*}
+Note que
+\[\omega(X,Y)=\alpha(Y)=1\]
+Mas se $X$ fosse tangente a $S$ em algum ponto $x\in S$, teríamos que
+\[\omega(X(x),Y(x))=d\alpha(X(x),Y(x))=0\]
+{\color{3}A $\alpha$ restrita a $S$  é $\omega$.} Isso é uma contradição.
+\end{proof}
+
+\subsection{Exemplos de hiperfícies de contato}
+
+Agora vamos ussar esse teorema para construir exemplos simples de variedades de contato.	
+
+\begin{enumerate}
+	\item O campo radial $X(x)=\frac{x}{2}$, onde $x=(q,\gamma)\in\mathbb{R}^{2}$ é claramente conformemente simplético com respeito à $\omega=\sum dq_i\wedge dp_i$ pois $i_X\omega=\frac{1}{2}\sum q_idp_i-p_idq_i$.
+
+	{\color{3}Portanto, qualquer hiperfície compacta star-shaped (i.e. $\pitchfork X$) é tipo contato.}
+
+	Em particular, as esferas vão ser de contato.
+
+	\item Depois de $\mathbb{R}^{2n}$, a seguinte variedade de contato mais natural é o fibrado contangente $T^*Q$ com a forma simplética canónica. Seja $X(q,p)=p$ o campo radial  ão longo das fibras. Temos que
+		\[i_X\omega=\sum p_idq_i=-\alpha\]
+		one $\alpha$ é a forma tautológica. Em particular o fibrado unitário $S^*Q=\{(q,p)\in T^* Q:\|p\|=1\}$ com qualquer métrica Riemanniana em $Q$ é uma hiperfície tipo contato.
+
+		{\color{3}Níveis de energia do fluxo geodésico são hipersuperfícies de contato. O mundo natural onde mora o fluxo geodésico é o fibrado unitário. Em Da Silva: o fluxo geodésico é um sistema Hamiltoniano.}
+\end{enumerate}
+
+
+
+\section{Aula 22}
+
+Hoje vamos terminhar de falar de hiperfícies de contato. Interessantemente não é fácil construir exemplos de hiperfícies que não são de contato. Vamos dar um exemplo agora
+
+\subsection{Exemplo de hiperfície que não é de contato}
+
+\begin{example}[De hiperfície em $\mathbb{R}^{2n}$ que não é de contato]\leavevmode
+	Pegue duas constantes positivas $R>r>0$ e considere a hiper ífice $S$ em $\mathbb{R}^{2n}$ difeomorfa a $S^{2n-1}$ que tangencia os bordos dos cilindros $Z(R)$ e $Z(r)$ onde
+	 \[Z(r)=\{(p,q)\in\mathbb{R}^{2n}:q_1^2+p_1^2\leq r\}\]
+	 i.e. pegue um disco de raio $r$ no plano \textit{simplético} (é importante que seja simplético) e varra ele por tudo o $\mathbb{C}^{n-1}$ restante. E também tem o cilindro de raio $R$. Ahí pode botar uma esfera que contenha o círculo de raio $R$, e deformar ela de um jeito simpático para fazé-la ser tangente também ao cilindro pequeno que esta dentro do cilindro grande.
+
+	 A esfera normal sim é de contato. Mas essa não.
+
+	 Seja $N$ um campo normal a $S$ que em $S\cap Z(R)$ aponta para fora e em $S\cap Z(r)$ aponta para dentro. (Qualquer campo normal a essa esfera tem essa propiedade, ou a inversa---dentro/fora, tanto faiz.) {\color{4}Parece que a esfera é deformada ainda mais, de tal jeito que ten regiões onde coincide com os cilindros---com os dois.} Note que tal campo pode ser dado por
+	 \[N( q_1,\ldots,q_n,p_1,\ldots,\mathbb{P}^n)=(q_1,0,\ldots,p_2,0,\ldots,), \qquad \forall (q_1,p_1)\in Z(R)\]
+	 pois é porque simplesmente é não fazer nada nas coordenadas de dimensão maior e, suponho, no círculo esse é o campo normal.
+
+	 Note que $J_0N$ é tangente a $S$ ($J_0$ é a matriz simplética que usamos muito no principio do curso). Vamos a ussar a convenção (acho que coincide com a usamos antes) de que métrica compatível é quando
+	 \[g=\omega(\cdot,J_0\cdot )\]
+	 é um produto interno, i.e.
+	 \[g(\cdot,J_0\cdot )=-\omega(\cdot,\cdot ).\]
+	 Em fim, $J_0N$ é tangente a $S$ porque
+	 \[\left<J_0N,N\right> =\omega(N,N)=0\]
+ e como \[\omega_0(N,J_0v)=-\omega_0(J_0N,v)=g(N,v)=0\;\forall v\in TS\]
+ i.e. $J_0N$ gera $\ker \omega|_{S}$.
+
+ {\color{8} O ponto é que o núcleo dessa forma é gerado por $J_0N$.}
+
+ {\color{8}Então como $J_0N$ ta no kernel, se tem uma forma de contato $\beta$, ela é não zero no kernel, assim $\beta J_0N$ e sempre positiva ou sempre negativa.}
+
+ {\color{8}A gente argumentou que $J_0N$ ta no kernel. Como é que $\beta(J_0N)$ é sempre positivo/negativo? }
+
+ Suponha que $S$ possui uma forma de contato $\beta$ de forma que $\beta(J_0N(r))>0$ ou $ \beta(J_0N(r))<0$ para toda $r \in S$. Suponha, sem perda de generalidade, que $ \beta(J_0N)>0$.
+
+{\color{7}Ahora note que $J_0$ rota $N$ no sentido antihorario, i.e. vai ser tangente  ao círculo, e a curva integral (ele chama de órbita) vai ser o círculo. Mas como no círculo grande/pequeno, o campo normal muda de ir pra dentro e pra fora, aí o fluxo vai mudar de direção.}
+
+Pela construção, $S$ possui duas órbitas periódicas $\gamma_R$ e $\gamma_r$ em $S\cap Z(R)$ e $S\cap Z(r)$ no plano (afim) $(q_1,p_1)$ quando em direções  opostas.
+
+Seja $\alpha=\sum p_idq_i$ de forma que $d\alpha=-\omega_0$. É fácil ver que
+\[\int_{\gamma_r}\alpha=-\pi r^2\qquad \text{ e }\qquad \int_{\gamma_R}\alpha=\pi R^2 \]
+{\color{8}Aqui é Stokes acho}, é a área dos círculos.
+
+Por outro lado, como $S\cong S^{2n-1}$, $H^{1}(S)=0$, então toda forma fechada é exata. A forma $\alpha+\beta$ é exata pois $d(\alpha+\beta)=-\omega_0+\omega_0=0$. Daí, existe $f \in\mathcal{C}^\infty(S)$ tal que $\alpha+\beta=df$. Consequentemente,
+\[\int_{\gamma_r}\beta=-\int_{\gamma_r}\alpha>0 \qquad \text{ e }\qquad \int_{\gamma_R}\beta=-\int_{\gamma_R}\alpha<0 \]
+mais esses campos são soluções  de $J_0N$, e tamos supondo que  $\beta(J_0N)>0$, que é absurdo. Portanto, $\beta$ não existe e $S$ não é de contato.
+
+{\color{8}Mas qual é a contradição? A condição $\beta(J_0N)>0$ diz o que sobre essas integrais?}
+Ah porque as integris são, por definição 
+\[0<\int_{\gamma_r}\beta=\int_{0}^{T_r}\beta(\dot \gamma_r)=\int_{0}^{T_r}\beta(J_0N)\]
+onde $T_r$  é o período de $\gamma_r$. A outra integral é análoga. Assim a gente vai ter que essas integrais são uma positiva e a outra negativa. Mas a gente viu que $\beta(J_0N)$ é sempre positiva ou negativa---as integrais deveriam ser do mesmo signo.
+\end{example}
+
+\section{Simplectização}
+
+Seja $(N,\alpha)$ uma variedade de contato.
+
+\begin{defn}\leavevmode
+	A \textit{\textbf{simplectização}} de $(N,\alpha)$ é a variedade de contato
+	\[(N\times \mathbb{R},d(e^t\alpha))\]
+	onde $t$ é a coordenada em $\mathbb{R}$. {\color{4}Exerício simples:} verifique que essa forma é simplética.
+\end{defn}
+
+\begin{thm}\leavevmode
+	{\color{4}Toda hiperfícide contato e localmente a simplectização.} Seja $S$ hiperfície de contato compacta de $(M,\omega)$. Então existe uma vizinhança $U$ de $S$, $\varepsilon>0$ e um simplectomorfismo
+	\[\psi:(U,\omega)\longrightarrow (S\times \Big(-\varepsilon,\varepsilon),d(e^t\alpha)\Big)\]
+\end{thm}
+
+\begin{proof}\leavevmode
+	Lista.
+\end{proof}
+
+\subsection{Sistemas Hamiltonianos}
+
+$(M,\omega)$. Pegue um campo simplético, i.e.
+\[\mathcal{L}_X\omega=0\qquad \iff\qquad d(i_X\omega)=0\]
+A gente vai ter uma função $H:M\to \mathbb{R}$ e o campo hamiltoniano dela satisfazendo $i_{X_H}\omega=dH$.
+
+\begin{remark}\leavevmode
+	$\mathcal{L}_{X_H}H=dH(X_H)=\omega(X_H,X_H)=$
+\end{remark}
+
+\begin{coro}[Teorema de Liouville]\leavevmode
+	{\color{3}(Campo hamiltoniano preserva volume.)}
+	\[\mathcal{L}_{X_H}\Lambda=0,\qquad \text{onde }\Lambda=\underbrace{\omega\wedge \ldots \wedge \omega}_{n} \]
+\end{coro}
+
+\begin{remark}\leavevmode
+	Teoría erdógica tem a ver com transformações que preservam medida (como os fluxoshamiltonianos acho).
+\end{remark}
+
+\begin{remark}[Nem todo campo simplético é Hamiltoniano] Aquí a gente precisa de uma variedade não simplesmente conexa. Por exemplo o cilindro $S^1\times \mathbb{R}$. Aqui $\omega=d\theta\wedge dh$. Pegue $X=\frac{\partial }{\partial h}$. Então $i_X\omega=d\theta$, i.e. é simplético. Mas não é Hamilatoniano.
+\end{remark}
+
+\section{Exemplos de campos hamiltonianos}
+
+\begin{enumerate}
+	\item \textbf{Função altura em $S^2$.} Pegue  $H=h$. Pegue um valor regular  $k\in \mathbb{R}$. Então a diferencial de  $H$, $dH$ e surjetiva nos conjuntos de nível e por isso o campo hamiltoniano não se anula. Assim a gente tem um fluxo nos círculos da esfera paralelos ao plano $xy$, e nos polos tem singularidades.
+
+	\item \textbf{Levantamentos de campos.} Seja $Q$ uma variedade diferenciável e $X\in\mathfrak{X}(Q)$. {\color{8}Seja $\varphi_t$ o fluxo de $X$. Como ele é um difeomorfismo, a gente pode levantá-lo no cotangente como vimos na lista não sei o que. O levantamento preserva a 1-forma canónica.} Então seja \[\hat{\varphi}_t(x,p)=\Big(\varphi_t(x),(d\varphi_t(x)^*)^{-1}p\Big)\] o levantamento de $\varphi_t$ para $T^*Q$.
+
+		Defina $\hat{X}=\frac{d}{dt}\hat{\varphi}t$. Sabemos que $\hat{X}$ preserva a forma tautológica, i.e. $\mathcal{L}_{\hat{X}}\alpha=0$ onde $\alpha$ é a forma tautológoica. Segue daí que $\hat{X}$ é o campo hamiltoniano de $H:=i_{\hat{X}}\alpha$. De fato:
+		\[0=\mathcal{L}_{\hat{X}}\alpha=d(i_{\hat{X}}\alpha)+i_{\hat{X}}d\alpha\implies i_{\hat{X}}\omega=d(i_{\hat{X}}\alpha)\]
+{\color{8}Começa com um campo que não tem nada, pode ser cualquer coisa random. Quando você levanta esse cara, ele vai preservar volume. É surpdendente.}
+	
+\item \textbf{Fibração de Hopf.} Pegue 
+	\[H:\mathbb{R}^{2n}\longrightarrow \mathbb{R},\qquad H(x)=\frac{1}{2}\|x\|^2\]
+	Então qual o campo hamiltoniano
+	\[X_H(x)=-J_0\nabla H(x)=-J_0x\]
+	\[\varphi_t(x)=e^{t J_0}x=(\cos t)x-(\sin t)J_0x\]
+
+\item \textbf{?} Pegue $(Q,g)$ Riemanniana.  Pegue a energia cinética
+\begin{align*}
+	H: T^*Q &\longrightarrow \mathbb{R} \\
+	(q,p) &\longmapsto \frac{1}{2}\|p\|^2
+\end{align*}
+onde (?)
+ \[\|p\|=\operatorname{s u p }_{x\in B}\|p(x)\|\]
+
+	dada pela energia cinética
+
+\begin{exercise}\leavevmode
+	Mostr que o fluxo Hamiltoniano de $H$ é o fluxo geodésico de $Q$ via a identificação
+	\begin{align*}
+		: TA &\overset{\cong }{\longrightarrow} T^*Q \\
+		(q,v)&\longmapsto (q,g(v,\cdot ))
+	\end{align*}
+	\textbf{Hint:} ver o livro da Anna. E um trabalhinho ver isso mas vale a pena.
+	
+\end{exercise}
+\end{enumerate}
 
 
 \end{document}
