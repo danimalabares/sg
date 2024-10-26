@@ -359,7 +359,26 @@ Para ver que o produto interno de $\mathbb{R}^{3}$ corresponde com $\frac{1}{2}\
 \item Agora vamos calcular a ação adjunta. 
 Primeiro notemos que a ação adjunta, definida como a derivada do operador $I_A(X)=AXA^{-1}$, é ela mesma. Talvez esse é um fato obvio porque $I_A$  é um mapa linear, e a sua derivada coincide com ele. Porém, tem um argumento mais explícito no \href{https://math.stackexchange.com/questions/512026/prove-that-the-action-of-a-lie-group-on-its-lie-algebra-via-the-adjoint-represen}{StackExchange}: a ação adjunta em um vetor  $X\in\mathfrak{so}(3)$ que seja a derivada em $t=0$ da curva $\gamma\subset \mathsf{SO}(3)$, i.e.  $\gamma'(0)=X$, é simplesmente $\frac{d}{dt}A\gamma(t)A^{-1}\Big|_{t=0}=AXA^{-1}$. A observação chave é que como a álgebra de Lie $\mathfrak{so}(3)$ é um álgebra de matrizes, o produto do lado direito está bem definido.
 
-Em fim, agora vou seguir \href{https://www.ethaneade.org/lie.pdf}{este documento} para achar uma matriz que representa esse operador linear quando identificamos $\mathfrak{so}(3)$ com $\mathbb{R}^{3}$. Mais precisamente, queremos achar uma matriz  $\overline{\operatorname{Ad}_A}$ tal que $\operatorname{Ad}_AX=AXA^{-1}\rightsquigarrow \overline{\operatorname{Ad}_A}x$ onde $x\in\mathbb{R}^{3}$  representa a matriz $X\in\mathfrak{so}(3)$. Vamos ver que de fato essa matriz é $A$.
+Em fim, agora vou seguir \href{https://www.ethaneade.org/lie.pdf}{este documento} para achar uma matriz que representa esse operador linear quando identificamos $\mathfrak{so}(3)$ com $\mathbb{R}^{3}$. Ou seja, queremos achar uma matriz  $\overline{\operatorname{Ad}_A}$ tal que $\operatorname{Ad}_AX=AXA^{-1}\rightsquigarrow \overline{\operatorname{Ad}_A}x$ onde $x\in\mathbb{R}^{3}$  representa a matriz $X\in\mathfrak{so}(3)$. Vamos ver que de fato essa matriz é $A$.
+
+\begin{align*}AXA^{\mathbf{T}}&=\begin{pmatrix}a_{11}&a_{12}&a_{13}\\ a_{21}&a_{22}&a_{23}\\ a_{31}&a_{32}&a_{33}\end{pmatrix}\begin{pmatrix}0&-z&y\\ z&0&-x\\ -y&x&0\end{pmatrix}\begin{pmatrix}a_{11}&a_{21}&a_{31}\\ a_{12}&a_{22}&a_{32}\\ a_{13}&a_{23}&a_{33}\end{pmatrix}\\
+&=\begin{pmatrix}a_{11}&a_{12}&a_{13}\\ a_{21}&a_{22}&a_{23}\\ a_{31}&a_{32}&a_{33}\end{pmatrix}\begin{pmatrix}-za_{12}+ya_{13}&-za_{22}+ya_{23}&-za_{32}+ya_{33}\\ a_{11}z-xa_{13}&za_{21}-xa_{23}&za_{31}-xa_{33}\\ -ya_{11}+xa_{12}&-ya_{21}+xa_{22}&-ya_{31}+xa_{32}\end{pmatrix}\end{align*}
+Daí, se o vetor correspondente a $AXA^{\mathbf{T}}$ e $(x',y',z')$, sabemos que suas coordenadas estão nas entradas $(3,2)$, $(1,3)$ e $(2,1)$, respetivamente, da matriz que resulta acima. Ou seja,
+\begin{align*}
+	x'&=a_{31}(-za_{22}+ya_{23})+a_{32}(za_{21}-xa_{23})+a_{33}(-ya_{21}+xa_{22})\\
+	y'&=a_{11}(-za_{32}+ya_{33})+a_{12}(za_{31}-xa_{33})+a_{13}(-ya_{31}+xa_{32})\\
+	z'&=a_{21}(-za_{12}+ya_{13})+a_{22}(a_{11}z-xa_{13})+a_{23}(-ya_{11}+xa_{12})
+\end{align*}
+Para achar a matriz buscada simplesmente calculamos as coordenadas dos vetores canónicos de $\mathbb{R}^{3}$.
+
+\begin{itemize}
+\item Se $(x,y,z)=(1,0,0)$ obtemos  \[(x',y',z')=(-a_{23}a_{32}+a_{22}a_{33},-a_{12}a_{33}+a_{13}a_{32},-a_{22}a_{13}+a_{23}a_{12})\].
+\item Se $(x,y,z)=(0,1,0)$ obtemos  \[(x',y',z')=(-a_{23}a_{31}-a_{21}a_{33},-a_{11}a_{33}-a_{13}a_{31},-a_{21}a_{13}-a_{23}a_{11})\].
+\item Se $(x,y,z)=(0,0,1)$ obtemos  \[(x',y',z')=(-a_{22}a_{31}+a_{21}a_{32},-a_{11}a_{32}+a_{12}a_{31},-a_{21}a_{12}+a_{22}a_{11})\].
+\end{itemize}
+Esses treis vetores coluna conformar as coordenadas da matriz que buscamos. Para confirmar que ela é exatamente $A$, basta mostrar que o produto dela com $A^{\mathbf{T}}$ é a identidade (pois sabemos que $A A^{\mathbf{T}}=\operatorname{Id}$).
+
+É imediato que as coordenadas da diagonal desse produto são 1: são os determinantes!
 
 O truque é usar que as matrizes em $\mathsf{SO}(3)$, sendo isometrías de $\mathbb{R}^{3}$, preservam o produto vetorial, i.e. $Ax\times Ay=A(x \times y)$ para qualquer $x,y\in\mathbb{R}^{3}$.
 \begin{align*}
