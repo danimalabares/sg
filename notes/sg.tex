@@ -1,6 +1,9 @@
 \input{/Users/daniel/github/config/preamble.sty}
 \input{/Users/daniel/github/config/thms-por.sty}
 
+\renewcommand{\curvearrowright}{\mathbb{y}}
+\renewcommand{\curvearrowleft}{\mathbb{x}}
+
 %This preamble is in github.com/danimalabares/config
 
 \begin{document}
@@ -1834,7 +1837,12 @@ ie., \textit{\textbf{$G$-equivariante}}.
 				g &\longmapsto d_e I_g:\mathfrak{g} \to \mathfrak{g}
 			\end{align*}
 			
-		\item \textit{\textbf{Representação dual}}. $G\curvearrowright \mathfrak{g}^*$. 
+		\item \textit{\textbf{Representação dual}}. $G\curvearrowright \mathfrak{g}^*$. Usando \href{https://en.wikipedia.org/wiki/Coadjoint_representation#Formal_definition}{wiki},
+			 \begin{align*}
+				\operatorname{Ad}^*: G &\longrightarrow \mathsf{GL}(\mathfrak{g}^*) \\
+				\Big(\operatorname{Ad}^*_g\mu\Big)x &=\mu\Big(\operatorname{Ad}_{g^{-1}}x\Big) 
+			\end{align*}
+			Em aula,
 			\begin{align*}
 				\operatorname{Ad}^*: G &\longrightarrow \operatorname{GL}(\mathfrak{g}^*) \\
 				g &\longmapsto \begin{aligned}
@@ -1852,11 +1860,16 @@ ie., \textit{\textbf{$G$-equivariante}}.
 				\[g\mapsto \begin{tikzcd}d\psi_g:TM\arrow[r,"\cong "]\arrow[d]& TM\arrow[d]\\ M \arrow[r,"\psi_g"]&M\end{tikzcd}\]
 
 			\item $G\curvearrowright T^*M$
-				\[g \longrightarrow \begin{tikzcd}(d\psi_g)^* :T^* M\arrow[r,"\cong "]\arrow[d]& T^* M\arrow[d]\\ M\arrow[r,"\psi_g"]&M\end{tikzcd}\]
+				\[g \longrightarrow \begin{tikzcd}\Big((d\psi_g){\color{3}^{-1}}\Big)^* :T^* M\arrow[r,"\cong "]\arrow[d]& T^* M\arrow[d]\\ M\arrow[r,"\psi_g"]&M\end{tikzcd}\]
 			\end{itemize}
 
 	\end{enumerate}
 \subsection{Descrição infinitesimal de $G$-ações}
+
+\begin{upshot}\leavevmode
+	Tem uma ação $G\curvearrowright M$. Pegue um vetor $X$ na álgebra de Lie. $\operatorname{exp}(tX)$ da uma curva em $G$. Essa curva em $G$ da uma curva em $M$ quando começamos em qualquer ponto $p\in M$. Isso é um fluxo global porque $\operatorname{exp}((t+s)X)= \operatorname{exp}(tX)\operatorname{exp}(sX)$. Esse fluxo global da um campo vetorial.
+	\[\mathfrak{g} \to \mathfrak{X}(M)\]
+\end{upshot}
 
 \paragraph{Lembre} $\mathbb{R}$ ação  $\longleftrightarrow $fluxos $\psi_t\rightsquigarrow $campos de vetores $X(x)=\frac{d}{dt}\Big|_{t=0}\psi_t(x)$
 
@@ -2507,13 +2520,14 @@ u\arrow[dr, maps to]&\mathfrak{X}(M)&X_f\\
 		\begin{align*}
 			\mu: M &\longrightarrow \mathfrak{g}^* \\
 			\hat{\mu}(u)(x) & =\left<\mu(x),u\right>  
-		\end{align*}	
+		\end{align*}
+		Note que as quantidades nessa igualdade são numeros reais. No lado esquerdo, temos a função $\hat{\mu}(u)\in\mathcal{C}^\infty(M)$ evaluada no ponto $x\in M$. No lado direito, temos o funcional $\mu(x)\in\mathfrak{g}^*$ evaluado no vetor $u\in\mathfrak{g}$.
 \end{remark}
 
 \begin{defn}\leavevmode
 	Seja $G\overset{\varphi}{\curvearrowright}(M,\omega)$ uma ação simplética. Dizemos que é \textit{\textbf{fracamente hamiltoniana}} se existe  $\mu:M\to \mathfrak{g}^*$ (equivalentemente, $\hat{ \mu}:\mathfrak{g} \longrightarrow \mathcal{C}^\infty(M)$ linear) tal que
 	 \begin{equation}\label{eq:a}
-	i_{u_M}\omega=d\left<\mu,u\right> \qquad (u_M=X_{\hat{\mu}(u)}	 	
+	i_{u_M}\omega=d\left<\mu,u\right> \qquad (u_M=X_{\hat{\mu}(u)})	 	
 	 \end{equation}
 	e a ação é \textit{\textbf{hamiltoniana}} se, além disso, vale
 	\begin{equation}\label{eq:b}
@@ -3656,6 +3670,204 @@ onde (?)
 	
 \end{exercise}
 \end{enumerate}
+
+\section{Aula 23: dinâmica Hamiltoniana}
+
+$(M,\omega)$ variedade simplética.
+
+\begin{defn}\leavevmode
+	Seja $S\subset M$ uma hiperfície. O  \textit{\textbf{fibrado de linhas características}} $L_S$ ou \textit{\textbf{distribuição característica}} de $S$ é o subfibrado de $TS$ dado por $\ker(\omega|_{S}$.
+\end{defn}
+
+\begin{remark}\leavevmode
+	Como $M$ é simplética, $S$ tem dimensão impar e por isso esse kernel tem dimensão (positiva).
+\end{remark}
+
+Note que se $S=H^{-1}(k)$ para algum $H:M\to\mathbb{R}$ e  $k$ valor regular, então
+\[X_H(x)\in L_S(x)\qquad \forall x\in S\]
+
+\begin{prop}\leavevmode
+	Seja $S$ um nível de energia de $H_1$ e $H_2$. Então os fluxos de $H_1$ e $H_2$ em $S$ diferem apenas por uma reparametrização.
+\end{prop}
+
+\begin{defn}\leavevmode
+	Uma \textit{\textbf{característica fechada}} em $S$ é uma curva regular (derivada não se anula) $\gamma:S^1\to S$ tal que 
+	\[ \dot(t)=L_S(\gamma(t)),\qquad \forall t\]
+\end{defn}
+
+Portanto a existência de órbitas periódicas é equivalente à existência de características fechadas.
+
+\begin{defn}\leavevmode
+	Sejam $S$ e $S'$ variedades diferenciáveis e  $X\in\mathfrak{X}(S)$, $Y\in\mathfrak{X}(S')$. Dizemos que $X$ e $Y$ são topologicamente (resp. diferenciavelmente) equivalentes se existe um homeomorfismo (difeomorfismo) $h:S\to S'$ {\color{5}que leva curvas integrais de uma variedade em outra preservando o tempo?} tal que dado $p\in S$ e $\varepsilon>0$ tais que para $0<t<\delta$, $h_{\varphi_t}(p)=\psi_{\bar{t}}(h(p))$ para algum $0<\bar{t}<\varepsilon$, onde $\varphi_t$ e $\psi_t$ são os fluxos de $X$ e $Y$.
+
+	Quando $\bar{t} =t$ dizemos que são \textit{\textbf{conjugados}}. No caso de difeomorfismos, a  condição acima significa $dh(X)=fY$ para alguma $f$, e são conjugados se $f=1$ (i.e. $h$-relacionados).
+\end{defn}
+
+\begin{upshot}\leavevmode
+	Tem um Hamiltoniano super bom que pode espalhar numa vizinhança  da subvariedade.
+\end{upshot}
+
+\begin{prop}\leavevmode
+	Seja $S$ uma hiperfície de contato de  $M$. Existe Hamiltoniana $H$ definida em uma vizinhança $U$ de $S$ tal que $S=H^{-1}(0)$ e $X_H|_{H^{-1}(0)}$ é diferenciablemente conjugado a $X_{H}|_{H^{-1}(k)}$ para todo $k$ suficientmente pequeno.
+\end{prop}
+
+\begin{proof}\leavevmode
+	Vimos que existe uma vizinhança $U$ de $S$, $\varepsilon>0$ e um simplectomorfismo $f:(U,\omega)\to(S\times (-\varepsilon,\varepsilon), d(e^t\alpha)$ onde $\alpha$ é a forma de contato em $S$. {\color{5}Localmente, a forma de contato é simplectomorfa à sua simplectização, isso foi um exercício a aula,, passada?}
+
+	Tome $H$ tal que $H\circ f^{-1}(x,t)=-e^t-1$. Note que $f_*X_H=X_{-e^t}$. {\color{4}Isso é imediato pelo requerimento de que $H\circ f^{-1}=-e^t-t$, pois o pushforward é Hamiltoniano da composição.}
+
+	Então agora note que $X_{-e^t}=R_{\alpha}$ é o campo de Reeb. De fato:
+	\begin{align*}
+		i_{R_\alpha}(d(e^t\alpha)&=i_{R_\alpha}(e^tdt\wedge \alpha+e^t d\alpha)\\
+&=-e^tdt\wedge \cancelto{1}{\alpha(R\alpha)}\\
+&=d(-e^t)
+	\end{align*}
+\end{proof}
+
+Ahora fixe uma subvariedade $S$ que seja o nível de energia de um Hamiltoniano i.e., $ S=H^{-1}(k)$ para $k$ valor regular. Defina $\varphi_t$ o fluxo Hamiltoniano de $H$.
+
+\begin{prop}\leavevmode
+	Então existe uma forma de volume $\Lambda_S$ em $S$ preservada por $\varphi_t$.
+\end{prop}
+\begin{remark}\leavevmode
+	Já sabemos que tem essa forma na variedade simplética: lista não sei o que. Mas não pode só restringir essa à $S$ : porque isso vai dar uma $(2n)$-forma! A gente precisa de uma $2n-1$ forma.
+\end{remark}
+
+\begin{proof}\leavevmode
+	Como $dH(x)\neq 0$ para todo $x$ em uma vizinhança $U$ de $S$, existe $(2n-1)$-forma $\eta$ em $U$ tal que $\Lambda=dH\wedge \eta$. Seja $i:S\hookrightarrow M$ e a inclusão é
+	\[\Lambda_S:=i^*\eta.\]
+Vamos ver que essa é boa.	Claramente, $\Lambda_S$ é uma forma de volume em $S$. 
+\begin{claim}\leavevmode
+	$\Lambda_S$ está únicamente caracterizada pela equação
+	\[\Lambda=dH\wedge \eta,\]
+	\textbf{ou seja} , se $\xi$ satisfaiz $\Lambda=dH\wedge \xi$, então
+	\[\Lambda_S=i^*\eta=i^*\xi.\]
+\end{claim}
+\begin{proof}[Prova da afirmação]\leavevmode
+	De fato, se $dH\wedge (\eta-\xi)=0$ então $\eta- \xi=dH\wedge k$ para alguma $(2n-2)$-forma $\kappa$ em $U$. Como $i^*dH=0$, concluiriamos que $i^*\eta=i^*\xi+i^* (\cancelto{0}{dH}\wedge \kappa=i^*\xi$.
+\end{proof}
+Como $\varphi^*_t\Lambda=\Lambda$ e $\varphi^*_t=dH$ temos $\varphi^* _t\Lambda_S=\Lambda_S$. De fato, \[\Lambda=\varphi^*_tdH=dH\wedge \varphi^*_t\eta=dH\wedge \varphi_* t\eta\]
+portanto, pela unicidade no claim, 
+\[i^*\varphi^*_t=i^*\eta\implies \]
+\end{proof}
+
+\begin{defn}\leavevmode
+	Dizemos que $x\in S$ é \textit{\textbf{recorrente}} para  $\varphi_t$ se existe uma sequência $t_k$ tal que
+	 \[\lim_{k \to \pm \infty} t_k=\pm \infty\]
+	 (isso é só para realmente pensar no tempo infinito… sem isso a gente vai ficar parada eventualmente,, ou algo assim…)	 e tal que
+	 \[\lim_{k \to \pm \infty} \varphi_{t_k}(x)=x\]
+	 {\color{6}que a órbita passa arbitrariamente perto do $x$.}
+\end{defn}
+
+\begin{thm}[de Recorrência de Poincaré]\leavevmode
+	Seja $\varphi_t$ um fluxo que preserva volume em uma variedade comapcta $S$. Então quase todo ponto de  $S$ é recorrente para $\varphi_t$.
+	
+\end{thm}
+\section{Aula 24}
+
+\subsection{Prova do teorema de Reoccrência de Poincaré}
+
+\begin{proof}[Prova do teorema de recorrência]\leavevmode
+Usaremos a medida inducida pela forma de volume, i.e. $\mu(A)=\int_{A}\mu_S$.
+
+Seja $\varphi=\varphi_1$. Vamos provar inicalmente que
+\begin{equation}\label{eq:medida1}\mu\left(A\cap\left( \underbrace{\bigcap_{k\geq 0} \bigcup_{j\geq k} \varphi^{-j}(S)}_{:=B} \right) \right)=\mu(A)
+\end{equation}
+para todo borealiano $A$. Observe que $x\in B$ se para todo inteiro $k \geq 0$ existe $j\geq k$ tal que $x\in \varphi^{-j}(A)$, ou seja, $\varphi^j(x)\in A$.
+
+ {\color{4}ou seja, para tempos arbitrários o $\varphi(x)$ já tá em $A$.}
+
+ Para provar \cref{eq:medida1}, defina
+ \[A_k=\bigcup_{j\geq k} \varphi^{-j}(A).\]
+ Note que 
+ \[A_0\supset A_1\supset A_2\supset \ldots\]
+ Ademais, como $\varphi(A_k)=\bigcup_{j \geq k}\varphi^{k-j}(A)$, de modo que $\varphi^k(A_k)=A_k$ para toda $k$. Além disso, $A_k\subset A_0$.
+
+ Isso significa, \textit{como a medida é finita}, que $A_k=A_0$ em quase todo ponto.
+
+ Portanto, $\bigcap_{k\geq 0} A_k=A_0$ q.t.p. Como $A\subset A_0$, concluimos que
+ \[A\cap\left( \bigcap_{k\geq 0} A_k \right) =A\cap A_0=A \qquad \text{q.t.p.} \]
+Isso implica \cref{eq:medida1}.
+
+Agora, use o fato de que existe uma base enumerável de $S$. Portanto, para todo $n\in \mathbb{N}$ existe um conjunto enumerável de bolas abertas $B_j(\frac{1}{n})$ de raio $\frac{1}{n}$ cobrindo $S$. Pela primeira parte do argumento, existe um conjunto de medida nula $N_n \subset S$ tal que todo $x\in S\setminus N_n$ retorna infinitas vezes para a bola que o contém.
+
+Tomando $N=\bigcup_{n} N_n$, temos que $\mu(N)=0$ e todo $x\in S\setminus N$ possui a propriedade de voltar infinitas vezes para  a bola  $B_j(\frac{1}{n})$, seja qual for o valor de $n$.
+
+Isso prova o teorema para tempos futuros. Para temos passados e ó mesmo ussando $\varphi^{-1}$.
+\end{proof}
+
+Esse teorema é muito forte: {\color{2}quase todo ponto é recorrente}. Esse teorema é valido em espaços mais gerales que variedades. Na verdade, se definir recorrência só para tempos futuros, pode ussar um simlpes automorfismo que preserva medida num espaço com uma base enumerável.
+
+\subsection{A seguinte questão: órbitas periódicas}
+
+\begin{question}\leavevmode
+Dado um nível de energia compaco $S$, existem órbitas periódicas no mesmo?
+\end{question}
+
+Este problema possui uma estrutura variacional. Suponha, por simplicidade, que $\omega=-d\alpha$. Dada uma Hamiltoniana $H:M\to\mathbb{R}$ e uma curva fechada $\gamma:[0,T]\to M$ defina sua \textit{\textbf{ação}} como
+\[A_H(\gamma)=\int_{\gamma}\alpha-H\]
+e esse se chama \textit{\textbf{funcional de ação}}.
+
+\begin{prop}[Princípio de Hamilton]\leavevmode
+	Pontos críticos do funcional de ação (no espaço de curvas fechadas de período T fixado) estão em bijeção com as órbitas pers de $H$ de príodo $T$. Mais precisamente, uma curva fechada $\gamma:[0,T]\to M$ é uma órbita de per $X_H$ se e somente se dada uma variação suave $\Gamma:[-\varepsilon,\varepsilon]\times [0,T]\to M$ tal que $\Gamma_0=\gamma$, tem-se
+	\[\frac{d A_0(\Gamma_s)}{ds}\Big|_{s=0}=0\]
+{\color{5}O $\Gamma_s$ é uma curvinha pertinho de $\gamma$. A maneira de você pensar isso é que $\gamma$ é um ponto no espaço $C^\infty(S^1,M)$ e $\Gamma$ é uma curvinha que passa por $\gamma$ em $s=0$. Deriva o funcional de ação em $\Gamma_s$ e tem um ponto crítico em $s=0$, i.e. em  $\gamma$.}
+\end{prop}
+
+\begin{proof}\leavevmode
+Seja $X$ o campo vetorial ao longo de $\gamma$ dado por $\frac{d}{ds}\Big|_{s=0}\Gamma_s$. {\color{5}Isso é como a derivada de curva no espaço de lazos, um campo vetorial que poemos no $\gamma$.} Por Stokes
+\begin{align*}
+	\underbrace{\int_{[0,\varepsilon]\times [0,1]}\Gamma ^* \alpha}_{(*)}&=\int_{\varepsilon\times [0,T]}\Gamma^*\alpha-\int_{0 \times [0,T]}\Gamma ^*\alpha\\
+	&=\int_{\Gamma_\varepsilon}\alpha-\int_{\gamma}\alpha
+\end{align*}
+{\color{5}porque é uma curva fechada no rectángulo, as bordas verticais se cancelam.}
+
+Dividindo ambos lados por $\varepsilon$ e fazendo $\varepsilon \to 0$ temos que o lado direito converge para a derivada de $\int_{\gamma}\alpha$ na direção de $X$ e o lado esquerdo tende a $\int_{\gamma}d \alpha(X,\dot{\gamma})$:
+\begin{align*}
+	(*)&=\int_{0}^\varepsilon\underbrace{\int_{0}^T \Gamma^*d\alpha_{(s,t)}\left( \frac{\partial }{\partial s},\frac{\partial }{\partial t} \right) dt}_{:=f(s)}ds\\
+	&=F(\varepsilon)-F(0),\qquad F:=\int fds
+\end{align*}
+
+Mas,
+\begin{align*}
+\lim_{\varepsilon \to 0} \frac{F(\varepsilon)-F(0)}{\varepsilon}&=F'(0)=f(0)\\
+&=\int_{0}^T \Gamma ^*d\alpha_{(0,t)}\left( \frac{\partial }{\partial s},\frac{\partial }{\partial t} \right) dt\\
+&=\int_{0}^T d \alpha_{\Gamma(0,t)}\left( \frac{\partial }{\partial s}\Gamma,\frac{\partial }{\partial t}\Gamma \right) dt\\
+&=\int_{0}^Td \alpha_{\gamma(t)}(X,\dot{\gamma})dt
+\end{align*}
+$\mathsf{OK}$. Agora vamos botar o funcional de ação:
+\begin{align*}
+	\frac{d A_H(\Gamma_A)}{ds}\Big|_{s=0}&=\int_{0}^T-d \alpha(\dot{\gamma},X)-dH(\gamma)Xdt\\
+					     &=\int_{0}^T \omega(\dot{\gamma},X)dt\\
+					     &=\int_{0}^T\omega( \dot{\gamma}-X_H,X)dt
+\end{align*}
+que é zero see $\dot{\gamma}=X_H$.
+\end{proof}
+
+\begin{remark}\leavevmode
+	O argumento anterior se aplica para a prova o seguinte: se $\gamma:[0,T]\to M$ é uma curva não necessariamente fechada e $L_1,L_2\subset M$ são subvariedades tais que $\alpha|_{L_i}=0$ para $i=1,2$ e  $\gamma(0)\in L_1$, $\gamma(1)\in L_2$. Entao $\gamma$ é uma órbita de $X_H$ sse é um ponto crítico de $A_H$ para qualquer variação 
+	\[\Gamma_0=\gamma,\qquad \Gamma_s(0)\in L_1\qquad \text{ e} \qquad \Gamma_s(1)\in L_2\qquad \forall s\]
+
+	\begin{example}\leavevmode
+		$M=T^*Q$, $L_1=T^*_xQ$, $L_2=T^*_yQ$.
+	\end{example}
+\end{remark}
+
+\subsection{Extra: a note from Graham's talk just today's evening}
+
+In a chart, $U\subseteq \mathbb{R}^{n}$, $g_{ij}:U \to \operatorname{Sym}^+(\mathbb{R}^{+})$, define the \textit{\textbf{action functional}} as
+\[A[\gamma]=\int_{0}^1g_{ij}(\gamma(t))\dot{\gamma}^i \dot{\gamma}^jdt\]
+\begin{enumerate}[label=(\roman*)]
+\item Cricital points of $A$ are geodesics.
+\item This is a standard Lagrangian action (with $V=0$).
+	 \begin{align*}
+		\mathcal{L}: TU &\overset{g}{\longrightarrow} T^*U \\
+		(x,v)&\longmapsto (x,g_{ij}v^j)
+	\end{align*}
+	So the moral is: Legendre transform is a musical isomorphism.
+\end{enumerate}
+
+\section{Aula 25}
 
 
 \end{document}

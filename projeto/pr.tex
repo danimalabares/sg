@@ -19,16 +19,299 @@
 
 \tableofcontents
 
+\section{Motivação: operadores de posição e momento}
 
+Aqui sigo \cite{clas} Sec. 1.1 e \cite{qm} Sec. 1.1. Os princípios fundamentais da mecânica clássica foram estabelecidos nos séculos XVI e XVII por Galileo e Newton. No famoso texto \textit{Prinicipia Mathematica} do Newton, publicado em 1686, ele estabeleceu as tres leis de movimento e a lei da gravitação.
 
-\section{No\c c\~oes b\'asicas de mec\^anica qu\'antica}
-\iffalse\begin{tabular}{c c}
-Mec\^anica Cl\'asica	 & Mec\^anica qu\^antica\\
-\hline
-O estado de uma part\'icula est\'a \\determinado pela posi\c c\~ao e a velocidade.\\ Equivalentemente, est\'a determinada \\pela posi\c c\~ao $\mathbf{x}$ e o momento \\$\mathbf{p}=m\dot\mathbf{x}$ See \href{https://mathoverflow.net/questions/19932/what-is-a-symplectic-form-intuitively}{intuition on symplectic form}.& A fun\c c\~ao de onda cont\'em a informa\c c\~ao \\& da part\'icula em todo tempo.
-\end{tabular}\fi
+A segunda lei de movimento é $F=ma$. A idea  é que tendo uma coleção de partículas sujetas a uma  coleção de forças agindo em elas, essa equação nos permite descrever as velocidades das partículas no futuro.
 
-\subsection{Cl\'asica}
+Mais detalhadamente, o estado de uma partícula está determinado pela posição $\mathbf{x}$ e a velocidade $\mathbf{v}=\dot{\mathbf{x}}$. Conhecendo essas informações em algum tempo $t_0$, podemos usar a sgunda lei de Newton, reescrita como $\mathbf{F}=m\ddot{\mathbf{x}}$ para determinar $\mathbf{x}(t)$ e $\mathbf{v}(t)$ para cualquer tempo $t$. Note que não basta saber a posição: é necessário saber tanto a posição $\mathbf{x}(t_0)$ quanto a velocidade $\dot{\mathbf{x}}(t_0)$.
+
+Como falamos na primeira aula desse curso, existem distintas descripções da mecânica clássica além da Newtoniana; notávelmente e mecânica Lagrangiana e a Hamiltoniana. Na seguinte seção vamos descrever rápidamente a relação entre o formalismo Hamiltoniano e a geometria simplética.
+
+Na mecânica quântica, o estado de uma partícula está determiado por uma função de onda, que é uma função $\psi(\mathbf{x},t)$ com valores em $\mathbb{C}$. Em constraste com a mecânica clássica, para saber o estado da partícula em qualquer tempo $t$,  basta conhecer a função de onda em algum tempo $t_0$. Note que embora pareça um scenário mais simples, a sustitução de um vetor num espaço de dimensão finita por uma função é um passo não trivial.
+
+É natural esperar que a informação da velocidade da partícula esteja de alguma maneira codificada na função de onda. Uma interpretação da função de onda é que a função de onda nos diz a \textit{probabilidade} de que a partícula esteja numa posição dada. Mas precisamente, a probabilidade de que a partícula estja em um volumen $E$ perto de  $\mathbf{x}$ é ${\color{3}\int_{E}}|\psi(\mathbf{x},t)|^2dV$. Dizemos que $|\psi(x)|^2$ é a \textit{\textbf{densidade de probabilidade}} para a posição da partícula.
+
+É por isso que precisamos trabalhar com funções  de onda normalizadas, i.e. tais que
+\[\int d^3x |\psi(\mathbf{x},t)|^2=1\]
+(a partícula tem que estar em algum lugar!)
+
+\subsection{O operador de posição}
+
+(Essa seção é \cite{hallq}, 3.3)
+
+Considere o caso muito simples de uma particula movendo-se na reta $\mathbb{R}$. A função de onda dessa particular é $\psi:\mathbb{R}\to \mathbb{C}$ tal que $\int_{\mathbb{R}}|\psi(x)|^2=1$. Para quem sabe um pouco de probabilidade, o valor esperado associado a essa densidade de probabilidade é
+\[E(x)=\int_{\mathbb{R}}x |\psi(x)|^2dx.\]
+vamos chamar isso de \textit{\textbf{operador de posição}}.
+
+Uma important ideia na mecânica quântica é levar o valor esperado das quantidades que medimos (como posição momentum, energia, etc…) em termos de operadores num espaço de Hilbert, neste caso $L^2(\mathbb{R})$. No caso da posição, definimos o \textit{\textbf{operador de posição}} $X$ como
+ \[(X\psi)(x)=x\psi(x)\]
+ de modo que 
+ \[E(x)=\left<\psi,X\psi\right> =\int_{\mathbb{R}}\overline{\psi}x\psi dx\]
+ como é usual a definição de norma em espaços de funções complexas.
+
+\subsection{O operador de momento}
+
+(\cite{clas}, introdução.) No mesmo caso de uma partícula, a segunda lei de Newton pode ser reformulada como  $\mathbf{F}=\dot{\mathbf{p}}$ onde $\mathbf{p}:=m\dot{\mathbf{x}}$ é o \textit{\textbf{momento}}.
+
+Achar um operador de momento é o que responde a pergunta de cómo uma função de onda contém a informação da velocidade de uma partícula. Embora não podemos aprofundar nisso, a explicação é que o momento está codificado nas osilações da função de onda.
+
+Por enquanto simplesmente vamos definir \textit{\textbf{operador de momento}} como
+\[P=-i\hslash\frac{d}{dx}\]
+ onde por enquanto $\hslash$ é só uma constante. Esse operador permite calcular o valor esperado do momento mediante
+ \[E(p)=\left<\psi,P\psi\right>.\]
+
+\begin{remark}\leavevmode
+	Note que tanto o operador momento quanto o operador de posição não estão definidos em tudo o espaço $L^2(\mathbb{R})$. (Já que a função $P\psi=x\psi$ pode não estar em $L^2(\mathbb{R})$, ou a funçao $\psi$ pode não ser diferenciável, ou a derivada dela não estar em $L^2(\mathbb{R})$.
+\end{remark}
+
+\subsection{Relação de comutação canônica}
+
+\begin{thing4}{Proposição 3.8}[\cite{hallq}]\leavevmode
+Os operadores de posição  $X$ e momento $P$ não comutam, mas satisfazem a relação
+\[XP-PX=i\hslash I,\]que chamamos de \textit{\textbf{relação de comutação canônica}}.
+\end{thing4}
+
+\begin{proof}\leavevmode
+	\begin{align*}
+		PX\psi&=-i\hslash\frac{d}{dx}(x\psi(x))\\
+		&=-i\hslash\psi(x)-i\hslash x\frac{d\psi}{dx}\\
+		&=-i\hslash\psi(x)+XP\psi.
+	\end{align*}
+\end{proof}
+Essa relação é muito importante, pois ella nos da uma intuição do que esperamos no equivalente ao colchete de Poisson no mundo quântico. Por enquanto só lembre que no caso do colchete de Poisson na variedade $\mathbb{R}^{2}=\{(x,p)\}$ sabemos que $\{x,p\} =1$.
+
+\subsection{Os operadores de posição e momento são simétricos}
+
+Lembre que um operador linear $A:\mathbf{H}\to\mathbf{H}$ é \textit{\textbf{limitado}} se existe uma constante $C$ tal que $\|A\psi\|\leq C\|\psi\|$ para todo $\psi\in \mathbf{H}$. Para cada operador limitado $A$ existe um único operador $A^*$, chamado o \textit{\textbf{adjunto}} de $A$, tal que
+\[\left<\phi,A\psi\right>=\left<A^*\phi,\psi\right>.\]
+Porém, o caso dos operadores não limitados é um pouco mais delicado. Isso vai ser importante para nos porque os operadores quânticos não são limitados.
+
+\iffalse
+\begin{thing4}{Definição 3.3}[\cite{hallq}]\leavevmode
+	Seja $A$ um operador não limitado num  espaço de hilbert $\mathbf{H}$. O \textit{\textbf{adjunto}} $A^*$ de $A$ se define como segue. Um vetor  $\phi \in \mathbf{H}$ pertence a $\operatorname{Dom}(A^*)$ se o j
+\end{thing4}\fi
+
+\begin{thing4}{Definição 3.3}[\cite{hallq}]\leavevmode
+	Um operador $A$ num espaço de Hilbert $\mathbf{H}$ é \textit{\textbf{simétrico}} se
+	\[\left<\phi,A\psi\right> =\left<A\phi,\psi\right> \]
+	para todos $\phi,\psi \in \mathbf{H}$. O operador $A$  é \textit{\textbf{autoadjunto}} se  $\operatorname{Dom}(A^*)=\operatorname{Dom}(A)$ e $A^*\phi=A\phi$ para todo $\phi \in \operatorname{Dom}(A)$.
+\end{thing4}
+
+\begin{thing7}{Proposição 3.9}[\cite{hallq}]\leavevmode
+	Para funções suficientemente boas $\phi$ e $\psi$ em $L^2(\mathbb{R})$, temos que
+	\[\left<\phi,X\psi\right> =\left<X\phi,\psi\right>,\qquad \left<\psi,P\psi\right>=\left<P\phi,\psi\right>.\]
+\end{thing7}
+
+\section{Os axiomas da mecânica quântica*}
+
+Os seguintes "axiomas" não são axiomas matemáticos. São principios fundamentais para a mecânica quântica que nos ajudarám a fixar a discusão feita até agora, dexiando tudo pronto para começar a discutir o conceito de quantização no espaço euclidiano e depois em variedades simpléticas.
+
+\begin{thing1}{Axioma 1}\leavevmode
+	O estado de um sistema (quântico) está representado por um vetor unitário $\psi$ em certo espaço de Hilbert $\mathbf{H}$. Se $\psi_1$ e $\psi_2$ são dois vetores unitários em $\mathbf{H}$ com $\psi_2=c\psi_1$ para alguma constante $c \in \mathbb{C}$, então $\psi_1$ e $\psi_2$ representam o mesmo estado físico.
+\end{thing1}
+
+Vamos motivar a segunda frase mais pra frente.
+
+\begin{thing1}{Axioma 2}\leavevmode
+	A cada função real-valuada $f$ num espaço fase clássico tem associado um operador autoajunto $\hat{f}$ no $\mathbf{H}$.
+\end{thing1}
+
+\begin{remark}\leavevmode
+	$\hat{f}$ típicamente não é limitado.
+\end{remark}
+
+\begin{thing1}{Axioma 3}\leavevmode
+	Se um sistema quântico está num estado dado por um vetor unitário  $\psi \in \mathbf{H}$, a distribuição de probabilidade da medição de algum observável $f$ satisfaz
+	\[E(f^m)=\left<\psi,(\hat{f})^m\psi\right>\]
+	Em particular, o valor esperado de uma medição de $f$ está dada por
+	\[\left<\psi,\hat{f}\psi\right>.\]
+\end{thing1}
+
+A segunda frase no Axioma 1 se justifica porque para qualquer operador $A$ e vetores unitários $\psi_2=c\psi_1$ com $|c|=1$,
+\[\left<\psi_2,A\psi_2\right>=\left<c\psi_1,Ac\psi_1\right>=|c|^2\left<\psi_1,A\psi_1\right>=\left<\psi_1,A\psi_1\right>.\]
+
+\begin{thing1}{Axioma 4}\leavevmode
+	Relacionado com incertidumbre.
+\end{thing1}
+
+\begin{thing1}{Axioma 5}\leavevmode
+	A evolução temporal de uma função de onda $\psi$ em um sistema quântico está dada pela equação de Schrödinger
+	\[\frac{d\psi}{dt}=\frac{1}{i\hslash}\hat{H}\psi.\]
+	Onde $\hat{H}$ é o operador que corresponde ao Hamiltoniano $H$ por meio do Axioma 2.
+\end{thing1}
+
+\begin{thing3}{Proposição 3.14}\leavevmode
+	Seja $\psi(t)$ uma solução à equação de Schödinger e $A$ é um operador autoadjunto em $\mathbf{H}$. Supondo as condições necessárias no dominio de $\psi$,
+	\[\frac{d}{dt}\left<A\right>_{\psi(t)}=\left<\frac{1}{i \hslash}[A,\hat{H}]\right>_{\psi(t)},\]
+	onde $\left<A\right>_{\psi}:=\left<\psi,A\psi\right>$ e $[\cdot,\cdot]$ é o \textit{\textbf{comutador}} definido como  $[A,B]=AB-BA$.
+\end{thing3}
+
+Em particular, se os operadores quânticos comuataram, os valores esperados seriam 0. Essa equação é para ser comparada com a forma em que uma função $f$ muda ao longo do fluxo Hamiltoniano: $\frac{df}{dt}=\{f,H\}$. (Lembre a definição das primeiras integrais de $H$, eram funções que não variavam ao longo do fluxo Hamiltoniano, satisfazendo $\{f,H\}=0$.)
+
+\section{O que esperamos de uma quantização}
+
+Essa definição é de \cite{k3quant}.
+\begin{defn}\leavevmode
+	Uma \textit{\textbf{quantização completa}} de $M$ é um mapa
+	\[\mathcal{F}:f\longmapsto \hat{f}\]
+	levando observáveis clássicos $f $, i.e. funções suaves em $T^*M$ a operadores autoadjuntos $\hat{f}$ num espaço de Hilbert $\mathcal{H}$ satisfazendo:
+	\begin{enumerate}
+		\item $\mathcal{F}$ é linear:
+			\[\widehat{f+g}=\hat{f}+\hat{g},\qquad f,g\in\mathcal{C}^\infty(T^*M)\]
+			\[\widehat{\lambda f}=\lambda\hat{f},\qquad \lambda\in\mathbb{R}.\]
+	
+		\item $ \mathcal{F}$ é um morfismo de álgebras de Lie salvo por uma constante:
+			\[\widehat{\{f,g\}}=\frac{1}{\hslash}\left[\hat{f},\hat{g}\right]\]
+\item A função constante $1$ corresponde com a identidade:
+	\[\hat{1}=\operatorname{Id}\]
+
+	\item As coordenadas $\hat{q}^i$ e $\hat{p}^i$ agem irreducívelmente em $\mathcal{H}=L^2(M)$.
+	\end{enumerate}
+\end{defn}
+
+\section{Quantização de Weyl e o teorema de Groenewold}
+
+No sentido do Axioma 2, chamamos o operador $\hat{f}$ a \textit{\textbf{quantização}} de $f$. Já vimos as quantizações dos observáveis de posição, momento e energia (Hamiltoniano), então a pergunta é se é possível construir um esquema de quantização que funcione para qualquer observável de um sistema quântico. Nesta seção vamos ver rapidamente as dificultades que isso traz, levando ao scénario onde vamos construir a quantização geometrica.
+
+Embora existem muitos otros esquemas de quantização em sistemas com um grau de liberdade, vamos presentar somente o esquema de Weyl.
+
+\begin{defn}\leavevmode
+Definimos a \textit{\textbf{quantização de Weyl (simplificada)}} como uma correspondência entre polinomios em $\mathbb{R}^{2}$ y operadores em $C^\infty_c(\mathbb{R})$ mediante a formula
+\[Q(x^jp^k)=\frac{1}{(j+k)!}\sum_{\sigma\in S_{j+k}}\sigma(X,X,\ldots,X,P,P,\ldots,P),\]
+onde para quaisquer operadores $A_1,A_2,\ldots,A_n$ e $\sigma \in S_n$, definimos
+\[\sigma(A_1,A_2,\ldots,A_n)=A_{\sigma(1)}A_{\sigma(2)}\ldots A_{\sigma(n)}.\]
+\end{defn}
+
+Esa correspondência pode ser generalizada para polinomios em $\mathbb{R}^{2n}$ e operadores sobre $C^\infty_c(\mathbb{R}^n)$. Isso da a seguinte propriedade:
+
+\begin{thing4}{Proposição 13.11}[\cite{hallq}]\leavevmode
+Seja $f$ um polinomio em $\mathbf{x}$ e $\mathbf{p}$ de grau menor o igual que 2 e $g$ um polinômio arbitrário em $\mathbf{x}$ e $\mathbf{p}$. Então
+\[\frac{1}{i \hslash}[Q(f),Q(g)]=Q(\{f,g\}),\]
+onde $\{f,g\}$ é o colchete de Poisson.
+\end{thing4}
+
+Embora parece prometedor,
+
+\begin{thing5}{Teorema "No Go" de Groenewold}[13.13 \cite{hallq}]\leavevmode
+Seja $\mathcal{D}(\mathbb{R}^{n})$ o espaço de operadores diferenciais em $\mathbb{R}^n$ com coeficientes polinomiais. Não existe uma aplicação linear $Q:\mathcal{P}_{\leq 4}\to \mathcal{D}(\mathbb{R}^n)$ com as seguintes propriedades:
+\begin{enumerate}
+\item $Q(1)=\operatorname{Id}$.
+\item $Q(x_j)=X_j$ e $Q(p_j)=P_j$.
+\item Para quaisquer $f$ e $g$ em $\mathcal{P}_{\leq 3}$, 
+	\[\frac{1}{i\hslash}[Q(f),Q(g)]=Q(\{f,g\}).\]
+\end{enumerate}
+\end{thing5}
+
+A pergunta de se existe uma quantização não é fácil de responder. Vamos ver que um método para consertar isso é trocar o espaço de Hilbert $L^2(\mathbb{R}^n)$ por $L^2(\mathbb{R}^{2n})$. Porém, esse espaço é "muito grande" e vamos precisar de fazer ele mais pequeno para as coisas dar certas.
+
+\section{Quantização geométrica no espaço euclideano}
+
+Esta seção está basada no capítulo 22 de \cite{hallq}. O objetivo é presentar o programa de quantização geométrica na variedade simplética $\mathbb{R}^{2n}$ com a forma canónica $\omega=\sum dq_j\wedge dp_j$.
+
+\subsection{Prequantização no espaço euclideano}
+
+Vamos seguir \cite{hallq}, capítulo 22, \textit{Geometric quantization on Euclidean space}.
+
+Os campos vetoriais Hamiltonianos, pensados como operadores diferenciais, satisfazem as relações de commutatividade desejadas: basta definir $Q(f)=i\hslash X_f$ para obter
+\[\frac{1}{i\hslash}[Q(f),Q(g)]=\frac{1}{i\hslash}[i\hslash X_f,i\hslash X_g]=(i\hslash) X_{\{f,g\}}=Q(\{f,g\}).\]
+Porém, esse mapa não satisfaz $Q(\mathbf{1})=\operatorname{Id}$ porque o Hamiltoniano da função 1 é zero. Pode tentar consertar isso definindo $Q(f)=i\hslash X_f+f$, mas desse jeito
+\begin{align*}
+	\frac{1}{i\hslash}[Q(f),Q(g)]&=\frac{1}{i\hslash}[i\hslash X_f+f,i\hslash X_g+g]\\
+	&=(i\hslash)\Big(\ldots\Big) \neq Q(\{f,g\})
+\end{align*}
+Mas isso tem solução. Considere um \textit{\textbf{potencial simplético}}, i.e. uma forma  $\theta$ tal que $d\theta=\omega$ a defina
+\begin{equation}\label{eq:prequant}
+Q(f)=i\hslash \Big(X_f-\frac{i}{\hslash}\theta(X_f)\Big)+f.\end{equation}
+Vai resultar que esse operador é pelo menos simétrico, e ainda,
+\begin{thing5}{Proposição 22.1}[\cite{hallq}]\label{prop:22.1}\leavevmode
+Para quaisquer $f,g\in C^\infty(\mathbb{R}^{2n})$,
+\[\frac{1}{i\hslash}[Q(f),Q(g)]=Q(\{f,g\})\]
+\end{thing5}
+Vamos explicar um pouquinho o que significa a \cref{eq:prequant}. Lembre 
+\begin{thing3}{Definição 10.1}[\cite{tu-diff}]\leavevmode
+	Seja $E\to M$ um fibrado vetorial suave sobre uma variedade $M$. Uma \textit{\textbf{conexão}} em $E$ é um mapa
+	\[\nabla:\mathfrak{X}(M)\times\Gamma(E)\longrightarrow\Gamma(E),\]
+onde $\Gamma(E)$ são as seções de $E$, satisfazendo para todo $X\in \mathfrak{X}(M)$ e $s\in\Gamma(E)$ que
+\begin{enumerate}[label=(\roman*)]
+\item $\nabla_Xs$ é $C^\infty(M)$-linear em $X$ e $\mathbb{R}$-linear em $s$,
+\item (regra de Leibniz) se $f\in C^\infty(M)$,
+	\[\nabla_X(fs)=(Xf)s+f\nabla_Xs=(df(X))s+f\nabla_Xs.\]
+\end{enumerate}
+\end{thing3}
+Formalmente, essa construção aplicada no fibrado tangente $TM$ permite definir uma \textit{\textbf{derivada covariante}}, denotada também por $\nabla_X$, que extende a noção de derivada respeito a um campo vetorial para tensores de qualquer grau na variedade. A definição para as funções suaves é simplesmente $\nabla_Xf=Xf$; e se cumple a regra de Leibniz (\cite{tu-diff}, teo. 22.8).
+
+Agora vamos definir uma derivada covariante. Pegue um potencial simplético $\theta$ (= uma 1-forma cuja derivada exterior é a forma simplética) e defina a \textit{\textbf{derivada covariante associada a $\theta$}} como
+\[\nabla_X=X-\frac{i}{\hslash}\theta(X):C^\infty(\mathbb{R}^{2n})\longrightarrow C^\infty(\mathbb{R}^{2n})\]
+onde a função $\theta(X)\in C^\infty(\mathbb{R}^{2n})$ age por simples multiplicação ponto a ponto. 
+
+Aqui é um bom momento para olhar de novo a nossa definição de $Q(f)$ (\cref{eq:prequant}). A prova da relação de commutatividade, prop. \hyperref[prop:22.1]{22.1}, é muito fácil de escrever em termos da curvatura dessa conexão. A seguinte proposição descreve essa curvatura.
+
+\begin{thing4}{Proposição 22.3}[\cite{hallq}]\leavevmode
+	Seja $\theta$ um potencial simplético e $\nabla_X$ a derivada covariante associada. Para quaisquer campos vetoriais $X,Y$ em  $\mathbb{R}^{2n}$,
+	\[[\nabla_X,\nabla_Y]-\nabla_{[X,Y]}=-\frac{1}{\hslash}\omega(X,Y).\]
+\end{thing4}
+
+\begin{proof}\leavevmode
+	Note que o colchete $[\cdot,\cdot]$ é o comutador de operadores, onde as funções suaves se consideram operadores que multiplicam ponto a ponto. A regra de Leibniz para derivada covariante diz que
+	\[\nabla_X(fg)=gXf+fXg\]
+	de modo que o operador $[\nabla_X,f]$ aplicado em uma função $g\in C^\infty(\mathbb{R}^{2n})$ da
+\[[\nabla_X,f]g=\nabla_X(fg)-f \nabla_Xg=gXf+fXg-fXg=gXf\]
+ou seja, como operadores temos
+\[[\nabla_X,f]=Xf.\]
+Agora vamos calcular o colchete.
+\begin{align*}
+	[\nabla_X,\nabla_Y]&=[X-\frac{i}{\hslash}\theta(X),Y-\frac{i}{\hslash}\theta(Y)]\\
+			   &=[X,Y]-\frac{i}{\hslash}[X,\theta(Y)]-\frac{i}{\hslash}[\theta(Y),Y]+\frac{1}{\hslash}\cancelto{0}{[\theta(X),\theta(Y)]}\\
+			   &=[X,Y]-\frac{i}{\hslash}\Big(X(\theta(Y))-Y(\theta(X))\Big).
+\end{align*}
+Substraindo o termo
+\begin{align*}
+	\nabla_{[X,Y]}=[X,Y]-\frac{i}{\hslash}\theta([X,Y])
+\end{align*}
+obtemos
+\[[\nabla_X,\nabla_Y]-\nabla_{[X,Y]}=-\frac{i}{\hslash}\Big(X(\theta(Y))-Y(\theta(X))-\theta([X,Y])\Big),\]
+qué exatamente a fórmula ``livre de coordenadas" da derivada exterior $d\theta=\omega$.
+\end{proof}
+
+Agora podemos provar a relação de commutatividade, prop. \hyperref[prop:22.1]{22.1}.
+
+\begin{proof}[Prova da prop \cref{prop:22.3}]\leavevmode
+\begin{align*}
+	\frac{1}{i\hslash}[Q(f),Q(g)]&=\frac{1}{i\hslash}\left[  i\hslash \Big(X_f-\frac{i}{\hslash}\theta(X_f)\Big)+f,i\hslash \Big(X_g-\frac{i}{\hslash}\theta(X_g)\Big)+g\right]\\
+&=\left[i\hslash \nabla_{X_f}+f,i\hslash\nabla_{X_g}+g \right] \\
+&=i\hslash\Big([\nabla_{X_f},\nabla_{X_g}]\Big)+[\nabla_{X_f},g]-[\nabla_{X_g},f]+\cancelto{0}{[f,g]}\\
+&=i\hslash\Big(\nabla_{[X_f,X_g]}+\frac{i}{\hslash}\omega(X_f,X_g)\Big)+X_f(g)-X_g(f)\\
+&=i\hslash\Big(\nabla_{X_{\{f,g\}}}+\frac{i}{\hslash}\{f,g\}\Big)+\{f,g\}+\{f,g\}\\
+&=i\hslash \nabla_{X_{\{f,g\}}}-\{f,g\}+\{f,g\}+\{f,g\}\\
+&=Q(\{f,g\}).
+\end{align*}
+\end{proof}
+
+Agora vamos dar uma olhada como ficam as prequantizações dos operadores de posição e de momento:
+
+\begin{thing4}{Exemplo 22.4}[\cite{hallq}]\leavevmode
+	Para o potencial simplético $\theta=p_jdx_j$,
+	\begin{align*}
+	Q(x_j)&=x_j+i\hslash\frac{\partial }{\partial p_j}\\
+	Q(p_j)&=-i\hslash\frac{\partial }{\partial x_j}
+	\end{align*}
+\end{thing4}
+
+Uma última proposição na seção mostra que a escolha do potencial simplético não faz muita diferencia no sentido de que as prequantizações que surgem de dois potenciais simpléticos são unitariamente equivalentes; o mapa unitário que as relaciona se chama de \textit{\textbf{gauge transformation}}.
+
+\subsection{Quantização no espaço euclideano}
+
+Por que essa correspondência se chama só de \textit{pre}quantização? A \hyperref[prop:22.1]{22.1} mostra uma propriedade importante para funções suaves em $\mathbb{R}^{2n}$. Qual seria o problema se trabalhasemos no espaço $L^2(\mathbb{R}^{2n}$? A resposta é que as quantizações dos operadores de posição e momento não  agem irreducivelmente no $L^2(\mathbb{R}^{2n})$. 
+
+Talvez aqui só botar o espaço de Fock=espaço de Segel-Bergman com o que a gente já sabe. Daí passa no simplético. Pode fazer isso de Fock amanhã memo.
+
+\section{Quantização geométrica em variedades simpléticas}
+
+\subsection{Por que a geometria simplética é o scenario natural para a mecânica clássica}
+
+Essa seção é inspirada \href{https://cohn.mit.edu/symplectic/}{neste documento}.
 
 Sistema f\'isico \'e uma variedade com estrutura adicional. A variedade consiste dos estados do sistema (posi\c c\~ao, momento), e a estrutura adicional s\~ao as leis de movimento. A din\^amica do sistema est\'a determinada por uma fun\c c\~ao, o Hamiltoniano. Por medio de uma forma simpl\'etica podemos obter um campo vetorial associado a $H$ 
 
@@ -42,250 +325,41 @@ Sistema f\'isico \'e uma variedade com estrutura adicional. A variedade consiste
 
 As equa\c c\~oes de Hamilton s\~ao s\'o outra formula\c c\~ao da segunda lei do Newton. O campo vetorial Hamiltoniano \'e uma formula\c c\~ao geom\'etrica das equa\c c\~oes de Hamilton.
 
-\begin{prop}[18.9 \texttt{das.pdf}]
-	$\{f,H\}=0$ ($f$ \'e primeira integral do fluxo de $X$) se e somente se $f$ \'e constante ao longo das curvas integrais de $X_F$.
-\end{prop}
+\iffalse
+{\color{3}Você tem os seguintes recursos falando sobre \textbf{prequantização}  (quantização em line bundles): \texttt{k3quant.pdf}, \texttt{raw.pdf}, \texttt{chernsimons.pdf}, \texttt{lecnotes.pdf},  \texttt{bere-top.pdf} e \texttt{wood.pdf}. São todos muito boms e tem muitos exemplos simples como esfera de Riemann, toro. \texttt{chernsimons.pdf} tem esse negocio de $\mathsf{SU}(2)$. Só \texttt{k3quant.pdf} fala da definição intuitiva.}
 
-\subsection{Qu\^antica}
+Começarei por presentar uma visão geral dos objetivos da quantizão geométrica. Mais pra frente vamos ver que essa construção não pode ser alcançada per se, e terminharemos desenvolvendo uma outra construção. Para essa noção inuitiva uso \cite{gq} e \cite{k3quant}.
 
-A equação de Schrödinger é o análogo às equações de Hamilton da mecânica clásica (lembre que as equações de Hamilton são só outra formulação das segunda lei de Newton). Assim, a equação de Schrödinger determina a dinámica de um sistema quântico: "decreve como o estado de um sistema quântico muda com o tempo". Ela está determinada pelo Hamiltoniano, que no mundo quântico é um operador.
- \[i\hbar \frac{\partial \psi}{\partial t}=\hat{H}\psi.\]
- Agora:
- 	\begin{thing3}{Bruno}\leavevmode
- 		
- 	O operador $H$ define uma dinamica no espaço de Hilbert, os físicos chamam de equação de Schrodinger. Esse é o analogo de fluxos Hamiltonianos; matematicamente, a gente fala de "strongly continuous one parameter unitary subgroups" no espaço de Hilbert
-\end{thing3}
+Um dos pioneros da mecânica quântica, P. Dirac, desenvolveu a correspondência entre mecânica quântica e mecánica clássica. A ideia dele foi que tranformações 
 
- O dani:
- \begin{thing5}{Dani}\leavevmode
- 	
-		 Blz! Então suponho que para cada estado no espaço de Hilbert a gente consegue uma curva aplicando essa família de operadores unitários [que pelo \href{https://en.wikipedia.org/wiki/Stone%27s_theorem_on_one-parameter_unitary_groups}{Stone thm} correponde  a um operador unitário, Hamiltoniano suponho]. As soluções do oscillador armônico quântico são círculos mesmo (tipo pontos que ficam a distancia r de um ponto, ussando a metrica induzida pelo produto interno do espaço de Hilbert)?
- \end{thing5}
+Vou começar seguindo \cite{k3quant} para dar uma visão geral dos objetivos da quântização (isso também está em \href{https://en.wikipedia.org/wiki/Canonical_quantization#Classical_and_quantum_brackets}{Wiki, Canonical Quantization}). Começamos com o caso simples em que $M=\mathbb{R}^{n}$ e $\hslash$ é uma constante (a constante de Planck, que para nós é só um nome).
 
-\begin{thing3}{Bruno}\leavevmode
-	Exatamente, Stone Theorem!!
-Agora as soluções do oscilador harmônico quântico não são círculos. A distância pra origem sempre é constante pra evoluções unitárias, mas isso agora diz que a dinâmica unitária preserva vetores normalizados (i.e. as órbitas de um ponto na esfera de dim infinita continuam na esfera)
-\end{thing3}
+\begin{defn}\leavevmode
+	Uma \textit{\textbf{quantização completa}} de $M$ é um mapa
+	\[\mathcal{F}:f\longmapsto \hat{f}\]
+	levando observáveis clássicos $f $, i.e. funções suaves em $T^*M$ a operadores autoadjuntos $\hat{f}$ num espaço de Hilbert $\mathcal{H}$ satisfazendo:
+	\begin{enumerate}
+		\item $\mathcal{F}$ é linear:
+			\[\widehat{f+g}=\hat{f}+\hat{g},\qquad f,g\in\mathcal{C}^\infty(T^*M)\]
+			\[\widehat{\lambda f}=\lambda\hat{f},\qquad \lambda\in\mathbb{R}.\]
+	
+		\item $ \mathcal{F}$ é um morfismo de álgebras de Lie salvo por uma constante:
+			\[\widehat{\{f,g\}}=\frac{1}{\hslash}\left[\hat{f},\hat{g}\right]\]
+\item A função constante $1$ corresponde com a identidade:
+	\[\hat{1}=\operatorname{Id}\]
 
-\begin{thing5}{Dani}\leavevmode
-	Maravilha, mas então em que sentido a dinâmica oscila?
-\end{thing5}
-
-\begin{thing5}{Dani}\leavevmode
-	Na verdade não entendi bem essa parte de \textit{\textbf{evaluação num ponto}}. Cómo é que se definem os estados coerentes? 
-\end{thing5}
-
- Distintas escolhas de Hamiltoniano $\hat{H}$ descrevem diferentes leis da natureza. Para partículas não relativistas em treis dimensões com energia potencial $V(x)$, o Hamiltoniano  é
- \[\hat{H}=-\frac{\hbar^2}{2m}\nabla^2+V(x).\]
- \'E um operador diferencial. O Laplaciano \'e
- \[\nabla^2=\frac{\partial^2}{\partial^2 x^2}+\frac{\partial^2}{\partial^2 y^2}+\frac{\partial^2}{\partial^2z^2}.\]
- Na mec\^anica cl\'asica, o Hamiltoniano est\'a relacionado com a energia do sistema, que para n\'os \'e
- \[E=\frac{1}{2m}\mathbf{p}^2+V(x)\]
- onde $\mathbf{p}=m\dot{\mathbf{x}}$ o momentum da partícula.
-
- Nem toda teoria f\'isica pode ser descrita usando um Hamiltoniano. (Em termos gerais, s\'o as teorias que tem conserva\c c\~ao da energia podem ser descritas com o Hamiltonano.) Importantemente, isso mesmo acontece na mecânica quântica.
-
- O experimento do buraco duplo: a função de onda se comporta como part\'icula e como onda.
-
- \begin{defn}
- 	Um \textit{\textbf{estado quântico}} é uma função de onda $\psi(\mathbf{x},t)$ normalizável, ie.
-	\[\int d^3x|\psi|^2<\infty.\]
- \end{defn}
- Esses estados qu\^anticos moram num espaço de Hilbert (tem produto Hermitiano): se a part\'icula est\'a num espaço $M$, o espaço de Hilbert relavante \'e $L^2(M)$.
-
-\begin{defn}
-	\textit{\textbf{Observ\'avel}}: s\~ao fun\c c\~oes  de $\mathbf{x}$ e $\mathbf{p}$. Por exemplo, $\mathbf{x}$ e $\mathbf{p}$ mesmas, ou o \textit{momento angular} $\mathbf{L}=\mathbf{x}\times \mathbf{p}$ ou a \textit{energia} $E=\frac{\mathbf{p}^2}{2m}+V(\mathbf{x})$.
-
-	Os observ\'aveis s\~ao representados por \textit{\textbf{operadores}} no espaço de Hilbert. Agem numa fun\c c\~ao de onda e d\~ao outra fun\c c\~ao.
+	\item As coordenadas $\hat{q}^i$ e $\hat{p}^i$ agem irreducívelmente em $\mathcal{H}=L^2(M)$.
+	\end{enumerate}
 \end{defn}
-
-\begin{remark}
-	O reemplazo das matrices nos espaços de dimens\~ao infinita s\~ao os operadores diferenciais.
-\end{remark}
-
-\begin{remark}
-	O resultado de qualquer medi\c c\~ao de um operador est\'a no seu espectro (conjunto de eigenvalores).
-\end{remark}
-
-O espectro do Hamiltoniano determina os poss\'iveis n\'iveis de energia do sistema qu\^antico.
-
-Todo observ\'avel f\'isico corresponde a um operador Hermitiano (autoadjunto).
-
-
-\section{Quantização}
-
-\href{https://math.stackexchange.com/questions/4540394/need-help-understanding-the-proof-of-diracs-famous-relation-between-commutators}{Aqui } tem uma perguna de StackExchange: "Need help understanding the proof of Dirac's famous relation between commutators and Poisson brackets". So maybe that could be kind of an exercise/proof to carry out in the talk.
-
-No seguinte vou ler sobre tudo \href{https://en.wikipedia.org/wiki/Geometric_quantization}{wiki} e um pouco de  \texttt{quank3.pdf}
-
-\subsection{Prequantização}
-
-Passar de uma variedade simplética a um espaço de Hilbert assinalando operadores autoadjuntos às funções suaves na variedade, ie. oberváveis clássicos a observáveis quânticos, satisfazendo:
-\begin{enumerate}
-	\item Linearidade: $\widehat{f+g}=\hat{f}+\hat{g}$, $\widehat{\lambda f}=\lambda\hat{f}$.
-	\item Morfismo de álgebras de Lie a menos de uma constante.
-	\item Identidade vai para identidade.
-	\item Os operadores $\hat{q_i}$ e $\hat{p_i}$ agem irreduzivelmente no espaço de Hilbert.
-\end{enumerate}
-
-
-Por exemplo, o espaço de funções integráveis respeito à forma de Liouville. Manda uma função suave $f$ em $Q(f):=-i\hbar \left( X_f+\frac{1}{i\hbar}\theta(X_f) \right) +f$.
-
-Otro exemplo: um fibrado linear $L$ munido de uma conexão tal que a sua forma de curvatura é $ \omega /\hbar$. Aqui o espaço de Hilbert é o espaço de seções quadrado-integráveis de $L$ como o operador $Q(f)=-i\hbar \nabla_{X_f}+f$. Neste caso temos que $[Q(f),Q(g)]=i\hbar Q(\{f,g\}).$
-
-\subsubsection{Dirac}
-
-In \cite{dirac} we see the formula (in chapter IV, sec. 2.1)
-\[uv-vu=i\hbar [u,v]\]
-where he denotes the Poisson bracket by $[\cdot,\cdot ]$.
-\begin{quotation}
-	\textit{The problem of finding quantum conditions now reduces to the problem of determining Poisson Brackets in quantum mechanics} 
-\end{quotation}
-At least in this one-minut reading session, it seems to me that he is looking for an adequate bracket in the smooth function space, rather than in the Hilbert space operators space.
-
 
 \subsection{Polarização}
 
-É a escolha de um subespaço Lagrangiano em cada ponto de $M$.
-
-\begin{defn}(\href{https://ncatlab.org/nlab/show/polarization#OfASymplecticManifold}{nLab})
-	Uma \textit{\textbf{polarização}} de uma variedade simplética $(X,\omega )$ é a escolha de um subfibrado Lagrangiano involutivo $\mathcal{P}\hookrightarrow T_{\mathbb{C}}X$ do fibrado tangente complexificado de $X$.
-\end{defn}
-
-\begin{example}
-	O fibrado holomorfo ou antiholomorfo caso $(X,\omega,g,I)$ seja K\"ahler.
-\end{example}
-
-A polarização no  \texttt{k3quant.pdf} é a escolha de um fibrado linear; a gente vai tomar seções holomorfas para construir o espaço de Hilbert.
-
-\subsection{\texttt{k3quant.pdf}}
-
-After the definition of \textit{\textbf{full quantization}} written above, we have definition of \textit{\textbf{quantizable}} manifold in terms of curvature in the subbundle. And construction of Berezin-Toeplitz operators, which includes the construction of the Hilbert space of $L^2$-measuable sections of the bundle. Then \textit{\textbf{Hardy space}}, should I read this? Is there a proof that the operatrs are good?
-
-\subsection{Coherent states}
-
-Let's read a little bit of \href{https://en.wikipedia.org/wiki/Coherent_states_in_mathematical_physics}{wiki}. A \textit{\textbf{family of coherent states}} is a set of vectors in some locally compact space  $X$ that satisfy the following properties in relation with some complex separable hilbert space $\mathfrak{H}$. To every element $x$ in the family of coherent states asocciate an element $|x\rangle$ and ask that
-\begin{enumerate}
-	\item the map $x\mapsto |x\rangle$ be weakly continuous (every functional evaluated on the vector is continuous… somehow)
-
-	\item Some condition called \textit{\textbf{resolution of the identity}} that "ensures that an arbitrary vector  $|\psi\rangle$ be expressible as a linear integral combination of these (the coherent states?) vectors. Indeed the resolution of the identity immediately implies that $|\psi\rangle=\int_{X}\Psi(x)|x\rangle d\nu(x)$" where $\Psi(x)=\left<x|\psi\right> $ and $d\nu$ is a measure on $X$.
-\end{enumerate}
-
-{\color{4}But how is this related to the quantization in \texttt{raw.pdf}}?
-
-{\color{1}\begin{quotation}
-		"The Hilbert space on which th efunctions act as operators consists of holomorphic sections of a suitably chosen line bundle. Evaluation at a point is a continuous linear functional {\color{3}Evaluation at a point gives me a vector in the line bundle which is a functional on $\mathcal{C}^\infty(X)$ functions} and gives rise to a vector in the Hilbert space {\color{3}How because a vector in the Hilbert space is a whole section…} which is labelled by that point.
-\end{quotation}}
-
-\subsection{\texttt{raw.pdf}}
-
-Aqui só vou fazer um resumo do artigo. Seção 1:
-
-\begin{enumerate}
-	\item Estrutura simplética, campo vetorial Hamiltoniano, função Hamiltoniana. Tem uma sequência exata curta 
-		\[\begin{tikzcd}
-			0\arrow[r]&0\mathbb{R}\arrow[r]&\mathcal{C}^\infty(X)\arrow[r]&\mathfrak{H}(X,\omega):=\{\xi:i_\xi\omega\text{ é exata} \}\arrow[r]&0
-		\end{tikzcd}\]
-onde esse $\mathfrak{H}$ se chama \textit{\textbf{espaço de campos hamiltonianos em $X$}}.
-	\item Fibrado linear, conexão, curvatura, forma de conexão.
-	\item Estrutura hermitiana, fibrado linear hermitiano com conexão (HLBC).
-	\item Uma \textit{\textbf{prequantização}} de $(X,\omega)$ é um HLBC. Existe iff $\omega$ is integral (has integral periods? )
-	\item Um negocião para ver que tem uma sequência curta no mundo dos fibrados lineares análoga à sequência curta no mundo das funções hamiltonianas. No fim de contas, isso da uma representação de álgebras de Lie que se chama \textit{\textbf{prequenantização}}.
-
-	 \item Uma \textit{\textbf{polarização}} de $(X,\omega)$ é um subfibrado comlexo
-\end{enumerate}
-
-{\color{4}\bfseries Seção 2.}\hspace{.5em}
-\begin{itemize}
-	\item Seja $F$ uma polarização de $(X,\omega)$. Dizemos que a quantização é \textit{\textbf{holomorfa}} de  $F\cap \overline{F}=0$. Since $\dim_\mathbb{C}F_X$ is half… Existe uma única estrutura complexa $J$ tal que…
-\item "Em resumo, a quântização holomorfa de $(X,\omega)$ da a $X$ uma estrutura Kähler para a qual $\omega$ é a forma Kähler.
-\end{itemize}
-
-\section{Operadores de Berezin-Toeplitz}
-
-Here's a quote from Sergey in quantum surface group, 8 october.
-{\color{4}\begin{quotation}
-Anyway, this shows how hermitian Toepliz operators $T_f$ (and Hermitian Toepliz matrices) can be understood as (matrices of) Berezin-Toepliz operators $T_F$ for harmonic functions $F$ on a unit disc.	
-\end{quotation}}
-
 \section{Espaço de Fock}
 
+\section{Quantização de variedades Kähler}
 
-Consider $\mathbb{C}^{n}$. define
-\[\mathcal{F}_n=\left\{\text{$f(z)$-entire functions  $\mathbb{C}^{n}\to \mathbb{C}$}\Big| \int_{\mathbb{C}^{n}}(f(x))^2e^{-|z|^2}d\lambda(z)<\infty\right\}\]
-
-We have an inner product:
-\[\left<f,g\right> :=\int_{\mathbb{C}^{n}}f(z)\overline{g(z)}e^{-|z|^2}d \lambda(z)\]
-
-\clearpage
-\begin{prop}\leavevmode
-	$z^{\mathbf{k}}:=z_1^{k_1}\cdot\ldots\cdot z_n^{k_n}$, where $\mathbf{k}=(k_1,\ldots,k_n)$, form an orthogonal basis (of monomials) for $\mathcal{F}_n$. Moreover, $\|z^k\|^2=k_1!\ldots k_n!$.
-\end{prop}
-\begin{proof}\leavevmode
-Consider the case $n=1$ and let $k>k'\in\mathbb{Z}_{\geq 0}$. Let's first solve
- \begin{align*}
-	 \int_{\mathbb{C}}z^k\bar{z}^{k'}e^{-|z|^2}d\lambda&=\int_{\mathbb{C}}(z\bar{z})^{k'}z^{k-k'}e^{-|z|^2} d\lambda\\
-&=\int_{\mathbb{C}}|z|^{2k}z^{k-k'}e^{-|z|^2}d\lambda
-\end{align*}
-and now perform a change of coordinates and remember that the \href{https://en.wikipedia.org/wiki/Polar_coordinate_system#Generalization}{substitution rule} for integrals needs you to put the determinant of the jacobian of the change of coordinate map, which in this case is $x=r\cos \theta$, $y=r\sin \theta$ and the jacobian has determinant r. So the integral is now
-\begin{align*}
-&=\int_{0}^\infty \int_{0}^{2\pi}(re^{i\theta})^{k-k'}|re^{i\theta}|^{2k}e^{-|re^{i\theta}|^2}rd\theta dr\\
-& =\int_{0}^\infty\int_{0}^{2\pi}(re^{i\theta})^{k-k'}r^{2k}e^{-r^2}rd\theta dr\\
-& =\int_{0}^\infty r^{2k}e^{-r^2}r\int_{0}^{2\pi}(re^{i\theta})^{k-k'}d\theta dr
-\end{align*}
-and the integral along the phase (=with respect to $\theta$) vanishes since $e$ has the same value at  $0$ and at $2\pi$. Of course an analogous statement works if $k'>k$.
-
-Now take general case $n$. We have that:
- \begin{align*}
-	\left<z^{\mathbf{k}},z^{\mathbf{k}'}\right>&= \int_{\mathbb{C}^n}z^{\mathbf{k}}\overline{z^{\mathbf{k}'}}e^{-|z|^2}d\lambda%&=\int_{\mathbb{C}}(z\bar{z})^{\mathbf{k}'}z^{\mathbf{k}-\mathbf{k}'}e^{-|z|^2} d\lambda\\
-%&=\int_{\mathbb{C}}|z|^{2\mathbf{k}}z^{\mathbf{k}-\mathbf{k}'}e^{-|z|^2}d\lambda
-\end{align*}
-This integral will also vanish since the product $z^{\mathbf{k}}\overline{z^{\mathbf{k}'}}$ will factor into a product of modules times a product of powers of the variables  $z_1,\ldots,z_n$. When changing to polar coordinates the latter terms will vanish out of periodicity of the exponential.
-
-Agora vamos confirmar que $\|z^\mathbf{k}\|^2=k_1!\ldots k_n!$. Novamente considere primeiro o caso $n=1$. Temos que
- \begin{align*}
-	\|z^k\|^2&=\int_{\mathbb{C}}z^k\overline{z^k}e^{-|z|^2}d\lambda\\
-	&=\int_{\mathbb{C}}|z^k|^2e^{-|z|^2}d \lambda\\
-	&=\int_{0}^{2\pi}\int_{0}^\infty|(re^{i\theta})^k|^2e^{-|(re^{i\theta})^2|}rdrd\theta\\
-	&=\int_{0}^{2\pi}\int_{0}^\infty(r^k)^2e^{-r^2}rdrd\theta
-\end{align*}
-Pegando $u=r^2$ obtemos $du=2rdr$ de modo que a integral vira
- \begin{align*}
-	&=\frac{1}{2}\int_{0}^{2\pi}\int_{0}^\infty u^{k}e^{-u}du d\theta
-\end{align*}
-O integrando respeito a $u$ é exatamente a \href{https://en.wikipedia.org/wiki/Gamma_function}{função Gamma} $\Gamma(k+1)=\int_{0}^\infty t^{k}e^{-t}dt=k!$. Assim, a nossa integral é
-\begin{align*}
-	&=\frac{1}{2}\int_{0}^{2\pi}k!d\theta=\pi k!
-\end{align*}
-{\color{2}Como tiro esse $\pi$ que está sobrando?}
-
-Por fim, para o caso geral pegue $\mathbf{k}=(k_1,\ldots,k_n)$ e $z^\mathbf{k}=z_1^{k_1}\ldots z_n^{k_n}$. Temos que
-
-\begin{align*}
-	\|z^\mathbf{k}\|^2&=\int_{\mathbb{C}^n}z^\mathbf{k}\overline{z^{\mathbf{k}}}e^{-|z|^2}d \lambda\\
-	&=\int_{\mathbb{C}^{n}}|z_1^{k_1}|^2\ldots |z_n^{k_n}|^2e^{-(|z_1|^2+\ldots +|z_n|^2)}d \lambda
-\end{align*}
-que pode ser evaluado como o produto de integrais no caso de uma variável, dando o resultado desejado.
-
-
-\end{proof}
-
-
-\iffalse
-\begin{align*}\left<f,\varphi_a\right> &=\int_{\mathbb{C}^n}f(z)\overline{\varphi_a(z)}e^{-|z|^2}d\lambda(z)\\
-		&=\int_{\mathbb{C}^{n}}f(z)\overline{\operatorname{exp}(z_1\overline{a}_1+\ldots +z_n\overline{a}_n)}e^{-|z|^2}d \lambda(z)
-\end{align*}
 \fi
 
-\section{What to do next?}
-
-Look at \texttt{chernsimons.pdf}, pag. 171 \textit{Lightning review of Kähler quantization} . There's two things that could be useful: "Bergman quantization" (what is the relation between this and Fock space? Looks like in \texttt{chernsimons.pdf} there is a nice formula for the operators. Second thing is the construction (again) for the Kähler quantization. So this is two objectives.
-
-\textbf{Structure of this project} 
-\begin{enumerate}
-	\item Introduction. Definition of quantization. What we want. What we can and can't do. Theorem of what we can't do. Solutions.
-	\item Example 1. Fock space/Bergman quantization.
-	\item Example 2. Kähler quantization.
-\end{enumerate}
+\printbibliography
 
 \end{document}

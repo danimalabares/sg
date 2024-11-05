@@ -94,6 +94,10 @@ Finally we conclude by taking a local inverse $\sigma$ of $\pi$ via inverse func
 		\[U^2=U\cdot U=\bigcup_{g\in U}U\cdot g \]
 		must be open. Likeways $U^n$ is open and so is $\bigcup_{n \in\mathbb{N}} U^n$.
 
+		To see that $\bigcup_{n \in\mathbb{N}} U^n$ is also closed, notice that it is a subgroup of $G$: it is obvious that it is closed under group product, so it only remains to see that it contains the inverse of every element.
+
+		Further, any open subgroup of a topological group is also closed. To see this in our case call $H:=\bigcup_{n \in\mathbb{N}} U^n$. We'll show that $G\setminus H$ is open. Take $g \in G\setminus H$, the set $g\cdot H$ is in fact an open neighbourhood of $g$ contained in $G\setminus H$. Indeed, if $h\in g\cdot H\cap H$, then we can take the inverse $h^{-1}\in H$ and we get that $h^{-1}hg=g\in H$ but that's not possible.
+
 
 
 		\item Let $g\in G$ be any element. Suppose we find a vector $v\in T_eG$ such that its integral curve $\gamma$ passes through $g$ at time $t_0$. Then we can map this vector both by $d\varphi$ and $d\psi$ to obtain a vector $w:=d_e\varphi(v)=d_e\psi(v)\in T_eH$. Then the integral curve $\eta$ of  $w$ is the same as the integral curve of $v$ pushed by either of  $\varphi$ or $\psi$. Let me show this explicitly for self-conviction:
@@ -159,7 +163,7 @@ $\mathsf{OK}$ now we only need to find the vector $v$. The statement is that for
 			Checking that this map is a group isomorphism ammounts to checking that matrix multiplication in $\mathsf{SU}(2)$ is the same as quaternion multiplication 
 
 
-			\item (Proof from \cite{hall}, prop. 3.24.) We will show that $\mathfrak{su}(3)$ is the space of traceless anti-hermitian matrices and \cref{eq:1} will follow.
+			\item (Proof from \cite{hall}, prop. 3.24.) We will show that $\mathfrak{su}(2)$ is the space of traceless anti-hermitian matrices and \cref{eq:1} will follow.
 				\begin{enumerate}[label=\textbf{Step \arabic*}]
 					\item Show that the Lie algebra of a matrix Lie group $G$, defined as the tangent space at identity, is the same as the matrices $X$ such that $ \operatorname{exp}(tX) \in G$ for all $t\in\mathbb{R}$. (Inspired, though the proof is different because his definitions are different, in \cite{hall}, coro. 3.46.)
 
@@ -315,7 +319,7 @@ For a Lie algebra $\mathfrak{g}$, there is always a canonical bilinear form $k:\
 			\[\Big(\operatorname{Ad}_g\circ \operatorname{ad}_u\circ \operatorname{Ad}_{g^{-1}}\Big)x=\operatorname{Ad}_g[u,\operatorname{Ad}_{g^{-1}}x]=[\operatorname{Ad}_gu,x\]
 			já que $\operatorname{Ad}_g=d_eI_g$ não é apenas um automorfismo linear, mas é um automorfismo de álgebra de Lie, i.e. $\operatorname{Ad}_g[x,y]=[\operatorname{Ad}_gx,\operatorname{Ad}_gy]$ para $x,y\in\mathfrak{g}$. Isso segue do fato de que o pushforward de colchete de Lie de dois campos vetoriais e o colchete dos pushforwards dos campos vetoriais (ver \cite{lee}, coro. 8.31).
 		
-\item 
+\item Por enquanto não consegui resolver esse problema:
 	\end{enumerate}
 \end{proof}
 
@@ -359,7 +363,7 @@ Para ver que o produto interno de $\mathbb{R}^{3}$ corresponde com $\frac{1}{2}\
 \item Agora vamos calcular a ação adjunta. 
 Primeiro notemos que a ação adjunta, definida como a derivada do operador $I_A(X)=AXA^{-1}$, é ela mesma. Talvez esse é um fato obvio porque $I_A$  é um mapa linear, e a sua derivada coincide com ele. Porém, tem um argumento mais explícito no \href{https://math.stackexchange.com/questions/512026/prove-that-the-action-of-a-lie-group-on-its-lie-algebra-via-the-adjoint-represen}{StackExchange}: a ação adjunta em um vetor  $X\in\mathfrak{so}(3)$ que seja a derivada em $t=0$ da curva $\gamma\subset \mathsf{SO}(3)$, i.e.  $\gamma'(0)=X$, é simplesmente $\frac{d}{dt}A\gamma(t)A^{-1}\Big|_{t=0}=AXA^{-1}$. A observação chave é que como a álgebra de Lie $\mathfrak{so}(3)$ é um álgebra de matrizes, o produto do lado direito está bem definido.
 
-Em fim, agora vou seguir \href{https://www.ethaneade.org/lie.pdf}{este documento} para achar uma matriz que representa esse operador linear quando identificamos $\mathfrak{so}(3)$ com $\mathbb{R}^{3}$. Ou seja, queremos achar uma matriz  $\overline{\operatorname{Ad}_A}$ tal que $\operatorname{Ad}_AX=AXA^{-1}\rightsquigarrow \overline{\operatorname{Ad}_A}x$ onde $x\in\mathbb{R}^{3}$  representa a matriz $X\in\mathfrak{so}(3)$. Vamos ver que de fato essa matriz é $A$.
+Agora vamos a achar uma matriz que representa esse operador linear quando identificamos $\mathfrak{so}(3)$ com $\mathbb{R}^{3}$. Ou seja, queremos achar uma matriz  $\overline{\operatorname{Ad}_A}$ tal que $\operatorname{Ad}_AX=AXA^{-1}\rightsquigarrow \overline{\operatorname{Ad}_A}x$ onde $x\in\mathbb{R}^{3}$  representa a matriz $X\in\mathfrak{so}(3)$. Vamos ver que de fato essa matriz é $A$.
 
 \begin{align*}AXA^{\mathbf{T}}&=\begin{pmatrix}a_{11}&a_{12}&a_{13}\\ a_{21}&a_{22}&a_{23}\\ a_{31}&a_{32}&a_{33}\end{pmatrix}\begin{pmatrix}0&-z&y\\ z&0&-x\\ -y&x&0\end{pmatrix}\begin{pmatrix}a_{11}&a_{21}&a_{31}\\ a_{12}&a_{22}&a_{32}\\ a_{13}&a_{23}&a_{33}\end{pmatrix}\\
 &=\begin{pmatrix}a_{11}&a_{12}&a_{13}\\ a_{21}&a_{22}&a_{23}\\ a_{31}&a_{32}&a_{33}\end{pmatrix}\begin{pmatrix}-za_{12}+ya_{13}&-za_{22}+ya_{23}&-za_{32}+ya_{33}\\ a_{11}z-xa_{13}&za_{21}-xa_{23}&za_{31}-xa_{33}\\ -ya_{11}+xa_{12}&-ya_{21}+xa_{22}&-ya_{31}+xa_{32}\end{pmatrix}\end{align*}
@@ -372,18 +376,36 @@ Daí, se o vetor correspondente a $AXA^{\mathbf{T}}$ e $(x',y',z')$, sabemos que
 Para achar a matriz buscada simplesmente calculamos as coordenadas dos vetores canónicos de $\mathbb{R}^{3}$.
 
 \begin{itemize}
-\item Se $(x,y,z)=(1,0,0)$ obtemos  \[(x',y',z')=(-a_{23}a_{32}+a_{22}a_{33},-a_{12}a_{33}+a_{13}a_{32},-a_{22}a_{13}+a_{23}a_{12})\].
-\item Se $(x,y,z)=(0,1,0)$ obtemos  \[(x',y',z')=(-a_{23}a_{31}-a_{21}a_{33},-a_{11}a_{33}-a_{13}a_{31},-a_{21}a_{13}-a_{23}a_{11})\].
-\item Se $(x,y,z)=(0,0,1)$ obtemos  \[(x',y',z')=(-a_{22}a_{31}+a_{21}a_{32},-a_{11}a_{32}+a_{12}a_{31},-a_{21}a_{12}+a_{22}a_{11})\].
+\item Se $(x,y,z)=(1,0,0)$ obtemos  \[(x',y',z')=(-a_{23}a_{32}+a_{22}a_{33},-a_{12}a_{33}+a_{13}a_{32},-a_{22}a_{13}+a_{23}a_{12})\]
+\item Se $(x,y,z)=(0,1,0)$ obtemos  \[(x',y',z')=(a_{23}a_{31}-a_{21}a_{33},a_{11}a_{33}-a_{13}a_{31},a_{21}a_{13}-a_{23}a_{11})\]
+\item Se $(x,y,z)=(0,0,1)$ obtemos  \[(x',y',z')=(-a_{22}a_{31}+a_{21}a_{32},-a_{11}a_{32}+a_{12}a_{31},-a_{21}a_{12}+a_{22}a_{11})\]
 \end{itemize}
-Esses treis vetores coluna conformar as coordenadas da matriz que buscamos. Para confirmar que ela é exatamente $A$, basta mostrar que o produto dela com $A^{\mathbf{T}}$ é a identidade (pois sabemos que $A A^{\mathbf{T}}=\operatorname{Id}$).
+Esses treis vetores em colunas conformam a matriz que buscamos, que podemos chamar por enquanto $\mathbf{C}$. Para mostrar que $\mathbf{C}=A$ basta ver que $\mathbf{C}A^{\mathbf{T}}=\operatorname{Id}$.
 
-É imediato que as coordenadas da diagonal desse produto são 1: são os determinantes!
+É simples ver que as coordenadas de $\mathbf{C}$ são distintos menores (determinantes de sub-matrizes de $2\times 2$) de $A$. Quando calculamos o produto $\mathbf{C} A^{\mathbf{T}}$, vemos que nas tres entradas da diagonal aparece o determinante de $A$, que é 1. As entradas fora da diagonal devem ser zero. Fazendo contas não achei immediato, mas o resultado é um fato de álgebra linear: a matriz que calculamos se chama \href{https://en.wikipedia.org/wiki/Minor_(linear_algebra)#Cofactor_expansion_of_the_determinant}{\textit{\textbf{matriz de cofactores}}} e satisfaz, em geral,
+\[A^{-1}=\frac{1}{\det A}\mathbf{C}^{\mathbf{T}}\]
+A menos dessa continha, isso mostra que a ação adjunta de $\mathsf{SO}(3)$ em $\mathbb{R}^{3}$ é por rotações com eixos que passam pela origem. Segue que órbita da origem é trivial. As órbitas dos outros pontos são quocientes $\mathsf{SO}(3)/S^1$, já que as órbitas são difeomorfas ao quociente do grupo entre estabilizador (pode pensar que a órbita é uma variedade homogénea). Ademais, $\mathsf{SO}(3)$ age transitivamente em $S^2$ com estabilizar também $S^1$. Segue que as órbitas são $\mathsf{SO}(3)/S^1\overset{\operatorname{dif}}{\simeq} S^2$.
 
-O truque é usar que as matrizes em $\mathsf{SO}(3)$, sendo isometrías de $\mathbb{R}^{3}$, preservam o produto vetorial, i.e. $Ax\times Ay=A(x \times y)$ para qualquer $x,y\in\mathbb{R}^{3}$.
+Em geral, o gerador infinitesimal da ação adjunta $\operatorname{Ad}_g$ em $u\in\mathfrak{g}$ é $\operatorname{ad}_u=[u,\cdot]$. No nosso caso, para $u\in\mathfrak{so}(3) \cong \mathbb{R}^{3}$, $\operatorname{ad}_u=[u,\cdot ]\rightsquigarrow u\times \cdot$, i.e., é o campo vetorial que em cada ponto de $\mathbb{R}^{3}$ asoccia o produto vetorial dele com $u$.
+
+Por último, a ação coadjunta em $A\in\mathsf{SO}(3)$ é um operador $\operatorname{Ad}^*_A$ satisfazendo para todo $\mu\in  \mathfrak{so}(3)^* \cong \mathbb{R}^{3}$ e $Y\in \mathfrak{so}(3) \cong \mathbb{R}^{3}$,
+\[(\operatorname{Ad}^* _A\mu)Y=\mu(\operatorname{Ad}_{A^{-1}}Y)\]
+Sutituindo com o que já sabemos, se $y\in \mathbb{R}^{3}$ corresponde com  $Y\in\mathfrak{so}(3)$,
 \begin{align*}
-	\operatorname{Ad}_AXAy&=
+	(\operatorname{Ad}^*_A\mu)Y&=\mu(A^{-1}y)
 \end{align*}
+
+{\color{3}See \texttt{das.pdf} p.161!}
+
+\iffalse
+\begin{align*}
+	(\operatorname{Ad}^*_A\mu)Y&=\mu(A^{-1}YA)
+\end{align*}
+Passando a $\mathbb{R}^{3}$, podemos usar o produto interno para identificar $\mu$ com o vetor $V_\mu$ tal que $\mu(X)=\left<V_\mu,X\right> $ para todo $X\in \mathbb{R}^{3}\cong \mathfrak{su}(3)$. Lembrando a fórmula que corresponde com o produto interno, obtemos
+\begin{align*}
+	(\operatorname{Ad}^*_A\mu)Y&=\frac{1}{2}\operatorname{tr}\Big(V_\mu (A^{-1}YA)^{\mathbf{T}}\Big)=\frac{1}{2}\operatorname{tr}(V_\mu A^{\mathbf{T}}YA)
+\end{align*}
+E isso último é\fi
 \end{proof}
 
 \addcontentsline{toc}{section}{Problem 7}
@@ -415,25 +437,28 @@ daí é só calcular
 		\end{align*}
 A órbita adjunta de $(X,r)$  é $X\times \mathbb{R}$ sempre que $X\neq 0$ já que $\Omega$ é não degenerada. Caso $X=0$, a  órbita é um ponto, $(0,r)$.
 
-\item Para calcular $\operatorname{ad}_{(Y,s)}(X,r)$ devemos calcular o generador infinitesimal da ação adjunta como mapa $\operatorname{Ad}:H\to \mathsf{GL}(\mathfrak{h})$. 
+\item Para calcular $\operatorname{ad}_{(Y,s)}(X,r)$ devemos calcular o generador infinitesimal da ação adjunta.
 
-\begin{remark}\leavevmode
-	Não consegui entender por completo essa construção dada na aula, e perguntei no \href{https://math.stackexchange.com/questions/4984625/compute-the-derivative-of-adjoint-action-on-heisenberg-group?noredirect=1#comment10681405_4984625}{StackExchange}. Na verdade não tem muito que dizer: é só entender o que significa cada objeto. Em fim, decidi usar a definição em \cite{hall} de homomorfismo em álgebras de Lie induzido por homomorfismo em grupos de Lie (teo. 3.28). Essa construção me parece mais simples do que a vista em aula (que é para ações)---porém talvez aquela é mais geral.
-\end{remark}
+	\begin{remark}\leavevmode
+		Demorei um tempão para entender essa construção. Depois de ler muitas distintas explicações e perguntar no \href{https://math.stackexchange.com/questions/4984625/compute-the-derivative-of-adjoint-action-on-heisenberg-group?noredirect=1#comment10681405_4984625}{StackExchange}, fiquei com \cite{lee}, p.526. A ideia é começar com um vetor $X$ na álgebra de Lie, passar para uma curva no grupo de Lie mediante $\operatorname{exp}(tX)$, e passar para à variedade agindo em qualquer ponto. Variando o ponto obtemos um fluxo global, e derivando obtemos um campo vetorial, que de fato é uma derivação da álgebra de Lie. Então aqui parece que $\operatorname{Der}(\mathfrak{g})\cong\mathfrak{X}(\mathfrak{g} )$. Mas ainda não tenho certeza disso.	\end{remark}
 
-Em fim, parece que tudo se reduce a usar a curva $\gamma(t)=(\operatorname{exp}(tY),e^{ts})$, que em $t=0$ passa por $(0,0)$ com velocidade $(Y,s)$. A derivada de $\operatorname{Ad}_{\gamma(t)}$ em $t=0$ aplicada a um vetor $(X,r)$  é $\operatorname{ad}_{(Y,s)}(X,r)$.
-\begin{align*}
-	\operatorname{ad}_{(Y,s)}(X,r)&=\frac{d}{dt}\operatorname{Ad}_{(\operatorname{exp}(tY),e^{ts})}(X,r)\Big|_{t=0}\\
-	&=\frac{d}{dt}(X,\Omega(\operatorname{exp}(tY),X)+r)\Big|_{t=0}\\
-	&=(\frac{d}{dt}X\Big|_{t=0},\frac{d}{dt}\Omega(\operatorname{exp}(tY),X)+r\\
-	&=(0,D\Omega
-	&=(0,\Omega(Y,X))
-\end{align*}
-já que $\Omega(tY,X)$ é vista como a composição
-\[\begin{tikzcd}
-	\mathbb{R}\arrow[r]& V\times V\arrow[r]&\mathbb{R}
-\end{tikzcd}\]
+		Em fim, a conta é assim:
+		\begin{align*}
+			\operatorname{ad}_{(Y,s)}(X,r)&=\frac{d}{dt}\operatorname{Ad}_{\operatorname{exp}(tY, ts)}(X,r)\\
+			&=\frac{d}{dt}(X,r+\Omega(\operatorname{exp}(tY),X)\\
+			&=\left( 0,\frac{d}{dt}\Omega(\operatorname{exp}(tY,X))\right)
+		\end{align*}
+		supondo que a exponencial age em $H$ entrada a entrada. Para calcular essa derivada lembre que a \href{https://math.stackexchange.com/questions/1120430/derivative-of-bilinear-forms}{derivada de uma forma bilinear}  $f:\mathbb{R}^{n}\times \mathbb{R}^{n}\to \mathbb{R}$ em $(a,b)$ é
+		\[Df_{(x,y)}(a,b)=f(x,b)+f(a,y)\]
+		Agora considere que a expressão $\operatorname{exp}(tY,X)$ é a composição de $\Omega$ com a curva $\gamma(t)=(\operatorname{exp}(tY),X)$. A equação acima vira
+		\begin{align*}
+			&=(0,D_{\gamma(t)}\Omega\cdot \gamma'(t)\\
+			&=\Big(0,\Omega(tY,0)+\Omega( \operatorname{exp}(tY)Y,X) \Big)\\
+			&=\Big(0,\Omega(\operatorname{exp}(tY)Y,X)\Big)
+		\end{align*}
+		em $t=0$ obtemos o resultado.
 
-\end{enumerate}
+		\item  
+	\end{enumerate}
 \end{proof}
 \end{document}
