@@ -277,7 +277,7 @@ qué exatamente a fórmula ``livre de coordenadas" da derivada exterior $d\theta
 
 Agora podemos provar a relação de commutatividade, prop. \hyperref[prop:22.1]{22.1}.
 
-\begin{proof}[Prova da prop \cref{prop:22.3}]\leavevmode
+\begin{proof}[Prova da prop. 22.1]\leavevmode
 \begin{align*}
 	\frac{1}{i\hslash}[Q(f),Q(g)]&=\frac{1}{i\hslash}\left[  i\hslash \Big(X_f-\frac{i}{\hslash}\theta(X_f)\Big)+f,i\hslash \Big(X_g-\frac{i}{\hslash}\theta(X_g)\Big)+g\right]\\
 &=\left[i\hslash \nabla_{X_f}+f,i\hslash\nabla_{X_g}+g \right] \\
@@ -303,9 +303,19 @@ Uma última proposição na seção mostra que a escolha do potencial simplétic
 
 \subsection{Quantização no espaço euclideano}
 
-Por que essa correspondência se chama só de \textit{pre}quantização? A \hyperref[prop:22.1]{22.1} mostra uma propriedade importante para funções suaves em $\mathbb{R}^{2n}$. Qual seria o problema se trabalhasemos no espaço $L^2(\mathbb{R}^{2n}$? A resposta é que as quantizações dos operadores de posição e momento não  agem irreducivelmente no $L^2(\mathbb{R}^{2n})$. 
+Por que essa correspondência se chama só de \textit{pre}quantização? A prop. \hyperref[prop:22.1]{22.1} mostra uma propriedade importante para funções suaves em $\mathbb{R}^{2n}$. Qual seria o problema se trabalhasemos no espaço $L^2(\mathbb{R}^{2n})$? A resposta é que as quantizações dos operadores de posição e momento não  agem irreducivelmente no $L^2(\mathbb{R}^{2n})$. E isso que significa.
 
-Talvez aqui só botar o espaço de Fock=espaço de Segel-Bergman com o que a gente já sabe. Daí passa no simplético. Pode fazer isso de Fock amanhã memo.
+\begin{thing4}{Proposição 22.6}[\cite{hallq}]\leavevmode
+	Considere um Hamiltoniano de oscilador armônico
+	\[H(x,p)=\frac{1}{2m}(p^2+\Big(m \omega x)^2\Big).\]
+	Para cada inteiro $n$, o numero $n\hslash \omega$ é um eigenvalor de $Q(H)$.
+\end{thing4}
+Isso está em contraste com o spectro $(n+1/2)\hslash \omega$ para $n$  não negativa que "achamos no tratamento tradicional". {\color{2}Talvez estudar isso mais um pouquinho para motivar melhor essa parte… mas a gente tá querindo entender a prequantização em variedades…}
+
+\begin{remark}\leavevmode
+	O teorema de Stone-von Neumann garantiza que as representações irreduciveis das relações de comutativade exponenciadas (que estão relacionadas com o grupo de Heisengerg) são únicas. Isso é de importancia na física porque da uma equivalencia unitária entre as distinas representações que podem ser achadas.
+\end{remark}
+
 
 \section{Quantização geométrica em variedades simpléticas}
 

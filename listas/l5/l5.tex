@@ -388,14 +388,13 @@ A menos dessa continha, isso mostra que a ação adjunta de $\mathsf{SO}(3)$ em 
 
 Em geral, o gerador infinitesimal da ação adjunta $\operatorname{Ad}_g$ em $u\in\mathfrak{g}$ é $\operatorname{ad}_u=[u,\cdot]$. No nosso caso, para $u\in\mathfrak{so}(3) \cong \mathbb{R}^{3}$, $\operatorname{ad}_u=[u,\cdot ]\rightsquigarrow u\times \cdot$, i.e., é o campo vetorial que em cada ponto de $\mathbb{R}^{3}$ asoccia o produto vetorial dele com $u$.
 
-Por último, a ação coadjunta em $A\in\mathsf{SO}(3)$ é um operador $\operatorname{Ad}^*_A$ satisfazendo para todo $\mu\in  \mathfrak{so}(3)^* \cong \mathbb{R}^{3}$ e $Y\in \mathfrak{so}(3) \cong \mathbb{R}^{3}$,
-\[(\operatorname{Ad}^* _A\mu)Y=\mu(\operatorname{Ad}_{A^{-1}}Y)\]
-Sutituindo com o que já sabemos, se $y\in \mathbb{R}^{3}$ corresponde com  $Y\in\mathfrak{so}(3)$,
+Por último, a ação coadjunta em $A\in\mathsf{SO}(3)$ é um operador $\operatorname{Ad}^*_A$ satisfazendo para todo $\xi\in  \mathfrak{so}(3)^* \cong \mathbb{R}^{3}$ e $Y\in \mathfrak{so}(3) \cong \mathbb{R}^{3}$,
+\[(\operatorname{Ad}^* _A\xi)Y=\xi(\operatorname{Ad}_{A^{-1}}Y)\]
+A identificação de $(\mathbb{R}^3)^*$ com $\mathbb{R}^3$ usando o produto interno canônico significa que associamos $\xi$ com algum vetor $V_\xi$ tal que $\xi(Y)=(V_\xi,Y)$ onde $(\cdot,\cdot)$ é o produto interno euclidiano canônico. Como ainda já sabemos que $\operatorname{Ad}_{A^{-1}}$ age em $\mathbb{R}^{3}$ como multiplicação por $A^{-1}$, vemos que
 \begin{align*}
-	(\operatorname{Ad}^*_A\mu)Y&=\mu(A^{-1}y)
+	(\operatorname{Ad}^*_A\xi)Y \leftrightsquigarrow (V_\xi,A^{-1}Y)
 \end{align*}
-
-{\color{3}See \texttt{das.pdf} p.161!}
+Mas ainda, o vetor $V_\xi$ é simplesmente o vetor de coordenadas $(\xi^1,\xi^2,\xi^3)$ se escrevemos $\xi=\sum \xi^idx^i\in (\mathbb{R}^3)^*$. Para descrever as órbitas só note que a expressão acima está determinada por $A$, de modo que a  órbita coadjunta está em correspondência com a $\mathsf{SO}(3)$-órbita do vetor $V_\xi$, que já sabemos que é uma esfera $S^2$.
 
 \iffalse
 \begin{align*}
