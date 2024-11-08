@@ -3964,5 +3964,98 @@ Utilizando teoría hiperbólica de sistemas dinâmicos, pode se provar que o con
 
 \section{Aula 26}
 
+Hoje vamos terminhar a parte de dinâmica Hamiltoniana falando de uma classe de sistemas Hamiltonianos muito interessantes que se chaman circuitos magnéticos.
+
+\subsection{Fluxos magnéticos}
+
+Pegue uma variedade com métrica Riemanniana $(Q,g,\Omega)$ onde $\Omega$ é o \textit{\textbf{campo magnético}}, uma 2-forma fechada {\color{3}(a condição de ser fechada tem a ver com as equações de Maxwell)}. De novo, como $M$ é Riemanniana podemos pegar o pullback da forma canônica no fibrado cotangente, obtemos a forma $\omega=f^*\omega_{\operatorname{can}}$.
+
+\begin{exercise}\leavevmode
+	Dada a projeção $\pi:TQ\to Q$, verifique que $\omega+\pi^*Q$ é não degenerada. Chamamos ela de \textit{\textbf{forma simplética twist}}
+\end{exercise}
+
+Agora pegue o mesmo Hamiltoniano que na aula passada, a energia cinética
+\begin{align*}
+	H: TQ &\longrightarrow \mathbb{R} \\
+	(x,v) &\longmapsto \frac{1}{2}g(v,v)
+\end{align*}
+Se pegamos o fluxo Hamiltoniano respeito a $\omega$, a gente já viu, é o fluxo geodésico. Mas…
+\begin{defn}\leavevmode
+O \textit{\textbf{fluxo magnético}} de $(g,\Omega)$ é o fluxo Hamiltoniano de $H$ com respeito a $\omega+\pi^*\Omega$.	
+\end{defn}
+
+\begin{exercise}\leavevmode
+	Seja $Y:TQ\to TQ$ a aplicação de fibrados definida pela equação
+	\[\Omega(v,w)=g(Y(v),w),\qquad \forall v,w,\]
+	ou seja, $Y(v)$ é o vetor que representa a forma $\Omega(v,\cdot)$ (mediante o isomorfismo musical da métrica, Riesz). Se chama \textit{\textbf{força de Lorentz}} de $\Omega$.
+
+	Mostre que $\gamma$ é uma órbita do fluxo magnético se e somente se $\gamma=(c,\dot c)$ onde $c$ satisfaz a segunda equação de Newton
+	\[\nabla_{\dot c}\dot c=Y(\dot c\]
+	{\color{3}ou seja, sem termo magnético é simplesmente uma geodésica porque $Y=0$ assi que  não temos aceleração, aqui temos aceleração que é a força de Lorenz.}	
+\end{exercise}
+
+\begin{thing4}{Algumas diferenças em relação ao fluxo geodésico}\leavevmode
+	\begin{itemize}
+	\item Não é homogêneo. (No caso do fluxo geodésico, multiplicar um vetor por um número real resulta na mesma geodésica, só que reparametrizada). Aqui a dinâmica varia com o nível de energia.
+	\item Existem níveis energia que não são de contato. Isso é porque quando torcemos a forma simplética já não temos a propriedade de ser conformemente simplético.
+	\end{itemize}
+\end{thing4}
+
+\begin{thing4}{Exemplos}\leavevmode
+\begin{enumerate}
+\item O caso mais simples: uma  superfície e que o fluxo magnético (que não seja zero poruqe isso seria o fluxo geodésico) seja o pullback da forma de volume. Pegue $(S^2,K\equiv 1, \Omega)$ com $\Omega$ a forma de área.
+
+Como $\Omega$ é a forma de área, $Y=J$  é a estrutura complexa de $S^2$ (lembre que $Y$ é um automorfismo do fibrado tangente, $Y(v)$  é o vetor que representa $\Omega(v,\cdot)$). Portanto, as trajetórias magnéticas são dadas por 
+\[\nabla_{\dot c}\dot c=J(\dot c)\]
+que são curvas com curvatura geodésica constante porque
+\begin{align*}
+\dot c\left<\dot c, \dot c\right>&=2 \left<\nabla_{\dot c}\dot c, \dot c\right>=2\left<Y(\dot c),\dot c\right>=2 \Omega(\dot c, \dot c)=0.
+\end{align*}
+(a derivada da norma da curva é zero), é isso é simplesmente porque $J$ preserva a norma.
+
+Por exmeplo, pegue um paralelo na esfera que seja um círculo de raio $a$ paralelo ao plano $xy$, chama ela de  $\psi$. A curvatura geodésica dele é 
+\[\left\| \nabla_{\dot \psi}\dot \psi\right\|=\frac{\sqrt{r^2-a^2} }{ra}\]
+Ou seja, ela tem curvatura geodésica constante. Agora considere a ação de $\mathsf{SO}(3)$, que é o grupo de isometrias de $S^2$. Bom $\mathsf{SO}(3)$ age transitivamente também no fibrado unitário, e isso faiz que todas a curvas de curvatura geodésica constante são imagens de $\psi$ por elementos de $\mathsf{SO}(3)$.
+
+Portanto, as trajetorias magnéticas de cada nível de energia são fechadas com o mesmo período mínimo.
+\item $(T^2,K\equiv 0,\Omega=\text{área})$.
+Todo é como no exemplo anterior, temos a estrutura complexa assim que as curvas são curvas de curvatura geodésica constante. Aqui no toro essas curvas podem ser entendidas no recobrimento universal, onde são círculos no plano. Elas são contrátileis. Isso não acontence no caso geodésico, pois a geodésicas nunca são contratileis.
+
+Agora lembre que o fibrado unitário do toro é trivial
+\[\begin{tikzcd}
+ST^2=S^1 \times T^2\arrow[d]\\
+T^2
+\end{tikzcd}\]
+é isso mostra que não temos uma superfície de contato, já que a forma de volume não é exata, assim que o seu pullback não pode ser exata---as superfícies de contato precisam formas exatas.
+
+\item $(M^2,K\equiv-1,\Omega=\text{área} )$. Tudo é igual mas o que são as curvas de curvatura geodésica constante no recobrimento universal, que é o disco de Poincaré ou o semiplano superior?
+
+Neste caso, pode-se provar o seguinte:
+\begin{itemize}
+\item Se $H<1/2$ então todas as trajetórias  são fechadas com projeção contrátil em $M$.
+\item Se $H=1/2$ todas as trajetóricas são densas. Trata-se de horociclos: órbitas que tangencian a borda do disco, e perto desse ponto passam por infinitos dominios fundamentais (triangulinhos), tantos que quando projetamos obtemos uma curva densa.
+\item Se $H>1/2$ o fluxo  é dif equivalente ao fluxo geodésico, em particular é Anosov (caótico).
+\end{itemize}
+\begin{remark}\leavevmode
+	Isso se reflite no caso de $M$ e $TM$, onde  $H^{-1}(1/2)$ não é de contato, mas $H^{-1}(K)$ sim para $K>1/2$ ou $K<1/2$.
+\end{remark}
+\end{enumerate}
+\end{thing4}
+
+\subsection{Introdução à topologia simplética: invariantes globais}
+
+\begin{question}\leavevmode
+Como distinguir estruturas simpléticas? Quais invariantes existem?
+\end{question}
+
+Um invariante obvio é a dimensão. Esse é o único invariante local! Pelo teorema de Darboux. Um invariante global é o volume. Mas, será que isso é suficiente? Pode ter duas variedades difeomorfas com o mesmo volume que não são simplectomorfas?
+
+\begin{question}\leavevmode
+	Existem outros invariantes?
+\end{question}
+
+
+\section{Aula 27}
+
 
 \end{document}
