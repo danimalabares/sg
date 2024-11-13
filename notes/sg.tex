@@ -1943,23 +1943,23 @@ Lembre que essas ações correspondem a $G\curvearrowright \mathfrak{g}$ e $G\cu
 		\operatorname{Ad}: G &\longrightarrow \operatorname{GL}(\mathfrak{g}) \\
 		g &\longmapsto (\operatorname{Ad}_g:\mathfrak{g} \to \mathfrak{g} )
 	\end{align*}
-	"diferenciando" (ver \cite{lee}lee, thm 20.27) obtemos
+	"diferenciando" obtemos
 	\begin{align*}
 		\operatorname{ad}: \mathfrak{g} &\longrightarrow \mathfrak{gl}(\mathfrak{g}) \\
-		u(?) &\longmapsto (\operatorname{ad}_u:\mathfrak{g} \to \mathfrak{g} )
+		u &\longmapsto (\operatorname{ad}_u:\mathfrak{g} \to \mathfrak{g} )
 	\end{align*}
 	
 \end{itemize}
 
 \begin{lemma}
 	 \begin{align*}
-		u_\mathfrak{g} =\operatorname{ad}_u &\mathfrak{g}\longrightarrow \mathfrak{g} \\
+		u_\mathfrak{g} =\operatorname{ad}_u :&\;\mathfrak{g}\longrightarrow \mathfrak{g} \\
 		u &\longmapsto u_\mathfrak{g} =[u,\cdot ]
 	\end{align*}
 \end{lemma}
 
 \begin{proof}[Demostração]
-	É so por definição e a regra da cadeia:
+	É só por definição e a regra da cadeia:
 	\begin{align*}
 		u_{\mathfrak{g}}(v)&=\frac{d}{dt}\Big|_{t=0}\operatorname{Ad}_{\operatorname{exp}(tu)}(v)\\
 				   &=\frac{d}{dt}\Big|_{t=0}d_e(R_{\operatorname{exp}(-tu)}\circ  L_{\operatorname{exp}(tu)})(v)\\
@@ -2535,9 +2535,12 @@ u\arrow[dr, maps to]&\mathfrak{X}(M)&X_f\\
 	\end{equation}
 	issto é, $\mu:G \curvearrowright M\longrightarrow \mathfrak{g}^*  \overset{\operatorname{Ad}^*}{\curvearrowleft}G$,
 	\[\mu\circ \psi_g=(\operatorname{Ad}^*)_g(\mu)\]
+	{\color{3}ou seja, a ação de $\mu$ é equivariante com respeito à ação de $G$ em $M$ e à ação coadjunta em $\mathfrak{g}^*$,
+	\[\mu(g\cdot x)=\operatorname{Ad}^*_g\mu(x)\]
+(lembre que equivariância de uma ação é "linearidade" com respeito as ações).}
 \end{defn}
 
-No casso abeliano, que é o caso dos fluxos, essa segunda condição de equivariança é trivialmente satisfeita.
+No caso abeliano, que é o caso dos fluxos, essa segunda condição de equivariança é trivialmente satisfeita.
 
 \begin{thing5}{Terminologia}\leavevmode
 	\begin{itemize}
@@ -2556,11 +2559,11 @@ No caso abeliano, isso vira simplesmente escolher uma função que seja a hamilt
 \begin{remark}\leavevmode
 	Em termos do \textit{\textbf{comomento}}  $\hat{\mu}:\mathfrak{g}\longrightarrow \mathcal{C}^\infty(M)$, a equivariância de $\mu$ é equivalente a que
 	\begin{align*}
-		\iff \psi^* _g(\hat{\mu}(u))&=\hat{\mu}(\operatorname{Ad}_{g^{-1}}(u)\qquad \forall u\in\mathfrak{g}\\
-		\implies \mathcal{L}_{v_M}(\hat{\mu}(u))&=\hat{m}\left( [u,v] \right) 
+		\iff \psi^* _g(\hat{\mu}(u))&=\hat{\mu}(\operatorname{Ad}_{g^{-1}}(u))\qquad \forall u\in\mathfrak{g}\\
+		\implies \mathcal{L}_{v_M}(\hat{\mu}(u))&=\hat{\mu}\left( [u,{\color{3}-}v] \right) 
 	\end{align*}
-	pegando $g=\operatorname{exp}(tv)$, $\frac{d}{dt}\Big|_{t=0}$. Lembre que $\{\hat{\\mu}(v),\hat{\mu}(v)\} =\mathcal{L}_{v_M}(\hat{\mu}(u))$.
-	i.e. $G$-equivariância implica que $\hat{\mu}$ é um \textit{antihomomorfismo} de álgebras de Lie. A conversa é verdade supongo que $G$ é conexo.
+	pegando $g=\operatorname{exp}(tv)$, $\frac{d}{dt}\Big|_{t=0}$. {\color{3}(Literalmente é isso! Do lado esquerdo aparece a derivada de Lie por definição, e do lado direito aparece o colchete por definição de $\operatorname{ad}$)} Lembre que $\{\hat{\mu}(v),\hat{\mu}(v)\} =\mathcal{L}_{v_M}(\hat{\mu}(u))$.
+	i.e. $G$-equivariância implica que $\hat{\mu}$ é um \textit{antihomomorfismo} de álgebras de Lie. A conversa é verdade supondo que $G$ é conexo.
 \end{remark}
 
 \begin{remark}\leavevmode
@@ -4055,7 +4058,121 @@ Um invariante obvio é a dimensão. Esse é o único invariante local! Pelo teor
 \end{question}
 
 
-\section{Aula 27}
+\section{Aula 27: invariantes globais}
+
+\subsection{Teorema de non-squeezing de Gromov}
+
+
+\begin{thm}[Non-squeezing de Gromov]\leavevmode
+	Sejam $B^{2n}(r)=\{(x,y)\in\mathbb{R}^{2n}:\|x\|^2+\|y\|^2<r^2\}$ a bola de raio $r$ e $Z^{2n}(R)=\{(x,y)\in\mathbb{R}^{2n}:x_1^2+y^2<R^2\}$ o cilindro de raio $R$ sobre o $(x_1,y_1)$ ambos com a forma simplética $\sum_{i} dx_i\wedge dy_i$.
+
+	Existe um mergulho simplético $B^{2n}(n)\hookrightarrow  Z^{2n}(R)$ sse $r\leq R$.
+\end{thm}
+
+\begin{remark}\leavevmode
+É fundamental tomarmos um plano \textit{simplético} $( x_1,y_1)$; se tomassemos, por exemplo o plano isotrópico $(x_1,y_1)$ então a transformacão simplética $(x,y)\mapsto \left(\delta x, \frac{y}{\delta}\right)$ leva $B^{2n}(1)$ em $Z^{2n}(\delta)$ para qualquer $\delta>0$.
+\end{remark}
+
+\begin{defn}\leavevmode
+	A \textit{\textbf{capacidade de Gromov}} de uma variedade simplética $(M^{2n},\omega)$ é
+	\[c_G(M,\omega)=\operatorname{sup}\{\pi r^2:\exists \text{ mergulho simplético } B^{2n}(r)\hookrightarrow  M\}\]
+\end{defn}
+
+\begin{thm}[Non-squeezing de Gromov]\leavevmode
+A capacidade de Gromov do cilindro é $\pi R^2$.
+\end{thm}
+
+\begin{defn}[Høfer-Zehnder]\leavevmode
+	Considere a classe de variedades simpléticas $(M^{2n},\omega)$ c/n finado. Uma \textit{\textbf{capacidade simplética}} é um mapa $(M,\omega)\mapsto c(M,\omega)\in [0,\infty]$ tal que
+\begin{itemize}
+\item \textbf{Monotonocidade}: se $\exists $ um mergulho simplético $(M\omega)\hookrightarrow (N,\tau)$ então
+	 \[c(M,\omega)\leq c(N,\tau)\]
+\item \textbf{Conformalidade}: $c(M,a\omega)=|a|c(M,\omega)$ para toda $a \in \mathbb{R}\setminus\{0\}$.
+\item \textbf{Não trivialidade}: $c(B^{2n}(r),\omega)=c(Z^{2n}(r),\omega)=\pi r^2$.
+\end{itemize}
+\end{defn}
+
+\begin{remark}\leavevmode
+Monotonocidade implica que a capacidade é um invariante simplético.	
+\end{remark}
+
+A capacidade de Gromov $c_G$ é uma capacidade simplética. Monotonicidade é obvia: so meter uma bola dentro de outra. A conformalidade segue do fato que $(B^{2n}(\sqrt{|a|} r),\omega)$ é simplectomofra a $(B^{2n}(r),a\omega)$ (exercício). E claro, a não trivialidade e o teorema de non-squeezing.
+
+	A capacidade de Gromov é a menor capacidade simplética i.e. $c_G\leq c$ para qualquer capacidade $c$. Isso segue da monotonicidade e a não-trivialidade.
+
+\begin{defn}\leavevmode
+A \textit{\textbf{capacidade cilíndrica}} de $(M,\omega)$ é \[\bar{c}(M,\omega)=\operatorname{inf}\{\pi r^2:\;\exists \; \text{mergulho simplético } (M,\omega)\hookrightarrow  Z^{2n}(r)\}\]
+\end{defn}
+Note que $\bar{c}$ é a maior capacidade simplética. Portanto, dada qualquer capacidade simplética $c$ temos
+ \[c_G(M,\omega)\leq c(M,\omega)\leq \bar{c}(M,\omega)\]
+
+\begin{remark}\leavevmode
+	Existem exemplos $(M,\omega)$ para as quais a desigualdade é estrita.
+\end{remark}
+
+\begin{example}[Capacidade de elipsóides]\leavevmode
+	Considere o elipsóide
+	\[E=\left\{ v \in\mathbb{R}^{2n}:\sum_{j,k=1}^{2n}a_{jk}v_jv_k\leq 1 \right\} \]
+com $a_{jk}>0$.
+\end{example}
+
+\begin{exercise}\leavevmode
+	Mostre que existe um simplectomorfismo levando  $E$ em
+	\[E(r_1,\ldots,r_n)=\left\{ (z_1,\ldots,z_n)\in \mathbb{C}^n : \sum_{j=1}^n\left| \frac{z_j^2}{r_j} \right| \leq 1 \right\} \]
+para algum $0 \leq  r_1 \leq  r_2 \leq \ldots\leq r_n$ e os números $r_i$ são únicamente determinados por $E$.
+\end{exercise}
+
+Como $B^{2n}(r_1)\subset E(r_1,\ldots,r_n)\subset Z^{2n}(r_1)$. Consequentemente, $c(E)=\pi r_1^2$. Note que enquanto o volume depende de todas as $r_i$, a capacidade depende só da menor! Então teorema de non-squeezing the Gromov para elipsoide diz que existe $r$ tal que $B^{2n}(r)\hookrightarrow  E$ sse $r \leq r_1$.
+
+\subsection{Breve esboço da prova do teorema non-squeezing}
+
+\begin{defn}\leavevmode
+Seja $(M,J)$ uma variedade quase-complexa e $(\Sigma, j)$ uma superfície de Riemann ($j$ é complexa enquanto $J$ é só quase-complexa). Uma aplicação suave $u:\Sigma\to M$ tal que
+\[du\circ j=J\circ du\]
+é uma \textit{\textbf{curva $J$-holomorfa}} ou \textit{\textbf{pseudoholomorfa}}.
+\end{defn}
+
+\begin{remark}\leavevmode
+	Cauchy-Riemann é equivalente a que uma função seja $\mathbb{C}$-linear, i.e.
+	\[\frac{\partial f}{\partial x}-i\frac{\partial f}{\partial y}=0\iff df(ix)=idf(x).\]
+\end{remark}
+
+Seja agora $\varphi:B^{2n}(R)\longrightarrow Z^{2n}(R)$um mergulho simplético e  $r'<r$. Como $\varphi\left( \overline{B^{2n}(r')} \right) $ é compacto, existe um mergulho simplético
+\[\varphi:B^{2n}(r')\longrightarrow\left( B^2(R)\times T^{2n-2},\omega_0 \oplus  \omega_0 \right) \]
+onde $T^{2n-2}=\mathbb{R}^{2n-2}/a\mathbb{Z}^{2n-2}$ com $a>0$ suficientemente grande  {\color{3}(como para conter a projeção da bola merulhada no cilindro)}.
+
+Portanto, a teorema de non-squeezing segue do seguinte resultado:
+
+\begin{thm}[non-squeezing para produtos]\leavevmode
+Seja $(N^{2n-2},\tau)$ variedade simplética compacta tal que $\pi_{2}(N)=0$. Se existe um mergulho simplético $B^{2n}(r)\hookrightarrow B^2(R)\times N$ então $r<R$.
+\end{thm}
+
+Note que o teorema de non-squeezing the Gromov segue do teorema non-squeezing para produtos porque o $\pi_{2}(\text{toro} )$ é zero pelo seu recobrimento universal.
+
+\begin{thm}[Gromov]\leavevmode
+	Seja $(N,\tau)$ variedade simplética compacta tal que $\pi_{2}(N)=0$ e $J$ estrutura complexa em $S^2 \times N$ compatível com a forma simplética produto $\sigma \oplus  \tau$, onde $\sigma$ é a forma de área de $S^2$. Então dado $p \in S^2 \times N$, existe uma curva $J$-holomorfa $u:S^2\to S^2 \times N$ passando por $p$ e holomorfa à fibra $S^2 \times \{x\}$.
+\end{thm}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\section{Aula 28}
 
 
 \end{document}

@@ -2,7 +2,7 @@
 \input{/Users/daniel/github/config/thms-por.sty}%available at github.com/danimalabres/config
 
 \usepackage[style=authortitle-terse,backend=bibtex]{biblatex}
-\addbibresource{bibliography.bib}
+\addbibresource{~/github/config/bibliography.bib}
 
 \begin{document}
 
@@ -17,7 +17,63 @@
 \vspace{10pt}
 {\huge Projeto}
 
+Plano:
+\begin{enumerate}
+\item Formulação da mecânica clássica numa variedade simplética. Pontos são estados. A função hamiltoniana representa uma quantidade conservada do sistema. A trajetoria do sistema está dada pelas curvas integrais do campo vetorial hamiltoniano. Em coordenadas de Darboux, o essas curvas são soluções das equações de Hamilton. As funções suaves são observaveis, e a evolução delas está dada por $\dot a =\{a, H\}$.
+
+\item Mecânica quântica num espaço de Hilbert. Estados quânticos são vetores unitários em $\mathcal{H}$. Um hamiltoniano quântico é um operador autoadjunto $\hat{H}$, os eigenvalores são o nível de energia quântica do sistema a as eigenfunções normalizadas são os estados quânticos correspondentes. A equação que determina a evolução do sistema é a equação de Schrödinger
+	\[i \hslash \frac{d\psi(t)}{dt}=\hat{H}\psi.\]
+Um observavel quaântico é um operador autoadjunto $A$ agindo em $\mathcal{H}$. O valor esperado de $A$ é
+\[\left<A\right>_\psi:=\left<A\psi,\psi\right>.\]
+\begin{thing3}{Proposição 1.1}[\cite{wang}]\leavevmode
+A evolução de um observável quântico é
+\[\frac{d}{dt}\left<A\right>_{\psi}=\frac{1}{i\hslash}\left<[A,\hat{H}\right>_\psi.\]
+\end{thing3}
+
+\begin{proof}\leavevmode
+\begin{align*}
+	\frac{d}{dt}\left<A\psi(t),\psi(t)\right>&=\left<\frac{1}{i\hslash}A\hat{H}\psi,\psi\right>+\left<A\psi,\frac{1}{i\hslash}\hat{H}\psi\right>=\frac{1}{i\hslash}\left<[A,\hat{H}]\psi,\psi\right>
+\end{align*}
+já que o produto é hermitiano, i.e. em particular, antilinear na segunda entrada.
+\end{proof}
+Isso justifica que o commutador é o análogo do colchete de Poisson.
+\item Ideia da quantização.
+\item \textbf{Fibrados lineares complexos.} Um fibrado linear cujas fibras são espaços vetoriais complexos. Estão determinados pelas funções de transição satisfazendo as condições de cociclo. Um fibrado linear complexo é \textit{\textbf{Hermitiano}} se está equipado com um produto Hermitiano que varia suavemente.
+\item \textbf{Formas de conexão e curvatura.} Seja $M$ uma variedade com um fibrado linear complexo $L$. As \textit{\textbf{$k$-formas}} em $L$ são
+	\[\Omega^{k}(M,L):=\Gamma(M,\Lambda^{k}(T^*M)\otimes L).\]
+Uma \textit{\textbf{conexão}} $\nabla$ em $L$ é um mapa linear
+\[\nabla:\Gamma(M,L)\to\Omega^{1}(M,L)\]
+tal que para toda $f\in C^\infty(M)$ e $s \in \Gamma(M,L)$ vale a regra de Leibniz
+\[\nabla(fs)=df\otimes s+f\nabla s.\]
+Pegando um campo vetorial $X \in \mathfrak{X}(M)$ podemos contraer $X$ com $\nabla$ para obter a \textit{\textbf{derivada covariante}} na direção de $X$:
+\[\nabla_X:\Gamma(M,L)\to \Gamma(M,L), \qquad \nabla_Xs:=i_X\nabla s.\]
+A conexão $\nabla$ pode ser extendida de maneira única a um mapa linear
+\[\nabla:\Omega^{k}(M,L)\to \Omega^{k+1}(M,L)\]
+so that for any $\alpha \in \Omega^{k}(M)$ e $\beta \in \Omega^{\bullet}(M,L)$,
+\[\nabla(\alpha\wedge\beta)=d\alpha \wedge \beta+(-1)^k\alpha\wedge\nabla\beta.\]
+Usando essa regra de Leibniz, podemos ver que $\nabla^2$ é $C^\infty(M)$-linear, i.e. para qualquer função $f \in C^\infty(M)$ e $\beta\in\Omega^{\bullet}(M,L)$, o mapa $\nabla^2:\Omega^{\bullet}(M,L)\to\Omega^{\bullet+2}(M,L)$ satisfaiz
+\[\nabla^2(f\beta)+\nabla(f\nabla\beta+df\wedge\beta)=df\wedge\nabla\beta+f\nabla^2\beta-df\wedge\nabla\beta=f\nabla^2\beta.\]
+Isso significa que é um tensor, i.e. existe uma 2-forma $\Omega\in\Omega^{2}(M)$ tal que para toda $s \in \Gamma(M,L)$,
+\[\nabla^2s=\Omega s.\]
+Essa forma se chama \textit{\textbf{curvatura}} de $\nabla$ e resulta que
+\[\Omega(X,Y)=[\nabla_X,\nabla_Y]-\nabla_{[X,Y]}.\]
+Se $L$ é hermitiano, dizemos que uma conexão é \textit{\textbf{unitária}} ou \textit{\textbf{compatível}} se para $s,t\in \Gamma(M,L)$,
+\[d\left<s,t\right>=\left<\nabla s,t\right>+\left<s,\nabla t\right>.\]
+Se $\{e_j\}$ é um marco unitário de $L$, existe uma \textit{\textbf{1-forma de connexão}} $\theta$ tal que
+\[\nabla e_i=\theta_ie_i.\]
+Acho que assim: o negocio do cambio de marco é para ver que a forma é imaginaria, e tu pode mostrar que $\Omega=d\theta$ ussando \texttt{hallq.pdf}.
+
+
+
+	
+\end{enumerate}
+
+
 \tableofcontents
+
+\section{Introdução}
+Ver cap 23 Hall
+Quantização geométrica e procedimiento que assocía um sistema quântico a um sistema clâssico dado. 
 
 \section{Motivação: operadores de posição e momento}
 
@@ -246,9 +302,19 @@ Agora vamos definir uma derivada covariante. Pegue um potencial simplético $\th
 \[\nabla_X=X-\frac{i}{\hslash}\theta(X):C^\infty(\mathbb{R}^{2n})\longrightarrow C^\infty(\mathbb{R}^{2n})\]
 onde a função $\theta(X)\in C^\infty(\mathbb{R}^{2n})$ age por simples multiplicação ponto a ponto. 
 
-Aqui é um bom momento para olhar de novo a nossa definição de $Q(f)$ (\cref{eq:prequant}). A prova da relação de commutatividade, prop. \hyperref[prop:22.1]{22.1}, é muito fácil de escrever em termos da curvatura dessa conexão. A seguinte proposição descreve essa curvatura.
+Aqui é um bom momento para olhar de novo a nossa definição de $Q(f)$ (\cref{eq:prequant}). A prova da relação de commutatividade, prop. \hyperref[prop:22.1]{22.1}, é muito fácil de escrever em termos da curvatura dessa conexão.
 
-\begin{thing4}{Proposição 22.3}[\cite{hallq}]\leavevmode
+\begin{thing3}{Definição}[\cite{tu-diff}, sec. 10.3]\leavevmode
+	O tensor de \textit{\textbf{curvatura}} de uma conexão $\nabla$ num fibrado vetorial $E \to M$ é o tensor
+	\begin{align*}
+		\mathfrak{X}(M)\times\mathfrak{X}(M)\times\Gamma(E) &\longrightarrow \Gamma(E) \\
+		(X,Y,s)\qquad  &\longmapsto \nabla_X\nabla_Ys-\nabla_Y\nabla_Xs -\nabla_{[X,Y]}s\\&\qquad =[\nabla_X,\nabla_Y]s-\nabla_{[X,Y]}s
+	\end{align*}
+\end{thing3}
+
+Como vemos na seguinte proposição, o lance dessa construção é que a curvatura da nossa conexão é essencialmente a forma simplética:
+
+\begin{thing4}{Proposição 22.3}[\cite{hallq}]\label{prop:22.3}\leavevmode
 	Seja $\theta$ um potencial simplético e $\nabla_X$ a derivada covariante associada. Para quaisquer campos vetoriais $X,Y$ em  $\mathbb{R}^{2n}$,
 	\[[\nabla_X,\nabla_Y]-\nabla_{[X,Y]}=-\frac{1}{\hslash}\omega(X,Y).\]
 \end{thing4}
@@ -290,7 +356,6 @@ Agora podemos provar a relação de commutatividade, prop. \hyperref[prop:22.1]{
 \end{proof}
 
 Agora vamos dar uma olhada como ficam as prequantizações dos operadores de posição e de momento:
-
 \begin{thing4}{Exemplo 22.4}[\cite{hallq}]\leavevmode
 	Para o potencial simplético $\theta=p_jdx_j$,
 	\begin{align*}
@@ -303,8 +368,7 @@ Uma última proposição na seção mostra que a escolha do potencial simplétic
 
 \subsection{Quantização no espaço euclideano}
 
-Por que essa correspondência se chama só de \textit{pre}quantização? A prop. \hyperref[prop:22.1]{22.1} mostra uma propriedade importante para funções suaves em $\mathbb{R}^{2n}$. Qual seria o problema se trabalhasemos no espaço $L^2(\mathbb{R}^{2n})$? A resposta é que as quantizações dos operadores de posição e momento não  agem irreducivelmente no $L^2(\mathbb{R}^{2n})$. E isso que significa.
-
+Por que essa correspondência se chama só de \textit{pre}quantização? A prop. \hyperref[prop:22.1]{22.1} mostra uma propriedade importante para funções suaves em $\mathbb{R}^{2n}$. Qual seria o problema se trabalhasemos no espaço $L^2(\mathbb{R}^{2n})$? 
 \begin{thing4}{Proposição 22.6}[\cite{hallq}]\leavevmode
 	Considere um Hamiltoniano de oscilador armônico
 	\[H(x,p)=\frac{1}{2m}(p^2+\Big(m \omega x)^2\Big).\]
@@ -312,13 +376,18 @@ Por que essa correspondência se chama só de \textit{pre}quantização? A prop.
 \end{thing4}
 Isso está em contraste com o spectro $(n+1/2)\hslash \omega$ para $n$  não negativa que "achamos no tratamento tradicional". {\color{2}Talvez estudar isso mais um pouquinho para motivar melhor essa parte… mas a gente tá querindo entender a prequantização em variedades…}
 
+Outra resposta é que as quantizações dos operadores de posição e momento não  agem irreducivelmente no $L^2(\mathbb{R}^{2n})$.
+
 \begin{remark}\leavevmode
 	O teorema de Stone-von Neumann garantiza que as representações irreduciveis das relações de comutativade exponenciadas (que estão relacionadas com o grupo de Heisengerg) são únicas. Isso é de importancia na física porque da uma equivalencia unitária entre as distinas representações que podem ser achadas.
 \end{remark}
 
+\begin{remark}[Sergey]\leavevmode
+Stone von Neuman, among other things, shows that for $\mathbb{R}^{2n} = \mathbb{C}^n$ with flat symplectic form real and complex polarizations of GQ give isomorphic answer (as a pair of an algebra with CCR and its irreducible representation on a separable Hilbert space).
+\end{remark}
 
 \begin{thing3}{A solução desse problema}\leavevmode
-	Tem muitas soluções. Mas uma delas é o espaço de Bergman-Segal que gente já estudou.
+	Tem muitas soluções. Mas uma delas é o espaço de Bergman-Segal que gente já estudou. Ele está definido como as funções cuja derivada covariante na direção $\bar{z}$ é zero, i.e. as funções holomorfas. Daí a gente introduiz um produto hermitiano que genera um espaço de Hilbert.
 \end{thing3}
 
 \section{Quantização geométrica em variedades simpléticas}
@@ -344,31 +413,67 @@ As equa\c c\~oes de Hamilton s\~ao s\'o outra formula\c c\~ao da segunda lei do 
 
 Começarei por presentar uma visão geral dos objetivos da quantizão geométrica. Mais pra frente vamos ver que essa construção não pode ser alcançada per se, e terminharemos desenvolvendo uma outra construção. Para essa noção inuitiva uso \cite{gq} e \cite{k3quant}.
 
-Um dos pioneros da mecânica quântica, P. Dirac, desenvolveu a correspondência entre mecânica quântica e mecánica clássica. A ideia dele foi que tranformações 
+Vou começar seguindo \cite{k3quant} para dar uma visão geral dos objetivos da quântização (isso também está em \href{https://en.wikipedia.org/wiki/Canonical_quantization#Classical_and_quantum_brackets}{Wiki, Canonical Quantization}). Começamos com o caso simples em que $M=\mathbb{R}^{n}$ e $\hslash$ é uma constante (a constante de Planck, que para nós é só um nome).\fi
 
-Vou começar seguindo \cite{k3quant} para dar uma visão geral dos objetivos da quântização (isso também está em \href{https://en.wikipedia.org/wiki/Canonical_quantization#Classical_and_quantum_brackets}{Wiki, Canonical Quantization}). Começamos com o caso simples em que $M=\mathbb{R}^{n}$ e $\hslash$ é uma constante (a constante de Planck, que para nós é só um nome).
+\subsection{Prequantização}
+
+Como podemos generalizar o processo de quantização para variedades simpléticas? Vamos precisar de uma conexão para propor um operador de prequantização como no caso euclidiano. Porém, essa conexão não será definida no fibrado tangente. A seguir vamos introduzir a noção de fibrado linear Hermitiano sobre uma variedade. O espaço de Hilbert onde vão morar as quantizações dos observáveis clássicos vai ser o espaço de seções quadrado-integrables de um certo fibrado linear Hermitiano.
+
+\begin{thing4}{Definição 23.3}[\cite{hallq}]\leavevmode
+Uma  \textit{\textbf{estrutura Hermitiana}} num fibrado linear $L$ sobre $N$ é a escohla de um produto interno $(\cdot,\cdot)$ em cada fibra $\pi^{-1}(\{x\})$ de $L$ tal que para cada seção suave $s$ de $L$, $(s,s)$ é uma função suave em $N$. Um fibrado linear $L$ com uma estrutura hermitiana se chama \textit{\textbf{fibrado linear Hermitiano}}. Uma conexão $\nabla$ num fibrado Hermitiano $L$ se chama \textit{\textbf{Hermitiana}} se para cada campo vetorial $X$,
+\[\nabla_X(s_1),s_2)+(s_1,\nabla_X(s_2))=X(s_1,s_2)\]
+para quaisquer seções $s_1$ e $s_2$ de $L$.
+\end{thing4}
+
+O resultado análogo à prop. \hyperref[prop:22.3]{22.3} é o seguinte:
+
+\begin{thing4}{Teorema 23.9}[\cite{hallq}]\leavevmode
+Seja $\omega$ uma 2-forma em uma variedade $N$ tal que $\frac{1}{2\pi}\int_{S}\omega \in\mathbb{Z}$ para toda superfície fechada $S$ em $N$. Então existe um fibrado linear Hermitiano $L$ sobre $N$ com uma conexão Hermitiana $\nabla$ tal que a a curvatura de $\nabla$ é $\omega$. Se $N$ é simplesmente conexa então $(L,\nabla)$ é único a menos de equivalência de fibrados lineares (=isomorfismo em cada fibra e comutatividade com a conexão).	
+\end{thing4}
 
 \begin{defn}\leavevmode
-	Uma \textit{\textbf{quantização completa}} de $M$ é um mapa
-	\[\mathcal{F}:f\longmapsto \hat{f}\]
-	levando observáveis clássicos $f $, i.e. funções suaves em $T^*M$ a operadores autoadjuntos $\hat{f}$ num espaço de Hilbert $\mathcal{H}$ satisfazendo:
-	\begin{enumerate}
-		\item $\mathcal{F}$ é linear:
-			\[\widehat{f+g}=\hat{f}+\hat{g},\qquad f,g\in\mathcal{C}^\infty(T^*M)\]
-			\[\widehat{\lambda f}=\lambda\hat{f},\qquad \lambda\in\mathbb{R}.\]
-	
-		\item $ \mathcal{F}$ é um morfismo de álgebras de Lie salvo por uma constante:
-			\[\widehat{\{f,g\}}=\frac{1}{\hslash}\left[\hat{f},\hat{g}\right]\]
-\item A função constante $1$ corresponde com a identidade:
-	\[\hat{1}=\operatorname{Id}\]
-
-	\item As coordenadas $\hat{q}^i$ e $\hat{p}^i$ agem irreducívelmente em $\mathcal{H}=L^2(M)$.
-	\end{enumerate}
+	Uma variedade simplética $(N,\omega)$ é \textit{\textbf{quantizável}} se
+	\[\frac{1}{2\pi\hslash}\int_{S}\omega \in \mathbb{Z}\]
+	para toda superfície fechada $S$ em $N$.
 \end{defn}
 
-\fi
+O último ingrediente necessário para construir o espaço de Hilbert que estamos precisando é um produto interior no espaço de seções.
 
+\begin{defn}\leavevmode
+	Se $L$ é um fibrado Hermitiano sobre uma variedade simplética $N$, dizemos que uma seção medível (essa é uma noção técina, ver \cite{hallq} p. 145) é \textit{\textbf{quadrado-integrável}} se 
+	\[\|s\|:=\left( \int_{N}(s_1(x),s_1(x))\lambda(x) \right)^{1/2}<\infty\]
+onde $\lambda$ é o volume de Liouville de $N$. O produto interior de duas seções quadrado integravéis é
+\[\left<s_1,s_2\right>=\int_{N}(s_1(x),s_2(s))\lambda(x).\]
+\end{defn}
 
+\begin{thing4}{Definição 23.11}[\cite{hallq}]\leavevmode
+O \textit{\textbf{espaço de Hilbert prequântico}} de $N$ é o espaço de de classes de equivalência de seções quadrado-integravéis de $L$, identificando duas seções se são iguais em quase todo ponto com respeito à medida de Liouville.
+\end{thing4}
+
+\begin{thing4}{Definição 23.12}[\cite{hallq}]\leavevmode
+	Se $f$ é uma função suave em $N$ com valores em $\mathbb{C}$, o operador \textit{\textbf{prequântico}}  é o operador não limitado definido no espaço de Hilbert prequântico dado por
+	\[Q_{\operatorname{pre}(f)}=i\hslash \nabla_{X_f}+f,\]
+onde $f$ representa a operação de multiplicação de uma seção por $f$.
+\end{thing4}
+
+\begin{thing5}{Proposição 23.13}[\cite{hallq}]\leavevmode
+Se $f$ é real-valuada, então $Q_{\operatorname{pre}}(f)$ é simétrico no espaço de funções suaves com soporte compacto de $L$.
+\end{thing5}
+
+\begin{thing5}{Proposição 23.14}[\cite{hallq}]\leavevmode
+Para quaisquer $f,g \in \mathcal{C}^\infty(X)$, temos
+\[\frac{1}{i\hslash}[Q_{\operatorname{pre}}(f),Q_{\operatorname{pre}}(g)]=Q_{\operatorname{pre}}(\{f,g\}).\]
+\end{thing5}
+
+Segue a definição do operador $Q_{\operatorname{pre}}$, a sua simétrica e relação de comutatividade.
+
+\subsection{Polarização}
+
+Começamos com uma motivação. A ideia é que o espaço de Hilbert vai consistir em seções de um fibrado linear prequântico que sejam covariantemente constantes nas direções de certas funções. A escolha das funções vai determinar a polarização; por exemplo, pegando $\bar{z}$ em $\mathbb{R}^{2n}$ obtemos o espaço de Segal-Bergman.
+
+Pegue funções suaves $\alpha_1,\ldots,\alpha_n$ para constuir uma polarização. Defina $P_z\subset T_zM$  como o espaço em que $\alpha_i$ são constantes. Pedindo também que $\{a_j,a_k\}=0$, $P_z$ terminha sendo o espaço generado pelos campos hamiltonianos $X_{\alpha_i}$.
+
+Para a proxima: talvez definir polarização e as definições das polarizações reais e complexas. Eu diria: dar uma passadinha as reais e dai passar nas complexas. Será que a gente consegue falar das Kähler?
 
 \printbibliography
 
