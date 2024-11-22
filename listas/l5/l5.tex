@@ -94,19 +94,15 @@ Finally we conclude by taking a local inverse $\sigma$ of $\pi$ via inverse func
 		\[U^2=U\cdot U=\bigcup_{g\in U}U\cdot g \]
 		must be open. Likeways $U^n$ is open and so is $\bigcup_{n \in\mathbb{N}} U^n$.
 
-		To see that $\bigcup_{n \in\mathbb{N}} U^n$ is also closed, notice that it is a subgroup of $G$: it is obvious that it is closed under group product, so it only remains to see that it contains the inverse of every element.
-
-		Further, any open subgroup of a topological group is also closed. To see this in our case call $H:=\bigcup_{n \in\mathbb{N}} U^n$. We'll show that $G\setminus H$ is open. Take $g \in G\setminus H$, the set $g\cdot H$ is in fact an open neighbourhood of $g$ contained in $G\setminus H$. Indeed, if $h\in g\cdot H\cap H$, then we can take the inverse $h^{-1}\in H$ and we get that $h^{-1}hg=g\in H$ but that's not possible.
+		To see that $\bigcup_{n \in\mathbb{N}} U^n$ is also closed, notice that any open subgroup of a topological group is also closed. To see this in our case call $H:=\bigcup_{n \in\mathbb{N}} U^n$. We'll show that $G\setminus H$ is open. Take $g \in G\setminus H$, the set $g\cdot H$ is in fact an open neighbourhood of $g$ contained in $G\setminus H$. Indeed, if $h\in g\cdot H\cap H$, then we can take the inverse $h^{-1}\in H$ and we get that $h^{-1}hg=g\in H$ but that's not possible.
 
 
 
-		\item Let $g\in G$ be any element. Suppose we find a vector $v\in T_eG$ such that its integral curve $\gamma$ passes through $g$ at time $t_0$. Then we can map this vector both by $d\varphi$ and $d\psi$ to obtain a vector $w:=d_e\varphi(v)=d_e\psi(v)\in T_eH$. Then the integral curve $\eta$ of  $w$ is the same as the integral curve of $v$ pushed by either of  $\varphi$ or $\psi$. Let me show this explicitly for self-conviction:
-			\begin{quotation}
-				$\varphi\circ \gamma(t)=\eta(t)$ for all $t$ because differentaition at $t=0$ yields  $\frac{d}{dt}(\varphi\circ \gamma)\Big|_{t=0}=d_e\varphi\gamma'(0)=d_e\varphi v=\eta'(0)$ so both $\varphi\circ \gamma$ and $\eta$ are solutions to the same differential equation thus coincide.
-			\end{quotation}
-			Of course the same goes for $\psi$. Then we get that
-			\[\gamma(t_0)=g\implies \varphi(g)=\varphi(\gamma(t_0))=\eta(t_0)=\psi(\gamma(t_0))=\psi(g)\]
-$\mathsf{OK}$ now we only need to find the vector $v$. The statement is that for every $g\in G$ there is a maximal integral curve starting at the identity passing through $g$. Since $g$ is the same connected component as the identity we can find a curve connecting them. But this curve need not be a maximal integral curve nor homotopic to one. So I'm stuck and I suppose that there is no maximal integral curve. Then all the vectors in the unit ball… \href{https://math.stackexchange.com/questions/1258904/how-to-show-that-for-every-element-g-in-a-lie-group-the-curve-gammat-g}{I'm pretty sure here is the answer}.
+		\item Let $g\in G$ be any element. Suppose we find a vector $v\in T_eG$ such that its integral curve $\gamma$ passes through $g$ at time $t_0$. Then we can map this vector both by $d\varphi$ and $d\psi$ to obtain a vector $w:=d_e\varphi(v)=d_e\psi(v)\in T_eH$. Then the integral curve of  $w$ is the same as the integral curve of $v$ pushed by either of  $\varphi$ or $\psi$ because both are solutions to the same differential equation.
+
+			Then we get that
+			\[\gamma(t_0)=g\implies \varphi(g)=\varphi(\gamma(t_0))=\psi(\gamma(t_0))=\psi(g)\]
+$\mathsf{OK}$ now we only need to find the vector $v$. The statement is that for every $g$ in the connected component of the identity there is a maximal integral curve starting at the identity passing through $g$. Since $g$ is the same connected component as the identity we can find a curve connecting them. But this curve need not be a maximal integral curve nor homotopic to one. {\color{3}I couldn't find such a vector!} 
 
 	\end{enumerate}
 \end{proof}
@@ -156,11 +152,11 @@ $\mathsf{OK}$ now we only need to find the vector $v$. The statement is that for
 		
 			To see that $S^3$ is a Lie subgroup we first need to check that it is closed under quaternion product. The easiest way to see that is via quaternion conjugate: if $x=x_1+ix_2+jx_3+kx_4$ is a quaternion, its conjugate is $\bar{x}=x_1-ix_2-jx_3-kx_4$. It may be computed that the norm is given by $|x| =x\bar{x}$. Then we see that if $x,y\in S^3$
 			\[|xy\overline{xy}|=|xy\bar{y}\bar{x}| =\Big|x|y| \bar{x}\Big|=1\]
-			Then the fact that $S^3$ is a Lie group follows from the fact that the restricition (the multiplication and inverse map) of smooth maps to embedded submanifolds remains smooth (\cite{lee}, prop ?).
+			Then the fact that $S^3$ is a Lie group follows from the fact that the restricition (the multiplication and inverse map) of smooth maps to embedded submanifolds remains smooth.
 
 			An identification between $S^3\subset \mathbb{H}$ and $\mathsf{SU}(2)$ as expressed above is given by
 			\[a+bi+cj+dk\longmapsto \begin{pmatrix} a+bi&c+di\\-c+di&a-bi\end{pmatrix} \]
-			Checking that this map is a group isomorphism ammounts to checking that matrix multiplication in $\mathsf{SU}(2)$ is the same as quaternion multiplication 
+			Checking that this map is a group isomorphism ammounts to checking that matrix multiplication in $\mathsf{SU}(2)$ is the same as quaternion multiplication.
 
 
 			\item (Proof from \cite{hall}, prop. 3.24.) We will show that $\mathfrak{su}(2)$ is the space of traceless anti-hermitian matrices and \cref{eq:1} will follow.
@@ -177,8 +173,7 @@ $\mathsf{OK}$ now we only need to find the vector $v$. The statement is that for
 							%Define a curve $\gamma$ via the exponential map (seen in lectures, also see figure): $\gamma(t)=\operatorname{exp}(tX)$ which is in $G$ by definition of exponential map.
 	\begin{figure}[H]		\centering
 		\includegraphics[width=0.4\textwidth]{fig2}	
-	\caption*{(I spent way too much time thinking about this…)}\end{figure}
-
+	\end{figure}
 						\end{proof}
 
 					\item Then we look for the matrices such that for all $t\in\mathbb{R}$,
@@ -187,7 +182,7 @@ $\mathsf{OK}$ now we only need to find the vector $v$. The statement is that for
 						\[\operatorname{exp}(tX^*) =\operatorname{exp}(-tX) \qquad \text{and} \qquad \operatorname{ Tr}(X)=0.\]
 						The first implication is the result of the general facts that $(e^{A})^*=e^{A^*}$ and $(e^A)^{-1}=e^{A^{-1}}$. Let's have a look at the second one:
 \begin{quotation}
-	{\color{3}$(e^A)^{-1}=e^{A^{-1}}$}\hspace{.5em}This is nicely shown in \cite{lee} as follows. For any $X\in\mathsf{Lie}(G)$ map $t\mapsto \operatorname{exp}(tX)$ is a group homomorphism  $\mathbb{R}\to G$ because $\operatorname{exp}((t_1+t_2)X)=\operatorname{exp}(t_1X)\operatorname{exp}(t_2X)$ (but of course that could be justified…) anyway from this it follows that this map preserves inverses, which what we wanted.
+	{\color{3}$(e^A)^{-1}=e^{A^{-1}}$}\hspace{.5em}This is nicely shown in \cite{lee} as follows. For any $X\in\mathsf{Lie}(G)$ map $t\mapsto \operatorname{exp}(tX)$ is a group homomorphism  $\mathbb{R}\to G$ because $\operatorname{exp}((t_1+t_2)X)=\operatorname{exp}(t_1X)\operatorname{exp}(t_2X)$ (but of course that should be justified…) and from this it follows that this map preserves inverses, which what we wanted.
 \end{quotation}
 
 						Now let's have a look at why determinant 1 in Lie group translates to vanishing trace in Lie algebra.
@@ -242,22 +237,21 @@ Daí, se $(x_1,x_2,x_3)$ é vetor correspondente a $ABA^{-1}$, vemos que
 \end{align*}
 Agora considere a base de $\mathfrak{su}(2)$ dada por
 \[\begin{pmatrix} i&0\\0&-i \end{pmatrix},\quad \begin{pmatrix} 0&1\\-1&0 \end{pmatrix} ,\quad \begin{pmatrix} 0&i\\-i&0 \end{pmatrix}  \]
-que corresponde à base canônica de $\mathbb{R}^{3}$. A matriz da transformação $I_A$  terá nas columnas os vetores correspondentes às imagens dessas treis matrizes. Ussando as formulas anteriores, concluimos que
+que corresponde à base canônica de $\mathbb{R}^{3}$. A matriz da transformação $I_A$  terá nas columnas os vetores correspondentes às imagens dessas treis matrizes. Usando as fórmulas anteriores, concluimos que
 \[I_A=\begin{pmatrix} |a|^2-|b|^2 & \operatorname{Re}(-i(a\overline{b}-b \overline{a}))& \operatorname{Re}(a \overline{b}+b \overline{a})\\
 0 & \operatorname{Re}(a^2+b^2)& \operatorname{Re}(i(a^2-b^2)) \\
 -2ab& \operatorname{Im}(a^2+b^2)&\operatorname{Im}(i(a^2-b^2))\end{pmatrix} \]
 \end{enumerate}
 Para calcular o kernel de $\varphi$ suponha que a matriz anterior é a identidade. Segue que
 \begin{align*}
-	&=
+	\ddot{\cap}
 \end{align*}
 
 \item Supondo que mostramos que a imagem de $\varphi$ é $\mathsf{SO}(3)$ com kernel $\{\operatorname{Id},-\operatorname{Id}\}$, temos o isomorfismo
 	\[\dfrac{\mathsf{SU}(2)}{\{\operatorname{Id},-\operatorname{Id}\}}\cong \mathsf{SO}(3)\]
 Suponha que dois elementos $A,B \in\mathsf{SU}(2)$ estão na mesma classe de equivâlencia no quociente. Então
 \[AB^{-1}\in\{\operatorname{Id},-\operatorname{Id}\}\iff A=B \text{ ou }A=-B \]
-Assim, cada elemento de $\mathsf{SO}(3)$ correponde com dois elementos de $\mathsf{SU}(2)$. Como $\{\operatorname{Id},-\operatorname{Id}\}$ age de maneira prórpia, livre e disonctínua em $\mathsf{SU}(2)$, temos um recobrimento de $\mathsf{SO}(3)$. Também é claro que estamos identificando pontos antípodas de $S^3$ já que ser antípoda em $S^3$ corresponde com o produto com $-\operatorname{Id}$. Note que $\mathbb{R}P^{3}\cong S^3/\mathbb{Z}_2$.
-	de modo que $\mathsf{SU}(2)$ é um recobrimento de $\mathsf{SO}(3)$: cada ponto de $\mathsf{SO}(3)$ tem uma preimagem composta por dois elementos
+Assim, cada elemento de $\mathsf{SO}(3)$ correponde com dois elementos de $\mathsf{SU}(2)$. Como $\{\operatorname{Id},-\operatorname{Id}\}$ age de maneira prórpia, livre e disonctínua em $\mathsf{SU}(2)$, temos um recobrimento de $\mathsf{SO}(3)$. Também é claro que estamos identificando pontos antípodas de $S^3$ já que ser antípoda em $S^3$ corresponde com o produto com $-\operatorname{Id}$. Note que $\mathbb{R}P^{3}\cong S^3/\mathbb{Z}_2$, de modo que $\mathsf{SU}(2)$ é um recobrimento de $\mathsf{SO}(3)$: cada ponto de $\mathsf{SO}(3)$ tem uma preimagem composta por dois elementos
 \end{proof}
 
 \addcontentsline{toc}{section}{Problem 4}
@@ -363,7 +357,7 @@ Para ver que o produto interno de $\mathbb{R}^{3}$ corresponde com $\frac{1}{2}\
 \item Agora vamos calcular a ação adjunta. 
 Primeiro notemos que a ação adjunta, definida como a derivada do operador $I_A(X)=AXA^{-1}$, é ela mesma. Talvez esse é um fato obvio porque $I_A$  é um mapa linear, e a sua derivada coincide com ele. Porém, tem um argumento mais explícito no \href{https://math.stackexchange.com/questions/512026/prove-that-the-action-of-a-lie-group-on-its-lie-algebra-via-the-adjoint-represen}{StackExchange}: a ação adjunta em um vetor  $X\in\mathfrak{so}(3)$ que seja a derivada em $t=0$ da curva $\gamma\subset \mathsf{SO}(3)$, i.e.  $\gamma'(0)=X$, é simplesmente $\frac{d}{dt}A\gamma(t)A^{-1}\Big|_{t=0}=AXA^{-1}$. A observação chave é que como a álgebra de Lie $\mathfrak{so}(3)$ é um álgebra de matrizes, o produto do lado direito está bem definido.
 
-Agora vamos a achar uma matriz que representa esse operador linear quando identificamos $\mathfrak{so}(3)$ com $\mathbb{R}^{3}$. Ou seja, queremos achar uma matriz  $\overline{\operatorname{Ad}_A}$ tal que $\operatorname{Ad}_AX=AXA^{-1}\rightsquigarrow \overline{\operatorname{Ad}_A}x$ onde $x\in\mathbb{R}^{3}$  representa a matriz $X\in\mathfrak{so}(3)$. Vamos ver que de fato essa matriz é $A$.
+Agora vamos achar uma matriz que representa esse operador linear quando identificamos $\mathfrak{so}(3)$ com $\mathbb{R}^{3}$. Ou seja, queremos achar uma matriz  $\overline{\operatorname{Ad}_A}$ tal que $\operatorname{Ad}_AX=AXA^{-1}\rightsquigarrow \overline{\operatorname{Ad}_A}x$ onde $x\in\mathbb{R}^{3}$  representa a matriz $X\in\mathfrak{so}(3)$. Vamos ver que de fato essa matriz é $A$.
 
 \begin{align*}AXA^{\mathbf{T}}&=\begin{pmatrix}a_{11}&a_{12}&a_{13}\\ a_{21}&a_{22}&a_{23}\\ a_{31}&a_{32}&a_{33}\end{pmatrix}\begin{pmatrix}0&-z&y\\ z&0&-x\\ -y&x&0\end{pmatrix}\begin{pmatrix}a_{11}&a_{21}&a_{31}\\ a_{12}&a_{22}&a_{32}\\ a_{13}&a_{23}&a_{33}\end{pmatrix}\\
 &=\begin{pmatrix}a_{11}&a_{12}&a_{13}\\ a_{21}&a_{22}&a_{23}\\ a_{31}&a_{32}&a_{33}\end{pmatrix}\begin{pmatrix}-za_{12}+ya_{13}&-za_{22}+ya_{23}&-za_{32}+ya_{33}\\ a_{11}z-xa_{13}&za_{21}-xa_{23}&za_{31}-xa_{33}\\ -ya_{11}+xa_{12}&-ya_{21}+xa_{22}&-ya_{31}+xa_{32}\end{pmatrix}\end{align*}
@@ -384,15 +378,15 @@ Esses treis vetores em colunas conformam a matriz que buscamos, que podemos cham
 
 É simples ver que as coordenadas de $\mathbf{C}$ são distintos menores (determinantes de sub-matrizes de $2\times 2$) de $A$. Quando calculamos o produto $\mathbf{C} A^{\mathbf{T}}$, vemos que nas tres entradas da diagonal aparece o determinante de $A$, que é 1. As entradas fora da diagonal devem ser zero. Fazendo contas não achei immediato, mas o resultado é um fato de álgebra linear: a matriz que calculamos se chama \href{https://en.wikipedia.org/wiki/Minor_(linear_algebra)#Cofactor_expansion_of_the_determinant}{\textit{\textbf{matriz de cofactores}}} e satisfaz, em geral,
 \[A^{-1}=\frac{1}{\det A}\mathbf{C}^{\mathbf{T}}\]
-A menos dessa continha, isso mostra que a ação adjunta de $\mathsf{SO}(3)$ em $\mathbb{R}^{3}$ é por rotações com eixos que passam pela origem. Segue que órbita da origem é trivial. As órbitas dos outros pontos são quocientes $\mathsf{SO}(3)/S^1$, já que as órbitas são difeomorfas ao quociente do grupo entre estabilizador (pode pensar que a órbita é uma variedade homogénea). Ademais, $\mathsf{SO}(3)$ age transitivamente em $S^2$ com estabilizar também $S^1$. Segue que as órbitas são $\mathsf{SO}(3)/S^1\overset{\operatorname{dif}}{\simeq} S^2$.
+A menos dessa continha, isso mostra que a ação adjunta de $\mathsf{SO}(3)$ em $\mathbb{R}^{3}$ é por rotações com eixos que passam pela origem. Segue que a órbita da origem é trivial. As órbitas dos outros pontos são quocientes $\mathsf{SO}(3)/S^1$, já que as órbitas são difeomorfas ao quociente do grupo sobre estabilizador (pode pensar que a órbita é uma variedade homogénea). Ademais, $\mathsf{SO}(3)$ age transitivamente em $S^2$ com estabilizador também $S^1$. Segue que as órbitas são $\mathsf{SO}(3)/S^1\overset{\operatorname{dif}}{\simeq} S^2$.
 
 Em geral, o gerador infinitesimal da ação adjunta $\operatorname{Ad}_g$ em $u\in\mathfrak{g}$ é $\operatorname{ad}_u=[u,\cdot]$. No nosso caso, para $u\in\mathfrak{so}(3) \cong \mathbb{R}^{3}$, $\operatorname{ad}_u=[u,\cdot ]\rightsquigarrow u\times \cdot$, i.e., é o campo vetorial que em cada ponto de $\mathbb{R}^{3}$ asoccia o produto vetorial dele com $u$.
 
 Por último, a ação coadjunta em $A\in\mathsf{SO}(3)$ é um operador $\operatorname{Ad}^*_A$ satisfazendo para todo $\xi\in  \mathfrak{so}(3)^* \cong \mathbb{R}^{3}$ e $Y\in \mathfrak{so}(3) \cong \mathbb{R}^{3}$,
-\[(\operatorname{Ad}^* _A\xi)Y=\xi(\operatorname{Ad}_{A^{-1}}Y)\]
+\[(\operatorname{Ad}^* _A\xi)Y=\xi(\operatorname{Ad}_{A^{-1}}Y).\]
 A identificação de $(\mathbb{R}^3)^*$ com $\mathbb{R}^3$ usando o produto interno canônico significa que associamos $\xi$ com algum vetor $V_\xi$ tal que $\xi(Y)=(V_\xi,Y)$ onde $(\cdot,\cdot)$ é o produto interno euclidiano canônico. Como ainda já sabemos que $\operatorname{Ad}_{A^{-1}}$ age em $\mathbb{R}^{3}$ como multiplicação por $A^{-1}$, vemos que
 \begin{align*}
-	(\operatorname{Ad}^*_A\xi)Y \leftrightsquigarrow (V_\xi,A^{-1}Y)
+	(\operatorname{Ad}^*_A\xi)Y \leftrightsquigarrow (V_\xi,A^{-1}Y).
 \end{align*}
 Mas ainda, o vetor $V_\xi$ é simplesmente o vetor de coordenadas $(\xi^1,\xi^2,\xi^3)$ se escrevemos $\xi=\sum \xi^idx^i\in (\mathbb{R}^3)^*$. Para descrever as órbitas só note que a expressão acima está determinada por $A$, de modo que a  órbita coadjunta está em correspondência com a $\mathsf{SO}(3)$-órbita do vetor $V_\xi$, que já sabemos que é uma esfera $S^2$.
 
@@ -436,13 +430,7 @@ daí é só calcular
 		\end{align*}
 A órbita adjunta de $(X,r)$  é $X\times \mathbb{R}$ sempre que $X\neq 0$ já que $\Omega$ é não degenerada. Caso $X=0$, a  órbita é um ponto, $(0,r)$.
 
-\item Para calcular $\operatorname{ad}_{(Y,s)}(X,r)$ devemos calcular o generador infinitesimal da ação adjunta.
-
-	\begin{remark}\leavevmode
-		Demorei um tempão para entender essa construção. Depois de ler muitas distintas explicações e perguntar no \href{https://math.stackexchange.com/questions/4984625/compute-the-derivative-of-adjoint-action-on-heisenberg-group?noredirect=1#comment10681405_4984625}{StackExchange}, fiquei com \cite{lee}, p.526. A ideia é começar com um vetor $X$ na álgebra de Lie, passar para uma curva no grupo de Lie mediante $\operatorname{exp}(tX)$, e passar para à variedade agindo em qualquer ponto. Variando o ponto obtemos um fluxo global, e derivando obtemos um campo vetorial, que de fato é uma derivação da álgebra de Lie. Então aqui parece que $\operatorname{Der}(\mathfrak{g})\cong\mathfrak{X}(\mathfrak{g} )$. Mas ainda não tenho certeza disso.	\end{remark}
-
-		Em fim, a conta é assim:
-		\begin{align*}
+\item Para calcular $\operatorname{ad}_{(Y,s)}(X,r)$ devemos calcular o generador infinitesimal da ação adjunta:\begin{align*}
 			\operatorname{ad}_{(Y,s)}(X,r)&=\frac{d}{dt}\operatorname{Ad}_{\operatorname{exp}(tY, ts)}(X,r)\\
 			&=\frac{d}{dt}(X,r+\Omega(\operatorname{exp}(tY),X)\\
 			&=\left( 0,\frac{d}{dt}\Omega(\operatorname{exp}(tY,X))\right)

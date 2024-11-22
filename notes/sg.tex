@@ -4149,30 +4149,70 @@ Seja $(N^{2n-2},\tau)$ variedade simplética compacta tal que $\pi_{2}(N)=0$. Se
 
 Note que o teorema de non-squeezing the Gromov segue do teorema non-squeezing para produtos porque o $\pi_{2}(\text{toro} )$ é zero pelo seu recobrimento universal.
 
-\begin{thm}[Gromov]\leavevmode
-	Seja $(N,\tau)$ variedade simplética compacta tal que $\pi_{2}(N)=0$ e $J$ estrutura complexa em $S^2 \times N$ compatível com a forma simplética produto $\sigma \oplus  \tau$, onde $\sigma$ é a forma de área de $S^2$. Então dado $p \in S^2 \times N$, existe uma curva $J$-holomorfa $u:S^2\to S^2 \times N$ passando por $p$ e holomorfa à fibra $S^2 \times \{x\}$.
-\end{thm}
+\begin{question}\leavevmode
+	Por que foi que o teorema non-squeezing foi reduzido para o teorema non-squeezing para produtos?
+\end{question}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+\begin{thing4}{Resposta}\leavevmode
+Considera o mergulho a bola no cilintro, considera uma projeção a $\mathbb{C}^{n-1}$, obtendo um conjunto compacto em $\mathbb{C}^{n-1}$. Bota isso dentro de um dominío fundamental e quocienta para obter um toro. (Lembre que o $\pi_{2}(\text{toro} )=0$.) Mas lembre que você projetou, então tem que pegar um produto,, i.e. continuar o mergulho da bola que tava mergulada no cilindo mergulhando isso num produto de bola por toro.
+\end{thing4}
 
 \section{Aula 28}
 
+\begin{thm}[Gromov]\leavevmode
+	Seja $(N,\tau)$ variedade simplética compacta tal que $\pi_{2}(N)=0$ e $J$ estrutura complexa em $S^2 \times N$ compatível com a forma simplética produto $\sigma \oplus  \tau$, onde $\sigma$ é a forma de área de $S^2$. Então dado $p \in S^2 \times N$, existe uma curva $J$-holomorfa $u:S^2\to S^2 \times N$ passando por $p$ e homológa à fibra $S^2 \times \{x\}$.
+\end{thm}
+
+\subsection{Sketch da prova do teorema non-squeezing usando o teorema de Gromov}
+Se existe um mergulho simplético
+\[B^{2n}(r) \hookrightarrow B^2(R)\times N\]
+então existe
+\[B^{2n}(r) \hookrightarrow  S^2(R/2) \times N.\]
+(Por que?) Seja $J_0$ a estrutura quase-complexa canônica em $\mathbb{R}^{2n}$ e considere a equação $\varphi_*J_0$ em $\varphi(B^{2n}(r))$.
+
+\begin{prop}\leavevmode
+	Dada $(M,\omega)$ uma subvariedade $S \subset M$ e uma estrutura quase-complexa $J_0$ definida ao longo de $S$ (i.e. um endomorfismo em  $TM|_{S}$ tal que $J_0^2=-\operatorname{Id}$---definido em todo $TM$ mas  só deve funcionar em $S$), compatível com $\omega$. Então existe uma estrtura quase-complexa canônica $J$ em $M$ compatível com $\omega$ que extende a $J_0$, i.e. $J|_{S}=J_0$
+\end{prop}
+
+\begin{proof}\leavevmode
+Exercício.
+\end{proof}
+
+Aplicamos essa proposção à subvariedade \[\varphi:((B^{2n}(r)),J_0)\hookrightarrow  (S^2(R/2)\times N,J),\]
+obtendo assim que $\varphi$ não é so um simplectomorfismo mas também é holomorfa, onde $J$ é a extensão de $\varphi_*J_0$.
+
+Agora aplicamos o teorema do Gromov com respeito a esa estrutura quase-complexa: dado qualquer ponto existe uma curva $J$-holomorfa $\psi$ que \textit{é homológa à fibra}  $S^2\times\{x\}$. Pegue a origem como ponto distinguido, assim a curva $J$-holomorfa passa por $\varphi(0) \in \operatorname{img}\psi$. Por Stokes, a integral depende só da classe da homologia, i.e.
+\[\int_{S^2}\phi^* (\sigma \oplus \tau)=\int_{S^2\times \{x\}}\sigma \oplus  \tau=\pi \mathbb{R}^2\]
+porque, lembre, passamos nosso mergulho para $S^2(R/2)\times N$.
+
+Decrescendo $r$ um pouco se necessário, podemos assumir que $\psi:S^2 \to S^2\times N$ é transversal a $\varphi(\overline{B^{2n}(r))}$, exercício. Portanto, $S':=\psi^{-1}\Big(\overline{\varphi(B^{2n}(r))}\Big)$ é uma 2-variedade com bordo. {\color{3}É só olhara a pre imagem da bola que é dominio da $\varphi$ no domínio da $\psi$.}
+
+\begin{remark}[Por que tem que ter bordo?]\leavevmode
+	Note que a imagem de $\psi$ não pode estar contida na imagem de $\varphi$ porque a forma simplética em $\varphi$ é zero porque a segunda cohomologia da esfera é zero, assim toda forma fechada é exata, porém a gente viu que a área da imagem de  $\psi$ não é zero.
+\end{remark}
+
+\begin{lemma}[de monotonicidade]\leavevmode
+Seja $f: S' \to B^{2n}(r)$ uma curva $J_0$-holomorfa tal que $f(\partial S^1)\subset \partial B^{2n}(r)$ e $0 \in \operatorname{img} f$, então
+\[\int_{S'}f^*\omega_0\geq \pi r^2.\]
+\end{lemma}
+
+\begin{proof}\leavevmode
+Isso usa o fato de que superfícies holomorfas sempre são mínimas. De fato, pela construção a preimagem da $\psi$ no domínio da $\varphi$ (na verdade estamos sim no domínio da $\varphi$: a gente toma $f=\varphi^{-1}\circ\psi|_{S'}$) fica uma curva holomorfa com bordo. E a área da superfície mínima com esse bordo é como mínimo $\pi r^2$.
+\end{proof}
+
+Enão temos
+
+\begin{align*}
+\int_{S'}f^*\psi&=\int_{S'}(\varphi^{-1} \circ \psi)^*  \omega_0=\int_{S'}\psi^*\circ(\varphi^{-1})^*\omega_0\\
+&=\int_{S'}\psi^*(\sigma  \oplus \tau)
+\end{align*}
+já que $\varphi^{-1}$ é simplética---a forma simplética na esfera é $\omega_0$ é no produto $\sigma \oplus  \tau$.
+
+Consequentemente
+ \begin{align*}
+	 \pi R^2&=\int_{S^2}\varphi^* (\sigma \oplus  \tau) \geq \int_{S'}\psi^*(\sigma \oplus  \tau) \geq \pi r^2.
+	 &=
+\end{align*}
+Isso conclui o nosso sketch da prova do teorema do non-squeezing. A caixa preta é a existência da curva holomorfa, o teorema devido a Gromov.
 
 \end{document}
