@@ -1,0 +1,500 @@
+\input{/Users/daniel/github/config/preamble.sty}%This is available at github.com/danimalabares/config
+\input{/Users/daniel/github/config/thms-eng.sty}%This is available at github.com/danimalabares/config
+
+\usepackage[style=authortitle-terse,backend=bibtex]{biblatex}
+\addbibresource{/Users/daniel/github/config/bibliography.bib}
+
+\begin{document}
+
+\begin{minipage}{\textwidth}
+	\begin{minipage}{1\textwidth}
+		Geometria Simpl\'etica \hfill Daniel González Casanova Azuela
+		
+		{\small Profs. Henrique Bursztyn e Leonardo Macarini\hfill\href{https://github.com/danimalabares/sg}{github.com/danimalabares/sg}}
+	\end{minipage}
+\end{minipage}\vspace{.2cm}\hrule
+
+\vspace{10pt}
+{\huge Lista 6}
+
+\tableofcontents
+
+\addcontentsline{toc}{section}{Problem 1}
+\begin{thing1}{Problem 1}\leavevmode
+\begin{enumerate}[label=\alph*.]
+	\item Consider hamiltonian actions of $ G$ on two symplectic manifolds $(M_i,\omega_i)$, $i=1,2$ with moment maps $\mu_i:M_i\to \mathfrak{g}^*$, $i=1,2$. Show that the diagonal action of $G$ on $M_1\times M_2$ ($g(x_1,x_2)\mapsto (gx_1,gx_2)$) is hamiltonian, with moment map $\mu(x_1,x_2)=\mu_1(x_1)+\mu_2(x_2)$.
+
+	\item Suppose that $G\mathbb{y} M$ is a hamiltonian action with moment map $ \mu$, and let $H\subseteq G$ be a Lie subgroup. Show that the restriction of the action to $H$,  $H\mathbb{y} M$ is hamiltonian with moment map $\iota^*\circ\mu$, where $\iota:\mathfrak{h}\to\mathfrak{g}$ is the inclusion.
+\end{enumerate}
+
+\begin{proof}[Solution]\leavevmode
+	\begin{enumerate}[label=\alph*.]
+		\item Primeiro vamos mostrar que
+		\begin{equation}\label{eq:1}d\left<\mu, u\right> =i_{u_M}\omega \end{equation}
+		para $u\in\mathfrak{g}^*$. Suponha que $\pi_1,\pi_2$ são as projeções de $M_1\times M_2$. Etão o lado direito de \cref{eq:1} é:
+		\begin{align*}
+			i_{u_{M_1\times M_2}}\omega&=\omega(u_{M_1\times M_2},\cdot)\\
+			&=\pi^*_1\omega_1(u_{M_1\times M_2},\cdot)+\pi^*_2\omega_2(u_{M_1\times M_2},\cdot)\\
+			&=\omega_1\Big(\pi_1(u_{M_1\times M_2)},\pi_1(\cdot)\Big)+\omega_2\Big(\pi_2(u_{M_1\times M_2}),\pi_2(\cdot)\Big)\\
+			&=\omega_1(u_{M_1},\cdot)+\omega_2(u_{M_2},\cdot)\\
+			&=i_{u_{M_1}}\omega+i_{u_{M_2}}\omega
+		\end{align*}
+	Enquanto que o lado direito é a derivada exterior da função
+	\[\left<\mu,u\right> =\mu(\cdot)(u)=\mu_1(\cdot)u+\mu_2(\cdot)u=\left<\mu_1,u\right> +\left<\mu_2,u\right>.\]
+
+Agora vamos provar equivariância. Queremos ver que
+\[\mu \circ \psi_g=(\operatorname{Ad}^*)_g(\mu).\]
+onde $\psi$ é a ação $G\mathbb{y}M$. Pegando $(x_1,x_2)\in M_1\times M_2$ vemos que
+\begin{align*}
+\mu \circ \psi_g(x_1,x_2)&= \mu(gx_1,gx_2)\\&=\mu_1(gx_1)+\mu_2(gx_2)\\&=(\operatorname{Ad}^*)_g(\mu_1(x_1))+(\operatorname{Ad}^*)_g(\mu_2(x_2))
+\end{align*}
+E pegando $Y\in \mathfrak{g}$ vemos que
+\begin{align*}
+	(\operatorname{Ad}^*)_g(\mu_1(x_1))(Y)&=(\mu_1(x_1))(\operatorname{Ad}_{g^{-1}}(Y))\\
+	(\operatorname{Ad}^*)_g(\mu_2(x_2))(Y)&=(\mu_2(x_2))(\operatorname{Ad}_{g^{-1}}(Y))
+\end{align*}
+e a soma delas é
+\begin{align*}
+(\mu_1(x_1))(\operatorname{Ad}_{g^{-1}}Y)+(\mu_2(x_2))(\operatorname{Ad}_{g_1}Y)&=\Big(\mu(x_1,x_2)\Big)(\operatorname{Ad}_{g^{-1}}Y)\\
+&=(\operatorname{Ad}^*)_g\Big(\mu(x_1,x_2)\Big)(Y).
+\end{align*}
+
+
+\item Neste caso queremos ver que
+	\[d\left<\iota^*\circ\mu,u\right> =i_{u_M}\omega.\]
+Isso vai ser immediato assim que tivermos esclarecido duas coisas. Primeiro, que o generador infinitesimal de $u$ como elemento de $\mathfrak{h}$ coincide com o generador infinitesimal de  $u$ como elemento de $\mathfrak{g}$ (isso é simplesmente porque a curva integral de $u$ em $H\subset G$ fica contida em $H$, então a ação em $M$ genera o mesmo campo vetorial). Segundo, que a derivada exterior de $\left<\iota^*\circ\mu,u\right>$ coincide com a derivada exterior de $\left<\mu,u\right>$ já que $\iota^*$ é a restrição dos funcionais em $\mathfrak{g}^*$ a $\mathfrak{h}^*$ e vamos a avaliar em vetores de $\mathfrak{h}$. Então podemos simplesmente escrever:
+\begin{align*}
+	d\left<\iota^*\circ\mu\right>&=d\left<\mu,u\right>=i_{u_M}\omega.
+\end{align*}
+Para ver equivariância, pegue $h \in H$ e $x \in M$. Então 
+\begin{align*}
+	(\iota^*\circ\mu)\circ \psi_h(x)&=(\iota^*\circ\mu)(hx)=\iota^*(\mu(hx))=\iota^*(\operatorname{Ad}^*_h(\mu(hx)))=(\operatorname{Ad}^*)_h(\mu(hx))\Big|_{\mathfrak{h}}\end{align*}
+	Avaliando em $Y\in \mathfrak{h}\subset\mathfrak{g}$,
+\begin{align*}	(\operatorname{Ad}^*)_h(\mu(x))(Y)&=(\mu(x))(\operatorname{Ad}_{h^{-1}}(Y))\\&=\Big(\iota^*\circ\mu(x)\Big)(\operatorname{Ad}_{h^{-1}}(Y))\\&=\operatorname{Ad}^*_h\Big((\mu\circ \iota)(x)\Big),
+\end{align*}
+onde na segunda igualdade podemos substituir $\mu$ por $\iota^*\circ\mu$ porque estamos avaliando em um vetor $Y \in \mathfrak{h}$ e a imagem de $\operatorname{Ad}$ restrito a $\mathfrak{h}$ está contida em $\mathfrak{h}$. Isso último pode ser feito explícito calculando $\operatorname{Ad}_{h^{-1}}=d I_h$ usando uma curva totalmente contida em $H$ que cuja velocidad em $t=0$ seja  $Y$.
+\end{enumerate}
+\end{proof}
+\end{thing1}
+
+\addcontentsline{toc}{section}{Problem 2}
+\begin{thing1}{Problem 2}\leavevmode
+Consider the group $\mathsf{SO}(3)$ acting on $T^*\mathbb{R}^{3}$ by the the cotangent lift of the usual action of $\mathsf{SO}(3)$ on $\mathbb{R}^{3}$.
+\begin{enumerate}[label=\alph*.]
+\item For $u\in\mathfrak{so}(3)$, compute the corresponding infinitesimal generator $u_{T^*\mathbb{R}}\in\mathfrak{X}(T^*\mathbb{R}^{3})$.
+\item Identify $\mathfrak{so}(3)$ with $\mathbb{R}^3$ as in Lista 5. Show that, with this identification, we have $u_{T^*\mathbb{R}^e}(q,p)=(u\times q,u\times p)$.
+\item Identifying $\mathfrak{so}(3)^*\cong(\mathbb{R}^{3})^*\cong\mathbb{R}^{3}$ using the usial inner product, show that the moment map for the action of $\mathsf{SO}(3)$ on $T^*\mathbb{R}^{3}$ is $\mu(q,p)=q\times p$. Conclude (by Noether's theorem) that if $V\in \mathcal{C}^\infty(\mathbb{R}^3)$ is $\mathsf{SO}(3)$-invariant, then the flow of the Hamiltonian $H(q,p)=\frac{p^2}{2m}+V(q)$ preserves "angular momentum" $q \times p$.
+\end{enumerate}
+\end{thing1}
+
+\begin{proof}[Solution]\leavevmode
+\begin{enumerate}[label=\alph*.]
+\item Pegue $U\in\mathfrak{so}(3)$ e vamos calcular $u_M\in\mathfrak{X}(T^*\mathbb{R}^{3})$ num ponto $(p,q)\in T^*\mathbb{R}^{3}$.
+	\begin{equation}\label{eq:3}
+	\begin{aligned}
+		u_M&=\frac{d}{dt}\Big|_{t=0}\operatorname{exp}(tU) \cdot(q,p)\\
+		&=\frac{d}{dt}\Big|_{t=0}\Big(\operatorname{exp}(tU)q,\operatorname{exp}(-tU)^*p\Big)
+	\end{aligned}
+	\end{equation}
+	Vamos explicar isso antes de seguir. O levantamento cotangente da ação $\mathsf{SO}(3)\mathbb{y}\mathbb{R}^3$ está dado por
+	\[\begin{tikzcd}[column sep=huge]
+		T^*\mathbb{R}^3\arrow[r,"((dA)^{*})^{-1}"]\arrow[d]&T^*\mathbb{R}^3\arrow[d]\\
+		\mathbb{R}^3\arrow[r,swap,"A"]&\mathbb{R}^3
+	\end{tikzcd}\]
+	Issto é, para um elemento $A\in\mathsf{SO}(3)$, o levantamento cotangente é: (1) agir com $A$ nas primeiras coordenadas e (2) agir com a inversa do pullback da derivada dele na componente em $T^*\mathbb{R}^3$; mas  a derivada dele é ele mesmo por ser uma transformação linear. Daí a \cref{eq:3} segue pegando $A=\operatorname{exp}(tU)$. (E já sabemos super bem que $\operatorname{exp}(X)^{-1}=\operatorname{exp}(-X)$.)
+
+	Continuando com a conta, derivando obtemos
+	\begin{align*}
+	&=\Big(U\operatorname{exp}(tU)q,-U\operatorname{exp}(-tU)p\Big)\Big|_{t=0}\\
+	&=(Uq,-Up).
+	\end{align*}
+\item Aqui é simplesmente identificar $U$ com um vetor e calcular $Uq$. Então digamos que
+	 \[U:=\begin{pmatrix}0&-c&b\\ c&0&-a\\ -b&a&0\end{pmatrix}\leftrightsquigarrow(a,b,c)\]
+Daí
+\begin{align*}
+Up&=\begin{pmatrix}0&-c&b\\ c&0&-a\\ -b&a&0\end{pmatrix}\begin{pmatrix} q_1\\q_2\\q_3 \end{pmatrix} =\begin{pmatrix} -cq_2+bq_3\\cq_1-aq_3\\-bq_1+aq_2 \end{pmatrix} 
+\end{align*}
+que são as coordenadas de $(a,b,c)\times (q_1,q_2,q_3)$.
+
+Agora a mesma conta funciona para a coordenada em  $p$, só que de acordo ao item anterior temos um signo $-$, o que significa que em realidade
+ \[u_{T^*\mathbb{R}^3}(q,p)=(u\times q, -u \times p).\]
+
+\item Vamos ver que
+	\[d\left<\mu,u\right>=i_{u_{T^*\mathbb{R}^3}}\omega.\]
+       A idenficação $\mu(q,p)\leftrightsquigarrow q\times p$, significa que $\mu(q,p)=(q\times p,  \cdot)$ onde $(\cdot,\cdot)$ é o produto interno canônico. Para calcular o lado esquerdo lembre que a derivada exterior de uma função $f$  é a 1-forma $df=\sum \frac{\partial f}{\partial x^i}dx^i$. Neste caso temos a função $f(q,p)=(q\times p,u)$. A derivada parcial respecto a, por exemplo, $q^1$ é
+\begin{align*}
+\frac{\partial f}{\partial q^1}&=\frac{\partial }{\partial q^1}(q\times p, u)\\&=\left( \frac{\partial }{\partial q^1}q\times p, u \right) +\cancelto{0}{\left( q \times p, \frac{\partial u}{\partial q^1} \right) }\\
+&=\left( \frac{\partial q}{\partial q^1}\times p, u \right) +\cancelto{0}{\left( q \times \frac{\partial p}{\partial q^1},u \right) }\\
+&=(e_1 \times p ,u), \qquad \text{ onde } e_1:=(1,0,0)\\
+&=(p \times u, e_1)\\
+&=(-u \times p, e_1):=(-u \times p)^1
+\end{align*}
+onde $(-u \times p)^1$ denota a primeira coordenada do vetor $-u\times p$. Note que quando derivemos respecto das coordenadas em $p$ não vamos ter que botar um signo $-$ para obter as coordenadas do vetor  $u\times q$.
+
+Então vamos ter que
+\begin{align*}
+d\left<\mu,u\right>(q,p)&=d(q \times p,u)\\
+&=\sum_{i=1}^3(-u \times p)^i dq^i +\sum_{i=1}^3 (u \times q)^i dp^i.
+\end{align*}\iffalse
+\begin{align*}
+d\left<\mu,u\right>(q,p)&=d(q \times p,u)\\
+&=\Big(d(q\times p),u\Big)+\cancelto{0}{(q \times p,du)}\\
+&=(dq\times p,u)+(q\times dp,u)\\
+&=(p\times u,dq)+(u\times q,dp)\\
+&=(-u\times p,dq)+(u\times q,dp)
+\end{align*}\fi
+Agora vamos calcular $\omega(u_{T^*\mathbb{R}^3},\cdot)$. Para isso podemos expressar
+\[u_{T^*\mathbb{R}^3}(q,p)=(u\times q,-u\times p)\leftrightsquigarrow  \sum (u \times q)^i\partial_{q^i}-\sum (u \times p)^i\partial_{p^i}\]
+Obtemos que:\begin{align*}
+	i_{u_{T^*\mathbb{R}^3}}\omega_{\operatorname{can}}&=\sum dq^i\wedge dp^i\Big((u\times q,-u\times p),\cdot\Big)\\
+	&=\sum dq^i\wedge dp^i\Big(\sum (u \times q)^i\partial_{q^i}-\sum (u \times p)^i\partial_{p^i}, \; \cdot\Big)\\
+	&=\sum (u \times q)^i dp^i(\cdot) - \sum (u\times p)^i dq^i(\cdot)
+	\end{align*}
+	que coincide com a conta feita acima.
+
+Para ver que essa ação também é equivariante, queremos mostrar que
+\[\Big((\operatorname{Ad}^*)_A\mu(q,p)\Big)(u)=\Big(\mu(A(q,p))\Big)(u)\]
+para $(q,p)\in T^*\mathbb{R}^3$ e $u\in \mathfrak{so}(3) \cong \mathbb{R}^3$. O lado esquerdo é
+\begin{align*}
+	\Big((\operatorname{Ad}^*)_A\mu(q,p)\Big)(u)=\Big(\mu(q,p)\Big)(\operatorname{Ad}_{A^{-1}}u)\leftrightsquigarrow &(q\times p, A^{-1}u)=(A(q\times p),u ) \\&=(Aq \times {\color{3}Ap}, u)\\ &\text{{\color{3}\hspace{-2em}Eu queria ter $A^{-1}$ alí}} 
+\end{align*}
+usando da Lista 5 que a ação adjunta age como multiplicação da matriz por vetor quando identificamos $\mathfrak{so}(3)$ com $\mathbb{R}^3$. O lado direito é
+\begin{align*}
+\Big(\mu(A(q,p))\Big)(u)=\Big(\mu(Aq,A^{-1}p)\Big)(u)\leftrightsquigarrow&(Aq \times A^{-1}p,u)
+\end{align*}
+
+
+
+
+	Para ver que o fluxo de $H(q,p)=\frac{p^2}{2m}+V(q)$ preserva o momento angular basta ver que $H$  é $\mathsf{SO}(3)$-invariante, i.e. $\mathcal{L}_{u_{T^*\mathbb{R}^3}}H=0$.
+
+	Temos que 
+	\begin{align*}
+	\mathcal{L}_{u_{T^*\mathbb{R}^3}}H&=u_{T^*\mathbb{R}^3}H\\
+	&=\sum (u \times q)^i\partial_{q^i}H+\sum (u \times p)^i\partial_{p^i}H\\
+	&=\cancelto{0}{\sum (u \times q)^i\partial_{q^i}\left(\frac{p^2}{2m}+V(q)\right)}+\sum (u \times p)^i\partial_{p^i}\left(\frac{p^2}{2m}+V(q)\right)\\
+	&=\sum (u \times p)^i\partial_{p^i}\frac{p^2}{2m}\\
+	&=\sum (u\times p)^i \frac{p^i}{m}
+	\end{align*}
+\end{enumerate}
+Olhando a expressão do produto vetorial do item anterior, vemos que
+\[\begin{pmatrix} -cp_2+bp_3\\cp_1-ap_3\\-bp_1+ap_2 \end{pmatrix}\begin{pmatrix} p_1\\ p_2\\ p_3 \end{pmatrix} =-cp_1p_2+bp_1p_3+cp_1p_2-ap_3p_2-b p_1p_3+ap_2p_3= 0\]
+\end{proof}
+
+\addcontentsline{toc}{section}{Problem 3}
+\begin{thing1}{Problem 3}\leavevmode
+Consider $G=\mathbb{R}^2$ acting on $\mathbb{R}^2$ by $g\cdot(x,y)=(x+a,y+b)$ where $g=(a,b)$. Show that this action is weakly hamiltonian (i.e., there exists $\mu:M\to \mathfrak{g}^*$ such that $i_{u_M}\omega=d\left<\mu,u\right>$ but id does not admit an equivariant moment map).
+\end{thing1}
+
+\begin{proof}[Solution]\leavevmode
+Fix $u=(u_1,u_2)\in \mathfrak{g}=\mathbb{R}^2$. The infinitesimal generator of this action is given by
+\begin{align*}
+u_{\mathbb{R}^2}&=\frac{d}{dt}\operatorname{exp}(tu)\cdot(p,q)\\&=\frac{d}{dt}\Big(p+\operatorname{exp}(tu)^1,q+\operatorname{exp}(tu)^2\Big)\\
+&=(u_1,u_2)\leftrightsquigarrow u_1\partial_q+u_2\partial_p.
+\end{align*}
+So
+\begin{align*}
+i_{u_{\mathbb{R}^2}}\omega&=dq\wedge dp(u_2\partial_q+u_2\partial_p,\cdot)\\
+&=dq(u_1\partial_q+u_2\partial_q)p(\cdot)-dq(\cdot)dp(u_1 \partial_q+u_2\partial_q)\\
+&=u_1dp-u_2dq.
+\end{align*}
+So a good candidate for the moment map is
+\[\mu(p,q)=(p,-q)\]
+because, denoting again euclidean product by $(\cdot,\cdot)$, that way we get
+\[d\left<\mu,u\right>(p,q)=d\Big((p,-q),(u_1,u_2)\Big)=d(u_1p-u_2q)=u_1dp-u_2dq.\]
+Moreover, \textit{any} moment function for this action should be of this kind. Indeed, any such such function $\mu=(\mu_1,\mu_2)$ must statisfy
+\begin{align*}
+	u_1dp-u_2d_1&=d\Big((\mu_1,\mu_2),(u_1,u_2)\Big)\\
+	&=d\mu_1u_1+d\mu_2u_2\\
+	&=\Big(\partial_q\mu_1dq+\partial_p\mu_2 dp\Big)u_1+\Big(\partial_q\mu_1dq+\partial_p\mu_2dp\Big)u_2
+\end{align*}
+Which means that
+\begin{align*}
+\partial_q\mu_1&=0,\qquad \partial_p\mu_2=1\\
+\partial_q\mu_1&=-1, \qquad \partial_p\mu_2=0
+\end{align*}
+Which forces $\mu$ to be as we have proposed up to adding a constant vector. I'll do the next computations without adding a constant and at the end argue why the constant term wouldn't make a difference.
+
+Pick an element $g=(a,b)$ in the group $G=\mathbb{R}^2$. Showing equivariance ammounts to checking
+\[\mu \circ \psi_g=(\operatorname{Ad}^*)_g(\mu)\]
+To see better what the left-hand-side means we evaluate at $(q,p)$ to obtain the functional
+\begin{equation}\label{eq:mom1}
+\mathfrak{g}^*\ni(\mu \circ \psi_g)(q,p)=\mu(q+a,p+b)\leftrightsquigarrow \Big((q+a,p+b),\cdot\Big)
+\end{equation}
+And to compute the right-hand-side we first notice that
+\[\mu(q,p)\leftrightsquigarrow\Big((p,-q),\cdot\Big)\]
+And then write its pullback under the coadjoint action evaluating at a vector $u=(u_1,u_2)\in\mathfrak{g}$ to see what's going on:
+\[(\operatorname{Ad}^*)_{g^{-1}}\Big(\mu(q,p)\Big)(u_1,u_2)\leftrightsquigarrow\Big((p,-q),(u_1-a,u_2-b)\Big)\]
+And evaluating such a functional in $\operatorname{Ad}_{g^{-1}}u$ for $u=(u_1,u_2)\in\mathfrak{g}$ we get
+\begin{equation}\label{eq:mom2}
+	\Big((q+a,p+b),(u_1-a,u_2-b)\Big)=(q+a)(u_1-a)+(p+b)(u_2-b)
+	\end{equation}
+So, if we evaluate  \cref{eq:mom1} at a vector $u=0$ we get 0, \textit{even} if we consider a more general $\mu$ by adding a constant vector. This need not be the case for \cref{eq:mom2}
+\end{proof}
+
+\addcontentsline{toc}{section}{Problem 4}
+\begin{thing1}{Problem 4}\leavevmode
+Consider a weakly hamiltonian $G$-action on $(M,\omega)$, with moment map $\mu:M\to\mathfrak{g}^*$ (i.e. not necessarily equivariant). We now see two independent cases in which we can always find a moment map which is equivariant.
+\begin{enumerate}[label=(\alph*)]
+\item For each $g\in G$, define $g\cdot\mu:=(\operatorname{Ad}^*)_g(\mu\circ g^{-1})$ (in such a way that $\mu$ is equivariant if and only if $g\cdot \mu=\mu$ for all $g$). Show that $g\cdot\mu$ is also a moment map (not necessarily equivariant) for the action.
+
+\item Suppose that $G$ is compact. In this case, we can take a left-invariant volume form $\Lambda$ on $G$ (i.e., $L^*_g\Lambda=\Lambda$) satisfying $\int_{G}\Lambda=1$ (why?). Consider the ``average" $\overline{\mu}:=\int_{G}g\cdot\mu$ (integral with respect to $\Lambda$). Show that $\overline{\mu}$ is an equivariant moment map.
+\item Suppose that $M$is compact and connected. Then there is an equivariant moment map. 
+\end{enumerate}
+\end{thing1}
+
+\begin{proof}[Solution]\leavevmode
+\begin{enumerate}[label=(\alph*)]
+\item Pegando $u \in \mathfrak{g}$ temos
+\begin{align*}
+\left<g\cdot \mu,u\right>&=\left<\mu,u\right>\circ L_{g^{-1}}
+\end{align*}
+de modo que
+\[d\left<g \cdot\mu,u\right>=d\Big(\left<\mu,u\right>\circ L_{g^{-1}}\Big)=d\left<\mu,u\right>dL_{g^{-1}}\]
+Agora como $\mu$ é fracamente hamiltoniana, $i_{u_M}\omega=d\left<\mu,u\right>$ e assim
+\[d\left<\mu,u\right>dL_{g^{-1}}=\omega(u_M,dL_{g^{-1}}\cdot)=\omega(dL_{g}u_M,\cdot)\]
+já que como a ação é fracamente hamiltoniana, em particular é simplética. Porém, {\color{4}não sei} se em geral $u_M=dL_gu_M$…
+
+\item The construction of an invariant volume form on a Lie group (found in \href{https://math.stackexchange.com/questions/3924697/existence-of-left-invariant-n-forms-in-a-lie-group}{StackExchange}) is as follows. Pick a basis $v_1,\ldots,v_n$ of $T_eG$, pass to a basis $\theta_1,\ldots,\theta_n$ of $T_e^*G$ and consider the top-degree form $\Lambda_e=\theta_1\wedge\ldots\wedge\theta_n$. Then define $\Lambda_g=L_{g^{-1}}^*\Lambda_e$, which grants left-invariance and turns out to be smooth by smoothness of $L_{g^{-1}}$. Then $\int_{G}\Lambda$ is finite because $G$ is compact, so we may normalize to 1.
+
+{\color{7}$\overset{\times \;\times}{\widetilde{\;\;\;}}$}
+
+\end{enumerate}
+\end{proof}
+
+\addcontentsline{toc}{section}{Problem 5}
+\begin{thing1}{Problem 5}\leavevmode
+Consider the torus $\mathbb{T}^n$ acting on $\mathbb{C}^{n}$ (the canonical symplectic form reads $\frac{i}{2}\sum dz_j\wedge d\bar{z}_j$ by:
+\[\left( e^{i\theta_1},\ldots,e^{i\theta_n} \right) \cdot(z_1,\ldots,z_n)=\left( e^{ik_1\theta_1}z_1,\ldots,e^{ik_n\theta_n}z_n \right),\]
+where $k_1,\ldots,k_n \in\mathbb{Z}$ are fixed.
+\begin{enumerate}[label=(\alph*)]
+\item Show that this action is hamiltonian, with moment map $\mu:\mathbb{C}^n\to(\mathfrak{t}^n)^*\cong \mathbb{R}^n$,
+	\[\mu(z_1,\ldots,z_n)=-\frac{1}{2}\left( k_1|z_1|^2,\ldots,k_n|z_n|^2 \right) .\]
+\item Conclude (see Problem 1) that the action of $S^1$ on $\mathbb{C}^n$ given by multiplication by $e^{i\theta}$ on each coordinate is hamiltonian with moment map $\mu:\mathbb{C}^n\to\mathbb{R}^n$, $\mu(z)=-\frac{1}{2}|z|^2$. 
+\end{enumerate}
+\end{thing1}
+
+\begin{proof}[Solution]\leavevmode
+\begin{enumerate}[label=(\alph*)]
+\item Primeiro note que o campo vetorial fundamental de $(\theta_1,\ldots,\theta_n)=u\in\mathfrak{t}^n\cong \mathbb{R}^n$ em $z=(z_1,\ldots,z_n)$ é
+	\begin{align*}
+	u_{\mathbb{T}^n}&=\frac{d}{dt}\Big|_{t=0}\operatorname{exp}(u)\cdot z\\&=\frac{d}{dt}\Big|_{t=0}\operatorname{exp}(t\theta_1,\ldots,t\theta_n)\cdot (z_1,\ldots,z_n)\\&=\frac{d}{dt}\Big|_{t=0}\left( e^{it\theta_1},\ldots,e^{it\theta_n} \right) \cdot(z_1,\ldots,z_n)\\
+	&=\frac{d}{dt}\Big|_{t=0}\left( e^{itk_1\theta_1}z_1,\ldots,e^{itk_n\theta_n}z_n \right)\\
+	&=i\left( k_1\theta_1z_1,\ldots,k_n\theta_nz_n \right) 
+	\end{align*}
+	Antes de seguir lembre que se $z_j=x_j+iy_j$ são coordenadas de um ponto em $\mathbb{C}$, definimos
+	\[dz^j=dx^j+idy^j,\qquad d\overline{z}^j=dx^j-idy^j,\]
+	\[\frac{\partial }{\partial z^j}=\frac{1}{2}\left( \frac{\partial }{\partial x^j}-i\frac{\partial }{\partial y^j} \right) ,\qquad \frac{\partial }{\partial \overline{z}^j}=\frac{1}{2}\left( \frac{\partial }{\partial x^j}+i \frac{\partial }{\partial y^j} \right) \]
+como bases duais dos espaços cotangente e tangente de $\mathbb{C}^n$. (Ver \cite{gri} p. 2.)
+
+	Isso significa que
+	\begin{align*}
+	i_{u_{\mathbb{T}^n}}\omega&=\omega\left( i\sum_j k_j\theta_jz_j\frac{\partial }{\partial z^j},\cdot \right) \\
+	&=\frac{i}{2}\sum_\ell dz^\ell\wedge d\overline{z}^\ell\left( i\sum_j k_j\theta_jz_j\frac{\partial }{\partial z^j},\cdot \right)\\
+	&=-\frac{1}{2}\sum_{j}k_j\theta_jz_jd\overline{z}^j
+	\end{align*}
+	Por outro lado,
+\begin{align*}
+d\left<\mu,u\right>(z)&=d(\mu(z),u)\\
+&=d\Big(-\frac{1}{2}(k_1|z_1|^2,\ldots,k_n|z_n|^2),u\Big)\\
+&=\sum_j \frac{\partial }{\partial z^j}\Big(-\frac{1}{2}(k_1|z_1|^2,\ldots,k_n|z_n|^2),u\Big)dz^j\\
+&\qquad +\sum_j \frac{\partial }{\partial \overline{z}^j}\Big(-\frac{1}{2}(k_1|z_1|^2,\ldots,k_n|z_n|^2),u\Big)d\overline{z}^j
+\end{align*}
+que segue das definições acima. Para calcular isso note que para toda $j=1,\ldots,n$,
+\begin{align*}
+\frac{\partial }{\partial z^j}|z_j|^2&=\frac{1}{2}\left(\frac{\partial }{\partial x^j}-i \frac{\partial }{\partial y^j}\right)\left(\sum_k (x^k)^2+(y^k)^2\right)=x^j-iy^j=\overline{z}^j
+\end{align*}
+e que
+\begin{align*}
+\frac{\partial }{\partial \overline{z}^j}|z_j|^2&=\frac{1}{2}\left(\frac{\partial }{\partial x^j}+i \frac{\partial }{\partial y^j}\right)(x^2+y^2)=z^j
+\end{align*}
+assim, obtemos que
+\begin{align*}
+-2d\left<\mu,u\right>(z)&=\Big((k_1\overline{z_1},0,\ldots,0),u\Big)dz^1+\ldots+\Big((0,\ldots,0,k_n\overline{z}_n),u\Big)dz^n\\
+&+\Big((k_1z_1,0,\ldots,0),u\Big)d\overline{z}^1+\ldots+\Big((0,\ldots,0,k_nz_n),u\Big)d \overline{z}^n\\
+&=\sum_j k_j\overline{z}_j\theta_jdz^j+k_jz_j\theta_jd\overline{z}^j\\
+&=\sum_jk_j\theta_j(\overline{z}_jdz^j+z_jd\overline{z}^j)
+\end{align*}
+
+\item Para aplicar o exercício 1 considere o caso $n=1$. Obtemos uma ação $S^1\mathbb{y}\mathbb{C}$ com mapa momento $\mu(z)=-\frac{1}{2}|z|^2$. Tomando a variedade produto $\mathbb{C}^n$, obtemos a ação por  multiplicação de $e^{i\theta}$ em cada coordenada e o mapa momento
+	\begin{align*}
+	\mu(z_1,\ldots,z_n)&=\sum \mu(z_i)=\sum -\frac{1}{2}|z_i|^2=\frac{1}{2}|z|^2.
+	\end{align*}
+\end{enumerate}
+\end{proof}
+
+
+\begin{thing1}{Problem 6}\leavevmode $\ddot\cap $
+\iffalse Consider the usual action of $\mathsf{U}(n)$ on $\mathbb{C}^n$.
+\begin{enumerate}[label=(\alph*)]
+	\item Writing elements $U\in\mathsf{U}(n)$ in the form $A+iB$, check that the action of  $U$ on $\mathbb{R}^{2n}$ is given by the linear symplectomorphism
+		\[\begin{pmatrix}A&-B\\ B&A\end{pmatrix}.\]
+The Lie algebra $\mathfrak{u}(n)$ consists of anti-hermitian matrices $u=\xi+i\eta$ with $\xi=-\xi^{\mathbf{T}} \in \operatorname{Mat}_{n}(\mathbb{R})$, $\eta=\eta^{\mathbf{T}}\in\operatorname{Mat}_{n}(\mathbb{R})$. Show that the infinitesimal generator of $u \in \mathfrak{u}(n)$ is hamiltonian with respect to
+\[\mu^u(z)=-\frac{1}{2}\left<x,\eta x\right>+\left<y,\xi x\right>-\frac{1}{2}\left<y,\eta y\right>,\]
+\item Show that $\mu^u(z)=\frac{1}{2}iz^*uz=\frac{1}{2}i\operatorname{tr}((zz^*u)$.
+\item Identify $\mathfrak{u}(n)$ with $\mathfrak{u}(n)^*$ through the inner product $(A,B)=\operatorname{tr}(A^*B )$. Let $\mu:\mathbb{C}^n\to \mathfrak{u}(n)$,
+	\[\mu(z)=\frac{i}{2}z z^*.\]
+	Here $z \in \mathbb{C}^n$ is viewed as a $n \times 1$ matrix. Show that $\mu$ is equivariant (recall what the adjoin and coadjoint actions are) and conclude that $\mu$ is a moment map for the $\mathsf{U}(n)$-action.
+\item Consider the action of $\mathsf{U}(k)$ on the space $\mathbb{C}^{k\times n}$ (with the canonical symplectic form), viewed as $k\times n$ matrices. Identify $\mathfrak{u}(k)$ with its dual as in item $(c).$ Show that a moment map for this action is
+	\[\mu(A)=\frac{i}{2}A A^* -\frac{i \operatorname{Id}}{2}.\]
+	(\textit{Hint: combine problem 1(a) and the previous items, the constant factor is just for convenience.}
+
+	Verify that $\mu^{-1}(0)/\mathsf{U}(k)$ is naturally identified with the Grassmanian of $k$-planes in $\mathbb{C}^n$ (which hence acquires a symplectic form from symplectic reduction).
+
+\end{enumerate}\fi
+\end{thing1}
+\iffalse\begin{proof}[Solution]\leavevmode
+\begin{enumerate}[label=(\alph*)]
+\item Na Lista 1 já vimos que $\mathsf{U}(n)$ é a interseção $\mathsf{GL}(n,\mathbb{C})\cap \mathsf{Sp}(2n)$. (Isso foi feito por meio das expressões
+\begin{align*}\mathsf{Sp}(2n)&=\{A\in\mathsf{GL}(2n,\mathbb{R}):A^{\mathbf{T}}J_0A=J_0\},\\ \mathsf{GL}(n,\mathbb{C})&=\{A\in\mathsf{GL}(2n,\mathbb{R}):A J_0=J_0 A\}\end{align*}
+\end{enumerate}
+aqui $\mathsf{GL}(n,\mathbb{C})$ é visto como o subgrupo de $\mathsf{GL}(2n,\mathbb{R})$ dado pelas matrizes
+\[\begin{pmatrix}A&-B\\ B&A\end{pmatrix}\]
+\end{proof}\fi
+
+\addcontentsline{toc}{section}{Problem 7}
+\begin{thing3}{Problem 7}\leavevmode
+Consider a hamiltonian action $\psi:G \mathbb{y}(M,\omega)$, with moment map $\mu:M\to\mathfrak{g}^*$. Consider the co-moment map $\hat{\mu}:\mathfrak{g}\to\mathcal{C}^\infty(M)$, $\hat{\mu}(u)=\left<\mu,u\right>$, and consider $\mathcal{C}^\infty(M)$ equipped with the Poisson bracket.
+\begin{enumerate}[label=(\alph*)]
+\item We saw in class that the equivariance of $\mu$ implies that $\hat{\mu}$ is an anti-homomorphism of Lie algebras. Show that the converse holds when $G$ is connected.
+\item Show that for $G$ connected, the fact that $\psi^*_g\omega=\omega$ follows from the condition $i_{u_M}\omega=d \left<\mu,u\right>$.
+\end{enumerate}
+\end{thing3}
+
+\begin{proof}[Solution]\leavevmode
+\begin{enumerate}[label=(\alph*)]
+\item (Vou fazer a prova de \cite{wang}, lecture 8. Embora demorei para entender, gostei muito do argumento.)
+
+	Suponha que
+\begin{equation}\label{eq:lie-alg-hom}\hat{\mu}(u),\hat{\mu}(v)\}=\hat{\mu}\Big([u,-v]\Big)\end{equation}
+A hipótese de conexidade de $G$ é usada para expresar cualquer elemento do grupo como produto de elementos $\operatorname{exp}(X)$ para $X \in \mathfrak{g}$. Isso segue do exercício 2 da lista 5 (todo grupo de Lie conexo está generado por uma vizinhança da identidade) e do fato de que $\operatorname{exp}$ é um difeomorfismo em vizinhanças de $e \in G$ e $0 \in\mathfrak{g}$.
+
+Assim, o nosso objetivo é mostrar que
+\begin{align*}
+\mu(\operatorname{exp}(tX)x)&=\operatorname{Ad}^*_{\operatorname{exp}(tX)}\mu(x)
+\end{align*}
+Lembre que $\operatorname{exp}(tX)$ é o fluxo de $X_M$. Considere também o campo vetorial $X_{\mathfrak{g}^*}$ em $\mathfrak{g}^*$ que seja o generador do fluxo $\operatorname{Ad}^*_{\operatorname{exp}(tX)}$---isso se obtém simplesmente derivando respeito a $t$. O lance vai ser mostrar que esses campos vetoriais estão $\mu$-relacionados, já que isso implica que os fluxos comutam, i.e. o seguinte diagrama commuta (\cite{lee}, prop. 9.13):
+\[\begin{tikzcd}
+	G\arrow[r,"\mu"]\arrow[d,"\operatorname{exp}(tX)",swap]&\mathfrak{g}^*\arrow[d,"\operatorname{Ad}^*_{\operatorname{exp}(tX)}"]\\
+	G\arrow[r,swap,"\mu"]&\mathfrak{g}^*
+\end{tikzcd}\]
+que é exatamente o que precisamos mostrar.
+
+A condição dos fluxos serem $\mu$-relacionados significa que
+\[d\mu(X)=X_{\mathfrak{g}^*}\circ \mu.\]
+(ponto a ponto, $d\mu(X_p)=(X_{\mathfrak{g}^*})_{\mu(p)}$.) Mas, o que é a diferencial de $\mu$? Tata-se de um mapa
+\[d\mu:TM\to T\mathfrak{g}^*=\mathfrak{g}^*\]
+Então pegue $m \in M$ e $Y\in \mathfrak{g}=\mathfrak{g}^{**}$. Pensando que $Y$ é um funcional linear em $\mathfrak{g}^*\ni d\mu(X_M)(m)$, podemos calcular
+\begin{align*}
+\left<d\mu(X_M(m)),Y\right>&=Y \circ d\mu(X_M(m))\\
+&=d(Y \circ \mu)X_M(m),\qquad \text{ pois $Y\in (\mathfrak{g}^*)^*$ é linear} \\
+&=X_M(Y \circ \mu)(m),\qquad \text{em geral $Xf=dfX$} \\
+&=X_M(\left<\mu(m),Y\right>)
+\end{align*}
+Agora usemos a hipotese \cref{eq:lie-alg-hom} de que $\hat{\mu}$ é um antihomomorfismo de álgebras de Lie :
+\begin{align*}
+	X_M(\hat{\mu}(Y))=X_{\hat{\mu}(X)}(Y)=\{\hat{\mu}(Y),\hat{\mu}(X)\}=\hat{\mu}([Y,X])=-\left<\mu,[X,Y]\right>.
+\end{align*}
+Para concluir note que
+\[-\left<\mu,[X,Y]\right>=\left<X_{\mathfrak{g}^*}(\mu),Y\right>,\]
+que vem de diferenciar ambos lados de
+\[\left<\mu,\operatorname{Ad}_{\operatorname{exp}(-tX)}Y\right>=\left<\operatorname{Ad}^*_{\operatorname{exp}(tX)}\mu,Y\right>\]
+e evaluar em $t=0$. Concluimos que
+ \[\left<d\mu(X_M(m)),Y\right>=\left<X_{\mathfrak{g}^*}(\mu(m)),Y\right>.\]
+ Ou seja, $X_M$ e $X_{\mathfrak{g}^*}$ estão $\mu$-relacionados.
+
+\item De novo, como  $G$ é conexo, podemos supor que qualquer  $g \in G$ como $g=\operatorname{exp}(u)$ para $u\in \mathfrak{g}$. Isso permete expressar a invariância da multiplicação por $g$ com respeito a $\omega$ em termos da derivada de Lie de $u_M$:
+\[\mathcal{L}_{u_M}\omega=\frac{d}{dt}\Big|_{t=0}\operatorname{exp}(tu_M)^*\omega=\frac{d}{dt}\Big|_{t=0}\psi_{\operatorname{exp}(tu)}^*\omega=\frac{d}{dt}\Big|_{t=0}\psi_g^*\omega.\]
+	Agora lembre que $i_{u_M}\omega=d\left<\mu,u\right>$ implica $u_M=X_{\left<\mu,u\right>}$ por definição do campo vetorial hamiltoniano. Isso implica que a derivada de Lie dele com respeito a $\omega$ se anula. Lembremos por que:
+\[\mathcal{L}_{u_M}\omega\overset{\operatorname{Cartan}}{=}di_{u_M}\omega+\cancelto{0}{i_{u_M}d\omega}=di_{u_M}\omega=dd\left<\mu,u\right>=0\]
+
+\end{enumerate}
+\end{proof}
+
+\addcontentsline{toc}{section}{Problem 8}
+\begin{thing3}{Problem 8}\leavevmode
+	Let $G$ be a Lie group and consider the action by multiplication on the left: $G\times G \to G$, $(g,a)\mapsto L_g(a)=ga$. Take the $G$-action on $T^*G$ by cotangent lift, $\psi:G \times T^* G\to T^* G$.
+\begin{enumerate}[label=(\alph*)]
+\item Consider the action of $G_\xi$ on $G $ by left multiplication, and the map $q:G to \mathcal{O}_\xi$, $g \mapsto  \operatorname{Ad}_{g^{-1}}^*\xi$ (where $\mathcal{O}_\xi$ is the coadjoint orbit through $\xi$). Note that we have an induced bijection $G/G_\xi \to \mathcal{O}_\xi$. (It is a general fact that the quotient $G/G_\xi$ is naturally a smooth manifold, and we equip $\mathcal{O}_\xi$ with the smooth structure for which this bijection is a diffeomorphism.)
+
+	Verify that $q(R_h(g))=\operatorname{Ad}^*_{h^{-1}}(q(g))$, and conclude that $dq(u^L|_{g}=u_{\mathfrak{g}^*}|_{q(g)}$ and $dq\left( u^R|_{g} \right) =\left( \operatorname{Ad}_{g^{-1}}(u) \right)_{\mathfrak{g}^*}|_{q(g)}$.
+
+\end{enumerate}
+\end{thing3}
+
+\begin{proof}[Solution]\leavevmode
+\begin{enumerate}[label=(\alph*)]
+\item Temos que
+	\begin{align*}
+	q(R_h(g))&=q(gh)=\operatorname{Ad}^*_{(gh)^{-1}}\xi=\operatorname{Ad}^*_{h^{-1}g^{-1}}\xi\\&=\operatorname{Ad}^*_{h^{-1}}\operatorname{Ad}^*_{g^{-1}}\xi=\operatorname{Ad}^*_{h^{-1}}q(g).
+	\end{align*}
+Diferenciando no lado esquerdo dessa expresão e avaliando em $u \in \mathfrak{g}=T_eG$
+\begin{align*}
+d_e(qR_h)(u)&=d_{h}q\Big(d_eR_h(u)\Big)=d_hq(u^L|_{h}),
+\end{align*}
+enquanto que o lado direito nos da
+\begin{align*}
+d_e(\operatorname{Ad}_{h^{-1}}^*q)(u)&=d_{q(e)}\operatorname{Ad}^*_{h^{-1}}\Big(d_eq(u)\Big)=d_\xi\operatorname{Ad}^*_{h^{-1}}\Big(\operatorname{ad}^*_u(\xi)\Big).
+\end{align*}
+{\color{5}Parece que algo tá errado aqui… $ \ddot \sim$}
+
+\end{enumerate}
+\end{proof}
+
+\addcontentsline{toc}{section}{Problem 9}
+\begin{thing3}{Problem 9}[Shift trick]\leavevmode
+Let $(M,\omega,\mu)$ be a hamiltonian $G$-space. Take a coadjoint orbit $\overline{\mathcal{O}_\xi}$ with symplectic form $-\omega_{\operatorname{kks}}$. Verify that the diagonal $G$-action on $M\times\overline{\mathcal{O}_\xi}$ is hamiltonian with moment map
+\[\tilde{\mu}:M\times\overline{\mathcal{O}_\xi}\longrightarrow\mathfrak{g}^* ,\qquad \tilde{\mu}(x,\eta)=\mu(x)-\eta,\]
+and that $\xi$ is a regular value for $\mu$ if and only if $0$ is a regular value for  $\tilde{\mu}$.
+
+Note that we have a natural inclusion $j:\mu^{-1}(\xi)\hookrightarrow \tilde{\mu}^{-1}(0)$, $x\mapsto (x,\xi)$. Show that this inclusion induces a diffeomorphism $\mu^{-1}(\xi)/G_\xi\overset{\sim}{\longrightarrow}\tilde{\mu}^{-1}(0)/G$ preserving the reduced symplectic forms.
+\end{thing3}
+
+\begin{proof}[Solution]\leavevmode
+Vamos denotar $Q:=M \times \overline{ \mathcal{O}_\xi}$Primeiro vamos ver que a ação $\tilde{\mu}$ é fracamante hamiltoniana, i.e., que
+\[i_{u_Q}\omega_{Q}=d\left<\tilde{\mu},u\right>.\]
+O resultado e bastante imediato assim que identifiquemos cada elemento na equação anterior. Em primeiro lugar, note que a forma simplética na variedade produto $Q=M\times \overline{\mathcal{O}_{\xi}}$ está dada por
+\[\omega_Q\Big((v,w),(v',w')\Big)=\omega(v,v')-\omega_{\operatorname{kks}}(w,w').\]
+Em segundo lugar, lembre que a ação de $G$ em $\mathcal{O}_\xi$ é hamiltoniana com mapa momento
+\[\mu_{\mathcal{O}_\xi}(\eta)=\eta.\]
+Em terceiro lugar note que para qualquer $u\in \mathfrak{g}^* $, o campo $u_Q$ está dado como $(u_M,u_{\mathcal{O}_\xi})$. Isso é simplesmente porque a ação de $G$ em  $Q$ está dada entrada a entrada.
+
+Então podemos simplesmente escrever
+\begin{align*}d\left<\tilde{\mu},u\right>&=d\Big(\left<\mu,u\right>-\left<\mu_{\mathcal{O}_\xi},u\right>\Big)\\
+&=i_{u_M}\omega-i_{u_{\mathcal{O}_\xi}}\omega_{\operatorname{kks}}\\
+&=i_{u_Q}\omega_Q.
+\end{align*}
+A prova da equivariância também segue das observações anteriores: para todo $g \in G$,
+\begin{align*}
+\tilde{\mu}(gx,g\eta)&=\mu(gx)-\mu_{\mathcal{O}_\xi}(g\eta)=\operatorname{Ad}_g^*(\mu(x))-\operatorname{Ad}_{g}^*\left(\mu_{\mathcal{O}_\xi}(\eta)\right)=\operatorname{Ad}_g^*\left(\tilde{\mu}(x,\eta)\right).
+\end{align*}
+	A prova de que $\xi$ é um valor regular de $\mu$ se e somente se $0 $ é um valor regular de $\tilde{\mu}$ segue do fato de que (\cite{das}, p. 168)
+\[\mathfrak{g}_p = \{0\} \iff d\mu_p \text{ é surjetiva} \]
+onde $\mathfrak{g}_p=\{X \in \mathfrak{g}: X_M(p)=0\}$ é a algebra de Lie do estabilizador de $p$.
+
+Para nosso exercício suponha primeiro que $0$ é um valor regular de $\tilde{\mu}$. Então $\mathfrak{g}_{(p,\eta)}=\{0\}$ para qualquer $(p,\eta)\in \tilde{\mu}^{-1}(0)$. Isso significa que se $X \in \mathfrak{g}_{(p,\eta)}$, $X=0$. Ou seja, se  $X_Q(p,\eta)=0$ então $X=0$.
+
+Para ver que $\mathfrak{g}_p=\{0\}$ se $p \in \mu^{-1}(\xi)$, pegue $p \in M$ tal que $\mu(p)=\xi$ e $X \in \mathfrak{g}$ tal que $X_M(p)=0$. Então $(p,\xi) \in \tilde{\mu}^{-1}(0)$, e então, se $X_Q(p,\xi)=0$ teremos que $X=0$. De fato,  $X_Q(p,\xi)=(X_Mp,X_{\overline{\mathcal{O}}_\xi}(\xi))=(0, {\color{2}0})$. ({\color{3}Não consegui ver por que tem $0$ alí}.)
+
+A implicação conversa  é  mais simples: imitando o argumento, concluimos notando que o fato de $X_Q(p,\eta)=0$ implica trivialmente que $X_M(p)=0$.
+
+\iffalse de um exercício feito em aula (aula 17):
+\begin{exercise}\leavevmode
+$x \in M$, $\mathfrak{g}_x \subseteq \mathfrak{g}$, então vale
+\[\operatorname{Ann}(\mathfrak{g}_x) =\operatorname{img} d_x \mu.\]
+\end{exercise}\fi
+
+\iffalse que também achamos em \cite{wang}, lecture 9:
+\begin{thing4}{Proposition 1.3}\leavevmode
+	The $G$-action is locally free at each $m \in \mu^{-1}(0)$ if and only if $d\mu_m$ is surjective, i.e. $m$ is a regular point of $\mu$.
+\end{thing4}
+Daí nosso resultado segue, pois $0$ é um valor regular de $\tilde{\mu}$ se e só se $G$ age livremente em  $Q$, \fi
+
+
+
+
+
+\end{proof}
+
+\printbibliography
+\end{document}
