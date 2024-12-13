@@ -10,7 +10,7 @@
 	\begin{minipage}{1\textwidth}
 		Geometria Simplética \hfill Daniel González Casanova Azuela
 		
-		{\small Profs. Henrique Bursztyn and Leonardo Macarini\hfill\href{https://github.com/danimalabares/sg}{github.com/danimalabares/sg}}
+		{\small Profs. Henrique Bursztyn e Leonardo Macarini\hfill\href{https://github.com/danimalabares/sg}{github.com/danimalabares/sg}}
 	\end{minipage}
 \end{minipage}\vspace{.2cm}\hrule
 
@@ -25,7 +25,7 @@
 
 Uma quantização é um procedimento que associa um sistema mecânico quântico a um sistema clássico. Entre outros tipos de quantizações, a quantização geométrica está focada em passar de uma variedade simplética, entendida como o cenário da mecânica clássica, para um espaço de Hilbert do lado quântico. Esse programa foi desenvolvivo por B. Kostant e J-M Soriau, de acordo com os axiomas de Dirac.
 
-Neste trabalho vamos explorar a primeira parte do processo de quantização geométrica, chamado de pré-quantização. Começaremos com uma discusão informal onde explicamos brevemente o \textit{background} físico subjacente ao processo de quantização. Despois, vamos introduzir os objetos matemáticos necessários para construir o espaço de Hilbert que podemos associar a uma variedade simplética. Encerramos com a seção mais importante, onde definimos a correspondência entre observáveis clássicos e quânticos, e demonstramos que tal correspondência satisfaz os axiomas de pré-quantização de Dirac.
+Neste trabalho vamos explorar a primeira parte do processo de quantização geométrica, chamado de pré-quantização. Começaremos com uma discusão informal onde explicamos brevemente o \textit{background} físico subjacente ao processo de quantização. Depois, vamos introduzir os objetos matemáticos necessários para construir o espaço de Hilbert que podemos associar a uma variedade simplética. Encerramos com a seção mais importante, onde definimos a correspondência entre observáveis clássicos e quânticos, e demonstramos que tal correspondência satisfaz os axiomas de pré-quantização de Dirac.
 
 Os passos finais da quantização geométrica, entre outros tópicos interessantes como o teorema de Groenewold, não serão explicados em detalhes; apenas incluiremos referências onde podem ser consultados.
 
@@ -34,31 +34,32 @@ Os passos finais da quantização geométrica, entre outros tópicos interessant
 
 \subsection{Mecânica clássica numa variedade simplética}
 
-Lembre da primeira aula desse curso que a origem da geometria simplética é a formulação Hamiltoniana da mecânica clássica. Isso é porque podemos pensar que um sistema mecânico é uma variedade simplética com uma função Hamiltoniana: os pontos da variedade são interpretados como \textit{estados} (posição e momento) e a \textit{evolução} do sistema é o fluxo Hamiltoniano. A evolução de um estado em particular é a curva integral que passa por esse ponto. As curvas integrais são soluções das equações de Hamilton, que em coordenadas de Darboux são
+Lembre da primeira aula desse curso que a origem da geometria simplética é a formulação Hamiltoniana da mecânica clássica. Neste contexto, o \textit{espaço de fases}  de um sistema clássico é uma variedade simplética. Os pontos da variedade são interpretados como \textit{estados}  (posição e momento) e a \textit{evolução do sistema} é o fluxo de uma função Hamiltoniana. A \textit{evolução de um estado} é a curva integral que passa por esse ponto. As curvas integrais são soluções das equações de Hamilton, que em coordenadas de Darboux são
 \[\dot x(t)=\frac{\partial H}{\partial y},\qquad \dot y=-\frac{\partial H}{\partial x}.\]
-Lembre que em aula definimos uma integral primeira de $H$ como uma função suave $f$ tal que $\{f,H\}=0$. As integrais primeiras são constantes ao longo do fluxo Hamiltoniano. No scenário da mecânica, dizemos que as funções suaves são \textit{observáveis}, no sentido de que são quantidades que podemos medir (como posição, momento e energia). Assim, definimos para um observável $f$ a sua  \textit{evolução} como $\{f, H\}$.
+Lembre que em aula definimos uma integral primeira de $H$ como uma função suave $f$ tal que $\{f,H\}=0$. As integrais primeiras são constantes ao longo do fluxo Hamiltoniano. Em mecânica dizemos que as funções suaves são \textit{observáveis}, no sentido de que são quantidades que podemos medir (como posição, momento e energia). Assim, a \textit{evolução de um observável} $f$ está dada por $\{f, H\}$.
 
 \subsection{Mecânica quântica num espaço de Hilbert}
 
-Na mecânica quântica, o estado de uma partícula está dado por uma \textit{função de onda} $\psi(x,t)$, que é um vetor unitário em um espaço de Hilbert $(\mathcal{H},\left<\cdot,\cdot\right>)$. Assim como na mecânica clássica podemos determinar o estado de uma partícula sabendo a posição e o momento em algum tempo dado, para saber o estado de uma partícula quântica no tempo $t$ basta conhecer a função de onda em algum tempo $t_0$.
+Na representação de Schrödinger da mecânica quântica, o \textit{estado}  de uma partícula está dado por uma função de onda $\psi(x,t)$, que é um vetor unitário num espaço de Hilbert $(\mathcal{H},\left<\cdot,\cdot\right>)$. Assim como na mecânica clássica podemos determinar o estado de uma partícula sabendo a posição e o momento em algum tempo dado, para saber o estado de uma partícula quântica no tempo $t$ basta conhecer a função de onda em algum tempo $t_0$.
 
 %, os eigenvalores são o nível de energia quântica do sistema a as eigenfunções normalizadas são os estados quânticos correspondentes.
 A equação que determina a evolução do sistema é a equação de Schrödinger:
-\[i \hslash \frac{d\psi(t)}{dt}=\hat{H}\psi,\]
-onde o \textit{hamiltoniano quântico} $\hat{H}$ é um operador autoadjunto agindo em $\mathcal{H}$ e $\hslash$ é uma constante.
+%\[i \hslash \frac{d\psi(t)}{dt}=\hat{H}\psi,\]
+\[i \hslash \frac{d\psi(t)}{dt}=H_q\psi,\]
+onde o \textit{Hamiltoniano quântico} $H_q$ é um operador autoadjunto agindo em $\mathcal{H}$ e $\hslash$ é uma constante.
 
-Um \textit{observável quântico} é um operador autoadjunto $A$ agindo em $\mathcal{H}$. O valor esperado de $A$ é
+Um \textit{observável quântico} é um operador autoadjunto $A$ agindo em $\mathcal{H}$. O \textit{valor esperado} de $A$ é
 \[\left<A\right>_\psi:=\left<A\psi,\psi\right>.\]
 Uma motivação linda para essa definição, usando o operador de posição, pode ser consultada em \cite{hallq} sec. 3.3. Por motivos de tempo não vamos desenvolver aqui.
 
 O valor esperado nos permite assinar um número a um observavél quântico quando aplicado a uma função de onda, do mesmo jeito em que um observável clássico pode ser avaliado num estado clássico. Assim como a evolução de um observável clássico $f$ é $\{f,H\}$,
 \begin{thing3}{Proposição 1.1}[Em \cite{wang}]\leavevmode
-	A \textit{evolução} de um observável quântico é
-\[\frac{d}{dt}\left<A\right>_{\psi}=\frac{1}{i\hslash}\left<[A,\hat{H}]\right>_\psi.\]
+	A \textit{evolução de um observável quântico} é
+\[\frac{d}{dt}\left<A\right>_{\psi}=\frac{1}{i\hslash}\left<[A,H_q]\right>_\psi.\]
 \end{thing3}
 \begin{proof}\leavevmode
 \begin{align*}
-	\frac{d}{dt}\left<A\psi(t),\psi(t)\right>&=\left<\frac{1}{i\hslash}A\hat{H}\psi,\psi\right>+\left<A\psi,\frac{1}{i\hslash}\hat{H}\psi\right>=\frac{1}{i\hslash}\left<[A,\hat{H}]\psi,\psi\right>.
+	\frac{d}{dt}\left<A\psi(t),\psi(t)\right>&=\left<\frac{1}{i\hslash}AH_q\psi,\psi\right>+\left<A\psi,\frac{1}{i\hslash}H_q\psi\right>=\frac{1}{i\hslash}\left<[A,H_q]\psi,\psi\right>.
 \end{align*}
 \end{proof}
 Isso justifica que o commutador é o análogo do colchete de Poisson.
@@ -68,7 +69,7 @@ Isso justifica que o commutador é o análogo do colchete de Poisson.
 A discussão feita até agora nos conduiz à seguinte ideia do que deveria ser uma quantização: uma correspondência
 \begin{align*}
 	(M,\omega)&\rightsquigarrow (\mathcal{H},\left<\cdot,\cdot\right>)\\
-	H&\rightsquigarrow \hat{H}\\
+	H&\rightsquigarrow H_q\\
 	f&\rightsquigarrow A\\
 	\{\cdot,\cdot\}&\rightsquigarrow [\cdot,\cdot].
 \end{align*}
@@ -88,35 +89,37 @@ Uma correspondência satisfazendo só os pontos (1)-(3) se chama de \textit{\tex
 
 Tem muito para dizer sobre estes postulados. Em primeiro lugar, o teorema "No Go" de Groenewold mostra que uma quantização não pode existir. O leitor pode consultar  \cite{hallq}, sec. 13.4 para um enunciado preciso e a prova dele, assim como uma discussão do que significa.
 
-Em segundo lugar, a condição (4) está relacionada com o teorema de Stone-von Neumann, e tem uma motivação tanto física quanto matemática. Embora a construção matemática que permete passar da pré-quantização que presentaremos aseguir a uma quantização completa é pertinente num curso como o nosso, não vamos presentá-la. Referimos à Lecture 13 de \cite{wang} e as seções 23.3-7 de \cite{hallq}.
+Em segundo lugar, a condição (4) está relacionada com o teorema de Stone-von Neumann, e tem uma motivação tanto física quanto matemática. Embora a construção matemática que permite passar da pré-quantização que apresentaremos a seguir a uma quantização completa é pertinente num curso como o nosso, não vamos apresentá-la. Referimos à Lecture 13 de \cite{wang} e as seções 23.3-7 de \cite{hallq}.
 
-\section{Fibrados lineares complexos} 
+\section{Fibrados de linhas complexos} 
 
-Nesta seção definimos os objetos necessários para construir a pré-quantização associada a uma variedade simplética. O espaço de Hilbert será o espaço de seções de um fibrado linear complexa; aseguir vamos explicar as condições que deven ser satisfeitas para esse fibrado existir.
+Nesta seção definimos os objetos necessários para construir a pré-quantização associada a uma variedade simplética. O espaço de Hilbert será o espaço de seções de um fibrado de linhas complexo; a seguir vamos explicar as condições que devem ser satisfeitas para esse fibrado existir.
 
-Começamos lembrando que um \textit{\textbf{fibrado linear complexo}} é um fibrado vetorial cujas fibras são espaços vetoriais complexos de dimensão 1. Um fibrado linear complexo $L$ sobre uma variedade $M$ é \textit{\textbf{Hermitiano}} se em cada fibra existe um produto interno $\left<\cdot,\cdot\right>_p$ que varia suavemente, i.e. para cada seção $s$, temos que $\left<s,s\right>$ é uma função suave em $M$.
+Começamos lembrando que um \textit{\textbf{fibrado de linhas complexo}} é um fibrado vetorial cujas fibras são espaços vetoriais complexos de dimensão 1. Um fibrado de linhas complexo $L$ sobre uma variedade $M$ é \textit{\textbf{Hermitiano}} se em cada fibra existe um produto interno $\left<\cdot,\cdot\right>_p$ que varia suavemente, i.e. para cada seção $s$, temos que $\left<s,s\right>$ é uma função suave em $M$.
 
 O espaço de \textit{\textbf{$k$-formas em $M$ com coeficientes em $L$}} é
 	\[\Omega^{k}(M,L):=\Gamma(M,\Lambda^{k}(T^*M)\otimes L).\]
-Note que como $L$ é um fibrado complexo, $(T^*M)\otimes L$ também é complexo---mas pra frente vamos usar a estrutura complexa deste fibrado. Uma \textit{\textbf{conexão}} $\nabla$ em $L$ é um mapa linear
+Note que como $L$ é um fibrado complexo, $(T^*M)\otimes L$ também é complexo---mais pra frente vamos usar a estrutura complexa deste fibrado. Uma \textit{\textbf{conexão}} $\nabla$ em $L$ é um mapa linear
 \[\nabla:\Gamma(M,L)\to\Omega^{1}(M,L)\]
 tal que para toda $f\in C^\infty(M)$ e $s \in \Gamma(M,L)$ vale a regra de Leibniz
 \[\nabla(fs)=df\otimes s+f\nabla s.\]
-Pegando um campo vetorial $X \in \mathfrak{X}(M)$ podemos contraer $X$ com $\nabla$ para obter a \textit{\textbf{derivada covariante}} na direção de $X$:
+Pegando um campo vetorial $X \in \mathfrak{X}(M)$ podemos contrair $X$ com $\nabla$ para obter a \textit{\textbf{derivada covariante}} na direção de $X$:
 \[\nabla_X:\Gamma(M,L)\to \Gamma(M,L), \qquad \nabla_Xs:=i_X\nabla s.\]
 A conexão $\nabla$ pode ser extendida de maneira única a um mapa linear
 \[\widehat{\nabla}:\Omega^{1}(M,L)\longrightarrow \Omega^{2}(M,L)\]
 tal que para qualquer $\alpha \otimes s \in\Omega^{1}(M,L)$,
 \[\widehat{\nabla}(\alpha \otimes s)=d\alpha \otimes s -\alpha\wedge\nabla s.\]
 De fato, isso pode ser mostrado fácilmente no caso de um fibrado vetorial geral definindo em coordenadas locais $\widehat{\nabla}$ como satisfazendo a condição anterior em combinações lineares de um marco local (ver \cite{milnorch}, lem. C.4). Dessa definição também segue que para qualquer função suave $f$,
-\[\widehat{\nabla}(f(\alpha \otimes s))=df \wedge (\theta \otimes s)+f \widehat{\nabla}(\theta \otimes s).\]
+\[\widehat{\nabla}(f(\alpha \otimes s))=df \wedge (\theta \otimes s)+f \cdot\widehat{\nabla}(\theta \otimes s).\]
 Usando essa regra de Leibniz, podemos ver que $\nabla^2:=\widehat{\nabla}\circ\nabla$ é $C^\infty(M)$-linear, i.e. para qualquer função suave $f$ e seção $s \in \Gamma(M,L)$,
 \[\nabla^2(fs)=\widehat{\nabla}(df \otimes s+f\nabla s)=0-df \wedge \nabla s+df \wedge \nabla s+f \nabla^2s=f\nabla^2 s.\]
 Isso significa que existe uma 2-forma $\Omega\in\Omega^{2}(M)$ tal que para toda $s \in \Gamma(M,L)$,
 \[\nabla^2s=\Omega s.\]
-Os detalhes disso vem de álgebra multilinear: a $C^\infty(M)$-linearidade nos diz que $\nabla^2s$ é um $(0,2)$-campo tensorial valuado em  $L$, e existe uma correspondência entre esses campos tensoriais e 2-formas em $M$ (ver \cite{tu-diff} exem. 21.9 e prop. 21.11). Essa forma se chama \textit{\textbf{curvatura}} de $\nabla$. Um resultado que não provaremos (ver  \cite{verbi}, claim 2.10) é que
+Os detalhes disso vem de álgebra multilinear: a $C^\infty(M)$-linearidade nos diz que $\nabla^2s$ é um $(0,2)$-campo tensorial avaliado em  $L$, e existe uma correspondência entre esses campos tensoriais e 2-formas em $M$ (ver \cite{tu-diff} exem. 21.9 e prop. 21.11).
+
+Essa forma se chama \textit{\textbf{curvatura}} de $\nabla$. Um resultado que não provaremos (ver  \cite{verbi}, claim 2.10) é que
 \[\Omega(X,Y)=[\nabla_X,\nabla_Y]-\nabla_{[X,Y]}.\]
-Usando isso podemos mostrar que $\Omega$ é fechada seguindo a prova do teo. 11.1 \cite{tu-diff}). Lembre que para qualquer fibrado vetorial, em coordenadas locais sempre podemos achar um marco de seções, i.e. uma coleção de seções linearmente independentes que geram o espaço de seções. No nosso caso, como estamos trabalhando com um fibrado linear, o marco consiste de uma seção só. Assim, em qualqer vizinhança coordenada $U$ sabemos que existe uma seção $e \in \Gamma(U,L)$ que não se anula e
+Usando isso podemos mostrar que $\Omega$ é fechada (imitando a prova do teo. 11.1 em  \cite{tu-diff}). Lembre que para qualquer fibrado vetorial, em coordenadas locais sempre podemos achar um marco de seções, i.e. uma coleção de seções linearmente independentes que geram o espaço de seções. No nosso caso, como estamos trabalhando com um fibrado de linhas, o marco consiste de uma seção só. Assim, em qualqer vizinhança coordenada $U$ sabemos que existe uma seção $e \in \Gamma(U,L)$ que não se anula e
 \[\nabla e=\theta \otimes e\]
 para alguma 1-forma $\theta \in \Omega^{1}(U,L)$.
 
@@ -138,31 +141,34 @@ e isso implica que $\Omega$ é fechada. Também podemos usar essa expresão para
 \[d\left<s,s'\right>=\left<\nabla s,s'\right>+\left<s,\nabla s'\right>\]
 para quaisquer $s,s'$  seções de $L$.
 
- Suponha que nosso "marco local" $e$ é unitário. Então
+ Suponha que nosso marco local $e$ é unitário. Então
 \begin{align*}
 0&=d\left<e,e\right>=\left<\nabla e,e\right>+\left<e,\nabla e\right>\\
 &=\left<\theta \otimes e,e\right>+\left<e, \theta \otimes e\right>\\
 &=\theta + \overline{\theta}.
 \end{align*}
-Isso significa que $\theta$ é uma forma puramente imaginária, e de fato implica que $d\theta$ também já que a derivada exterior complexa está definida como a extensão $\mathbb{C}$-linear da derivada exterior real. Os detalhes da construção da álgebra exterior complexa podem ser consultados, por exemplo, em \cite{leec} cap. 7. Note que a nossa variedade $M$ não é a priori complexa; apenas o fibrado $T^*M \otimes L$ é complexo.
+Isso significa que $\theta$ é uma forma puramente imaginária, e de fato implica que $d\theta$ também já que a derivada exterior complexa está definida como a extensão $\mathbb{C}$-linear da derivada exterior real. Os detalhes da construção da álgebra exterior complexa podem ser consultados, por exemplo, em \cite{leec} cap. 7. (Note que a nossa variedade $M$ não é a priori complexa; apenas o fibrado $T^*M \otimes L$ é complexo.)
 
 Finalmente podemos definir \textit{\textbf{primeira classe de Chern}} de $L$ como
 \[c_1(L):=\left[ \frac{1}{2\pi i}\Omega \right] \in H^{2}_{\operatorname{dR}}(M,\mathbb{R}).\]
-O teorema de Chern-Weil mostra que $c_1(L)$ é independente da escolha de conexão é métrica hermitiana em $L$, i.e. é um invariante topológico (ver teo. 23. 3 \cite{tu-diff}, teo. 7.12 \cite{leec}).
+O teorema de Chern-Weil mostra que $c_1(L)$ é independente da escolha de conexão é métrica hermitiana em $L$, i.e. é um invariante topológico (ver \cite{tu-diff} teo. 23. 3, \cite{leec} teo. 7.12).
 
-Usando a aplicação de de Rham de $H_{\operatorname{dR}}^2(M,\mathbb{R})$ a $H^{2}_{\operatorname{Ch}}(M,\mathbb{R})$ é possível mostrar que $c_1(L)$ é uma classe de cohomologia \textit{\textbf{integral}}, i.e. $c_1(L)\in H^{2}(M,\mathbb{Z})$. Ao contrário,
+Usando a aplicação de de Rham de $H_{\operatorname{dR}}^2(M,\mathbb{R})$ a $H^{2}_{\operatorname{Ch}}(M,\mathbb{R})$ é possível mostrar que $c_1(L)$ é uma classe de cohomologia \textit{\textbf{inteira}}, i.e. $c_1(L)\in H^{2}(M,\mathbb{Z})$. Ao contrário,
 \begin{thing4}{Teorema 2.6}[Weil, em \cite{wang}]\leavevmode
-	Seja $M$ uma variedade suave e $\omega$ uma forma real fechada cuja classe de cohomologia $[c]$  é integral. Então existe um único fibrado linear Hermitiano $L$ sobre $M$ com conexão unitária $\nabla$ tal que $c_1(L)=[c]$.
+	Seja $M$ uma variedade suave e $\omega$ uma forma real fechada cuja classe de cohomologia $[\omega]$  é inteira. Então existe um único (salvo isomorfismo) fibrado de linhas Hermitiano $L$ sobre $M$ com conexão unitária $\nabla$ tal que $c_1(L)=[\omega]$.
 \end{thing4}
-Esse é o resultado chave que precisamos para a seguinte seção. Contudo, parece que a prova dele não é tão simples: \cite{wang} da apenas um esbozo da demostração usando argumentos parecidos aos da implicação contrária, enquanto \cite{hallq} indica o leitor para \cite{wood}.
+Esse é o resultado chave que precisamos para a seguinte seção. Em \cite{wang} temos um esboço da demostração usando argumentos parecidos aos da implicação contrária, i.e. usando cohomologia de \v{C}ech e o homomorfismo de de Rham. Uma prova completa se acha na sec. 8.3 de \cite{wood}.
+
+Note que o fibrado de linhas resultante não é estritamente único. De fato, pegando o produto tensorial com um fibrado de linhas plano $L'$ (i.e. cuja curvatura  é zero) obtemos um fibrado de linhas com a mesma classe de Chern; isso segue de que a curvatura do produto tensorial obedece a regra $\Omega_{L \otimes L'}=\Omega_L + \Omega_{L'}$ (ver  \cite{leec} prop. 7.19).  A comprovação de que os fibrados lineares resultantes são de fato isomorfos pode ser feita usando as funções de transição deles (ver \cite{wang}).
+
 
 \section{Pré-quantização geométrica}
 
-Dizemos que uma variedade simplética $(M,\omega)$ é pré-quantizável se
+Dizemos que uma variedade simplética $(M,\omega)$ é \textit{\textbf{pré-quantizável}} se
 \[\left[ \frac{\omega}{2\pi} \right] \in H^{2}(M,\mathbb{Z}).\]
-Um fibrado linear Hermitiano $(L,h,\nabla)$ sobre $(M,\omega)$ com $\Omega=\frac{\omega}{i\hslash}$ se chama \textit{\textbf{fibrado linear pré-quântico}}.
+Um fibrado de linhas Hermitiano $(L,h,\nabla)$ sobre $(M,\omega)$ com $\Omega=\frac{\omega}{i\hslash}$ se chama \textit{\textbf{fibrado de linhas pré-quântico}}.
 
-Dada $(M,\omega)$ uma variedade pre-quantizável e $(L,h,\nabla)$ um fibrado linear pré-quântico sobre $M$, o espaço de Hilbert onde vamos trabalhar é $\mathcal{H}:=L^2(M,L)$ com o produto interior
+Dada $(M,\omega)$ uma variedade pre-quantizável e $(L,h,\nabla)$ um fibrado de linhas pré-quântico sobre $M$, o espaço de Hilbert onde vamos trabalhar é $\mathcal{H}:=L^2(M,L)$ com o produto interno
 \[\left<s_1,s_2\right>:=\frac{1}{(2\pi \hslash)^n}\int_{M}h(s_1,s_2)\frac{\omega^n}{n!}.\]
 Formalmente, $L^2(M,L)$ é o espaço de classes de equivalência de seções quadrado-integráveis de $L$ (i.e. $\|s\|=\sqrt{\left<s,s\right>}<\infty$) identificando duas seções que são iguais en quase todo ponto respeito à medida de Liouville. A construção desse espaço tem sutilezas que não vamos especificar aqui (ver \cite{hallq} sec. 7.3).
 

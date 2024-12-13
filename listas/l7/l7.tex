@@ -15,17 +15,186 @@
 \end{minipage}\vspace{.2cm}\hrule
 
 \vspace{10pt}
-{\huge Lista 6}
+{\huge Lista 7}
 
 \tableofcontents
+\vspace{1em}
 
 \addcontentsline{toc}{section}{Problem 1}
 \begin{thing4}{Problem 1}\leavevmode
 \begin{enumerate}[label=(\alph*)]
 \item Let  $\alpha \in \Omega^{1}(N)$ be a contact form. Consider $N \times \mathbb{R}$ equipped with the 2-form $d(e^t\alpha)$ (where $t$ is the coordinate on $\mathbb{R}$). Verify that this 2-form is symplectic, and conclude that any $(N,\alpha)$ can be viewed as a hypersurface of contact type of a symplectic manifold.
 
-\item On the other hand: Let $(M,\omega)$ be symplectic and $\iota:S\hookrightarrow M$ a hypersurface of contact 
+\item On the other hand: Let $(M,\omega)$ be symplectic and $\iota:S\hookrightarrow M$ a hypersurface of contact, with contact form $\alpha$. Suppose that $S$ is compact. Show that there is a neighbourhood $U$ of $S$ in $M$ that is symplectomorphic to a neighbourhood of $S$ in its symplectization, $(S \times (-\varepsilon, \varepsilon), d (e^t \alpha))$, for an $\varepsilon>0$.
+
+\item Let $\xi \in \Omega^{1}(N)$ be a contact form on $N$ and $D=\ker \xi\subset TN$. Let $ L \subset N$ be a submanifold such that $ TL \subset D|_{ L}$.
+	\begin{enumerate}[label=(\arabic*)]
+	\item Check that $T_x L$ is an isotropic subspace of the symplectic vector space  $(D_x, d \xi|_{x}$ for all $x \in L$, so  $ \dim L \leq  \frac{1}{2 \operatorname{rk}(D)}$. In case of equality, we call $L$ \textit{\textbf{legendrian}}.
+	\item Very that $L$ is legendrian iff $L \times \mathbb{R}$ is a lagrangian submanifold of the symplectization  $ N \times \mathbb{R}$.
+	\end{enumerate}
 \end{enumerate}
 \end{thing4}
+
+\begin{proof}[Solution]\leavevmode
+\begin{enumerate}[label=(\alph*)]
+\item   By Lista 1, exercise 1, it's enough to show that $\Big(d(e^t\alpha)\Big)^n\neq 0$. Since 
+	\[d(e^t\alpha)=e^t(dt\wedge \alpha+d\alpha),\] 
+	it's enough to show that $(dt \wedge \alpha+d\alpha)^n \neq 0$. Since the wedge product of 2-forms commutes, we may apply binomial theorem to get
+	\begin{align*}
+		\Big((dt\wedge \alpha)+ d\alpha\Big)^n&=\sum_{i=0}^n\binom{n}{i}(dt \wedge \alpha)^{n-i}\wedge (d\alpha)^i.
+	\end{align*}
+	(With a little help from \href{https://math.stackexchange.com/questions/3552761/given-a-contact-manifold-give-a-contact-form-on-m-%C3%97-mathbb-r2}{StackExchange}.) When $i=n-1$ we find the term $n(dt \wedge \alpha)\wedge(d\alpha)^{n-1}$, which must be nowhere vanishing since so is $dt$ and $\alpha$ is a contact form. Further, when $i=n$ we have  $(d \alpha)^n$, which vanishes since $\alpha$ is a form on the ($n-1$)-dimensional manifold  $M$. Likeways, $(dt \wedge \alpha)^2$ vanishes since $(dt)^2$ vanishes on $\mathbb{R}$. We conclude that the only term that survives is when $i=n-1$.
+
+	 To see that $N \subset N \times \mathbb{R}$ is a hypersurface of contact type consider the inclusion $i:N \hookrightarrow  N \times \mathbb{R}$, $x\mapsto (x,0)$. Then
+\begin{align*}
+i^* d (e^t\alpha)&=d i^*(e^t\alpha)=d\alpha
+\end{align*}
+since for any point $x \in N$ and vector $v \in T_xN$ we see that
+\[i^*(e^t\alpha)_x(v)=(e^t\alpha)_{i(x)}(i_*v)=(e^t\alpha)_{(x,0)}(v)=\alpha(v).\]
+ \item O teorema da vizinhança tubular nos diz que existe uma vizinhança $U$ de $S$ em $M$ e um difeomorfismo $\psi:U \to S \times (-\varepsilon,\varepsilon)$ tal que $f|_{S}=\operatorname{id}$. Como o campo vetorial conformemente simplético $X$ é transversal a $S$, podemos supor que em coordenadas locais de $S \times (-\varepsilon,\varepsilon)$, $X=\frac{\partial }{\partial t}$.
+
+Seguindo o hint (e a prova em \cite{sg}, thm. 5.2.1), seja $Y$ o campo de Reeb de $S$ e defina $W_1=\ker \alpha$ e $W_2=\operatorname{span}(X,Y)$. Para ver que  $W_1$ e $W_2$ são $\omega$-ortogonais pegue $V \in \ker \alpha$. Por um lado, $\omega=d\alpha$ por ser $S$ uma hiperfície, e como $Y$ é o campo de Reeb, $\omega(Y,V)=0$. Por outro lado, $ \iota^*(i_X \omega)=\alpha$, de modo que $\omega(X,V)=0$.
+
+Para confirmar que também são $\psi^*(de^t\alpha)$-ortogonais, note que
+\[\psi^*(de^t\alpha)=e^t \psi^*dt \wedge \alpha+d\alpha\]
+já que $\psi^*\alpha=\alpha$. Daí, como no parágrafo anterior, $d\alpha(Y,V)=0$ por ser $Y$ de Reeb, e
+\begin{equation}\label{eq:1.1}\alpha \wedge \psi^* dt(Y,V)=\cancelto{0}{\alpha(V)}\psi^*dt (Y)-\cancelto{1}{\alpha(Y)}\psi^*dt(V)=0\end{equation}
+já que $V$ e tangente a $S$.
+
+Para o caso de $X$, como antes, $d\alpha(X,V)=0$  e temos
+\begin{equation}\label{eq:1.2}\alpha \wedge \psi^* dt(X,V)=\cancelto{0}{\alpha(V)}\psi^* (X)-\cancelto{0}{\alpha(X)}\psi^*dt(V)=0\end{equation}
+de novo porque $\alpha=\iota^*(i_X\omega)$ e $\omega$ é simplética.
+
+Para concluir queremos ver que $\psi^*d(e^t \alpha)=\omega$. O teorema de Darboux-Weinstein nos da exatamente esse resultado (possivelmente numa vizinhança mais pequena que $U$) se mostramos que $\psi^* d(e^t \alpha)|_{x}=\omega|_{x}$ em todo ponto $x \in S$. Lembre que, em pontos de $S$,
+\begin{align*}\psi^*d(e^t \alpha)=\psi^*dt\wedge\alpha+d\alpha
+	\end{align*}
+Basta comprovar o resultado em $W_1$ e $W_2$. Para $W_1$ é claro já que $W_1=\ker \alpha$ e $d\alpha=\omega$ em $S$. Para $W_2$ note que o fator $\psi^*dt \wedge \alpha$ se anula em pares de campos vetoriais se um deles é $X$ ou $Y$; isso segue das \cref{eq:1.1,eq:1.2}.
+\item 
+	\begin{enumerate}[label=(\arabic*)]
+	\item (Com ajuda de ChatGPT) A observação chave é que como $TL \subset D=\ker \xi$, quando escrevemos $d\xi$ na fórmula sem coordenadas obtemos
+		\[d\xi(X,Y)=X(\xi(Y))-Y(\xi(x))-\xi([X,Y])=0\qquad  \forall X,Y \in \mathfrak{X}(L)\]
+		já que $[X,Y] \in \mathfrak{X}(L)$ por ser $L$ uma subvariedade.
+
+	\item Suponha que $L$ é legendriana. Primeiro note que $\dim (L\times \mathbb{R})=\frac{1}{2}\dim (N \times \mathbb{R})$: como $D$  é de codimensão 1, \[\dim (L \times \mathbb{R})=\dim L +1 =\frac{1}{2}\operatorname{rk}D +1=\frac{1}{2}(\dim N -1)+1=\frac{1}{2}\dim (N\times \mathbb{R}).\]
+	Além disso, por $(1)$ sabemos que  $L$ é isotrópica.
+
+	Supondo que $L\times \mathbb{R}$ é uma subvariedade lagrangiana de $N \times \mathbb{R}$, por uma conta análoga sabemos que $\dim L= \frac{ 1 }{2 } \operatorname{rk}( D)$. Para ver que $T_xL$ é um subespaço isotrópico de $T_x N$ devemos usar que $T_{(x,t)}(L \times \mathbb{R})$ é um subespaço lagrangiano de $T_{(x,t)}(N \times \mathbb{R})$; isso significa que a forma simplética $d(e^t \xi)=e^t(dt \wedge \xi+d\xi)$ se anula em $T_{(x,t)}(L \times \mathbb{R})$.  Mediante o mergulho $\iota:L \hookrightarrow  L\times \mathbb{R}$, $\iota(x)=(x,0)$, obtemos que $d\xi|_{TxL}=0$.
+
+%\item  Pelo item (b), sabemos que existe uma vizinhança $U$ de $S^{2n-1}$ na simplectização que é simplectomorfa a $S \times (-\varepsilon,\varepsilon)$. Ou.. teorema de Darboux-Weinstein? Queremos ver que $S^{2n-1}\times \mathbb{R} \overset{\operatorname{sy m p l}		}{\cong}\mathbb{R}^{2n}\setminus\{0\}$.
+	\end{enumerate}
+\end{enumerate}
+\end{proof}
+
+\addcontentsline{toc}{section}{Problem 2}
+\begin{thing4}{Problem 2}\leavevmode
+	Show the Darboux theorem for contact manifolds: Given contact manifold $(N^{2n-1},\alpha)$, around any point there exist local coordinates $q^1,\ldots,q^{n-1},p_1,\ldots,p_{n-1},z$ such that $\alpha=\sum_i q^i dp_i + dz$.
+\end{thing4}
+
+\begin{proof}[Ideia de prova]\leavevmode
+Em \cite{arn}, apéndice 4, temos uma prova deste teorema usando simplectificação. Porém, Arnold define a simplectifiação de uma variedade de contato como o conjunto de das formas de contato na variedade. (As formas de contacto são todas proporcionais, de forma que esse conjunto é um fibrado linear.) A forma simplética é a diferencial da “forma tautológica" definida neste fibrado---a definição dessa forma é idéntica à da forma tatutológica no fibrado cotangente:
+\[\alpha_{(x,\xi)}=(d\pi_{(p,\xi)})^*\xi,\]
+para $(x,\xi)\in T^*N$ com  $\xi$ de contato, i.e. $d\xi$ é simplética em $\ker \xi$.
+
+Para mostrar o teorema de Darboux para variedades de contato, pegue um ponto na variedade de contato $N$ e um ponto na fibra dele na simplectização. Alí usamos o teorema de Darboux para expressar a forma simplética da simplectização como
+\[d\alpha=dp_0\wedge dq_0+\ldots+dp_n\wedge dq_n.\]
+Mas ainda, podemos pegar essas coordenadas tais que a hiperfície $p_0=0$ é a variedade de contato. {\color{3}(Faltou checar.)}
+
+Como a diferencial da forma $\sum_{i=0}^n p_idq_i$ é $d\alpha$, segue que
+\[\alpha=p_0dq_0+\ldots+p_ndq_n+dw\]
+para alguma função $w$. Daí, a restrição a $N$ é
+\[\alpha|_{N}=p_1dq_1+\ldots+p_ndq_n+dw.\]
+Para concluir devemos ver que $\alpha|_{N}$ é uma forma de contato, i.e., que a diferencial dela  $d\alpha|_{N}$ é simplética em $\ker \alpha|_{N}$. Porém, {\color{3}não consegui descrever $\ker \alpha|_{N}$ tomando em conta o sumando $dw$.}
+
+
+
+
+\end{proof}
+
+
+
+\addcontentsline{toc}{section}{Problem 4}
+\begin{thing4}{Problem 4}\leavevmode
+	The \textit{\textbf{manifold of contact elements}} of an $n$-dimensional manifold $X$ is $\mathcal{C}=\{(x,\chi_x):x \in X\text{ and } \chi_x \text{ is a hyperplane in $T_xX$} \}$. On the other hand, the projectivization of the cotangent bundle of $X$ is $\mathbb{P}^* X=(T^* X\setminus \text{zero section})/\sim$, where $(x,\xi)\sim(x,\xi')$ whenever $\xi=\lambda\xi'$ for some $\lambda \in \mathbb{R}\setminus\{0\}$.
+\begin{enumerate}[label=(\alph*)]
+\item Show that $\mathcal{C}$ is naturally isomorphic to $\mathbb{P}^*X$ as a bundle over $X$.
+\item There is on $\mathcal{C}$ a canonical field of hyperplanes $ \mathcal{H}$: $\mathcal{H}$ at the point $p=(x,\chi_x)\in \mathcal{C}$ is the hyperplane $\mathcal{H}_p=(d\pi_p)^{-1}\chi)_x$, where $\pi:\mathcal{C} \to X$ is the projection. Therefore, by item (a),  $\mathcal{H}$ induces a field of hyperplanes $\mathbb{H}$ on $\mathbb{P}^*X$. Describe $\mathcal{H}$.
+\item Check that $(\mathbb{P}^* X,\mathbb{H})$ is a contact manifold, and therefore $(\mathcal{C}, \mathcal{H})$ is a contact maifold.
+\item What is the symplectization of $\mathcal{C}$?
+\end{enumerate}
+\end{thing4}
+
+\begin{proof}[Solution]\leavevmode
+\begin{enumerate}[label=(\alph*)]
+\item Consultando \cite{das} e \cite{arn} confirmei que os hiperplanos $\chi_x$ passam pela origem, i.e. são subespaços lineares. Segue do teorema da dimensão que o kernel de uma 1-forma é um subespaço de codimensão 1, i.e. um hiperplano, e de fato esse hiperplano é invariante quando multiplicamos a forma por um escalar não zero. Isso garante que a seguinte correspondência está bem definida em cada ponto $x \in X$:
+\begin{align*}
+	(\mathbb{P}^*X)_x &\longrightarrow \mathcal{C}_x \\
+	[\xi_x] &\longmapsto \ker \xi_x
+\end{align*}
+Para ver injectividade, suponha que $\xi_x,\xi_x' \in T^*_xM$ tem o mesmo kernel em algum ponto $x \in X$. Queremos ver que $\xi_x'(v)=\lambda\xi_x(v)$ para todo $v\in V\setminus\ker \xi_x$. Fixe um $v$ fora do kernel e defina $\lambda=\xi_x'(v)/\xi_x(v)$. Como o kernel e de codimensão 1, todo vetor $w \in V\setminus\ker \xi$ é da forma $w=\mu v$. Daí $\xi_x'(w)=\xi_x'(\mu v)=\lambda\xi_x(\mu v)=\lambda\xi_x(w)$.
+
+A surjetividade segue de que os espaços $(\mathbb{P}^*X)_x$ e $\mathcal{C}_x$ tem a mesma dimensão: $\dim X-1$. Isso é claro no caso de $\mathbb{P}^*X$. Para $\mathcal{C}$ também es simples já que podemos identificar cada hiperplano em $\mathcal{C}_x$ com a reta normal a ele respeito a produto ponto usual, o que nos diz que de fato $\dim \mathcal{C}_x=\dim \mathbb{R}\mathbb{P}^{\dim X}=\dim X-1$.
+	\item  Denotando por $\varphi$ o isomorfismo do item anterior, temos o seguintes dados:
+	\[\begin{tikzcd}
+	\mathcal{C}\arrow[rr,"\varphi"]\arrow[dr,"\pi",swap]&&\mathbb{P}^*X\arrow[dl,"\pi_0"]\\
+	&X
+	\end{tikzcd}\]
+	\[\begin{aligned}
+		\mathcal{C}_x &\xrightarrow{\;\;\varphi\;\;}(\mathbb{P}^* X)_x  \\
+		(x,\chi_x) &\longmapsto [\xi],\;\;\ker \xi=\chi_x 
+	\end{aligned}\qquad \qquad \begin{aligned}
+	T_{(x,\chi_x)}\mathcal{C} &\xrightarrow{\;\; d\varphi\;\;}T_{(x,[\xi])}\mathbb{P}^*X  \\
+		\mathcal{H}_{(x,\chi_x)} &\rightsquigarrow \qquad  ? 
+	\end{aligned}\]
+	Onde
+	\[\mathcal{H}_{(x,\chi_x)}=(d\pi_{(x,\chi_x)})^{-1}\chi_x.\]
+	O hint em \cite{das} é considerar o pullback de $\xi$ baixo $\pi_0$, que é uma 1-forma em $\mathbb{P}^*X$, cujo kernel é um hiperplano de $T_{(x,[\xi])}\mathbb{P}^*X$. Só queda comprovar que de fato esse hiperplano é $d\varphi(\mathcal{H}_{(x,\chi_x)})$.
+
+	$d\varphi$ manda um vetor tangente $v\in T\mathcal{C}$
+	%=\sum_iv^i\partial_{x^i}+\sum_jw^j\partial_{\chi^j}$ 
+	em um vetor tangente $d\varphi:= w \in T\mathbb{P}^*M$.
+	%$\sum_iv^i \partial_{x^i}+\sum_j\tilde{w}^j\partial_{\xi^j}$. 
+	Como $d\pi v$ está no kernel de $\xi$, segue que $d\pi_0w$ também. (Isso segue de que tanto $\varphi$ quanto as projeções $\pi, \pi_0$ não alteram as primeiras $n$ coordenadas.) Concluimos que os vetores em $d\pi\left( \mathcal{H}_{(x,\chi_x)} \right) $ são aqueles que se anulam baixo $\xi \circ d\pi_0=(d\pi_0)^*\xi$.
+
+Agora note que o pullback de $\xi$ baixo $\pi_0$ é a forma tautológica $\alpha$ do fibrado cotangente em $(x,[\xi])$. Lembre a expressão em coordenadas locais de $\alpha$ no fibrado cotangente sem projetivizar:
+	\begin{equation}\label{eq:taut}\alpha=\sum \xi_i dx_i\end{equation}
+	onde $(x_1,\ldots, x_n,\xi_1,\ldots,\xi_n)$ são coordenadas do espaço cotangente perto de $(x,\xi)$. Segue que os vetores no kernel de $\alpha$ são os vetores \textit{verticais}: aqueles que não tem coordenadas $\partial_{x_i}$. O hiperplano $\mathbb{H}_{(x,[\xi])}$ é a projetivização desse espaço de vetores verticais.
+
+\item Mostrar que $(\mathbb{P}^* X,\mathbb{H})$ é de contato significa achar uma 1-forma $\alpha$ em $\mathbb{P}^*X$ tal que $\ker \alpha=\mathbb{H}$ e $d\alpha$ é simplética em $\mathbb{H}$. De fato, a escolha de $\alpha$ é exatamente a forma tautológica em \cref{eq:taut}.
+
+	O detalhe aqui é que a definição de estrutura de contato em \cite{das} é um campo de hiperplanos definidos \textit{localmente} como o kernel de uma 1-forma cuja derivada exterior é simplética no hiperplano. Já sabemos que $\ker \alpha_{(x,[\xi])}=\mathbb{H}_{(x,[\xi])}$. Para ver que $d\alpha$ é simplética em $\mathbb{H}_{(x,[\xi])}$ considere um sistema de coordenadas locais $(x_1,\ldots,x_n,[\xi_1,\ldots,\xi_n])$ em $\mathbb{P}^*X$. Mas ainda, fixe coordenadas afins $\xi_1=1$. Nessas coordenadas, a forma tautológica na \cref{eq:taut} tem a forma
+	\begin{equation}\label{eq:t2}\alpha=dx_1+\sum_{i=2}^n\xi_idx_i.\end{equation}
+	Segue que
+	\[d \alpha=\sum_{i=2}^nd\xi_i\wedge dx_i,\]
+	que é simplética.
+
+\item (Ideia) A simplectização de $\mathcal{C}$ é o fibrado cotangente. A forma simpléica na simplectização de $\mathcal{C}$ é
+	\[d(e^t\alpha)=e^t(dt\wedge \alpha+d\alpha).\]
+Sustituindo \cref{eq:t2} obtemos que
+\[d(e^t\alpha)=e^t\Big(dt \wedge dx_1+ \sum_{i\geq 2} \xi_idt \wedge x_i+\sum_{i \geq 2} d \xi _i \wedge d x_i\Big) \]
+Daí eu queria chegar à forma simplética canônica no espaço cotangente…
+\end{enumerate}
+\end{proof}
+
+\addcontentsline{toc}{section}{Problem 5}
+\begin{thing4}{Problem 5}\leavevmode
+	Let $(M,\alpha)$ be a contact manifold with contact structure $\xi=\ker \alpha$. A \textit{\textbf{contact vector field}} $X$ on $M$ is a vector field whose (linearized) flow preserves $\xi$.
+	\begin{enumerate}[label=(\alph*)]
+	\item Let $R_\alpha$ be the Reeb vector field of $\alpha$. Prove that $R_\alpha$ is a contact vector field.
+	\item Suppose that $X$ is a contact vector field transverse to $\xi$. Show that it can be written as a Reeb vector field for some 1-form $\alpha_X$ defining the contact structure $\xi$.
+	\end{enumerate}
+\end{thing4}
+
+\begin{proof}[Solution]\leavevmode
+\begin{enumerate}[label=(\alph*)]
+\item Pela  fórmula de Cartan e as propriedades que definem $R_\alpha$, é imediato que
+	\[\mathcal{L}_{R_\alpha}\alpha=d i_{R_\alpha}\alpha+i_{R_\alpha}d\alpha=0.\]
+	Segue que, se $\varphi_t$ é o fluxo de $R_\alpha$,
+	\[v \in \ker \alpha \iff 0=\alpha(v)=\varphi^*_t\alpha(v)=\alpha(d\varphi_t(v)) \iff d\varphi_tv \in \ker \alpha\]
+	
+	
+\end{enumerate}
+\end{proof}
+
+\printbibliography
 
 \end{document}
